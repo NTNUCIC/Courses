@@ -11,7 +11,10 @@
 ```
 
 ##Assets
-請將圖片等多媒體與附件檔案放置於Slides/assets中。
+請將圖片等多媒體與附件檔案放置於slides/assets底下的資料夾，並使用西元日期命名，e.g.
+```
+slides/assets/20121221/
+```
 
 ##reveal.js
 Use reveal.js 3.1.0.
