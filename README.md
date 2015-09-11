@@ -9,3 +9,13 @@
 ```
 20121221-Doom.html
 ```
+
+##Assets
+請將圖片等多媒體與附件檔案放置於Slides/assets中。
+
+##reveal.js
+Use reveal.js 3.1.0.
+
+* [reveal.js](https://github.com/hakimel/reveal.js)
+
+* [reveal.js demo](http://lab.hakim.se/reveal-js/#/)
