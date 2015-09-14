@@ -15,6 +15,16 @@ slides/20121221-Doom/index.html
 ```
 其餘範例檔案、附件檔案與圖片、影片等多媒體資料也放置於同一資料夾中。
 
+##Deploy
+若本地端gh-pages不存在則先建立：
+```
+git branch gh-pages
+```
+之後將最新版本上傳至gh-pages：
+```
+git push <remote> gh-pages
+```
+
 ##reveal.js
 Use reveal.js 3.1.0.
 
