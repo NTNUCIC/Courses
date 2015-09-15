@@ -21,8 +21,10 @@ slides/20121221-Doom/index.html
 ```
 git branch gh-pages
 ```
-之後將最新版本上傳至gh-pages：
+之後移至gh-pages將最新版本merge後上傳：
 ```
+git checkout gh-pages
+git merge master
 git push <remote> gh-pages
 ```
 
