@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>資訊研究社社課20150930</title>
+
+		<meta name="og:title" content="資訊研究社社課20150930">
+		<meta name="og:url" content="http://ntnucic.github.io/104-1_welcom_party/">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社104學年度社課(2015/09/30)">
+		<meta name="og:image" content="../../cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="../lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>HTML5簡介</h1>
+					<h3>2015/09/30 阮韞澂</h3>
+				</section>
+				<section>
+					<h2>甚麼是網頁?</h2>
+					<p class="fragment">一種特殊格式的檔案</p>
+					<p class="fragment">使用瀏覽器開啟</p>
+					<p class="fragment">HTML,CSS,JavaScript</p>
+				</section>
+				<section>
+					<h2>HTML?</h2>
+					<p class="fragment" data-fragment-index="1">HyperText <span class="fragment highlight-red" data-fragment-index="5">Markup Language</span></p>
+					<p class="fragment" data-fragment-index="2">超文件標示語言</p>
+					<p class="fragment" data-fragment-index="3">1982年由Timothy John Berners-Lee建立</p>
+					<p class="fragment" data-fragment-index="4">由W3C維護</p>
+				</section>
+				<section>
+					<h2>CSS?</h2>
+					<p class="fragment" data-fragment-index="1">Cascading Style Sheets</p>
+					<p class="fragment" data-fragment-index="2">層疊<span class="fragment highlight-red" data-fragment-index="5">樣式表</span></p>
+					<p class="fragment" data-fragment-index="3">1996年發明</p>
+					<p class="fragment" data-fragment-index="4">由W3C維護</p>
+				</section>
+				<section>
+					<h2>and JavaScript?</h2>
+					<p class="fragment">一種直譯式程式語言</p>
+					<p class="fragment">用於操控網頁元素</p>
+				</section>
+				<section>
+					<table>
+						<tr>
+							<td>HTML</td>
+							<td><span class="fragment">器官</span></td>
+						</tr>
+						<tr>
+							<td>CSS</td>
+							<td><span class="fragment">肌肉、皮膚</span></td>
+						</tr>
+						<tr>
+							<td>JavaScript</td>
+							<td><span class="fragment">神經</span></td>
+						</tr>
+					</table>
+				</section>
+				<section></section>
+			</div>
+
+		</div>
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../plugin/zoom-js/zoom.js', async: true },
+					{ src: '../plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
