@@ -70,12 +70,35 @@ body {
         -ms-transform: none;
             transform: none; }
 
+.reveal .slides section .fragment.my-zoom-in {
+  -webkit-transform: scale(0.1);
+      -ms-transform: scale(0.1);
+          transform: scale(0.1); }
+  .reveal .slides section .fragment.my-zoom-in.visible {
+    -webkit-transform: scale(2);
+        -ms-transform: scale(2);
+            transform: scale(2); }
+
 .reveal .slides section .fragment.fade-out {
   opacity: 1;
   visibility: visible; }
   .reveal .slides section .fragment.fade-out.visible {
     opacity: 0;
     visibility: hidden; }
+
+.reveal .slides section .fragment.hidden {
+  opacity: 1;
+  visibility: visible; }
+  .reveal .slides section .fragment.hidden.visible {
+    opacity: 0;
+    display: none; }
+
+.reveal .slides section .fragment.show {
+  opacity: 0;
+  display: none; }
+  .reveal .slides section .fragment.show.visible {
+    opacity: 1;
+    display: initial; }
 
 .reveal .slides section .fragment.semi-fade-out {
   opacity: 1;

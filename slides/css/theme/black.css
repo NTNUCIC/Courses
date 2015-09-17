@@ -15,7 +15,7 @@ body {
   background-color: #222; }
 
 .reveal {
-  font-family: 'Source Sans Pro', Helvetica, sans-serif;
+  font-family: 微軟正黑體,Microsoft JhengHei,黑體,SimHei,標楷體,DFKai-SB,BiauKai,全字庫正楷體,TW-Kai,'Source Sans Pro', Helvetica, sans-serif;
   font-size: 38px;
   font-weight: normal;
   color: #fff; }
@@ -35,7 +35,7 @@ body {
 .reveal h1, .reveal h2, .reveal h3, .reveal h4, .reveal h5, .reveal h6 {
   margin: 0 0 20px 0;
   color: #fff;
-  font-family: 'Source Sans Pro', Helvetica, sans-serif;
+  font-family: 微軟正黑體,Microsoft JhengHei,黑體,SimHei,標楷體,DFKai-SB,BiauKai,全字庫正楷體,TW-Kai,'Source Sans Pro', Helvetica, sans-serif;
   font-weight: 600;
   line-height: 1.2;
   letter-spacing: normal;
