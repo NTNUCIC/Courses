@@ -60,50 +60,54 @@
 					</section>
 				</section>
 				<section>
-					<h2>HTML?</h2>
-					<p class="fragment" data-fragment-index="1">HyperText <span class="fragment highlight-red" data-fragment-index="5">Markup Language</span></p>
-					<p class="fragment" data-fragment-index="2">超文件標示語言</p>
-					<p class="fragment" data-fragment-index="3">1982年由Timothy John Berners-Lee建立</p>
-					<p class="fragment" data-fragment-index="4">由W3C維護</p>
+					<section>
+						<h2>HTML?</h2>
+						<p class="fragment" data-fragment-index="1">HyperText <span class="fragment highlight-red" data-fragment-index="5">Markup Language</span></p>
+						<p class="fragment" data-fragment-index="2">超文件標示語言</p>
+						<p class="fragment" data-fragment-index="3">1982年由Timothy John Berners-Lee建立</p>
+						<p class="fragment" data-fragment-index="4">由W3C維護</p>
+					</section>
+					<section>
+						<h2>CSS?</h2>
+						<p class="fragment" data-fragment-index="1">Cascading Style Sheets</p>
+						<p class="fragment" data-fragment-index="2">層疊<span class="fragment highlight-red" data-fragment-index="5">樣式表</span></p>
+						<p class="fragment" data-fragment-index="3">1996年發明</p>
+						<p class="fragment" data-fragment-index="4">由W3C維護</p>
+					</section>
+					<section>
+						<h2>and JavaScript?</h2>
+						<p class="fragment">一種直譯式程式語言</p>
+						<p class="fragment">用於操控網頁元素</p>
+					</section>
+					<section>
+						<table>
+							<tr>
+								<td>HTML</td>
+								<td><span class="fragment">器官</span></td>
+							</tr>
+							<tr>
+								<td>CSS</td>
+								<td><span class="fragment">肌肉、皮膚</span></td>
+							</tr>
+							<tr>
+								<td>JavaScript</td>
+								<td><span class="fragment">神經</span></td>
+							</tr>
+						</table>
+					</section>
 				</section>
 				<section>
-					<h2>CSS?</h2>
-					<p class="fragment" data-fragment-index="1">Cascading Style Sheets</p>
-					<p class="fragment" data-fragment-index="2">層疊<span class="fragment highlight-red" data-fragment-index="5">樣式表</span></p>
-					<p class="fragment" data-fragment-index="3">1996年發明</p>
-					<p class="fragment" data-fragment-index="4">由W3C維護</p>
-				</section>
-				<section>
-					<h2>and JavaScript?</h2>
-					<p class="fragment">一種直譯式程式語言</p>
-					<p class="fragment">用於操控網頁元素</p>
-				</section>
-				<section>
-					<table>
-						<tr>
-							<td>HTML</td>
-							<td><span class="fragment">器官</span></td>
-						</tr>
-						<tr>
-							<td>CSS</td>
-							<td><span class="fragment">肌肉、皮膚</span></td>
-						</tr>
-						<tr>
-							<td>JavaScript</td>
-							<td><span class="fragment">神經</span></td>
-						</tr>
-					</table>
-				</section>
-				<section>
-					<img src="HTML5.png" alt="HTML5">
-				</section>
-				<section>
-					<h2>HTML5</h2>
-					<p class="fragment">2014年10月完成</p>
-					<p class="fragment">新標準</p>
-					<p class="fragment">最新</p>
-					<p class="fragment">最潮</p>
-					<p class="fragment">最屌</p>
+					<section>
+						<img src="HTML5.png" alt="HTML5">
+					</section>
+					<section>
+						<h2>HTML5</h2>
+						<p class="fragment">2014年10月完成</p>
+						<p class="fragment">新標準</p>
+						<p class="fragment">最新</p>
+						<p class="fragment">最潮</p>
+						<p class="fragment">最屌</p>
+					</section>
 				</section>
 				<section>
 					<section data-markdown>
@@ -189,7 +193,102 @@
 					</section>
 				</section>
 				<section>
-					<h2></h2>
+					<section>
+						<h2>標題</h2>
+						<ul>
+							<li class="fragment">
+								<h1 style="display:inline;">&lt;h1&gt;&lt;/h1&gt;</h1>~<h6 style="display:inline;">&lt;h6&gt;&lt;/h6&gt;</h6>
+							</li>
+							<li class="fragment">僅用於標題文字</li>
+							<li class="fragment">不要用於調整文字大小<small class="fragment highlight-red">會被鄙視</small></li>
+						</ul>
+					</section>
+					<section>
+						<h2>段落</h2>
+						<ul>
+							<li class="fragment">&lt;p&gt;&lt;/p&gt;</li>
+							<li class="fragment">用於內文段落</li>
+							<li class="fragment">一個段落用一組</li>
+							<li class="fragment">不要用於換行<small class="fragment highlight-red">會被鄙視</small></li>
+						</ul>
+					</section>
+					<section>
+						<h2>換行</h2>
+						<ul>
+							<li class="fragment">&lt;br&gt;</li>
+							<li class="fragment">用於換行</li>
+							<li class="fragment"><del>不要打成BL，有人會興奮</del></li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							##Try It!
+							<span>
+							```html
+							<h2>陳X菌</h2>
+							<p>可能冗，也可能不冗。<br>在箱子打開之前同時處於冗和不冗的狀態。</p>
+							```
+							</span>
+							<span class="fragment">如以上格式寫出自我介紹</span>
+						</script>
+					</section>
+				</section>
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							##Try It!
+							<span>
+							```html
+							<abc>      </abc>
+							```
+							</span>
+							<span class="fragment">試著在網頁中達到以上效果</span>
+						</script>
+					</section>
+					<section>
+						<h2>特殊字元</h2>
+						<ul>
+							<li class="fragment">部分字元造成語法或保留字衝突</li>
+							<li class="fragment">無法直接顯示</li>
+							<li class="fragment">使用&amp;xxx;表示特殊字元</li>
+						</ul>
+					</section>
+					<section>
+						<h2>常用特殊字元</h2>
+						<table>
+							<tr>
+								<th style="text-align:center;">字元</th>
+								<th style="text-align:center;">代號</th>
+							</tr>
+							<tr class="fragment">
+								<td style="text-align:center;">空白</td>
+								<td style="text-align:center;">&amp;nbsp;</td>
+							</tr>
+							<tr class="fragment">
+								<td style="text-align:center;">&lt;</td>
+								<td style="text-align:center;">&amp;lt;</td>
+							</tr>
+							<tr class="fragment">
+								<td style="text-align:center;">&gt;</td>
+								<td style="text-align:center;">&amp;gt;</td>
+							</tr>
+							<tr class="fragment">
+								<td style="text-align:center;">&amp;</td>
+								<td style="text-align:center;">&amp;amp;</td>
+							</tr>
+						</table>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							##Try It!
+							<span>
+							```html
+							<abc>      </abc>
+							```
+							</span>
+							<span class="fragment">修改程式，試著在網頁中達到以上效果</span>
+						</script>
+					</section>
 				</section>
 			</div>
 
