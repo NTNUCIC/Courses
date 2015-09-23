@@ -136,6 +136,7 @@
 							<span class="fragment">&gt;輸入以上程式碼</span><br>
 							<span class="fragment">&gt;存檔(副檔名為.html)</span>
 							<span class="fragment">&gt;在瀏覽器開啟</span>
+							<br><a href="helloworld.html" class="fragment" target="_blank">Demo</a>
 						</script>
 					</section>
 				</section>
@@ -176,6 +177,14 @@
 							<li class="fragment"><del>不要打成BL，有人會興奮</del></li>
 						</ul>
 					</section>
+					<section>
+						<h2>分隔線</h2>
+						<ul>
+							<li class="fragment">&lt;hr&gt;</li>
+							<li class="fragment">產生一條水平分隔線</li>
+						</ul>
+						<hr class="fragment">
+					</section>
 					<section data-markdown>
 						<script type="text/template">
 							##Try It!
@@ -183,9 +192,11 @@
 							```html
 							<h2>陳X菌</h2>
 							<p>可能冗，也可能不冗。<br>在箱子打開之前同時處於冗和不冗的狀態。</p>
+							<hr>
 							```
 							</span>
 							<span class="fragment">如以上格式寫出自我介紹</span>
+							<br><a href="basictag.html" class="fragment" target="_blank">Demo</a>
 						</script>
 					</section>
 				</section>
@@ -243,6 +254,7 @@
 							```
 							</span>
 							<span class="fragment">修改程式，試著在網頁中達到以上效果</span>
+							<br><a href="specialcharactor.html" class="fragment" target="_blank">Demo</a>
 						</script>
 					</section>
 				</section>
@@ -286,11 +298,105 @@
 我很<del>帥</del>醜，<strong>可是我很溫柔，</strong><u><strong>外表冷漠，</strong></u><u>內心狂熱，</u><em><strong><u>那就是我</u></strong></em>
 						</samp></pre>
 						<p class="fragment">試著在網頁中達到以上效果</p>
+						<br><a href="emphasize.html" class="fragment" target="_blank">Demo</a>
 					</section>
 				</section>
 				<section>
-					<h2>Block與Inline</h2>
-
+					<section>
+						<h2>Block與Inline</h2>
+						<ul>
+							<li class="fragment">元素的顯示方式</li>
+							<li class="fragment">Block為區塊，會換行</li>
+							<li class="fragment">Inline在行中，不換行</li>
+							<li class="fragment">預設為Inline</li>
+							<li class="fragment">CSS display</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							##Try It!
+							<span>
+							```html
+							inline元素內嵌在行內，不會換行，像是<strong>strong</strong>、<u>u</u>、
+							<em>em</em>、<del>del</del>等；至於block元素則會自成一個區塊，
+							最明顯的就是會自成一行，例如<h1>h1</h1>~<h6>h6</h6>、<p>p</p>等。
+							```
+							</span>
+							<p class="fragment">參考以上程式，試著將Inline元素與Block元素混用</p>
+							<br><a href="inline&block.html" class="fragment" target="_blank">Demo</a>
+						</script>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>項目清單</h2>
+						<ul>
+							<li class="fragment">&lt;ul&gt;&lt;li&gt;&lt;/li&gt;&lt;/ul&gt;</li>
+							<li class="fragment">用於條列項目</li>
+							<li class="fragment">就像這樣</li>
+							<li class="fragment">以ul表示清單，li表示清單中的項目</li>
+							<li class="fragment">使用CSS設定項目符號</li>
+							<li class="fragment">將ul換成ol表示數字清單</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							##Try It!
+							<span>
+							```html
+							<h2>興趣</h2>
+							<ul>
+								<li>吃飯</li>
+								<li>睡覺</li>
+								<li>打東東</li>
+							</ul>
+							```
+							</span>
+							<p class="fragment">參考以上程式，在網頁中加上興趣清單</p>
+							<br><a href="list.html" class="fragment" target="_blank">Demo</a>
+						</script>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>表格</h2>
+						<ul>
+							<li class="fragment">&lt;table&gt;<br>&nbsp;&nbsp;&lt;tr&gt;&lt;td&gt;&lt;/td&gt;&lt;/tr&gt;<br>&lt;/table&gt;</li>
+							<li class="fragment">tr表示一列(橫向)</li>
+							<li class="fragment">td表示列中的一欄(縱向)</li>
+							<li class="fragment">用於展示大量有規律的資料</li>
+							<li class="fragment">不要用於排版<small class="fragment highlight-red">會被鄙視</small></li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							##Try It!
+							<span>
+							```html
+							<h2>孟德爾的豌豆</h2>
+							<table>
+								<tr>
+									<td></td>
+									<td>A</td>
+									<td>a</td>
+								</tr>
+								<tr>
+									<td>A</td>
+									<td>AA</td>
+									<td>Aa</td>
+								</tr>
+								<tr>
+									<td>a</td>
+									<td>aA</td>
+									<td>aa</td>
+								</tr>
+							</table>
+							```
+							</span>
+							<p class="fragment">參考以上程式，在網頁中作出表格</p>
+							<br><a href="table.html" class="fragment" target="_blank">Demo</a>
+						</script>
+					</section>
 				</section>
 			</div>
 
