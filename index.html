@@ -13,6 +13,9 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
 		<style>
 			/*general*/
 			*{
@@ -20,26 +23,164 @@
 				padding: 0;
 				font-family: 微軟正黑體,Microsoft JhengHei,黑體,SimHei,標楷體,DFKai-SB,BiauKai,全字庫正楷體,TW-Kai,'Source Sans Pro', Helvetica, sans-serif;
 			}
+			a{
+				text-decoration: none;
+				display: inline-block;
+				color: #7DACFC;
+			}
+			a:hover{
+				color: #B9EC2D;
+			}
+			a:active{
+				font-weight: bold;
+			}
+			header::after,main::after{
+				content: "";
+				display: block;
+				clear: both;
+			}
 
-			/*mobile*/
+			@media only screen and (max-width: 768px){
+				/*mobile and tablets*/
+				*{
+					overflow-x: hidden;
+				}
+				header img{
+					width: 100%;
+				}
+				header h1{
+					text-align: center;
+					width: 100%;
+					padding: 1vw;
+					font-size: 7vw;
+				}
+				section{
+					border-radius: 2.5vw;
+					border:1vw solid #FE9A1E;
+					margin: 1vw;
+				}
+				section details{
+					font-size: 6.5vmin;
+				}
+				section summary{
+					cursor: pointer;
+					padding: 2vw;
+					background: #FE9A1E;
+					color: #ffffff;
+				}
+				section summary::-webkit-details-marker{
+					display: none;
+				}
+				section h2{
+					display: inline;
+					font-size: 1em;
+				}
+				section h4{
+					display: inline;
+					font-size: 0.8em;
+				}
+				section p{
+					font-size: 0.8em;
+					margin: 1vw;
+				}
+				section nav{
+					font-size: 0.8em;
+					margin: 1vw;
+				}
+				section nav a{
+					display: block;
+					width: 100%;
+					background: #7DACFC;
+					color: #ffffff;
+					border-radius: 2vw;
+					padding: 2vw;
+				}
+				section nav a:hover{
+					color: #ffffff;
+					background: #B9EC2D;
+				}
+				footer{
+					margin-top: 5vw;
+					padding: 3vw;
+					text-align: center;
+					font-size: 4vw;
+				}
+			}
 
-			@media only screen and (min-width: 500px){
-				/*tablets*/
+			@media only screen and (max-width: 768px) and (orientation: landscape){
+				/*mobile and tablets on horizontal*/
+				header img{
+					float: left;
+					width: 20vw;
+				}
+				header h1{
+					float: left;
+					width: auto;
+					padding: 0;
+					font-size: 5.8vw;
+					line-height: 20vw;
+				}
+				section details{
+					font-size: 6vw;
+				}
 			}
 
 			@media only screen and (min-width: 768px){
 				/*desktop*/
+				header img{
+					margin: 2vw;
+					margin-left: 3vw;
+					width: 15vw;
+					float: left;
+				}
+				header h1{
+					float: left;
+					font-size: 4.8vw;
+					letter-spacing: 1vw;
+					line-height: 19vw;
+				}
 				section{
-					border: 1px solid #FF9900;
-					border-radius: 10px;
-					padding: 20px;
+					margin: 5%;
+					margin-top: 0;
+					margin-bottom: 0;
+					border-bottom: 0.2vw solid #FE9A1E;
+					padding: 2%;
 				}
-				h2{
-					display: inline-block;
+				section details{
+					font-size: 2.8vw;
 				}
-				h4{
+				section summary{
+					cursor: pointer;
+					padding: 1vw;
+					border: 0.1vw solid rgba(0,0,0,0);
+					border-radius: 0.6vw;
+				}
+				section summary:hover{
+					border-color: #7DACFC;
+				}
+				section h2{
 					display: inline-block;
-					margin-left: 30px;
+					font-size: 1em;
+				}
+				section h4{
+					display: inline-block;
+					font-size: 0.8em;
+				}
+				section p{
+					font-size: 0.8em;
+					margin: 1vw;
+					margin-left: 5.5vw;
+				}
+				section nav{
+					font-size: 0.8em;
+					margin: 1vw;
+					margin-left: 10vw;
+				}
+				footer{
+					margin-top: 5vw;
+					padding: 3vw;
+					text-align: center;
+					font-size: 1.5vw;
 				}
 			}
 		</style>
@@ -47,24 +188,42 @@
 
 	<body>
 		<header>
+			<img src="cic.jpg" alt="國立臺灣師範大學資訊研究社">
 			<h1>國立臺灣師範大學資訊研究社</h1>
 		</header>
 		<main>
 			<section>
 				<details>
 					<summary>
-						<h2>HTML簡介</h2><br>
-						<h4><time datetime="2015-09-30 19:00">2015/09/30</time></h4>
+						<h2>HTML簡介</h2>
+						<h4>(<time datetime="2015-09-30 19:00">2015/09/30</time>)</h4>
 					</summary>
 					<p>構成網頁的HTML、常用的標籤、特殊字元、清單、標格等</p>
 					<nav>
 						<ul>
 							<li><a href="slides/20150930-Intro/index.html" target="_blank">課程投影片</a></li>
+							<li><a href="http://www.w3schools.com/tags/" target="_blank">W3C HTML 標籤列表</a></li>
+						</ul>
+					</nav>
+				</details>
+			</section>
+			<section>
+				<details>
+					<summary>
+						<h2>Git版本控制</h2>
+						<h4>(<time datetime="2015-10-01 19:00">2015/10/01</time>)</h4>
+					</summary>
+					<p>Git版本控制</p>
+					<nav>
+						<ul>
+							<li><a href="" target="_blank">課程投影片</a></li>
 						</ul>
 					</nav>
 				</details>
 			</section>
 		</main>
-		<footer></footer>
+		<footer>
+			<p>Copyright &copy; NTNUCIC 2015</p>
+		</footer>
 	</body>
 </html>
