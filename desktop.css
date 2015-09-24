@@ -1,0 +1,56 @@
+/*desktop*/
+header img{
+	margin: 2vw;
+	margin-left: 3vw;
+	width: 15vw;
+	float: left;
+}
+header h1{
+	float: left;
+	font-size: 4.8vw;
+	letter-spacing: 1vw;
+	line-height: 19vw;
+}
+section{
+	margin: 5%;
+	margin-top: 0;
+	margin-bottom: 0;
+	border-bottom: 0.2vw solid #FE9A1E;
+	padding: 2%;
+}
+section details{
+	font-size: 2.8vw;
+}
+section summary{
+	cursor: pointer;
+	padding: 1vw;
+	border: 0.1vw solid rgba(0,0,0,0);
+	border-radius: 0.6vw;
+}
+section summary:hover{
+	border-color: #7DACFC;
+}
+section h2{
+	display: inline-block;
+	font-size: 1em;
+}
+section h4{
+	display: inline-block;
+	font-size: 0.8em;
+}
+section p{
+	font-size: 0.8em;
+	margin: 1vw;
+	margin-left: 5.5vw;
+}
+section nav{
+	font-size: 0.8em;
+	margin: 1vw;
+	margin-left: 10vw;
+}
+footer{
+	margin-top: 5vw;
+	padding: 3vw;
+	text-align: center;
+	font-size: 1.5vw;
+}

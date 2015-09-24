@@ -1,0 +1,82 @@
+/*mobile and tablets*/
+*{
+	overflow-x: hidden;
+}
+header img{
+	width: 100%;
+}
+header h1{
+	text-align: center;
+	width: 100%;
+	padding: 1vw;
+	font-size: 7vw;
+}
+section{
+	border-radius: 2.5vw;
+	border:1vw solid #FE9A1E;
+	margin: 1vw;
+}
+section details{
+	font-size: 6.5vmin;
+}
+section summary{
+	cursor: pointer;
+	padding: 2vw;
+	background: #FE9A1E;
+	color: #ffffff;
+}
+section summary::-webkit-details-marker{
+	display: none;
+}
+section h2{
+	display: inline;
+	font-size: 1em;
+}
+section h4{
+	display: inline;
+	font-size: 0.8em;
+}
+section p{
+	font-size: 0.8em;
+	margin: 1vw;
+}
+section nav{
+	font-size: 0.8em;
+	margin: 1vw;
+}
+section nav a{
+	display: block;
+	width: 100%;
+	background: #7DACFC;
+	color: #ffffff;
+	border-radius: 2vw;
+	padding: 2vw;
+}
+section nav a:hover{
+	color: #ffffff;
+	background: #B9EC2D;
+}
+footer{
+	margin-top: 5vw;
+	padding: 3vw;
+	text-align: center;
+	font-size: 4vw;
+}
+
+@media only screen and (orientation: landscape){
+	/*mobile and tablets on horizontal*/
+	header img{
+		float: left;
+		width: 20vw;
+	}
+	header h1{
+		float: left;
+		width: auto;
+		padding: 0;
+		font-size: 5.8vw;
+		line-height: 20vw;
+	}
+	section details{
+		font-size: 6vw;
+	}
+}
