@@ -24,6 +24,8 @@ section summary{
 	padding: 2vw;
 	background: #FE9A1E;
 	color: #ffffff;
+	display: block;
+	width: 100%;
 }
 section summary::-webkit-details-marker{
 	display: none;
