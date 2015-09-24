@@ -24,8 +24,6 @@ section summary{
 	padding: 2vw;
 	background: #FE9A1E;
 	color: #ffffff;
-	display: block;
-	width: 100%;
 }
 section summary::-webkit-details-marker{
 	display: none;
@@ -48,11 +46,11 @@ section nav{
 }
 section nav a{
 	display: block;
-	width: 100%;
 	background: #7DACFC;
 	color: #ffffff;
 	border-radius: 2vw;
 	padding: 2vw;
+	margin: 1vw;
 }
 section nav a:hover{
 	color: #ffffff;
