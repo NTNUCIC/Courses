@@ -34,29 +34,6 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 
-			var dot={
-				count:0,
-				addDot:function(){
-					var target=document.getElementById('constructing');
-					target.innerHTML=target.innerHTML+"."
-				},
-				deleteDot:function(){
-					var target=document.getElementById('constructing');
-					target.innerHTML=target.innerHTML.substr(0,target.innerHTML.indexOf("."));
-				},
-				dotRun:function(){
-					if(dot.count<3){
-						dot.addDot();
-						dot.count+=1;
-					}
-					else{
-						dot.deleteDot();
-						dot.count=0;
-					}
-					setTimeout(dot.dotRun,1000);
-				}
-			}
-
 		</script>
 
 		<!--[if lt IE 9]>
@@ -64,7 +41,7 @@
 		<![endif]-->
 	</head>
 
-	<body onload="dot.dotRun()">
+	<body>
 
 		<div class="reveal">
 
