@@ -32,7 +32,7 @@
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 
 		</script>
-		
+
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
@@ -41,32 +41,32 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-			
+
 				<section>
 					<h1 style="margin-top:100px">JavaScript</h1>
 					<h4>林品儒</h4>
 					<h4>2015/10/5</h4>
 				</section>
-				
+
 				<section>
 					<h3>今日重點</h3>
 					<p class="fragment">程式概念</p>
 					<p class="fragment">哈囉沃得</p>
 					<p class="fragment">變數與型別</p>
 				</section>
-				
+
 				<section>
 					<section>
 						<h1>程式概念</h1>
 					</section>
-					
+
 					<section>
 						<h2>程式是啥米</h2>
 						<p class="fragment">向電腦發出指令使其服從操作</p>
 						<p class="fragment">給電腦看?</p>
 						<p class="fragment">給人類看?</p>
 					</section>
-					
+
 					<section>
 						<h2>程式執行</h2>
 						<p class="fragment">編輯:Edit&nbsp;-&gt;&nbsp;原始碼</p>
@@ -75,7 +75,7 @@
 						<p class="fragment">連結:Link&nbsp;-&gt;&nbsp;執行檔</p>
 						<p class="fragment">執行:Run</p>
 					</section>
-					
+
 					<section>
 						<h2>編譯x直譯x混合xJIT</h2>
 						<p class="fragment">編譯:&nbsp;轉換成機械碼再執行</p>
@@ -83,14 +83,14 @@
 						<p class="fragment">混合:&nbsp;轉換成機械碼再邊解讀機械碼邊執行</p>
 						<p class="fragment">JIT:&nbsp;先直譯，除非經常執行才編譯成機械碼</p>
 					</section>
-					
+
 					<section>
 						<h2>程式語言</h2>
 						<p class="fragment">高階語言</p>
 						<p class="fragment">組合語言</p>
 						<p class="fragment">機械語言</p>
 					</section>
-					
+
 					<section>
 						<h2>高階語言</h2>
 						<ul style="list-style-type: none;font-family: 'consolas','Ubuntu Mono';">
@@ -102,7 +102,7 @@
 						<p class="fragment">適合人類閱讀</p>
 						<p class="fragment"><del>不適合電腦閱讀</del></p>
 					</section>
-					
+
 					<section>
 						<h2>中階語言</h2>
 						<p class="fragment">C語言</p>
@@ -110,7 +110,7 @@
 						<p class="fragment">適合電腦閱讀</p>
 						<p class="fragment"><del>不適合人類閱讀</del></p>
 					</section>
-					
+
 					<section>
 						<h2>組合語言/機械語言</h2>
 						<pre style="font-family: 'consolas','Ubuntu Mono'">
@@ -127,7 +127,7 @@ c2 0c 00             	ret    $0xc
 						</pre>
 						<p class="fragment">換湯不換藥</p>
 					</section>
-					
+
 					<section>
 						<h2>標記語言</h2>
 						<ul style="list-style-type: none">
@@ -137,46 +137,46 @@ c2 0c 00             	ret    $0xc
 						</ul>
 						<p class="fragment">毫無反應，只是個標記語言</p>
 					</section>
-					
+
 					<section>
 						<h2>JavaScript</h2>
 						<p class="fragment">本名LiveScript</p>
 						<p class="fragment">JavaScript之於Java就像HotDog之於Dog</p>
 						<p class="fragment" style="color: red">"你會Java歐？那這個JavaScript的專案就交給你了"</p>
 					</section>
-					
+
 					<section>
 						<h2>JS</h2>
 						<p class="fragment">JavaScript可以簡稱JS</p>
 						<p class="fragment">直譯式語言(V8:"哪有?")</p>
 						<p class="fragment">提供網頁的互動效果</p>
 					</section>
-					
+
 					<section>
 						<h2>接下來</h2>
 						<p class="fragment">使用JS在瀏覽器進行操作</p>
 						<p class="fragment"><del>HollyWood</del></p>
 					</section>
 				</section>
-				
+
 				<section>
 					<section>
 						<h1>哈囉沃得</h1>
 					</section>
-					
+
 					<section>
 						<h2>hello, world</h2>
 						<p class="fragment">初學者的第一個任務</p>
 						<p class="fragment">輸出&nbsp;"hello,&nbsp;world"</p>
 					</section>
-					
+
 					<section>
 						<h2>訊息視窗</h2>
 						<p class="fragment">alert(<em>show_string</em>)</p>
 						<p class="fragment">顯示一個想要的字串</p>
 						<p class="fragment">alert("hello, world")</p>
 					</section>
-					
+
 					<section>
 						<h2>那輸入呢?</h2>
 						<p class="fragment">prompt(<em>hint_string</em>)</p>
@@ -184,7 +184,7 @@ c2 0c 00             	ret    $0xc
 						<p class="fragment">prompt("輸入貓有幾個耳朵:")</p>
 						<p class="fragment">"2"</p>
 					</section>
-					
+
 					<section>
 						<h2>隱藏版輸出</h2>
 						<p class="fragment">console.log(<em>secret_string</em>)</p>
@@ -192,7 +192,7 @@ c2 0c 00             	ret    $0xc
 						<p class="fragment">console.log("We human has to stick together!")</p>
 						<p class="fragment"><del>其實還是看得到啦</del></p>
 					</section>
-					
+
 					<section>
 						<h2>其他輸出</h2>
 						<p class="fragment">console提供了方便的功能</p>
@@ -204,7 +204,7 @@ c2 0c 00             	ret    $0xc
 						</ul>
 						<p class="fragment">有些提供格式化字串輸出</p>
 					</section>
-					
+
 					<section>
 						<h2>格式化字串</h2>
 						<p class="fragment">%s:&nbsp;字串</p>
@@ -212,19 +212,19 @@ c2 0c 00             	ret    $0xc
 						<p class="fragment">%f:&nbsp;浮點數</p>
 						<p class="fragment">%c:&nbsp;以指定CSS輸出到主控台</p>
 					</section>
-					
+
 					<section>
 						<h2>接下來</h2>
 						<p class="fragment">字串?整數?浮點數?</p>
 						<p class="fragment">到底這些是啥米捏?</p>
 					</section>
 				</section>
-				
+
 				<section>
 					<section>
 						<h1>變數與型別</h1>
 					</section>
-				
+
 					<section>
 						<h2>變數</h2>
 						<p class="fragment">一個名字對應著一個東西</p>
@@ -232,7 +232,7 @@ c2 0c 00             	ret    $0xc
 						<p class="fragment">重點B:&nbsp;指派</p>
 						<p class="fragment">重點C:&nbsp;變數型態</p>
 					</section>
-					
+
 					<section>
 						<h2>變數命名</h2>
 						<div style="font-family: 'consolas','Ubuntu Mono'">
@@ -244,7 +244,7 @@ c2 0c 00             	ret    $0xc
 						<p class="fragment"><del>是時候惡搞變數名稱了</del></p>
 						</div>
 					</section>
-					
+
 					<section>
 						<h2>常數定義</h2>
 						<div style="font-family: 'consolas','Ubuntu Mono'">
@@ -254,18 +254,18 @@ c2 0c 00             	ret    $0xc
 						<p class="fragment">宣告為常數後就不是變數了</p>
 						</div>
 					</section>
-					
+
 					<section>
 						<h2>指派</h2>
 						<p class="fragment">利用&nbsp;=&nbsp;給予變數一個值</p>
 						<p class="fragment">若變數沒有被指派則為undefined</p>
 						<p class="fragment"><del>當然也可以指派成undefined</del></p>
 					</section>
-					
+
 					<section>
 						<h1>變數型態</h1>
 					</section>
-					
+
 					<section>
 						<h2>型態列表</h2>
 						<ul style="list-style-type: none;font-family: 'consolas','Ubuntu Mono'">
@@ -277,7 +277,7 @@ c2 0c 00             	ret    $0xc
 							<li>undefined,null,...</li>
 						</ul>
 					</section>
-					
+
 					<section>
 						<h2>型別判斷</h2>
 						<div style="font-family: 'consolas','Ubuntu Mono'">
@@ -288,8 +288,8 @@ c2 0c 00             	ret    $0xc
 						<p class="fragment">不確定就看一下吧~~</p>
 						</div>
 					</section>
-					
-					
+
+
 					<section>
 						<h2>數字</h2>
 						<div style="font-family: 'consolas','Ubuntu Mono'">
@@ -300,7 +300,7 @@ c2 0c 00             	ret    $0xc
 						<p class="fragment">Infinity,&nbsp;NaN</p>
 						</div>
 					</section>
-					
+
 					<section>
 						<h2>字串</h2>
 						<div style="font-family: 'consolas','Ubuntu Mono'">
@@ -311,7 +311,7 @@ c2 0c 00             	ret    $0xc
 						<p class="fragment">字串有方便的內建函式可以使用</p>
 						</div>
 					</section>
-					
+
 					<section>
 						<h2>跳脫字元</h2>
 						<div style="font-family: 'consolas','Ubuntu Mono'">
@@ -323,7 +323,7 @@ c2 0c 00             	ret    $0xc
 						<p class="fragment">Tab:&nbsp;\t</p>
 						</div>
 					</section>
-					
+
 					<section>
 						<h2>布林</h2>
 						<div style="font-family: 'consolas','Ubuntu Mono'">
@@ -333,7 +333,7 @@ c2 0c 00             	ret    $0xc
 						<p class="fragment"><strong>!!看風向不是那麼簡單低!!</strong></p>
 						</div>
 					</section>
-					
+
 					<section>
 						<h2>陣列</h2>
 						<div style="font-family: 'consolas','Ubuntu Mono'">
@@ -343,7 +343,7 @@ c2 0c 00             	ret    $0xc
 						<p class="fragment">索引值從0開始，可為負</p>
 						</div>
 					</section>
-					
+
 					<section>
 						<h2>陣列操作</h2>
 						<div style="font-family: 'consolas','Ubuntu Mono'">
@@ -354,7 +354,7 @@ c2 0c 00             	ret    $0xc
 						<p class="fragment">以上操作都是合法的</p>
 						</div>
 					</section>
-					
+
 					<section>
 						<h2>物件</h2>
 						<div style="font-family: 'consolas','Ubuntu Mono'">
@@ -364,7 +364,7 @@ c2 0c 00             	ret    $0xc
 						<p class="fragment">鍵可以為任何東西</p>
 						</div>
 					</section>
-					
+
 					<section>
 						<h2>物件操作</h2>
 						<div style="font-family: 'consolas','Ubuntu Mono'">
@@ -376,7 +376,7 @@ c2 0c 00             	ret    $0xc
 						<p class="fragment">以上操作都是合法的</p>
 						</div>
 					</section>
-					
+
 					<section>
 						<h2>還有個神奇的物件</h2>
 						<div style="font-family: 'consolas','Ubuntu Mono'">
@@ -384,7 +384,7 @@ c2 0c 00             	ret    $0xc
 						<p class="fragment">這個也是Object...</p>
 						</div>
 					</section>
-					
+
 					<section>
 						<h3>以上為JavaScript的基礎介紹</h3>
 						<h3>各位有問題否?</h3>
