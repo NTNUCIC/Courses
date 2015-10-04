@@ -20,7 +20,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="../css/reveal.css">
-		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="../css/theme/sky.css" id="theme">
 
 		<link rel="stylesheet" href="../lib/css/zenburn.css">
 
@@ -41,10 +41,116 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
+			
 				<section>
 					<h1 style="margin-top:100px">JavaScript</h1>
 					<h4>林品儒</h4>
 					<h4>2015/10/5</h4>
+				</section>
+				
+				<section>
+					<h3>今日重點</h3>
+					<p class="fragment">程式概念</p>
+					<p class="fragment">哈囉沃得</p>
+					<p class="fragment">變數型態</p>
+				</section>
+				
+				<section>
+					<section>
+						<h1>程式概念</h1>
+					</section>
+					
+					<section>
+						<h2>程式是啥米</h2>
+						<p class="fragment">向電腦發出指令使其服從操作</p>
+						<p class="fragment">給電腦看?</p>
+						<p class="fragment">給人類看?</p>
+					</section>
+					
+					<section>
+						<h2>程式執行</h2>
+						<p class="fragment">編輯:Edit&nbsp;-&gt;&nbsp;原始碼</p>
+						<p class="fragment">編譯:Compile&nbsp;-&gt;&nbsp;目的檔</p>
+						<p class="fragment">組譯:Assemble&nbsp;-&gt;&nbsp;機械碼</p>
+						<p class="fragment">連結:Link&nbsp;-&gt;&nbsp;執行檔</p>
+						<p class="fragment">執行:Run</p>
+					</section>
+					
+					<section>
+						<h2>編譯x直譯x混合xJIT</h2>
+						<p class="fragment">編譯:&nbsp;轉換成機械碼再執行</p>
+						<p class="fragment">直譯:&nbsp;一邊解讀程式碼一邊執行</p>
+						<p class="fragment">混合:&nbsp;轉換成機械碼再邊解讀機械碼邊執行</p>
+						<p class="fragment">JIT:&nbsp;先直譯，除非經常執行才編譯成機械碼</p>
+					</section>
+					
+					<section>
+						<h2>程式語言</h2>
+						<p class="fragment">高階語言</p>
+						<p class="fragment">組合語言</p>
+						<p class="fragment">機械語言</p>
+					</section>
+					
+					<section>
+						<h2>高階語言</h2>
+						<ul style="list-style-type: none;font-family: 'consolas','Ubuntu Mono';">
+							<li>Ruby/&nbsp;Perl/&nbsp;Python</li>
+							<li>JavaScript</li>
+							<li>C#/&nbsp;C++/&nbsp;Java</li>
+						</ul>
+						<p class="fragment">方便人類撰寫與開發</p>
+						<p class="fragment">適合人類閱讀</p>
+						<p class="fragment"><del>不適合電腦閱讀</del></p>
+					</section>
+					
+					<section>
+						<h2>中階語言</h2>
+						<p class="fragment">C語言</p>
+						<p class="fragment">和電腦的運行關連性較高</p>
+						<p class="fragment">適合電腦閱讀</p>
+						<p class="fragment"><del>不適合人類閱讀</del></p>
+					</section>
+					
+					<section>
+						<h2>組合語言/機械語言</h2>
+						<pre style="font-family: 'consolas','Ubuntu Mono'">
+8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+8b 54 24 28          	mov    0x28(%esp),%edx
+89 44 24 04          	mov    %eax,0x4(%esp)
+8b 44 24 20          	mov    0x20(%esp),%eax
+89 54 24 08          	mov    %edx,0x8(%esp)
+89 04 24             	mov    %eax,(%esp)
+e8 38 06 00 00       	call   6b902250 <___mingw_TLScallback>
+b8 01 00 00 00       	mov    $0x1,%eax
+83 c4 1c             	add    $0x1c,%esp
+c2 0c 00             	ret    $0xc
+						</pre>
+						<p class="fragment">換湯不換藥</p>
+					</section>
+					
+					<section>
+						<h2>標記語言</h2>
+						<ul style="list-style-type: none">
+							<li>HTML</li>
+							<li>XML</li>
+							<li>CSS</li>
+						</ul>
+						<p class="fragment">毫無反應，只是個標記語言</p>
+					</section>
+					
+					
+				</section>
+				
+				<section>
+					<section>
+						<h1>哈囉沃得</h1>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h1>變數型態</h1>
+					</section>
 				</section>
 			</div>
 		</div>
