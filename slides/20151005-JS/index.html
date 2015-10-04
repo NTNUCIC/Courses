@@ -52,7 +52,7 @@
 					<h3>今日重點</h3>
 					<p class="fragment">程式概念</p>
 					<p class="fragment">哈囉沃得</p>
-					<p class="fragment">變數型態</p>
+					<p class="fragment">變數與型別</p>
 				</section>
 				
 				<section>
@@ -120,7 +120,7 @@
 8b 44 24 20          	mov    0x20(%esp),%eax
 89 54 24 08          	mov    %edx,0x8(%esp)
 89 04 24             	mov    %eax,(%esp)
-e8 38 06 00 00       	call   6b902250 <___mingw_TLScallback>
+e8 38 06 00 00       	call   6b902250 &lt;___mingw_TLScallback&gt;
 b8 01 00 00 00       	mov    $0x1,%eax
 83 c4 1c             	add    $0x1c,%esp
 c2 0c 00             	ret    $0xc
@@ -221,7 +221,47 @@ c2 0c 00             	ret    $0xc
 				</section>
 				
 				<section>
+					<section>
+						<h1>變數與型別</h1>
+					</section>
 				
+					<section>
+						<h2>變數</h2>
+						<p class="fragment">一個名字對應著一個東西</p>
+						<p class="fragment">重點A:&nbsp;變數命名</p>
+						<p class="fragment">重點B:&nbsp;指派</p>
+						<p class="fragment">重點C:&nbsp;變數型態</p>
+					</section>
+					
+					<section>
+						<h2>變數命名</h2>
+						<div style="font-family: 'consolas','Ubuntu Mono'">
+						<p class="fragment">除了保留字其他都可以用</p>
+						<p class="fragment">英文字大小寫,數字,_,$</p>
+						<p class="fragment">var&nbsp;$dollar$sign$;</p>
+						<p class="fragment">var&nbsp;_under_score_;</p>
+						<p class="fragment">var&nbsp;變數="Variable";</p>
+						<p class="fragment"><del>是時候惡搞變數名稱了</del></p>
+						</div>
+					</section>
+					
+					<section>
+						<h2>常數定義</h2>
+						<div style="font-family: 'consolas','Ubuntu Mono'">
+						<p class="fragment">就是不給你改</p>
+						<p class="fragment">命名規則與常數相同</p>
+						<p class="fragment">const INT3=0xCC</p>
+						<p class="fragment">宣告為常數後就不是變數了</p>
+						</div>
+					</section>
+					
+					<section>
+						<h2>指派</h2>
+						<p class="fragment">利用&nbsp;=&nbsp;給予變數一個值</p>
+						<p class="fragment">若變數沒有被指派則為undefined</p>
+						<p class="fragment"><del>當然也可以指派成undefined</del></p>
+					</section>
+					
 					<section>
 						<h1>變數型態</h1>
 					</section>
@@ -237,6 +277,18 @@ c2 0c 00             	ret    $0xc
 							<li>undefined,null,...</li>
 						</ul>
 					</section>
+					
+					<section>
+						<h2>型別判斷</h2>
+						<div style="font-family: 'consolas','Ubuntu Mono'">
+						<p class="fragment">typeof</p>
+						<p class="fragment">使用此運算子可以得知變數的型別</p>
+						<p class="fragment">typeof(undefined);</p>
+						<p class="fragment">typeof&nbsp;undefined&nbsp;;</p>
+						<p class="fragment">不確定就看一下吧~~</p>
+						</div>
+					</section>
+					
 					
 					<section>
 						<h2>數字</h2>
@@ -277,12 +329,66 @@ c2 0c 00             	ret    $0xc
 						<div style="font-family: 'consolas','Ubuntu Mono'">
 						<p class="fragment">Boolean</p>
 						<p class="fragment">條件判斷時使用</p>
-						<p class="fragment">true,false</p>
+						<p class="fragment">true,&nbsp;false</p>
 						<p class="fragment"><strong>!!看風向不是那麼簡單低!!</strong></p>
 						</div>
 					</section>
 					
+					<section>
+						<h2>陣列</h2>
+						<div style="font-family: 'consolas','Ubuntu Mono'">
+						<p class="fragment">Array</p>
+						<p class="fragment">可以放入各種型態的東西</p>
+						<p class="fragment">[],&nbsp;Array(num)</p>
+						<p class="fragment">索引值從0開始，可為負</p>
+						</div>
+					</section>
 					
+					<section>
+						<h2>陣列操作</h2>
+						<div style="font-family: 'consolas','Ubuntu Mono'">
+						<p class="fragment">a=[1,2,3,4,5]</p>
+						<p class="fragment">a[100]</p>
+						<p class="fragment">a[-1]=200</p>
+						<p class="fragment">a[1000000000]=true</p>
+						<p class="fragment">以上操作都是合法的</p>
+						</div>
+					</section>
+					
+					<section>
+						<h2>物件</h2>
+						<div style="font-family: 'consolas','Ubuntu Mono'">
+						<p class="fragment">Object</p>
+						<p class="fragment">以鍵(key)對應值(value)放入東西</p>
+						<p class="fragment">{},&nbsp;Object()</p>
+						<p class="fragment">鍵可以為任何東西</p>
+						</div>
+					</section>
+					
+					<section>
+						<h2>物件操作</h2>
+						<div style="font-family: 'consolas','Ubuntu Mono'">
+						<p class="fragment">skill={name:'上野武勇'}</p>
+						<p class="fragment">skill.name</p>
+						<p class="fragment">skill['name']</p>
+						<p class="fragment">skill[['R',4]]=[0.30,0.17]</p>
+						<p class="fragment">skill.說明='打的更痛!呀呼!'</p>
+						<p class="fragment">以上操作都是合法的</p>
+						</div>
+					</section>
+					
+					<section>
+						<h2>還有個神奇的物件</h2>
+						<div style="font-family: 'consolas','Ubuntu Mono'">
+						<p class="fragment">null</p>
+						<p class="fragment">這個也是Object...</p>
+						</div>
+					</section>
+					
+					<section>
+						<h3>以上為JavaScript的基礎介紹</h3>
+						<h3>各位有問題否?</h3>
+					</section>
 				</section>
 			</div>
 		</div>
