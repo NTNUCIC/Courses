@@ -70,12 +70,10 @@
 							<li class="fragment">包含canvas等強大的新功能</li>
 						</ul>
 					</section>
-				</section>
-				<section>
 					<section>
 						<h2>HTML5語意</h2>
 						<ul>
-							<li class="fragment">將整個網頁當作一篇完整的文章</li>
+							<li class="fragment">將整個網頁作為一篇完整的文章</li>
 							<li class="fragment">以特殊的標籤標示語意</li>
 							<li class="fragment">可透過HTML結構了解內容</li>
 							<li class="fragment">使CSS排版更自然</li>
@@ -83,6 +81,8 @@
 					</section>
 					<section data-markdown>
 						<h2>HTML5語意</h2>
+						<pre><code data-trim contenteditable>
+						</code></pre>
 						<script type="text/template">
 							##HTML5語意
 							```html
@@ -91,17 +91,19 @@
 									<h1>HTML5語意</h1>
 									<nav>導覽列:超連結等</nav>
 								</header>
-								<section>
-									<h2>版面切割</h2>
-									<p>使用header代表頁面開頭、footer代表頁面結尾，中間則使用複數個section代表不同章節。</p>
-									<p>部分的語意標籤只是單純的block或inline元素，但可以使用CSS達成更多的效果。</p>
-								</section>
-								<section>
-									<h2>功能標示</h2>
-									<p>如nav代表導覽列，HTML5中還有許多功能標籤，有些本身便具有編輯文字的效果。</p>
-								</section>
+								<main>
+									<section>
+										<h2>版面切割</h2>
+										<p>使用header代表頁面開頭、footer代表頁面結尾，中間使用main標示內容主體，裡面則使用複數個section代表不同章節。</p>
+										<p>部分的語意標籤只是單純的block或inline元素，但可以使用CSS達成更多的效果。</p>
+									</section>
+									<section>
+										<h2>功能標示</h2>
+										<p>如nav代表導覽列，HTML5中還有許多功能標籤，有些本身便具有編輯文字的效果。</p>
+									</section>
+								</main>
 								<footer>
-									<small>copyright © ntnucic 2015</small>
+									<small>copyright &copy; ntnucic 2015</small>
 								</footer>
 							</body>
 							```
@@ -112,7 +114,42 @@
 						
 					</section>
 				</section>
-				
+				<section>
+					<section>
+						<h2>屬性</h2>
+						<ul>
+							<li class="fragment">標示於標籤中</li>
+							<li class="fragment">表示該元素的額外屬性</li>
+						</ul>
+						<pre class="fragment"><code data-trim>
+&lt;tagname attributename="value"&gt;&lt;/tagname&gt;
+						</code></pre>
+					</section>
+					<section>
+						<h2>屬性</h2>
+						<ul>
+							<li class="fragment">選擇題</li>
+						</ul>
+						<pre class="fragment"><code data-trim>
+&lt;tagname attributename="value"&gt;&lt;/tagname&gt;
+						</code></pre>
+						<ul>
+							<li class="fragment">是非題</li>
+						</ul>
+						<pre class="fragment"><code data-trim>
+&lt;tagname attributename&gt;&lt;/tagname&gt;
+						</code></pre>
+					</section>
+					<section>
+						<h2>屬性</h2>
+						<ul>
+							<li class="fragment">多重屬性</li>
+						</ul>
+						<pre class="fragment"><code data-trim>
+&lt;tagname attribute1="value" attribute2 attribute3="value"&gt;&lt;/tagname&gt;
+						</code></pre>
+					</section>
+				</section>
 				<section>
 					<section data-markdown>
 						<script type="text/template">
@@ -144,8 +181,40 @@
 						</script>
 					</section>
 				</section>
+				<section>
+					<section>
+						<h2>Image</h2>
+						<pre class="fragment"><code data-trim>
+&lt;img src="image1.jpg" alt="A Image" width="304" height="228"&gt;
+						</code></pre>
+						<ul>
+							<li class="fragment">src表示圖片位置</li>
+							<li class="fragment">使用相對路徑或網址</li>
+							<li class="fragment">alt為替代文字</li>
+							<li class="fragment">使用width與height設定寬高</li>
+							<li class="fragment">width與height只設定一個則等比例縮放</li>
+							<li class="fragment">width與height可用CSS代替</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<pre class="fragment"><code data-trim>
+&lt;img src="HTML5.png" alt="HTML5 Logo"&gt;
+						</code></pre>
+						<p class="fragment">參考以上範例在網頁中插入圖片</p>
+						<a href="img.html" class="fragment">Demo</a>
+					</section>
+					<section>
+						<h2>HTML5 Figure</h2>
+						<pre class="fragment"><code data-trim>
+&lt;figure&gt;
+	&lt;img src="HTML5.png" alt="HTML5 Logo"&gt;
+	&lt;figcaption&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+						</code></pre>
+					</section>
+				</section>
 			</div>
-
 		</div>
 
 		<script src="../lib/js/head.min.js"></script>
@@ -175,6 +244,5 @@
 			});
 
 		</script>
-
 	</body>
 </html>
