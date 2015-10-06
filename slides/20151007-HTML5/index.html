@@ -9,6 +9,8 @@
 		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
 		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
 
+		<meta name="author" content="ntnucic">
+
 		<meta name="og:title" content="資訊研究社社課20151007">
 		<meta name="og:url" content="http://ntnucic.github.io/104-1_welcom_party/">
 		<meta name="og:description" content="國立臺灣師範大學資訊研究社104學年度社課(2015/10/07)">
@@ -77,6 +79,7 @@
 							<li class="fragment">以特殊的標籤標示語意</li>
 							<li class="fragment">可透過HTML結構了解內容</li>
 							<li class="fragment">使CSS排版更自然</li>
+							<li class="fragment">可幫助機器閱讀(搜尋引擎等)</li>
 						</ul>
 					</section>
 					<section data-markdown>
@@ -110,20 +113,20 @@
 						</script>
 					</section>
 					<section>
-						<h2>HTML5語意</h2>
-						
+						<h2>HTML5語意元素</h2>
+						ul>li.fragment
 					</section>
 				</section>
 				<section>
 					<section>
 						<h2>屬性</h2>
+						<pre class="fragment"><code data-trim>
+&lt;tagname attributename="value"&gt;&lt;/tagname&gt;
+						</code></pre>
 						<ul>
 							<li class="fragment">標示於標籤中</li>
 							<li class="fragment">表示該元素的額外屬性</li>
 						</ul>
-						<pre class="fragment"><code data-trim>
-&lt;tagname attributename="value"&gt;&lt;/tagname&gt;
-						</code></pre>
 					</section>
 					<section>
 						<h2>屬性</h2>
@@ -149,14 +152,34 @@
 &lt;tagname attribute1="value" attribute2 attribute3="value"&gt;&lt;/tagname&gt;
 						</code></pre>
 					</section>
+					<section>
+						<h2>全域屬性</h2>
+						<ul>
+							<li class="fragment">所有元素都可以使用</li>
+							<li class="fragment">部分HTML5全域屬性尚未完全支援</li>
+							<li class="fragment"><a href="http://www.w3schools.com/tags/ref_standardattributes.asp" target="_blank">W3C Global Attributes List</a></li>
+						</ul>
+					</section>
+					<section>
+						<h2>常用全域屬性</h2>
+						<ul>
+							<li class="fragment">id為一個代表該元素的唯一名稱</li>
+							<li class="fragment">class功能類似id，但可重複，也可同時有多個class</li>
+							<li class="fragment">id與class可供JS、CSS或其他HTML元素使用</li>
+							<li class="fragment">使用hidden則不會顯示</li>
+							<li class="fragment">style用於設定CSS</li>
+							<li class="fragment">設定contenteditable則該元素內容可編輯</li>
+						</ul>
+					</section>
 				</section>
 				<section>
 					<section data-markdown>
 						<script type="text/template">
 							##&lt;meta&gt;
 							<ul>
+								<li class="fragment">放於head中</li>
 								<li class="fragment">儲存頁面資訊</li>
-								<li class="fragment">用於設定編碼</li>
+								<li class="fragment">使用charset屬性設定編碼</li>
 							</ul>
 							<span class="fragment">
 							```html
@@ -180,6 +203,114 @@
 							<span class="fragment">在head之間加入meta標籤</span>
 						</script>
 					</section>
+					<section>
+						<h2>&lt;meta&gt;</h2>
+						<ul>
+							<li class="fragment">使用name與content屬性儲存其他參考資訊</li>
+							<li class="fragment">keywords,author,descrption等</li>
+							<li class="fragment">幫助搜尋引擎</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<pre class="fragment"><code data-trim>
+&lt;head&gt;
+	&lt;meta name="keywords" content="HTML5,meta,meta-data"&gt;
+	&lt;meta name="author" content="ntnucic"&gt;
+	&lt;meta name="descrption" content="A slide that introduce HTML5 meta tag."&gt;
+	...
+						</code></pre>
+						<p class="fragment">參考以上範例，在網頁中加上參考資訊</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>超連結</h2>
+						<pre class="fragment"><code data-trim>
+&lt;a href="http://ntnucic.github.io/104/"&gt;NTNUCIC104社課&lt;/a&gt;
+						</code></pre>
+						<ul>
+							<li class="fragment">對其他網頁或檔案進行連結</li>
+							<li class="fragment">內容為顯示文字</li>
+							<li class="fragment">以href屬性表示目標</li>
+							<li class="fragment">使用網址或相對路徑</li>
+							<li class="fragment">inline元素</li>
+						</ul>
+					</section>
+					<section>
+						<h2>相對路徑</h2>
+						<ul>
+							<li class="fragment">同層資料夾 ./abc.html</li>
+							<li class="fragment">./可忽略</li>
+							<li class="fragment">往下一層資料夾 123/abc.html</li>
+							<li class="fragment">往上一層資料夾 ../abc.html</li>
+							<li class="fragment">瀏覽層級會受到系統權限限制</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<pre class="fragment"><code data-trim>
+&lt;nav&gt;
+	&lt;a href="http://ntnucic.github.io/104/"&gt;NTNUCIC104社課&lt;/a&gt;
+	&lt;a href="../../index.html"&gt;NTNUCIC104社課&lt;/a&gt;
+	&lt;a href="../20150930-Intro/index.html"&gt;HTML簡介&lt;/a&gt;
+	&lt;a href="./index.html"&gt;HTML5&lt;/a&gt;
+	&lt;a href="index.html"&gt;HTML5&lt;/a&gt;
+&lt;/nav&gt;
+						</code></pre>
+						<p class="fragment">參考以上範例，在網頁中使用超連結</p>
+						<a href="nav.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>超連結目標</h2>
+						<pre class="fragment"><code data-trim>
+&lt;a href="http://ntnucic.github.io/104/" target="_blank"&gt;NTNUCIC104社課&lt;/a&gt;
+						</code></pre>
+						<ul>
+							<li class="fragment">使用target屬性決定連結開啟位置</li>
+							<li class="fragment">開啟於同頁面 _self</li>
+							<li class="fragment">開啟於新分頁 _blank</li>
+							<li class="fragment">_self為預設值</li>
+							<li class="fragment">舊版HTML可用於指定頁框</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<pre class="fragment"><code data-trim>
+&lt;nav&gt;
+	&lt;a href="http://ntnucic.github.io/104/"&gt;NTNUCIC104社課&lt;/a&gt;
+	&lt;a href="http://ntnucic.github.io/104/" target="_self"&gt;NTNUCIC104社課&lt;/a&gt;
+	&lt;a href="http://ntnucic.github.io/104/" target="_blank"&gt;NTNUCIC104社課&lt;/a&gt;
+&lt;/nav&gt;
+						</code></pre>
+						<p class="fragment">參考以上範例，在超連結上設定開啟目標</p>
+						<a href="target.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>超連結下載</h2>
+						<pre class="fragment"><code data-trim>
+&lt;a href="http://ntnucic.github.io/104/" download&gt;NTNUCIC104社課&lt;/a&gt;
+						</code></pre>
+						<ul>
+							<li class="fragment">自動下載瀏覽器無法開啟的檔案(壓縮檔等)</li>
+							<li class="fragment">使用download屬性強迫下載目標</li>
+							<li class="fragment">若給予值表示下載後檔名</li>
+							<li class="fragment">IE無法使用<small class="fragment highlight-red">不意外</small></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<pre class="fragment"><code data-trim>
+&lt;nav&gt;
+	&lt;a href="../../index.html"&gt;NTNUCIC104社課&lt;/a&gt;
+	&lt;a href="index.zip"&gt;NTNUCIC104社課&lt;/a&gt;
+	&lt;a href="../../index.html" download&gt;NTNUCIC104社課&lt;/a&gt;
+	&lt;a href="../../index.html" download="123.html"&gt;NTNUCIC104社課&lt;/a&gt;
+&lt;/nav&gt;
+						</code></pre>
+						<p class="fragment">參考以上範例，設定下載檔案的超連結</p>
+						<a href="download.html" class="fragment" target="_blank">Demo</a>
+					</section>
 				</section>
 				<section>
 					<section>
@@ -201,16 +332,86 @@
 						<pre class="fragment"><code data-trim>
 &lt;img src="HTML5.png" alt="HTML5 Logo"&gt;
 						</code></pre>
-						<p class="fragment">參考以上範例在網頁中插入圖片</p>
-						<a href="img.html" class="fragment">Demo</a>
+						<p class="fragment">參考以上範例，在網頁中插入圖片</p>
+						<a href="img.html" class="fragment" target="_blank">Demo</a>
 					</section>
 					<section>
-						<h2>HTML5 Figure</h2>
+						<h2>Figure</h2>
 						<pre class="fragment"><code data-trim>
 &lt;figure&gt;
 	&lt;img src="HTML5.png" alt="HTML5 Logo"&gt;
 	&lt;figcaption&gt;&lt;/figcaption&gt;
 &lt;/figure&gt;
+						</code></pre>
+						<ul>
+							<li class="fragment">一組figure代表一組插圖</li>
+							<li class="fragment">img表示插圖</li>
+							<li class="fragment">figcaption為插圖的說明</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<pre><code data-trim>
+&lt;figure&gt;
+	&lt;img src="HTML5.png" alt="HTML5 Logo"&gt;
+	&lt;figcaption&gt;&lt;/figcaption&gt;
+&lt;/figure&gt;
+						</code></pre>
+						<p class="fragment">參考以上範例，將圖片改為一組插圖</p>
+						<a href="figure.html" class="fragment" target="_blank">Demo</a>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>圖片連結</h2>
+						<pre class="fragment"><code data-trim>
+&lt;a href="../../index.html"&gt;
+	&lt;img src="HTML5.png"&gt;
+&lt;/a&gt;
+						</code></pre>
+						<ul>
+							<li class="fragment">在超連結中加入圖片等元素</li>
+							<li class="fragment">該元素成為超連結的一部份</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<pre class="fragment"><code data-trim>
+&lt;a href="../../index.html"&gt;
+	&lt;img src="HTML5.png"&gt;
+&lt;/a&gt;
+						</code></pre>
+						<p class="fragment">參考以上範例，將圖片作為超連結</p>
+						<a href="imga.html" class="fragment" target="_blank">Demo</a>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Audio</h2>
+						<pre class="fragment"><code data-trim>
+&lt;audio src="audioExample.mp3" controls autoplay loop&gt;Not Support!&lt;/audio&gt;
+						</code></pre>
+						<ul>
+							<li class="fragment">使用Audio元素插入音訊</li>
+							<li class="fragment">使用src屬性或source元素指定來源檔案</li>
+							<li class="fragment">設定controls屬性顯示控制面板</li>
+							<li class="fragment">設定autoplay屬性載入後自動播放</li>
+							<li class="fragment">設定loop屬性結束後從頭循環播放</li>
+							<li class="fragment">標籤內文字於瀏覽器不支援時顯示<small>IE9以下</small></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<pre class="fragment"><code data-trim>
+&lt;audio src="audioExample.mp3" controls autoplay loop&gt;Not Support!&lt;/audio&gt;
+						</code></pre>
+						<p class="fragment">參考以上範例，在網頁中插入音訊</p>
+						<a href="audio.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Video</h2>
+						<pre class="fragment"><code data-trim>
+
 						</code></pre>
 					</section>
 				</section>
