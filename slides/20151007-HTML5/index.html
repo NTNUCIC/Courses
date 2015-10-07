@@ -84,7 +84,7 @@
 					</section>
 					<section data-markdown>
 						<h2>HTML5語意</h2>
-						<pre><code data-trim contenteditable>
+						<pre><code data-trim>
 						</code></pre>
 						<script type="text/template">
 							##HTML5語意
@@ -113,10 +113,81 @@
 						</script>
 					</section>
 					<section>
-						<h2>HTML5語意元素</h2>
-						ul>li.fragment
+						<h2>Try It!</h2>
+						<p>參考前一頁範例，做出符合HTML5語意的網頁</p>
+						<a href="html5.html" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>HTML5特殊元素</h2>
+						<ul>
+							<li class="fragment">mark</li>
+							<li class="fragment">dialog</li>
+							<li class="fragment">details</li>
+							<li class="fragment">其他</li>
+						</ul>
+					</section>
+					<section>
+						<h2>&lt;mark&gt;</h2>
+						<ul>
+							<li class="fragment">使用mark標籤強調文字</li>
+							<li class="fragment">預設黃底黑字</li>
+							<li class="fragment">IE9以下不支援<small>IE嘛</small></li>
+						</ul>
+						<pre class="fragment"><code data-trim>
+This is a &lt;mark&gt;.
+						</code></pre>
+						<pre class="fragment"><samp data-trim>
+This is a <mark>mark</mark>.
+						</samp></pre>
+					</section>
+					<section>
+						<h2>&lt;dialog&gt;</h2>
+						<ul>
+							<li class="fragment">使用dialog標籤顯示對話視窗</li>
+							<li class="fragment">浮動於頁面中央</li>
+							<li class="fragment">搭配JS操控使用</li>
+							<li class="fragment">Firefox與IE不支援</li>
+						</ul>
+						<pre class="fragment"><code data-trim>
+&lt;dialog open&gt;這是個對話視窗&lt;/dialog&gt;
+						</code></pre>
+						<dialog class="fragment" open>這是個對話視窗</dialog>
+					</section>
+					<section>
+						<h2>&lt;details&gt;</h2>
+						<ul>
+							<li class="fragment">使用details標籤產生可摺疊內容</li>
+							<li class="fragment">在details中使用summary標籤表示摘要</li>
+							<li class="fragment">Firefox與IE不支援</li>
+						</ul>
+						<pre class="fragment"><code data-trim>
+&lt;details&gt;
+	&lt;summary&gt;這是摘要&lt;/summary&gt;
+	&lt;p&gt;這裡是詳細內容&lt;/p&gt;
+&lt;/details&gt;
+						</code></pre>
+						<pre class="fragment"><samp data-trim>
+<details>
+	<summary>這是摘要</summary>
+	<p>這裡是詳細內容</p>
+</details>
+						</samp></pre>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<pre class="fragment"><code data-trim>
+&lt;dailog open&gt;
+	&lt;details&gt;
+		&lt;summary&gt;&lt;mark&gt;//柱姐很重要&lt;/mark&gt;&lt;/summary&gt;
+		&lt;p&gt;城市不能沒有柱姐&lt;/p&gt;
+	&lt;/details&gt;
+&lt;/dailog&gt;
+						</code></pre>
+						<p class="fragment">參考以上範例，在網頁中使用HTML5標籤</p>
+						<a href="html5tags.html" class="fragment" target="_blank">Demo</a>
 					</section>
 				</section>
+				<!--Attribute-->
 				<section>
 					<section>
 						<h2>屬性</h2>
@@ -172,6 +243,7 @@
 						</ul>
 					</section>
 				</section>
+				<!--<meta>-->
 				<section>
 					<section data-markdown>
 						<script type="text/template">
@@ -223,6 +295,7 @@
 						<p class="fragment">參考以上範例，在網頁中加上參考資訊</p>
 					</section>
 				</section>
+				<!--<a>-->
 				<section>
 					<section>
 						<h2>超連結</h2>
@@ -311,7 +384,35 @@
 						<p class="fragment">參考以上範例，設定下載檔案的超連結</p>
 						<a href="download.html" class="fragment" target="_blank">Demo</a>
 					</section>
+					<section>
+						<h2>錨點</h2>
+						<pre class="fragment"><code data-trim>
+&lt;h1 id="title"&gt;Anchor&lt;/h1&gt;
+...
+&lt;a href="#title"&gt;跳到標題&lt;/a&gt;
+						</code></pre>
+						<ul>
+							<li class="fragment">使用#指定設定好的id</li>
+							<li class="fragment">頁面捲至指定元素所在位置</li>
+							<li class="fragment">可用於不同網頁(url#id)</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<pre class="fragment"><code data-trim>
+&lt;h1 id="title"&gt;Anchor&lt;/h1&gt;
+...
+&lt;a href="#title"&gt;To Title&lt;/a&gt;
+&lt;a href="#footer"&gt;To Footer&lt;/a&gt;
+&lt;a href="anchor.html#footer" target="_blank"&gt;To Another Page's Footer&lt;/a&gt;
+...
+&lt;footer id="footer"&gt;footer&lt;/footer&gt;
+						</code></pre>
+						<p class="fragment">參考以上範例，在網頁中使用錨點</p>
+						<a href="anchor.html" class="fragment" target="_blank">Demo</a>
+					</section>
 				</section>
+				<!--Image-->
 				<section>
 					<section>
 						<h2>Image</h2>
@@ -385,6 +486,7 @@
 						<a href="imga.html" class="fragment" target="_blank">Demo</a>
 					</section>
 				</section>
+				<!--Audio&Video-->
 				<section>
 					<section>
 						<h2>Audio</h2>
@@ -392,7 +494,8 @@
 &lt;audio src="audioExample.mp3" controls autoplay loop&gt;Not Support!&lt;/audio&gt;
 						</code></pre>
 						<ul>
-							<li class="fragment">使用Audio元素插入音訊</li>
+							<li class="fragment">使用audio元素插入音訊</li>
+							<li class="fragment">可播放MP3、Wav、Ogg</li>
 							<li class="fragment">使用src屬性或source元素指定來源檔案</li>
 							<li class="fragment">設定controls屬性顯示控制面板</li>
 							<li class="fragment">設定autoplay屬性載入後自動播放</li>
@@ -411,9 +514,70 @@
 					<section>
 						<h2>Video</h2>
 						<pre class="fragment"><code data-trim>
-
+&lt;video src="Wildlife.mp4" controls muted poster="HTML5.png"&gt;&lt;/video&gt;
 						</code></pre>
+						<ul>
+							<li class="fragment">使用video元素插入視訊</li>
+							<li class="fragment">用法與audio相似</li>
+							<li class="fragment">可播放MP4、WebM、Ogg</li>
+							<li class="fragment">設定muted屬性靜音<small>也可用於audio...</small></li>
+							<li class="fragment">使用poster屬性設定影片縮圖</li>
+							<li class="fragment">載入時、播放前、無法播放時顯示縮圖</li>
+						</ul>
 					</section>
+					<section>
+						<h2>Try It!</h2>
+						<pre class="fragment"><code data-trim>
+&lt;video src="Wildlife.mp4" controls poster="HTML5.png"&gt;&lt;/video&gt;
+						</code></pre>
+						<p class="fragment">參考以上範例，在網頁中插入視訊</p>
+						<a href="video.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Source</h2>
+						<pre class="fragment"><code data-trim>
+&lt;video controls poster="HTML5.png"&gt;
+	&lt;source src="Wildlife1.mp4"&gt;
+	&lt;source src="Wildlife.mp4"&gt;
+	&lt;source src="Wildlife2.mp4"&gt;
+	Not Support!
+&lt;/video&gt;
+						</code></pre>
+						<ul>
+							<li class="fragment">使用source元素指定複數來源</li>
+							<li class="fragment">可用於audio和video</li>
+							<li class="fragment">無法播放時瀏覽器依照順序切換來源</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<pre class="fragment"><code data-trim>
+&lt;video controls poster="HTML5.png"&gt;
+	&lt;source src="Wildlife1.mp4"&gt;
+	&lt;source src="Wildlife.mp4"&gt;
+	&lt;source src="Wildlife2.mp4"&gt;
+	Not Support!
+&lt;/video&gt;
+						</code></pre>
+						<p class="fragment">參考以上範例，使用source指定video或audio的來源</p>
+						<a href="source.html" class="fragment" target="_blank">Demo</a>
+					</section>
+				</section>
+				<section>
+					<h2>HomeWork</h2>
+					<p class="fragment">建立一個個人網頁，並符合以下條件：</p>
+					<ul>
+						<li class="fragment">自我介紹</li>
+						<li class="fragment">個人資訊</li>
+						<li class="fragment">插圖</li>
+						<li class="fragment">背景音樂</li>
+						<li class="fragment">超連結</li>
+						<li class="fragment">其他內容</li>
+						<li class="fragment">符合HTML5語意</li>
+					</ul>
+				</section>
+				<section>
+					<p>作業或任何問題可mail至<em>ryans610@gmail.com</em><br>或是於FB社團發文</p>
 				</section>
 			</div>
 		</div>
