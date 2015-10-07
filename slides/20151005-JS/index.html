@@ -1,0 +1,429 @@
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>JS</title>
+
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+		<meta name="og:title" content="JS">
+		<meta name="og:url" content="http://ntnucic.github.io/104-1_welcom_party/">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社JS課程投影片">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/sky.css" id="theme">
+
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section>
+					<h1 style="margin-top:100px">JavaScript</h1>
+					<h4>林品儒</h4>
+					<h4>2015/10/5</h4>
+				</section>
+
+				<section>
+					<h3>今日重點</h3>
+					<p class="fragment">程式概念</p>
+					<p class="fragment">哈囉沃得</p>
+					<p class="fragment">變數與型別</p>
+				</section>
+
+				<section>
+					<section>
+						<h1>程式概念</h1>
+					</section>
+
+					<section>
+						<h2>程式是啥米</h2>
+						<p class="fragment">向電腦發出指令使其服從操作</p>
+						<p class="fragment">給電腦看?</p>
+						<p class="fragment">給人類看?</p>
+					</section>
+
+					<section>
+						<h2>程式執行</h2>
+						<p class="fragment">編輯:Edit&nbsp;-&gt;&nbsp;原始碼</p>
+						<p class="fragment">編譯:Compile&nbsp;-&gt;&nbsp;目的檔</p>
+						<p class="fragment">組譯:Assemble&nbsp;-&gt;&nbsp;機械碼</p>
+						<p class="fragment">連結:Link&nbsp;-&gt;&nbsp;執行檔</p>
+						<p class="fragment">執行:Run</p>
+					</section>
+
+					<section>
+						<h2>編譯x直譯x混合xJIT</h2>
+						<p class="fragment">編譯:&nbsp;轉換成機械碼再執行</p>
+						<p class="fragment">直譯:&nbsp;一邊解讀程式碼一邊執行</p>
+						<p class="fragment">混合:&nbsp;轉換成機械碼再邊解讀機械碼邊執行</p>
+						<p class="fragment">JIT:&nbsp;先直譯，除非經常執行才編譯成機械碼</p>
+					</section>
+
+					<section>
+						<h2>程式語言</h2>
+						<p class="fragment">高階語言</p>
+						<p class="fragment">組合語言</p>
+						<p class="fragment">機械語言</p>
+					</section>
+
+					<section>
+						<h2>高階語言</h2>
+						<ul class="fragment" style="list-style-type: none;font-family: 'consolas','Ubuntu Mono';">
+							<li>Ruby/&nbsp;Perl/&nbsp;Python</li>
+							<li>JavaScript</li>
+							<li>C#/&nbsp;C++/&nbsp;Java</li>
+						</ul>
+						<p class="fragment">方便人類撰寫與開發</p>
+						<p class="fragment">適合人類閱讀</p>
+						<p class="fragment"><del>不適合電腦閱讀</del></p>
+					</section>
+
+					<section>
+						<h2>中階語言</h2>
+						<p class="fragment">C語言</p>
+						<p class="fragment">和電腦的運行關連性較高</p>
+						<p class="fragment">適合電腦閱讀</p>
+						<p class="fragment"><del>不適合人類閱讀</del></p>
+					</section>
+
+					<section>
+						<h2>組合語言/機械語言</h2>
+						<pre style="font-family: 'consolas','Ubuntu Mono'">
+8d 74 26 00          	lea    0x0(%esi,%eiz,1),%esi
+8b 54 24 28          	mov    0x28(%esp),%edx
+89 44 24 04          	mov    %eax,0x4(%esp)
+8b 44 24 20          	mov    0x20(%esp),%eax
+89 54 24 08          	mov    %edx,0x8(%esp)
+89 04 24             	mov    %eax,(%esp)
+e8 38 06 00 00       	call   6b902250 &lt;___mingw_TLScallback&gt;
+b8 01 00 00 00       	mov    $0x1,%eax
+83 c4 1c             	add    $0x1c,%esp
+c2 0c 00             	ret    $0xc
+						</pre>
+						<p class="fragment">換湯不換藥</p>
+					</section>
+
+					<section>
+						<h2>標記語言</h2>
+						<ul class="fragment" style="list-style-type: none">
+							<li>HTML</li>
+							<li>XML</li>
+							<li>CSS</li>
+						</ul>
+						<p class="fragment">毫無反應，只是個標記語言</p>
+					</section>
+
+					<section>
+						<h2>JavaScript</h2>
+						<p class="fragment">本名LiveScript</p>
+						<p class="fragment">JavaScript之於Java就像HotDog之於Dog</p>
+						<p class="fragment" style="color: red">"你會Java歐？那這個JavaScript的專案就交給你了"</p>
+					</section>
+
+					<section>
+						<h2>JS</h2>
+						<p class="fragment">JavaScript可以簡稱JS</p>
+						<p class="fragment">直譯式語言(V8:"哪有?")</p>
+						<p class="fragment">提供網頁的互動效果</p>
+					</section>
+
+					<section>
+						<h2>接下來</h2>
+						<p class="fragment">使用JS在瀏覽器進行操作</p>
+						<p class="fragment"><del>HollyWood</del></p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>哈囉沃得</h1>
+					</section>
+
+					<section>
+						<h2>hello, world</h2>
+						<p class="fragment">初學者的第一個任務</p>
+						<p class="fragment">輸出&nbsp;"hello,&nbsp;world"</p>
+					</section>
+
+					<section>
+						<h2>訊息視窗</h2>
+						<p class="fragment">alert(<em>show_string</em>)</p>
+						<p class="fragment">顯示一個想要的字串</p>
+						<p class="fragment">alert("hello, world")</p>
+					</section>
+
+					<section>
+						<h2>那輸入呢?</h2>
+						<p class="fragment">prompt(<em>hint_string</em>)</p>
+						<p class="fragment">顯示提示字串並提供輸入字串之功能</p>
+						<p class="fragment">prompt("輸入貓有幾個耳朵:")</p>
+						<p class="fragment">"2"</p>
+					</section>
+
+					<section>
+						<h2>隱藏版輸出</h2>
+						<p class="fragment">console.log(<em>secret_string</em>)</p>
+						<p class="fragment">輸出在瀏覽器的主控台</p>
+						<p class="fragment">console.log("We human has to stick together!")</p>
+						<p class="fragment"><del>其實還是看得到啦</del></p>
+					</section>
+
+					<section>
+						<h2>其他輸出</h2>
+						<p class="fragment">console提供了方便的功能</p>
+						<ul class="fragment" style="list-style-type: none;font-family:'consolas','Ubuntu Mono'">
+							<li>error(obj,...)</li>
+							<li>warn(obj,...)</li>
+							<li>info(obj,...)</li>
+							<li>dir(obj)</li>
+						</ul>
+						<p class="fragment">有些提供格式化字串輸出</p>
+					</section>
+
+					<section>
+						<h2>格式化字串</h2>
+						<p class="fragment">%s:&nbsp;字串</p>
+						<p class="fragment">%d:&nbsp;整數</p>
+						<p class="fragment">%f:&nbsp;浮點數</p>
+						<p class="fragment">%c:&nbsp;以指定CSS輸出到主控台</p>
+					</section>
+
+					<section>
+						<h2>接下來</h2>
+						<p class="fragment">字串?整數?浮點數?</p>
+						<p class="fragment">到底這些是啥米捏?</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>變數與型別</h1>
+					</section>
+
+					<section>
+						<h2>變數</h2>
+						<p class="fragment">一個名字對應著一個東西</p>
+						<p class="fragment">重點A:&nbsp;變數命名</p>
+						<p class="fragment">重點B:&nbsp;指派</p>
+						<p class="fragment">重點C:&nbsp;變數型態</p>
+					</section>
+
+					<section>
+						<h2>變數命名</h2>
+						<div style="font-family: 'consolas','Ubuntu Mono'">
+						<p class="fragment">除了保留字其他都可以用</p>
+						<p class="fragment">英文字大小寫,數字,_,$</p>
+						<p class="fragment">var&nbsp;$dollar$sign$;</p>
+						<p class="fragment">var&nbsp;_under_score_;</p>
+						<p class="fragment">var&nbsp;變數="Variable";</p>
+						<p class="fragment"><del>是時候惡搞變數名稱了</del></p>
+						</div>
+					</section>
+
+					<section>
+						<h2>常數定義</h2>
+						<div style="font-family: 'consolas','Ubuntu Mono'">
+						<p class="fragment">就是不給你改</p>
+						<p class="fragment">命名規則與常數相同</p>
+						<p class="fragment">const INT3=0xCC</p>
+						<p class="fragment">宣告為常數後就不是變數了</p>
+						</div>
+					</section>
+
+					<section>
+						<h2>指派</h2>
+						<p class="fragment">利用&nbsp;=&nbsp;給予變數一個值</p>
+						<p class="fragment">若變數沒有被指派則為undefined</p>
+						<p class="fragment"><del>當然也可以指派成undefined</del></p>
+					</section>
+
+					<section>
+						<h1>變數型態</h1>
+					</section>
+
+					<section>
+						<h2>型態列表</h2>
+						<ul class="fragment" style="list-style-type: none;font-family: 'consolas','Ubuntu Mono'">
+							<li>數字:&nbsp;Number</li>
+							<li>字串:&nbsp;String</li>
+							<li>布林:&nbsp;Boolean</li>
+							<li>陣列:&nbsp;Array</li>
+							<li>物件:&nbsp;Object</li>
+							<li>undefined,null,...</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>型別判斷</h2>
+						<div style="font-family: 'consolas','Ubuntu Mono'">
+						<p class="fragment">typeof</p>
+						<p class="fragment">使用此運算子可以得知變數的型別</p>
+						<p class="fragment">typeof(undefined);</p>
+						<p class="fragment">typeof&nbsp;undefined&nbsp;;</p>
+						<p class="fragment">不確定就看一下吧~~</p>
+						</div>
+					</section>
+
+
+					<section>
+						<h2>數字</h2>
+						<div style="font-family: 'consolas','Ubuntu Mono'">
+						<p class="fragment">Number</p>
+						<p class="fragment">整數小數都是浮點數</p>
+						<p class="fragment">8086,&nbsp;6.02e23</p>
+						<p class="fragment">0xCC,&nbsp;0800,&nbsp;0b1101</p>
+						<p class="fragment">Infinity,&nbsp;NaN</p>
+						</div>
+					</section>
+
+					<section>
+						<h2>字串</h2>
+						<div style="font-family: 'consolas','Ubuntu Mono'">
+						<p class="fragment">String</p>
+						<p class="fragment">可以使用雙引號或單引號</p>
+						<p class="fragment">'I&nbsp;love&nbsp;&lt;&gt;&lt;'</p>
+						<p class="fragment">"I'm blind ,not deaf"</p>
+						<p class="fragment">字串有方便的內建函式可以使用</p>
+						</div>
+					</section>
+
+					<section>
+						<h2>跳脫字元</h2>
+						<div style="font-family: 'consolas','Ubuntu Mono'">
+						<p class="fragment">JS的跳脫和HTML不太一樣</p>
+						<p class="fragment">單引號:&nbsp;\'</p>
+						<p class="fragment">雙引號:&nbsp;\"</p>
+						<p class="fragment">反斜線:&nbsp;\\</p>
+						<p class="fragment">換行:&nbsp;\n</p>
+						<p class="fragment">Tab:&nbsp;\t</p>
+						</div>
+					</section>
+
+					<section>
+						<h2>布林</h2>
+						<div style="font-family: 'consolas','Ubuntu Mono'">
+						<p class="fragment">Boolean</p>
+						<p class="fragment">條件判斷時使用</p>
+						<p class="fragment">true,&nbsp;false</p>
+						<p class="fragment"><strong>!!看風向不是那麼簡單低!!</strong></p>
+						<p class="fragment">真假值有另外的定義...</p>
+						</div>
+					</section>
+
+					<section>
+						<h2>真假值</h2>
+						<p class="fragment">以下為假其他為真</p>
+						<ul class="fragment" style="list-style-type: none;font-family:'consolas','Ubuntu Mono'">
+							<li>false</li>
+							<li>null</li>
+							<li>undefined</li>
+							<li>0</li>
+							<li>"",''</li>
+							<li>NaN</li>
+						</ul>
+						<p class="fragment">乖乖記起來吧...</p>
+					</section>
+
+					<section>
+						<h2>陣列</h2>
+						<div style="font-family: 'consolas','Ubuntu Mono'">
+						<p class="fragment">Array</p>
+						<p class="fragment">可以放入各種型態的東西</p>
+						<p class="fragment">[],&nbsp;Array(num)</p>
+						<p class="fragment">索引值從0開始，可為負</p>
+						</div>
+					</section>
+
+					<section>
+						<h2>陣列操作</h2>
+						<div style="font-family: 'consolas','Ubuntu Mono'">
+						<p class="fragment">a=[1,2,3,4,5]</p>
+						<p class="fragment">a[100]</p>
+						<p class="fragment">a[-1]=200</p>
+						<p class="fragment">a[1000000000]=true</p>
+						<p class="fragment">以上操作都是合法的</p>
+						</div>
+					</section>
+
+					<section>
+						<h2>物件</h2>
+						<div style="font-family: 'consolas','Ubuntu Mono'">
+						<p class="fragment">Object</p>
+						<p class="fragment">以鍵(key)對應值(value)放入東西</p>
+						<p class="fragment">{},&nbsp;Object()</p>
+						<p class="fragment">鍵可以為任何東西</p>
+						</div>
+					</section>
+
+					<section>
+						<h2>物件操作</h2>
+						<div style="font-family: 'consolas','Ubuntu Mono'">
+						<p class="fragment">skill={name:'上野武勇'}</p>
+						<p class="fragment">skill.name</p>
+						<p class="fragment">skill['name']</p>
+						<p class="fragment">skill[['R',4]]=[0.30,0.17]</p>
+						<p class="fragment">skill.說明='打的更痛!呀呼!'</p>
+						<p class="fragment">以上操作都是合法的</p>
+						</div>
+					</section>
+				</section>
+
+				<section>
+					<h3>以上為JavaScript的基礎介紹</h3>
+					<h3>各位有問題否?</h3>
+				</section>
+			</div>
+		</div>
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true },
+				{ src: '../plugin/notes/notes.js', async: true }
+			]
+		});
+		</script>
+	</body>
+</html>
