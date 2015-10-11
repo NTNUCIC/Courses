@@ -61,13 +61,11 @@
 					<h1>數學運算</h1>
 				</section>
 				
-				
-				
 				<section>
 					<h2>數字系統</h2>
 					<p class="fragment">做運算之前先來點前前情提要</p>
-					<p class="fragment">重點A:&nbsp;各種進位法</p>
-					<p class="fragment">重點B:&nbsp;數字系統</p>
+					<p class="fragment">重點A:&nbsp;數字進位法</p>
+					<p class="fragment">重點B:&nbsp;數字表現實作</p>
 				</section>
 				
 				<section>
@@ -110,32 +108,50 @@
 					<p class="fragment">前綴字：0x,0X</p>
 					<p class="fragment">0xDEADFACE</p>
 					<p class="fragment">
-						13x16<sup>7</sup>+
-						14x16<sup>6</sup>+
-						10x16<sup>5</sup>+
-						13x16<sup>4</sup>+
-						15x16<sup>3</sup>+
-						10x16<sup>2</sup>+
-						12x16<sup>1</sup>+
-						14x16<sup>0</sup>+
+						13x16<sup>7</sup>+14x16<sup>6</sup>+10x16<sup>5</sup>+13x16<sup>4</sup>+
+						15x16<sup>3</sup>+10x16<sup>2</sup>+12x16<sup>1</sup>+14x16<sup>0</sup>+
 					</p>
 				</section>
 				
 				<section>
-					<h2>數字</h2>
-					<p class="fragment">Number</p>
-					<p class="fragment">使用IEEE754雙精度64位元浮點數作為實作</p>
-					<table class="fragment" style="border: solid 1px">
-						<tr>
-							<td>符號</td><td>指數</td><td>尾數</td>
-						</tr>
-						<tr>
-							<td style="background-color: #CCFF66">1</td>
-							<td style="background-color: #FF66CC">11</td>
-							<td style="background-color: #33CCFF">52</td>
-						</tr>
-					</table>
+					<h2>數字表現實作</h2>
+					<p class="fragment">有號整數</p>
+					<p class="fragment">無號整數</p>
+					<p class="fragment">浮點數</p>
 				</section>
+				
+				<section>
+					<section>
+						<h2>補數系統</h2>
+						<p class="fragment">0b01101110&nbsp;正數</p>
+						<p class="fragment">0b10010001&nbsp;1的補數</p>
+						<p class="fragment">0b10010010&nbsp;2的補數</p>
+						<p class="fragment"><del>至少知道關鍵字可以上網查</del></p>
+					</section>
+				
+					<h2>有號整數</h2>
+					<p class="fragment">使用2的補數</p>
+					<p class="fragment">有1,2,4,8位元組的整數實作</p>
+					<p class="fragment">數字範圍：-2<sup>位元數</sup>~+2<sup>位元數</sup>-1</p>
+					<p class="fragment">大部份的語言實作有號整數的方法</p>
+				</section>
+				
+				<section>
+					<h2>無號整數</h2>
+					<p class="fragment">直接表達該數字</p>
+					<p class="fragment">有1,2,4,8位元組的整數實作</p>
+					<p class="fragment">數字範圍：0~+2<sup>位元數</sup></p>
+					<p class="fragment"><del>沒有負號，非常正向</del></p>
+				</section>
+				
+				<section>
+					<h2>浮點數</h2>
+					<p class="fragment">IEEE&nbsp;754</p>
+					<p class="fragment">分為三部份：符號、指數、尾數</p>
+					<p class="fragment">利用科學記號的方法表現數字</p>
+				</section>
+				
+				
 			</section>
 			
 			<section>
