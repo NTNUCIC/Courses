@@ -307,6 +307,97 @@
 				<section>
 					<h1>位元運算</h1>
 				</section>
+				
+				<section>
+					<h2>位元運算</h2>
+					<p class="fragment">以二進位法對位元進行操作</p>
+					<p class="fragment"><del>不是說JS是用浮點數嗎??</del></p>
+					<p class="fragment">先轉換成32位元整數運算後再轉回來...</p>
+				</section>
+				
+				<section>
+					<h2>位元運算子</h2>
+					<p class="fragment">反</p>
+					<p class="fragment">且</p>
+					<p class="fragment">或</p>
+					<p class="fragment">互斥或</p>
+					<p class="fragment">左移,右移</p>
+				</section>
+				
+				<section>
+					<h2>反向</h2>
+					<h3 class="fragment" style="font-family: 'consolas','Ubuntu Mono'">~</h3>
+					<p class="fragment">一元運算子</p>
+					<p class="fragment">~0xff</p>
+					<p class="fragment">把各位元位反向</p>
+				</section>
+				
+				<section>
+					<h2>且</h2>
+					<h3 class="fragment" style="font-family: 'consolas','Ubuntu Mono'">&amp;</h3>
+					<p class="fragment">0b1100&amp;0b1010</p>
+					<p class="fragment">2147483648&amp;1</p>
+					<p class="fragment"><del>絕對不是BUG，這是功能</del></p>
+				</section>
+				
+				<section>
+					<h2>或</h2>
+					<h3 class="fragment" style="font-family: 'consolas','Ubuntu Mono'">|</h3>
+					<p class="fragment">0b1100|0b1010</p>
+					<p class="fragment">Math.pow(2,31)|1</p>
+					<p class="fragment"><del>正正得負...</del></p>
+				</section>
+				
+				<section>
+					<h2>互斥或</h2>
+					<h3 class="fragment" style="font-family: 'consolas','Ubuntu Mono'">^</h3>
+					<p class="fragment">可以用來做簡單的加密解密</p>
+					<p class="fragment">0b1100^0b1010</p>
+					<p class="fragment">放棄吐嘈了...</p>
+				</section>
+				
+				<section>
+					<h2>左移</h2>
+					<h3 class="fragment" style="font-family: 'consolas','Ubuntu Mono'">&lt;&lt;</h3>
+					<p class="fragment">將位元往左邊移動</p>
+					<p class="fragment">相當於乘以2</p>
+					<p class="fragment">1&lt;&lt;32</p>
+					<p class="fragment">最大可以左移31</p>
+				</section>
+				
+				<section>
+					<h2>數學右移</h2>
+					<h3 class="fragment" style="font-family: 'consolas','Ubuntu Mono'">&gt;&gt;</h3>
+					<p class="fragment">將位元向右移動並維持符號</p>
+					<p class="fragment">相當於整數除法除以2</p>
+					<p class="fragment">0x-FF1111&gt;&gt;16</p>
+					<p class="fragment">0x-FF0000&gt;&gt;16</p>
+					<p class="fragment">對於負數的計算要小心</p>
+				</section>
+				
+				<section>
+					<h2>位元右移</h2>
+					<h3 class="fragment" style="font-family: 'consolas','Ubuntu Mono'">&gt;&gt;&gt;</h3>
+					<p class="fragment">將位元右移左側補0</p>
+					<p class="fragment">部份相當於整數除法除以2</p>
+					<p class="fragment">2147483648&gt;&gt;16</p>
+					<p class="fragment">2147483648&gt;&gt;&gt;16</p>
+					<p class="fragment"><del>聰明的你是否不知道答案呢?</del></p>
+				</section>
+				
+				<section>
+					<h2>不要用</h2>
+					<p class="fragment">在JS中位元運算就是坑</p>
+					<p class="fragment">那為何我還要說明</p>
+					<p class="fragment">???</p>
+					<p class="fragment">因為別的語言會用到...</p>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">JS恐怖的地方又來了...</p>
+					<p class="fragment"><del>JavaScript驚魂夜</del></p>
+				</section>
 			</section>
 			
 			<section>
