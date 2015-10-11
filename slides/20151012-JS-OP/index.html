@@ -105,7 +105,7 @@
 					<h2>16進位</h2>
 					<p class="fragment">用來表現2進位數</p>
 					<p class="fragment">0xF&nbsp;vs&nbsp;0b1111</p>
-					<p class="fragment">可用符號：0~9,A-F</p>
+					<p class="fragment">可用符號：0~9,A~ F</p>
 					<p class="fragment">前綴字：0x,0X</p>
 					<p class="fragment">0xDEADFACE</p>
 					<p class="fragment">
@@ -122,14 +122,14 @@
 				</section>
 				
 				<section>
-					<section>
-						<h2>補數系統</h2>
-						<p class="fragment">0b01101110&nbsp;正數</p>
-						<p class="fragment">0b10010001&nbsp;1的補數</p>
-						<p class="fragment">0b10010010&nbsp;2的補數</p>
-						<p class="fragment"><del>至少知道關鍵字可以上網查</del></p>
-					</section>
+					<h2>補數系統</h2>
+					<p class="fragment">0b01101110&nbsp;正數</p>
+					<p class="fragment">0b10010001&nbsp;1的補數</p>
+					<p class="fragment">0b10010010&nbsp;2的補數</p>
+					<p class="fragment"><del>至少知道關鍵字可以上網查</del></p>
+				</section>
 				
+				<section>
 					<h2>有號整數</h2>
 					<p class="fragment">使用2的補數</p>
 					<p class="fragment">有1,2,4,8位元組的整數實作</p>
@@ -157,7 +157,7 @@
 					<p class="fragment">使用console.dir(obj)觀察</p>
 					<p class="fragment">0.1+0.2</p>
 					<p class="fragment">987654321+0.123456789</p>
-					<p class="fragment">！！記得浮點數沒有稠密性！！</p>
+					<p class="fragment"><strong>！！記得浮點數沒有稠密性！！</strong></p>
 				</section>
 				
 				<section>
@@ -175,11 +175,76 @@
 						</tr>
 					</table>
 				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">實際對數字進行運算啦~~</p>
+					<p class="fragment"><del>也可以對非數字NaN進行運算</del></p>
+				</section>
 			</section>
 			
 			<section>
 				<section>
 					<h1>數學運算</h1>
+				</section>
+				
+				<section>
+					<h2>四則運算</h2>
+					<p class="fragment">加</p>
+					<p class="fragment">減</p>
+					<p class="fragment">乘</p>
+					<p class="fragment">除</p>
+					<p class="fragment">取餘數</p>
+				</section>
+				
+				<section>
+					<h2>加法</h2>
+					<h3 class="fragment" style="font-family: 'consolas','Ubuntu Mono'">+&nbsp;+=</h3>
+					<p class="fragment">var a=0x16+10+010</p>
+					<p class="fragment">a+=0b1100</p>
+					<p class="fragment">NaN,Infinity做加法仍保持原樣</p>
+				</section>
+				
+				<section>
+					<h2>減法</h2>
+					<h3 class="fragment" style="font-family: 'consolas','Ubuntu Mono'">-&nbsp;-=</h3>
+					<p class="fragment">var b=0x7f-255</p>
+					<p class="fragment">b-=3</p>
+					<p class="fragment">試試看Inifity減去Infinity</p>
+					<p class="fragment"><del>NaN是最強的</del></p>
+				</section>
+				
+				<section>
+					<h2>乘法</2>
+					<h3 class="fragment" style="font-family: 'consolas','Ubuntu Mono'">*&nbsp;*=</h3>
+					<p class="fragment">先乘除後加減</p>
+					<p class="fragment">var c=15+3*5</p>
+					<p class="fragment">c*=2.5</p>
+					<p class="fragment"><del>毫無反應，只是個NaN和Infinity</del></p>
+				</section>
+				
+				<section>
+					<h2>除法</h2>
+					<h3 class="fragment" style="font-family: 'consolas','Ubuntu Mono'">/&nbsp;/=</h3>
+					<p class="fragment">一樣先乘除後加減</p>
+					<p class="fragment">var d=15+6*5/15</p>
+					<p class="fragment">d/=1.7</p>
+					<p class="fragment">0除以0為NaN，其他數除以0為正負無限大</p>
+				</section>
+				
+				<section>
+					<h2>取餘數</h2>
+					<h3 class="fragment" style="font-family: 'consolas','Ubuntu Mono'">%&nbsp;%=</h3>
+					<p class="fragment">此運算也是先乘除後加減</p>
+					<p class="fragment">var e=5+3*3%2*5</p>
+					<p class="fragment">e%=0.2</p>
+					<p class="fragment"><strong>！！注意浮點數的誤差又出現了！！</strong></p>
+				</section>
+				
+				<section>
+					<h2>進階運算</h2>
+					<p class="fragment">++,--</p>
+					<p class="fragment">使用Math物件</p>
 				</section>
 			</section>
 			
