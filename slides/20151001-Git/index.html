@@ -343,28 +343,28 @@
 				</section>
 
 				<section>
-					<a href="https://github.com/" style="font-size:7rem;font-weight:900">GitHub</a>
+					<a href="https://github.com/" target="_blank" style="font-size:7rem;font-weight:900">GitHub</a>
 				</section>
 
 				<section>
 					<p style="font-size:5rem">public/private</p>
-					<a href="https://education.github.com">GitHub Education</a>
+					<a href="https://education.github.com" target="_blank">GitHub Education</a>
 				</section>
 
 				<section>
 					<p style="font-size:5rem">README.md</p>
-					<a href="https://guides.github.com/features/mastering-markdown/">Markdown</a>
+					<a href="https://guides.github.com/features/mastering-markdown/" target="_blank">Markdown</a>
 				</section>
 
 				<section>
-					<p style="font-size:5rem">.gitignore</p>
+					<a style="font-size:5rem" href="https://github.com/github/gitignore/" target="_blank">.gitignore</a>
 				</section>
 
 				<section>
-					<a href="http://www.openfoundry.org/tw/licenses" style="font-size:5rem;font-weight:900;">Licence</a>
+					<a href="http://www.openfoundry.org/tw/licenses" style="font-size:5rem;font-weight:900;" target="_blank">Licence</a>
 					<div style="border:0.1rem solid;width:20rem;margin:auto"></div>
-					<a href="https://zh.wikipedia.org/wiki/%E5%95%A4%E9%85%92%E8%BB%9F%E9%AB%94">Beerware</a>,
-					<a href="https://creativecommons.org/choose/zero/?lang=zh_TW">CC0</a>
+					<a href="https://zh.wikipedia.org/wiki/%E5%95%A4%E9%85%92%E8%BB%9F%E9%AB%94" target="_blank">Beerware</a>,
+					<a href="https://creativecommons.org/choose/zero/?lang=zh_TW" target="_blank">CC0</a>
 				</section>
 
 				<section>
@@ -386,10 +386,138 @@
 
 				<section>
 					<h1>練習</h1>
+					<p style="font-size:3rem">把一個repo clone下來</p>
 					<p style="font-size:3rem">新增一commit並push上去</p>
 				</section>
-			</div>
 
+				<section>
+					<p style="font-family:consolas;font-size:4rem">git remote add "name" "URL"</p>
+				</section>
+
+				<section>
+					<p style="font-family:consolas;font-size:4rem">git remote rm "name"</p>
+					<p style="font-family:consolas;font-size:4rem">git remote remove "name"</p>
+				</section>
+
+				<section>
+					<p style="font-family:consolas;font-size:4rem">git pull "name"</p>
+					<p style="font-family:consolas;font-size:4rem" class="fragment">git push "name"</p>
+				</section>
+
+				<section>
+					<img src="git-local-remote.png" alt="local &amp; remote" style="height:25rem;background-color:white;">
+				</section>
+
+				<section>
+					<h1>練習</h1>
+					<p style="font-size:3rem">另外開一個新資料夾</p>
+					<p style="font-size:3rem">然後在這資料夾中pull repo</p>
+					<p style="font-size:3rem">最後新增幾筆commit後push回去</p>
+				</section>
+
+				<section>
+					<p style="font-family:consolas;font-size:8rem">commit</p>
+					<a href="http://i.imgur.com/o4HkPxa.png" style="font-size:3rem" target="_blank">拜託，不要讓人困擾(シ_ _)シ</a><br>
+					<a href="https://www.reddit.com/r/shittyprogramming/comments/1skq3s/my_buddy_is_a_phenomenal_programmer_but_really/" style="float:right;font-size:1.5rem" target="_blank">圖片來源</a>
+				</section>
+
+				<section>
+					<p>F_CK commit</p>
+					<img src="fuck.png" alt="fuck" style="height:25rem">
+				</section>
+
+				<section>
+					<p>༼ つ ◕_◕ ༽つ Give RELAY</p>
+					<img src="rely.png" alt="༼ つ ◕_◕ ༽つ Give RELAY" style="height:25rem">
+				</section>
+
+				<section>
+					<p style="font-family:consolas;font-size:8rem">Branch</p>
+				</section>
+
+				<section>
+					<img src="git_branching_model.png" alt="git branching model" style="height:30rem;width:45rem">
+				</section>
+
+				<section>
+					<p style="font-family:consolas;font-size:5rem">git branch</p>
+					<p style="font-family:consolas;font-size:5rem">git branch -v</p>
+				</section>
+
+				<section>
+					<p style="font-family:consolas;font-size:6rem">create branch</p>
+					<p style="font-family:consolas;font-size:3.5rem">git branch "new branch"</p>
+					<p style="font-family:consolas;font-size:3.5rem">git checkout -b "new branch"</p>
+				</section>
+
+				<section>
+					<p style="font-family:consolas;font-size:6rem">更換branch</p>
+					<p style="font-family:consolas;font-size:4rem">git checkout "branch"</p>
+				</section>
+
+				<section>
+					<p style="font-family:consolas;font-size:3rem;">git push "remote" "remote_branch"</p><br>
+					<p style="font-family:consolas;font-size:3rem;">git push "remote" "local_branch":"remote_branch"</p>
+				</section>
+
+				<section>
+					<p style="font-family:consolas;font-size:3rem;">git pull "remote" "remote_branch"</p><br>
+				</section>
+
+				<section>
+					<p style="font-family:consolas;font-size:4rem">刪除遠端branch</p>
+					<p style="font-family:consolas;font-size:4rem">git push "remote" :"branch"</p>
+				</section>
+
+				<section>
+					<p style="font-family:consolas;font-size:4rem">刪除本地branch</p>
+					<p style="font-family:consolas;font-size:4rem">git branch -D "branch"</p>
+				</section>
+
+				<section>
+					<h1>練習</h1>
+					<p style="font-size:3rem">開幾個branch做前面指令的練習</p>
+					<p style="font-size:3rem">branch的push一定要試試看</p>
+				</section>
+
+				<section>
+					<img src="git_branching_model.png" alt="git branching model" style="height:30rem;width:45rem">
+				</section>
+
+				<section>
+					<p style="font-family:consolas;font-size:4rem">git merge "branch"</p>
+				</section>
+
+				<section>
+					<p style="font-family:consolas;font-size:4rem">merge自動commit</p>
+					<p style="font-family:consolas;font-size:2.3rem">
+					git config --global core.mergeoptions --no-edit</p>
+				</section>
+
+				<section>
+					<p style="font-family:consolas;font-size:5rem">Conflict</p>
+				</section>
+
+				<section>
+					<p style="font-family:consolas;font-size:5rem">git blame "file"</p>
+				</section>
+
+				<section>
+					<h1>練習</h1>
+					<p style="font-size:3rem">練習merge,並試著創造conflict</p>
+					<p style="font-size:3rem">嘗試自己解conflict</p>
+				</section>
+
+				<section>
+					<a href="https://pages.github.com/" target="_blank" style="font-family:consolas;font-size:8rem">GitHub Pages</a>
+					<p style="font-size:4rem" class="fragment">其實只要放到gh-pages的branch</p>
+				</section>
+
+				<section>
+					<p style="font-size:5rem;font-weight:900">同場加映: .git權限很重要</p>
+					<a href="https://youtu.be/04o-a8YGjzk" target="_blank">感嘆師父，讚嘆師父，Git超棒der</a>
+				</section>
+			</div>
 		</div>
 
 		<script src="../lib/js/head.min.js"></script>
