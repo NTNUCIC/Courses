@@ -37,6 +37,12 @@
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 
+		<style>
+			input,button{
+				font-size:0.9em;
+			}
+		</style>
+
 		<!--[if lt IE 9]>
 		<script src="../lib/js/html5shiv.js"></script>
 		<![endif]-->
@@ -53,17 +59,74 @@
 					<h3>2015/10/14 阮韞澂</h3>
 				</section>
 				<section>
+					<h2>表單</h2>
+					<iframe src="form.html" frameborder="0" style="width:50%;" class="fragment"></iframe>
+					<ul>
+						<li class="fragment">用於輸入輸出資料</li>
+						<li class="fragment">通常搭配JavaScript或後端伺服器使用</li>
+						<li class="fragment">使用各種表單元素組合</li>
+					</ul>
+				</section>
+				<section>
 					<section>
-						<h2>表單</h2>
-						<iframe src="form.html" frameborder="0" style="width:50%;" class="fragment"></iframe>
+						<h2>&lt;input&gt;</h2>
+						<pre class="fragment"><code data-trim>
+&lt;input type="text" value="HTML5 ROCK!"&gt;
+						</code></pre>
+						<p class="fragment">
+							<input type="text" value="HTML5 ROCK!">
+						</p>
 						<ul>
-							<li class="fragment">用於輸入輸出資料</li>
-							<li class="fragment">通常搭配JavaScript或後端伺服器使用</li>
-							<li class="fragment">使用各種表單元素組合</li>
+							<li class="fragment">用於輸入資料</li>
+							<li class="fragment">單標籤</li>
+							<li class="fragment">使用type屬性決定輸入類型</li>
+							<li class="fragment">可使用value屬性設定初始值與取得值</li>
+							<li class="fragment">text種類為單純的文字輸入框</li>
 						</ul>
 					</section>
 					<section>
-						<h2>&lt;Form&gt;</h2>
+						<h2>&lt;button&gt;</h2>
+						<pre class="fragment"><code data-trim>
+&lt;button&gt;點我點我點我&lt;/button&gt;
+						</code></pre>
+						<p class="fragment">
+							<button>點我點我點我</button>
+						</p>
+						<ul>
+							<li class="fragment">就是個按鈕</li>
+							<li class="fragment">雙標籤，內容為顯示文字</li>
+							<li class="fragment">type屬性可指定按鈕功能</li>
+						</ul>
+					</section>
+					<section>
+						<h2>&lt;label&gt;</h2>
+						<pre class="fragment"><code data-trim>
+&lt;label for="name1"&gt;請輸入姓名&lt;/label&gt;&lt;input type="text" id="name1"&gt;&lt;br&gt;
+&lt;label for="name2"&gt;我忘了，再輸入一次&lt;/label&gt;&lt;input type="text" id="name2"&gt;
+						</code></pre>
+						<p class="fragment">
+							<label for="name1">請輸入姓名</label><input type="text" id="name1"><br>
+							<label for="name2">我忘了，再輸入一次</label><input type="text" id="name2">
+						</p>
+						<ul>
+							<li class="fragment">輸入元素的說明標籤</li>
+							<li class="fragment">雙標籤</li>
+							<li class="fragment">使用for屬性指定元素的id</li>
+							<li class="fragment">與指定元素連動</li>
+							<li class="fragment">點擊標籤自動鎖定輸入元素</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<pre class="fragment"><code data-trim>
+&lt;label for="name"&gt;姓名：&lt;/label&gt;
+&lt;input type="text" id="name"&gt;&lt;br&gt;
+&lt;label for="nickname"&gt;暱稱：&lt;/label&gt;
+&lt;input type="text" id="nickname"&gt;&lt;br&gt;
+&lt;button&gt;送出&lt;/button&gt;
+						</code></pre>
+						<p class="fragment">參考以上範例，在網頁做出簡易的表單</p>
+						<a href="form1.html" target="_blank">Demo</a>
 					</section>
 				</section>
 			</div>
