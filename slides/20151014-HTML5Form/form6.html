@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>線上報名</title>
+</head>
+<body>
+	<form>
+		<fieldset>
+			<legend>基本資料</legend>
+			<label for="name">姓名：</label>
+			<input type="text" id="name" required><br>
+			<label for="nickname">暱稱：</label>
+			<input type="text" id="nickname" placeholder="五個字以內暱稱">
+		</fieldset>
+		<fieldset>
+			<legend>帳號資料</legend>
+			<label for="pwd">密碼：</label>
+			<input type="password" id="pwd" required><br>
+			<label for="pic">大頭照：</label>
+			<input type="file" id="pic"><br>
+			<input type="checkbox" id="eat">
+			<label for="eat">吃飯</label>
+			<input type="checkbox" id="sleep" checked>
+			<label for="sleep">睡覺</label>
+			<input type="checkbox" id="hit">
+			<label for="hit">打東東</label>
+		</fieldset>
+		<fieldset>
+			<legend>其他資料</legend>
+			<label for="email">電子郵件：</label>
+			<input type="email" id="email" required><br>
+			<label for="url">個人網站：</label>
+			<input type="url" id="url"><br>
+			<label for="age">年齡：</label>
+			<input type="number" id="age" min="0" step="1"><br>
+			<label for="birth">生日：</label>
+			<input type="date" id="birth"><br>
+			<label for="color">膚色：</label>
+			<input type="color" id="color"><br>
+			<label for="voice">音量：</label>
+			<input type="range" id="voice">
+		</fieldset>
+		<fieldset>
+			<legend>附錄</legend>
+			<label for="ps">備註：</label>
+			<textarea cols="50" rows="3" id="ps"></textarea><br>
+			<label for="food">宵夜：</label>
+			<select id="food">
+				<optgroup label="滷味">
+					<option value="luking">王牌滷味</option>
+					<option value="lubigtpi">大台北滷味</option>
+					<option value="lulight">燈籠滷味</option>
+				</optgroup>
+				<option value="gp">雞排</option>
+				<option value="df">臭豆腐</option>
+			</select>
+		</fieldset>
+		<button type="submit">送出</button>
+		<button type="reset">重新填寫</button>
+	</form>
+</body>
+</html>

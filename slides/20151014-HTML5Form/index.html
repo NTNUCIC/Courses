@@ -1,0 +1,875 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>資訊研究社社課20151014</title>
+
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+		<meta name="author" content="ntnucic">
+
+		<meta name="og:title" content="資訊研究社社課20151014">
+		<meta name="og:url" content="http://ntnucic.github.io/104-1_welcom_party/">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社104學年度社課(2015/10/14)">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<style>
+			input,button,textarea,select,option{
+				font-size:0.9em;
+			}
+			input[type="checkbox"],input[type="radio"]{
+				width:1em;
+				height:1em;
+			}
+			input[type="range"]{
+				height:1em;
+				width:10em;
+			}
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="../lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>HTML5 表單元素</h1>
+					<h3>2015/10/14 阮韞澂</h3>
+				</section>
+				<section>
+					<h2>警告：IE慎入</h2>
+					<h2>大量攻擊行為針對IE</h2>
+				</section>
+				<section>
+					<h2>表單</h2>
+					<iframe src="form.html" frameborder="0" style="width:50%;" class="fragment"></iframe>
+					<ul>
+						<li class="fragment">用於輸入輸出資料</li>
+						<li class="fragment">通常搭配JavaScript或後端伺服器使用</li>
+						<li class="fragment">使用各種表單元素組合</li>
+					</ul>
+				</section>
+				<section>
+					<section>
+						<h2>&lt;input&gt;</h2>
+						<pre class="fragment"><code data-trim>
+&lt;input type="text" value="HTML5 ROCK!"&gt;
+						</code></pre>
+						<p class="fragment">
+							<input type="text" value="HTML5 ROCK!">
+						</p>
+						<ul>
+							<li class="fragment">用於輸入資料</li>
+							<li class="fragment">單標籤</li>
+							<li class="fragment">使用type屬性決定輸入類型</li>
+							<li class="fragment">可使用value屬性設定初始值與取得值</li>
+							<li class="fragment">預設種類text為單純的文字輸入框</li>
+							<li class="fragment">瀏覽器無法解析的種類會當作text</li>
+							<li class="fragment">對，IE，我在說你</li>
+						</ul>
+					</section>
+					<section>
+						<h2>&lt;button&gt;</h2>
+						<pre class="fragment"><code data-trim>
+&lt;button&gt;點我點我點我&lt;/button&gt;
+						</code></pre>
+						<p class="fragment">
+							<button>點我點我點我</button>
+						</p>
+						<ul>
+							<li class="fragment">就是個按鈕</li>
+							<li class="fragment">雙標籤，內容為顯示文字</li>
+							<li class="fragment">type屬性可指定按鈕功能</li>
+						</ul>
+					</section>
+					<section>
+						<h2>&lt;label&gt;</h2>
+						<pre class="fragment"><code data-trim>
+&lt;label for="name1"&gt;請輸入姓名&lt;/label&gt;&lt;input type="text" id="name1"&gt;&lt;br&gt;
+&lt;label for="name2"&gt;我忘了，再輸入一次&lt;/label&gt;&lt;input type="text" id="name2"&gt;
+						</code></pre>
+						<p class="fragment">
+							<label for="name1">請輸入姓名</label><input type="text" id="name1"><br>
+							<label for="name2">我忘了，再輸入一次</label><input type="text" id="name2">
+						</p>
+						<ul>
+							<li class="fragment">輸入元素的說明標籤</li>
+							<li class="fragment">雙標籤</li>
+							<li class="fragment">使用for屬性指定元素的id</li>
+							<li class="fragment">與指定元素連動</li>
+							<li class="fragment">點擊標籤自動鎖定輸入元素</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<pre class="fragment"><code data-trim>
+&lt;label for="name"&gt;姓名：&lt;/label&gt;
+&lt;input type="text" id="name"&gt;&lt;br&gt;
+&lt;label for="nickname"&gt;暱稱：&lt;/label&gt;
+&lt;input type="text" id="nickname"&gt;&lt;br&gt;
+&lt;button&gt;送出&lt;/button&gt;
+						</code></pre>
+						<p class="fragment">參考以上範例，在網頁做出簡易的報名表單</p>
+						<a href="form1.html" target="_blank" class="fragment">Demo</a>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>&lt;form&gt;</h2>
+						<pre class="fragment"><code data-trim>
+&lt;form&gt;
+	姓名：&lt;input type="text"&gt;
+&lt;/form&gt;
+						</code></pre>
+						<ul>
+							<li class="fragment">代表一組表單</li>
+							<li class="fragment">送出時只送出該表單內資料</li>
+							<li class="fragment">使用action屬性設定目標頁面</li>
+							<li class="fragment">常搭配後端API使用</li>
+							<li class="fragment">在表單中按下Enter鍵可直接送出</li>
+						</ul>
+					</section>
+					<section>
+						<h2>&lt;fieldset&gt;</h2>
+						<pre class="fragment"><code data-trim>
+&lt;form&gt;
+	&lt;fieldset&gt;
+		姓名：&lt;input type="text"&gt;
+	&lt;/fieldset&gt;
+&lt;/form&gt;
+						</code></pre>
+						<ul>
+							<li class="fragment">用於表示表單的區塊</li>
+							<li class="fragment">雙標籤</li>
+							<li class="fragment">未來可使用form屬性指定一到多個表單</li>
+						</ul>
+					</section>
+					<section>
+						<h2>&lt;legend&gt;</h2>
+						<pre class="fragment"><code data-trim>
+&lt;form&gt;
+	&lt;fieldset&gt;
+		&lt;legend&gt;基本資料&lt;/legend&gt;
+		姓名：&lt;input type="text"&gt;
+	&lt;/fieldset&gt;
+&lt;/form&gt;
+						</code></pre>
+						<iframe src="form.html" frameborder="0" style="width:50%;" class="fragment"></iframe>
+						<ul>
+							<li class="fragment"><del>League of Legends</del></li>
+							<li class="fragment">表單區塊標題</li>
+							<li class="fragment">雙標籤</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<pre class="fragment"><code data-trim>
+&lt;form&gt;
+	&lt;fieldset&gt;
+		&lt;legend&gt;基本資料&lt;/legend&gt;
+		&lt;label for="name"&gt;姓名：&lt;/label&gt;
+		&lt;input type="text" id="name"&gt;&lt;br&gt;
+		&lt;label for="nickname"&gt;暱稱：&lt;/label&gt;
+		&lt;input type="text" id="nickname"&gt;&lt;br&gt;
+		&lt;button&gt;送出&lt;/button&gt;
+	&lt;/fieldset&gt;
+&lt;/form&gt;
+						</code></pre>
+						<p class="fragment">參考以上範例，將表單完整的包裹</p>
+						<a href="form2.html" class="fragment" target="_blank">Demo</a>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>input:password</h2>
+						<pre class="fragment"><code data-trim>
+&lt;input type="password"&gt;
+						</code></pre>
+						<p class="fragment"><input type="password"></p>
+						<ul>
+							<li class="fragment">用於輸入密碼</li>
+							<li class="fragment">只能輸入英數</li>
+							<li class="fragment">輸入內容以"*"屏蔽</li>
+						</ul>
+					</section>
+					<section>
+						<h2>input:checkbox</h2>
+						<pre class="fragment"><code data-trim>
+興趣：<br>
+&lt;input type="checkbox"&gt;吃飯
+&lt;input type="checkbox" checked&gt;睡覺
+&lt;input type="checkbox"&gt;打東東
+						</code></pre>
+						<p class="fragment">
+							興趣：<br>
+							<input type="checkbox">吃飯
+							<input type="checkbox" checked>睡覺
+							<input type="checkbox">打東東
+						</p>
+						<ul>
+							<li class="fragment">核取方塊</li>
+							<li class="fragment">用於多選或是非</li>
+							<li class="fragment">使用checked屬性預設勾選</li>
+						</ul>
+					</section>
+					<section>
+						<h2>input:radio</h2>
+						<pre class="fragment"><code data-trim>
+薛丁格的貓
+&lt;input type="radio" name="dead" checked&gt;死了
+&lt;input type="radio" name="dead"&gt;沒死
+						</code></pre>
+						<p class="fragment">
+							薛丁格的貓
+							<input type="radio" name="dead" checked>死了
+							<input type="radio" name="dead">沒死
+						</p>
+						<ul>
+							<li class="fragment">選取按鈕</li>
+							<li class="fragment">用於單選</li>
+							<li class="fragment">一個name為一組單選</li>
+							<li class="fragment">使用checked屬性預設勾選</li>
+							<li class="fragment">多個checked則最後一個生效</li>
+						</ul>
+					</section>
+					<section>
+						<h2>input:hidden</h2>
+						<pre class="fragment"><code data-trim>
+隱藏欄位&lt;input type="hidden" value="hohoho"&gt;
+						</code></pre>
+						<p class="fragment">
+							隱藏欄位<input type="hidden" value="hohoho">
+						</p>
+						<ul>
+							<li class="fragment">隱藏欄位</li>
+							<li class="fragment">在value存放預設值</li>
+							<li class="fragment">可透過JS更改</li>
+						</ul>
+					</section>
+					<section>
+						<h2>input:file</h2>
+						<pre class="fragment"><code data-trim>
+上傳附檔&lt;input type="file" multiple&gt;
+						</code></pre>
+						<p class="fragment">
+							上傳附檔<input type="file" multiple>
+						</p>
+						<ul>
+							<li class="fragment">上傳檔案</li>
+							<li class="fragment">使用multiple屬性上傳多個檔案</li>
+							<li class="fragment">IE10以下無法使用multiple屬性<small>IE嘛</small></li>
+						</ul>
+					</section>
+					<section>
+						<h2>input:button</h2>
+						<pre class="fragment"><code data-trim>
+&lt;input type="button" value="按我按我"&gt;
+						</code></pre>
+						<p class="fragment"><input type="button" value="按我按我"></p>
+						<ul>
+							<li class="fragment">就是個按鈕</li>
+							<li class="fragment">效果同&lt;button type="button"&gt;</li>
+							<li class="fragment">說明文字放於value屬性中</li>
+						</ul>
+					</section>
+					<section>
+						<h2>input:submit</h2>
+						<pre class="fragment"><code data-trim>
+&lt;input type="submit" value="送出表單"&gt;
+						</code></pre>
+						<p class="fragment"><input type="submit" value="送出表單"></p>
+						<ul>
+							<li class="fragment">傳送按鈕</li>
+							<li class="fragment">效果同&lt;button type="submit"&gt;</li>
+							<li class="fragment">說明文字放於value屬性中</li>
+							<li class="fragment">送出整個表單內容</li>
+						</ul>
+					</section>
+					<section>
+						<h2>input:reset</h2>
+						<pre class="fragment"><code data-trim>
+&lt;input type="reset" value="重新填寫"&gt;
+						</code></pre>
+						<p class="fragment"><input type="reset" value="重新填寫"></p>
+						<ul>
+							<li class="fragment">回復按鈕</li>
+							<li class="fragment">效果同&lt;button type="reset"&gt;</li>
+							<li class="fragment">說明文字放於value屬性中</li>
+							<li class="fragment">將整個表單內容設為預設值</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<pre class="fragment"><code data-trim>
+&lt;fieldset&gt;
+	&lt;legend&gt;帳號資料&lt;/legend&gt;
+	&lt;label for="pwd"&gt;密碼：&lt;/label&gt;
+	&lt;input type="password" id="pwd"&gt;&lt;br&gt;
+	&lt;label for="pic"&gt;大頭照：&lt;/label&gt;
+	&lt;input type="file" id="pic"&gt;&lt;br&gt;
+	&lt;input type="checkbox" id="eat"&gt;
+	&lt;label for="eat"&gt;吃飯&lt;/label&gt;
+	&lt;input type="checkbox" id="sleep" checked&gt;
+	&lt;label for="sleep"&gt;睡覺&lt;/label&gt;
+	&lt;input type="checkbox" id="hit"&gt;
+	&lt;label for="hit"&gt;打東東&lt;/label&gt;
+&lt;/fieldset&gt;
+&lt;button type="submit"&gt;送出&lt;/button&gt;
+&lt;button type="reset"&gt;重新填寫&lt;/button&gt;
+						</code></pre>
+						<p class="fragment">參考以上範例，加上報名表第二部分</p>
+						<a href="form3.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>input:number</h2>
+						<pre class="fragment"><code data-trim>
+年齡&lt;input type="number" min="0" step="2"&gt;
+						</code></pre>
+						<p class="fragment">
+							年齡
+							<input type="number" min="0" step="2">
+						</p>
+						<ul>
+							<li class="fragment">數字</li>
+							<li class="fragment">可輸入整數或實數</li>
+							<li class="fragment">使用min與max屬性設定極限</li>
+							<li class="fragment">使用step屬性設定間距</li>
+							<li class="fragment">IE10以下不支援<small>IE不意外</small></li>
+						</ul>
+					</section>
+					<section>
+						<h2>input:range</h2>
+						<pre class="fragment"><code data-trim>
+音量&lt;input type="range" min="0" max="1" step="0.05"&gt;
+						</code></pre>
+						<p class="fragment">
+							音量
+							<input type="range" min="0" max="1" step="0.05">
+						</p>
+						<ul>
+							<li class="fragment">滑桿</li>
+							<li class="fragment">使用min與max屬性設定極限(預設0至100)</li>
+							<li class="fragment">使用step屬性設定間距(預設1)</li>
+							<li class="fragment">value屬性設定或輸出數值</li>
+							<li class="fragment">IE10以下不支援<small>又是IE</small></li>
+						</ul>
+					</section>
+					<section>
+						<h2>input:email</h2>
+						<pre class="fragment"><code data-trim>
+Email&lt;input type="email"&gt;
+						</code></pre>
+						<p>
+							<form action="" class="fragment">
+								Email
+								<input type="email">
+								<button type="submit">送出</button>
+							</form>
+						</p>
+						<ul>
+							<li class="fragment">電子郵件</li>
+							<li class="fragment">送出前瀏覽器自動驗證</li>
+							<li class="fragment">IE10以下或電腦板Safari不支援<small>IE...</small></li>
+						</ul>
+					</section>
+					<section>
+						<h2>input:url</h2>
+						<pre class="fragment"><code data-trim>
+網址&lt;input type="url"&gt;
+						</code></pre>
+						<p>
+							<form action="" class="fragment">
+								網址
+								<input type="url">
+								<button type="submit">送出</button>
+							</form></p>
+						<ul>
+							<li class="fragment">網址</li>
+							<li class="fragment">送出前瀏覽器自動驗證</li>
+							<li class="fragment">IE10以下或電腦板Safari不支援<small>還是IE</small></li>
+						</ul>
+					</section>
+					<section>
+						<h2>input:color</h2>
+						<pre class="fragment"><code data-trim>
+膚色&lt;input type="color"&gt;
+						</code></pre>
+						<p class="fragment">
+							膚色
+							<input type="color">
+						</p>
+						<ul>
+							<li class="fragment">選擇顏色</li>
+							<li class="fragment">傳回HEXRGB值(e.g.676af3)</li>
+							<li class="fragment">IE與Safari不支援<small>又是你們</small></li>
+						</ul>
+					</section>
+					<section>
+						<h2>input:date</h2>
+						<pre class="fragment"><code data-trim>
+生日&lt;input type="date"&gt;
+						</code></pre>
+						<p class="fragment">
+							生日
+							<input type="date">
+						</p>
+						<ul>
+							<li class="fragment">日期</li>
+							<li class="fragment">不同瀏覽器格式可能不同</li>
+							<li class="fragment">IE與Firefox不支援<small>火狐你也...</small></li>
+						</ul>
+					</section>
+					<section>
+						<h2>其他input</h2>
+						<a href="http://www.w3schools.com/tags/att_input_type.asp" target="_blank">W3C School Input種類列表</a>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<pre class="fragment"><code data-trim>
+&lt;fieldset&gt;
+	&lt;legend&gt;其他資料&lt;/legend&gt;
+	&lt;label for="email"&gt;電子郵件：&lt;/label&gt;
+	&lt;input type="email" id="email"&gt;&lt;br&gt;
+	&lt;label for="url"&gt;個人網站：&lt;/label&gt;
+	&lt;input type="url" id="url"&gt;&lt;br&gt;
+	&lt;label for="age"&gt;年齡：&lt;/label&gt;
+	&lt;input type="number" id="age" min="0" step="1"&gt;&lt;br&gt;
+	&lt;label for="birth"&gt;生日：&lt;/label&gt;
+	&lt;input type="date" id="birth"&gt;&lt;br&gt;
+	&lt;label for="color"&gt;膚色：&lt;/label&gt;
+	&lt;input type="color" id="color"&gt;&lt;br&gt;
+	&lt;label for="voice"&gt;音量：&lt;/label&gt;
+	&lt;input type="range" id="voice"&gt;
+&lt;/fieldset&gt;
+						</code></pre>
+						<p class="fragment">參考以上範例，加上報名表第三部分</p>
+						<a href="form4.html" class="fragment" target="_blank">Demo</a>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>&lt;textarea&gt;</h2>
+						<pre><code data-trim>
+&lt;textarea cols="50" rows="3"&gt;&lt;/textarea&gt;
+						</code></pre>
+						<p>
+							<textarea cols="50" rows="3"></textarea>
+						</p>
+						<ul>
+							<li class="fragment">文字方塊</li>
+							<li class="fragment">使用cols屬性設定寬多少個字</li>
+							<li class="fragment">使用rows屬性設定高幾行</li>
+							<li class="fragment">IE不能手動調整大小<small>好事還壞事呢..</small></li>
+						</ul>
+					</section>
+					<section>
+						<h2>&lt;select&gt;</h2>
+						<pre class="fragment"><code data-trim>
+選擇宵夜
+&lt;select&gt;
+	&lt;option value="lu"&gt;滷味&lt;/option&gt;
+	&lt;option value="gp"&gt;雞排&lt;/option&gt;
+	&lt;option value="df"&gt;臭豆腐&lt;/option&gt;
+&lt;/select&gt;
+						</code></pre>
+						<p class="fragment">
+							選擇宵夜
+							<select>
+								<option value="lu">滷味</option>
+								<option value="gp">雞排</option>
+								<option value="df">臭豆腐</option>
+							</select>
+						</p>
+						<ul>
+							<li class="fragment">下拉選單</li>
+							<li class="fragment">雙標籤主體</li>
+							<li class="fragment">使用size屬性設定單一頁顯示選項數量</li>
+						</ul>
+					</section>
+					<section>
+						<h2>&lt;option&gt;</h2>
+						<pre><code data-trim>
+選擇宵夜
+&lt;select&gt;
+	&lt;option value="lu"&gt;滷味&lt;/option&gt;
+	&lt;option value="gp"&gt;雞排&lt;/option&gt;
+	&lt;option value="df"&gt;臭豆腐&lt;/option&gt;
+&lt;/select&gt;
+						</code></pre>
+						<p>
+							選擇宵夜
+							<select>
+								<option value="lu">滷味</option>
+								<option value="gp">雞排</option>
+								<option value="df">臭豆腐</option>
+							</select>
+						</p>
+						<ul>
+							<li class="fragment">選項</li>
+							<li class="fragment">雙標籤，內容為顯示文字</li>
+							<li class="fragment">使用value屬性設定值</li>
+							<li class="fragment">使用selected屬性預設選取</li>
+						</ul>
+					</section>
+					<section>
+						<h2>&lt;optgroup&gt;</h2>
+						<pre><code data-trim>
+選擇宵夜
+&lt;select&gt;
+	&lt;optgroup label="滷味"&gt;
+		&lt;option value="luking"&gt;王牌滷味&lt;/option&gt;
+		&lt;option value="lubigtpi"&gt;大台北滷味&lt;/option&gt;
+		&lt;option value="lulight"&gt;燈籠滷味&lt;/option&gt;
+	&lt;/optgroup&gt;
+	&lt;option value="gp"&gt;雞排&lt;/option&gt;
+	&lt;option value="df"&gt;臭豆腐&lt;/option&gt;
+&lt;/select&gt;
+						</code></pre>
+						<p>
+							選擇宵夜
+							<select>
+								<optgroup label="滷味">
+									<option value="luking">王牌滷味</option>
+									<option value="lubigtpi">大台北滷味</option>
+									<option value="lulight">燈籠滷味</option>
+								</optgroup>
+								<option value="gp">雞排</option>
+								<option value="df">臭豆腐</option>
+							</select>
+						</p>
+						<ul>
+							<li class="fragment">選項群組</li>
+							<li class="fragment">雙標籤</li>
+							<li class="fragment">使用label屬性設定群組名稱</li>
+						</ul>
+					</section>
+					<section>
+						<h2>&lt;datalist&gt;</h2>
+						<pre><code data-trim>
+滷味：&lt;input type="text" list="food"&gt;
+&lt;datalist id="food"&gt;
+	&lt;option value="滷味"&gt;
+	&lt;option value="雞排"&gt;
+	&lt;option value="臭豆腐"&gt;
+&lt;/datalist&gt;
+						</code></pre>
+						<p>
+							滷味：<input type="text" list="food">
+							<datalist id="food">
+								<option value="滷味">
+								<option value="雞排">
+								<option value="臭豆腐">
+							</datalist>
+						</p>
+						<ul>
+							<li class="fragment">提示清單</li>
+							<li class="fragment">雙標籤</li>
+							<li class="fragment">在input元素設定list屬性指定</li>
+							<li class="fragment">使用單標籤的option元素</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<pre class="fragment"><code data-trim>
+&lt;fieldset&gt;
+	&lt;legend&gt;附錄&lt;/legend&gt;
+	&lt;label for="ps"&gt;備註：&lt;/label&gt;
+	&lt;textarea cols="50" rows="3" id="ps"&gt;&lt;/textarea&gt;&lt;br&gt;
+	&lt;label for="food"&gt;宵夜：&lt;/label&gt;
+	&lt;select id="food"&gt;
+		&lt;optgroup label="滷味"&gt;
+			&lt;option value="luking"&gt;王牌滷味&lt;/option&gt;
+			&lt;option value="lubigtpi"&gt;大台北滷味&lt;/option&gt;
+			&lt;option value="lulight"&gt;燈籠滷味&lt;/option&gt;
+		&lt;/optgroup&gt;
+		&lt;option value="gp"&gt;雞排&lt;/option&gt;
+		&lt;option value="df"&gt;臭豆腐&lt;/option&gt;
+	&lt;/select&gt;
+&lt;/fieldset&gt;
+						</code></pre>
+						<p class="fragment">參考以上範例，加上報名表第四部分</p>
+						<a href="form5.html" class="fragment" target="_blank">Demo</a>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>常用輸入通用屬性</h2>
+						<ul>
+							<li class="fragment">required</li>
+							<li class="fragment">readonly</li>
+							<li class="fragment">placeholder</li>
+							<li class="fragment">disabled</li>
+							<li class="fragment">maxlength</li>
+							<li class="fragment">autofocus</li>
+							<li class="fragment">autocomplete</li>
+							<li class="fragment">form</li>
+							<li class="fragment"><a href="http://www.w3schools.com/tags/tag_input.asp" target="_blank">其他屬性</a></li>
+						</ul>
+					</section>
+					<section>
+						<h2>required</h2>
+						<pre class="fragment"><code data-trim>
+&lt;input type="text" required&gt;
+						</code></pre>
+						<p>
+							<form action="" class="fragment">
+								<input type="text" required>
+								<button type="submit">送出</button>
+							</form>
+						</p>
+						<ul>
+							<li class="fragment">必填欄位</li>
+							<li class="fragment">瀏覽器在送出前檢查</li>
+							<li class="fragment">IE10以下和Safari不支援<small>還是你們...</small></li>
+						</ul>
+					</section>
+					<section>
+						<h2>readonly</h2>
+						<pre class="fragment"><code data-trim>
+&lt;input type="text" value="Change me if you can" readonly&gt;
+						</code></pre>
+						<p class="fragment">
+							<input type="text" value="Change me if you can" readonly>
+						</p>
+						<ul>
+							<li class="fragment">唯讀欄位</li>
+							<li class="fragment">可透過JS修改值</li>
+							<li class="fragment">IE6以下不支援<small>這就沒差了</small></li>
+						</ul>
+					</section>
+					<section>
+						<h2>placeholder</h2>
+						<pre class="fragment"><code data-trim>
+&lt;input type="text" placeholder="輸入一種滷味"&gt;
+						</code></pre>
+						<p class="fragment">
+							<input type="text" placeholder="輸入一種滷味">
+						</p>
+						<ul>
+							<li class="fragment">輸入提示</li>
+							<li class="fragment">IE10以下不支援<small>毫無反應，就是個IE</small></li>
+						</ul>
+					</section>
+					<section>
+						<h2>disabled</h2>
+						<pre class="fragment"><code data-trim>
+&lt;input type="text" disabled&gt;
+						</code></pre>
+						<p class="fragment">
+							<input type="text" disabled>
+						</p>
+						<ul>
+							<li class="fragment"><del>這是禁止事項</del></li>
+							<li class="fragment">禁止控制項</li>
+							<li class="fragment">設定disabled屬性後該欄位不會送出</li>
+						</ul>
+					</section>
+					<section>
+						<h2>maxlength</h2>
+						<pre class="fragment"><code data-trim>
+&lt;input type="text" maxlength="3"&gt;
+						</code></pre>
+						<p class="fragment">
+							<input type="text" maxlength="3">
+						</p>
+						<ul>
+							<li class="fragment">設定字元最大長度</li>
+							<li class="fragment">以unicode字元計算而非位元</li>
+						</ul>
+					</section>
+					<section>
+						<h2>autofocus</h2>
+						<pre><code data-trim>
+&lt;input type="text" autofocus&gt;
+						</code></pre>
+						<p>
+							<input type="text" autofocus>
+						</p>
+						<ul>
+							<li class="fragment">自動鎖定控制項</li>
+							<li class="fragment">IE10以下不支援<small>嘛...</small></li>
+						</ul>
+					</section>
+					<section>
+						<h2>autocomplete</h2>
+						<pre class="fragment"><code data-trim>
+&lt;input type="text" autocomplete="off"&gt;
+						</code></pre>
+						<ul>
+							<li class="fragment">開啟或關閉自動完成(on/off)</li>
+							<li class="fragment">預設開啟</li>
+							<li class="fragment">瀏覽器設定優先</li>
+						</ul>
+					</section>
+					<section>
+						<h2>form</h2>
+						<pre class="fragment"><code data-trim>
+&lt;form id="form1"&gt;&lt;/form&gt;
+&lt;input type="text" form="form1"&gt;
+						</code></pre>
+						<ul>
+							<li class="fragment">指定form元素的id</li>
+							<li class="fragment">當該表單送出時一起送出</li>
+							<li class="fragment">IE不支援<small>畢竟是IE嘛(笑)</small></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<p class="fragment">使報名表欄位設定更完整，包含必填欄位、欄位提示等</p>
+						<a href="form6.html" target="_blank" class="fragment">Demo</a>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Output</h2>
+						<ul>
+							<li class="fragment">JS <a href="javascript:alert('!');">alert</a></li>
+							<li class="fragment">任意元素</li>
+							<li class="fragment">&lt;output&gt;</li>
+							<li class="fragment">&lt;meter&gt;</li>
+							<li class="fragment">&lt;progress&gt;</li>
+						</ul>
+					</section>
+					<section>
+						<h2>&lt;output&gt;</h2>
+						<pre class="fragment"><code data-trim>
+&lt;output&gt;&lt;/output&gt;
+						</code></pre>
+						<ul>
+							<li class="fragment">一般文字顯示</li>
+							<li class="fragment">與JS搭配使用</li>
+							<li class="fragment">使用for屬性設定與其他控制項關連</li>
+							<li class="fragment"><a href="http://www.w3schools.com/tags/tag_output.asp" target="_blank">W3C School output tag</a></li>
+						</ul>
+					</section>
+					<section>
+						<h2>&lt;meter&gt;</h2>
+						<pre class="fragment"><code data-trim>
+&lt;meter value="0.7"&gt;&lt;/meter&gt;
+&lt;meter value="37" min="0" max="100"&gt;&lt;/meter&gt;
+&lt;meter value="37" min="-30" max="50" low="0" high="30" optimum="-22"&gt;&lt;/meter&gt;
+						</code></pre>
+						<p class="fragment">
+							<meter value="0.7"></meter>
+							<meter value="37" min="0" max="100"></meter>
+							<meter value="37" min="-30" max="50" low="0" high="30" optimum="-22"></meter>
+						</p>
+						<ul>
+							<li class="fragment">表示測量數值(整數/小數)</li>
+							<li class="fragment">使用value屬性設定值(預設0)</li>
+							<li class="fragment">使用min/max設定最小/最大值(預設0/1)</li>
+							<li class="fragment">使用low/high設定低/高分界(預設等於min/max)</li>
+							<li class="fragment">min/low/high/max區分出三個區塊</li>
+							<li class="fragment">使用optimum設定理想數值區塊(值所在區塊)</li>
+							<li class="fragment">值依照理想區塊距離呈現不同顏色(綠/黃/紅)</li>
+							<li class="fragment">IE不支援<small>反正就是個IE</small></li>
+						</ul>
+					</section>
+					<section>
+						<h2>&lt;progress&gt;</h2>
+						<pre class="fragment"><code data-trim>
+&lt;progress&gt;&lt;/progress&gt;
+&lt;progress value="0.5" max="3.5"&gt;&lt;/progress&gt;
+						</code></pre>
+						<p class="fragment">
+							<progress></progress>
+							<progress value="0.5" max="3.5"></progress>
+						</p>
+						<ul>
+							<li class="fragment">進度條</li>
+							<li class="fragment">使用value屬性設定進度(空值為0)</li>
+							<li class="fragment">使用max屬性設定最大值(預設1)</li>
+							<li class="fragment">常搭配JS進度使用</li>
+							<li class="fragment">不設定value屬性時chrome與IE為執行中狀態</li>
+							<li class="fragment">不設定value屬性時Firefox為max，Opera為0</li>
+							<li class="fragment">IE10以下不支援<small>IE雷，雷IE</small></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<pre class="fragment"><code data-trim>
+&lt;h3&gt;測量結果&lt;/h3&gt;
+氣溫：
+&lt;meter value="14" min="0" max="100" low="15" high="25" optimum="20"&gt;&lt;/meter&gt;
+測量進度：
+&lt;progress value="2" max="7"&gt;&lt;/progress&gt;
+						</code></pre>
+						<p class="fragment">參考以上範例，在網頁中使用輸出元素</p>
+						<a href="output.html" class="fragment" target="_blank">Demo</a>
+					</section>
+				</section>
+				<section>
+					<h2>Practice</h2>
+					<p class="fragment">建立一個個人網頁，並符合以下條件：</p>
+					<ul>
+						<li class="fragment">自我介紹</li>
+						<li class="fragment">個人資訊</li>
+						<li class="fragment">插圖</li>
+						<li class="fragment">背景音樂</li>
+						<li class="fragment">超連結</li>
+						<li class="fragment">其他內容</li>
+						<li class="fragment">符合HTML5語意</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../plugin/zoom-js/zoom.js', async: true },
+					{ src: '../plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+	</body>
+</html>
