@@ -20,7 +20,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="../css/reveal.css">
-		<link rel="stylesheet" href="../css/theme/sky.css" id="theme">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
 
 		<link rel="stylesheet" href="../lib/css/zenburn.css">
 
@@ -81,7 +81,7 @@
 					<h2>2進位</h2>
 					<p class="fragment">電腦使用的基本進位法</p>
 					<p class="fragment">可用符號：0,1</p>
-					<p class="fragment">前綴字：0b</p>
+					<p class="fragment">前綴字：0b,0B</p>
 					<p class="fragment">0b11010010</p>
 					<p class="fragment">1x2<sup>7</sup>+1x2<sup>6</sup>+1x2<sup>4</sup>+1x2<sup>1</sup></p>
 				</section>
@@ -110,7 +110,7 @@
 					<p class="fragment">0xDEADFACE</p>
 					<p class="fragment">
 						13x16<sup>7</sup>+14x16<sup>6</sup>+10x16<sup>5</sup>+13x16<sup>4</sup>+
-						15x16<sup>3</sup>+10x16<sup>2</sup>+12x16<sup>1</sup>+14x16<sup>0</sup>+
+						15x16<sup>3</sup>+10x16<sup>2</sup>+12x16<sup>1</sup>+14x16<sup>0</sup>
 					</p>
 				</section>
 				
@@ -133,7 +133,7 @@
 					<h2>有號整數</h2>
 					<p class="fragment">使用2的補數</p>
 					<p class="fragment">有1,2,4,8位元組的整數實作</p>
-					<p class="fragment">數字範圍：-2<sup>位元數</sup>~+2<sup>位元數</sup>-1</p>
+					<p class="fragment">數字範圍：-2<sup>(位元數-1)</sup>~2<sup>(位元數-1)</sup>-1</p>
 					<p class="fragment">大部份的語言實作有號整數的方法</p>
 				</section>
 				
@@ -141,7 +141,7 @@
 					<h2>無號整數</h2>
 					<p class="fragment">直接表達該數字</p>
 					<p class="fragment">有1,2,4,8位元組的整數實作</p>
-					<p class="fragment">數字範圍：0~+2<sup>位元數</sup></p>
+					<p class="fragment">數字範圍：0~2<sup>位元數</sup>-1</p>
 					<p class="fragment"><del>沒有負號，非常正向</del></p>
 				</section>
 				
@@ -166,7 +166,9 @@
 					<p class="fragment">使用IEEE754雙精度64位元浮點數作為實作</p>
 					<table class="fragment" style="border: solid 1px">
 						<tr>
-							<th>符號</th><th>指數</th><th>尾數</th>
+							<th style="background-color: #CCCCCC">符號</th>
+							<th style="background-color: #CCCCCC">指數</th>
+							<th style="background-color: #CCCCCC">尾數</th>
 						</tr>
 						<tr>
 							<td style="background-color: #CCFF66">1</td>
@@ -336,7 +338,7 @@
 					<h2>且</h2>
 					<h3 class="fragment" style="font-family: 'consolas','Ubuntu Mono'">&amp;</h3>
 					<p class="fragment">0b1100&amp;0b1010</p>
-					<p class="fragment">2147483648&amp;1</p>
+					<p class="fragment">2147483648&amp;0x80000000</p>
 					<p class="fragment"><del>絕對不是BUG，這是功能</del></p>
 				</section>
 				
@@ -370,8 +372,8 @@
 					<h3 class="fragment" style="font-family: 'consolas','Ubuntu Mono'">&gt;&gt;</h3>
 					<p class="fragment">將位元向右移動並維持符號</p>
 					<p class="fragment">相當於整數除法除以2</p>
-					<p class="fragment">0x-FF1111&gt;&gt;16</p>
-					<p class="fragment">0x-FF0000&gt;&gt;16</p>
+					<p class="fragment">-0xFF1111&gt;&gt;16</p>
+					<p class="fragment">-0xFF0000&gt;&gt;16</p>
 					<p class="fragment">對於負數的計算要小心</p>
 				</section>
 				
@@ -488,7 +490,7 @@
 				
 				<section>
 					<h2>反向</h2>
-					<table>
+					<table style="background-color: #DDDDDD">
 						<tr>
 							<th>~</th><th>1</th><th>0</th>
 						</tr>
@@ -506,7 +508,7 @@
 				
 				<section>
 					<h2>且(&amp;&amp;)</h2>
-					<table style="border: solid 1px">
+					<table style="border: solid 1px;background-color: #EEDDDD">
 						<tr>
 							<th>&amp;&amp;</th><th>1</th><th>0</th>
 						</tr>
@@ -521,7 +523,7 @@
 				
 				<section>
 					<h2>或(||)</h2>
-					<table style="border: solid 2px">
+					<table style="border: solid 2px;background-color: #DDEEDD">
 						<tr>
 							<th>||</th><th>1</th><th>0</th>
 						</tr>
@@ -536,7 +538,7 @@
 				
 				<section>
 					<h2>互斥或(^)</h2>
-					<table style="border: solid 2px">
+					<table style="border: solid 2px;background-color: #DDDDEE">
 						<tr>
 							<th>^</th><th>1</th><th>0</th>
 						</tr>
