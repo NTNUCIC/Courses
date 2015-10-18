@@ -222,6 +222,45 @@ else{console.log("Not A Number")}
 				</section>
 				
 				<section>
+					<h2>switch語法介紹</h2>
+					<p class="fragment">
+							switch(<span style="color: #CCCCAA">expr</span>){<br>
+							case&nbsp;<span style="color: #FF0000">valA</span>:&nbsp;<span style="color: #FFAAAA">stateA</span>;break;<br>
+							case&nbsp;<span style="color: #00FF00">valB</span>:&nbsp;<span style="color: #AAFFAA">stateB</span>;break;<br>
+							default:&nbsp;<span style="color: #AAAAFF">stateC</span><br>
+						}
+					</p>
+				</section>
+				
+				<section>
+					<h2>switch語法說明</h2>
+					<p class="fragment">使用展開式(<span style="color: #CCCCAA">expr</span>)的值作為比較標準</p>
+					<p class="fragment">若展開式(<span style="color: #CCCCAA">expr</span>)和值A(<span style="color: #FF0000">valA</span>)符合則執行敘述A(<span style="color: #FFAAAA">stateA</span>)</p>
+					<p class="fragment">若展開式(<span style="color: #CCCCAA">expr</span>)和值B(<span style="color: #00FF00">valB</span>)符合則執行敘述B(<span style="color: #AAFFAA">stateB</span>)</p>
+					<p class="fragment">若以上都不符合則執行敘述C(<span style="color: #AAAAFF">stateC</span>)</p>
+				</section>
+				
+				<section>
+					<h2></h2>
+					<pre><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+var klass="fighter"
+switch(klass){
+	case "fighter":
+		console.log("I use swords and shields.")
+		break;
+	case "archer":
+		console.log("I use bows or crossbows.")
+		break;
+	case "mage"
+	case "cleric"
+		console.log("We use staffs.")
+		break;
+	default:
+		console.log("we use our hands.")
+}
+					</code></pre>
+				</section>
+				<section>
 					<h2>條件運算子</h2>
 				</section>
 				
