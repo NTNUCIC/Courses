@@ -241,25 +241,138 @@ else{console.log("Not A Number")}
 				</section>
 				
 				<section>
-					<h2></h2>
+					<h2>執行敘述A</h2>
 					<pre><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
 var klass="fighter"
 switch(klass){
 	case "fighter":
-		console.log("I use swords and shields.")
+		console.log("I use swords.")
 		break;
 	case "archer":
-		console.log("I use bows or crossbows.")
+		console.log("I use crossbows.")
 		break;
-	case "mage"
-	case "cleric"
+	case "mage":
+	case "cleric":
 		console.log("We use staffs.")
 		break;
 	default:
 		console.log("we use our hands.")
-}
+}//=>I use swords.
 					</code></pre>
 				</section>
+				
+				<section>
+					<h2>執行敘述B</h2>
+					<pre><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+var klass="archer"
+switch(klass){
+	case "fighter":
+		console.log("I use swords.")
+		break;
+	case "archer":
+		console.log("I use crossbows.")
+		break;
+	case "mage":
+	case "cleric":
+		console.log("We use staffs.")
+		break;
+	default:
+		console.log("we use our hands.")
+}//=>I use crossbows.
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>執行敘述C</h2>
+					<pre><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+var klass="mage"
+switch(klass){
+	case "fighter":
+		console.log("I use swords.")
+		break;
+	case "archer":
+		console.log("I use crossbows.")
+		break;
+	case "mage":
+	case "cleric":
+		console.log("We use staffs.")
+		break;
+	default:
+		console.log("we use our hands.")
+}//=>"We use staffs.
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>執行敘述C</h2>
+					<pre><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+var klass="cleric"
+switch(klass){
+	case "fighter":
+		console.log("I use swords.")
+		break;
+	case "archer":
+		console.log("I use crossbows.")
+		break;
+	case "mage":
+	case "cleric":
+		console.log("We use staffs.")
+		break;
+	default:
+		console.log("we use our hands.")
+}//=>"We use staffs.
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>switch的執行順序</h2>
+					<p class="fragment">由上而下開始比較</p>
+					<p class="fragment">當比較到之後直到break才會結束執行</p>
+				</section>
+				
+				<section>
+					<h2>連續執行</h2>
+					<pre><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+var v=100
+switch(typeof(v)){
+	case "object":
+		console.log("Object")
+	case "number":
+		console.log("Number")
+	case "boolean":
+		console.log("Boolean")
+	default:
+		console.log("Other")
+}//=>Number Boolean Other
+				</section>
+				
+				<section>
+					<h2>switch中的break</h2>
+					<p class="fragment">停止目前執行的敘述</p>
+					<p class="fragment">記得在指定條件執行完後要加上去</p>
+				</section>
+				
+				<section>
+					<h2>執行預設敘述</h2>
+					<pre><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+var klass="assassin"
+switch(klass){
+	case "fighter":
+		console.log("I use swords.")
+		break;
+	case "archer":
+		console.log("I use crossbows.")
+		break;
+	case "mage":
+	case "cleric":
+		console.log("We use staffs.")
+		break;
+	default:
+		console.log("we use our hands.")
+}//we use our hands.
+					</code></pre>
+				</section>
+				
 				<section>
 					<h2>條件運算子</h2>
 				</section>
