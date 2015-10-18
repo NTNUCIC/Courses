@@ -53,6 +53,7 @@
 				<p class="fragment">流程控制</p>
 				<p class="fragment">選擇結構</p>
 				<p class="fragment">重複結構</p>
+				<p class="fragment">流程控制</p>
 			</section>
 			
 			<section>
@@ -73,13 +74,146 @@
 				</section>
 				
 				<section>
+					<h2>if介紹</h2>
+					<p class="fragment">if(<span style="color: #FF0000">cond</span>){<span style="color: #00FF00">statement</span>}</p>
+					<p class="fragment">若條件(<span style="color: #FF0000">cond</span>)為真則執行敘述(<span style="color: #00FF00">statement</span>)</p>
+					<p class="fragment">最簡單的分支語法</p>
+					<p class="fragment"><del>條件分歧</del></p>
+				</section>
+				
+				<section>
+					<h2>有執行</h2>
+					<pre><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+var nb="MVCBOOK POOR"
+if(nb==="MVCBOOK POOR"){
+	console.log("FAKE!!!")
+}
+//=>FAKE!!!
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>沒有執行</h2>
+					<pre><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+var nb="MACBOOK PRO"
+if(nb==="MVCBOOK POOR"){
+	console.log("FAKE!!!")
+}
+//=>
+					</code></pre>
+				</section>
+				
+				<section>
 					<h2>if-else</h2>
 					<img src="./if-else.png" class="fragment" style="padding: 10px;">
 				</section>
 				
 				<section>
+					<h2>if-else介紹</h2>
+					<p class="fragment">
+						if(<span style="color: #FF0000">cond</span>){<span style="color: #00FF00">stateT</span>}else{<span style="color: #0000FF">stateF</span>}
+					</p>
+					<p class="fragment">若條件(<span style="color: #FF0000">cond</span>)為真則執行敘述T(<span style="color: #00FF00">stateT</span>)</p>
+					<p class="fragment">若條件(<span style="color: #FF0000">cond</span>)不成立則執行敘述F(<span style="color: #0000FF">stateF</span>)</p>
+					<p class="fragment">絕對的二分法</p>
+				</section>
+				
+				<section>
+					<h2>if條件符合</h2>
+					<pre><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+var race="cat"
+if(race==="cat"){
+	console.log("nekomimi is good!!")
+}
+else{
+	console.log("other ears are not so good...")
+}
+//=>nekomimi is good!!
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>else條件不符</h2>
+					<pre><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+var race="elf"
+if(race==="cat"){
+	console.log("nekomimi is good!!")
+}
+else{
+	console.log("other ears are not so good...")
+}
+//=>other ears are not so good...
+					</code></pre>
+				</section>
+				
+				<section>
 					<h2>if-else if-else</h2>
 					<img src="./if-elsif-else.png" class="fragment" style="padding: 10px;">
+				</section>
+				
+				<section>
+					<h2>連續if-else介紹</h2>
+					<p class="fragment">
+						if(<span  style="color: #FF0000">condA</span>){<span  style="color: #FFAAAA">stateA</span>}<br>
+						else&nbsp;if(<span  style="color: #00FF00">condB</span>){<span style="color: #AAFFAA">stateB</span>}<br>
+						else{<span  style="color: #AAAAFF">stateC</span>}</p>
+					<p class="fragment">若條件A(<span  style="color: #FF0000">condA</span>)成立則執行敘述A(<span  style="color: #FFAAAA">stateA</span>)</p>
+					<p class="fragment">否則若條件B(<span  style="color: #00FF00">condB</span>)成立則執行敘述B(<span style="color: #AAFFAA">stateB</span>)</p>
+					<p class="fragment">都不符則執行敘述C(<span  style="color: #AAAAFF">stateC</span>)</p>
+				</section>
+				
+				<section>
+					<h2>多種不同條件</h2>
+					<p class="fragment">中間的else&nbsp;if可以有很多個</p>
+					<p class="fragment">想寫幾個就寫幾個</p>
+				</section>
+				
+				<section>
+					<h2>執行敘述A</h2>
+					<pre><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+var num=1
+if(num&gt;0){console.log("positive")}
+else if(num&lt;0){console.log("negative")}
+else if(num==0){console.log("egg")}
+else{console.log("Not A Number")}
+//=>positive
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>執行敘述B</h2>
+					<pre><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+var num=-1
+if(num&gt;0){console.log("positive")}
+else if(num&lt;0){console.log("negative")}
+else if(num==0){console.log("egg")}
+else{console.log("Not A Number")}
+//=>negative
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>執行敘述C</h2>
+					<pre><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+var num=0
+if(num&gt;0){console.log("positive")}
+else if(num&lt;0){console.log("negative")}
+else if(num==0){console.log("egg")}
+else{console.log("Not A Number")}
+//=>egg
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>執行else敘述</h2>
+					<pre><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+var num=NaN
+if(num&gt;0){console.log("positive")}
+else if(num&lt;0){console.log("negative")}
+else if(num==0){console.log("egg")}
+else{console.log("Not A Number")}
+//=>Not A Number
+					</code></pre>
 				</section>
 				
 				<section>
