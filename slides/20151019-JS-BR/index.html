@@ -344,6 +344,7 @@ switch(typeof(v)){
 	default:
 		console.log("Other")
 }//=>Number Boolean Other
+					</code></pre>
 				</section>
 				
 				<section>
@@ -375,10 +376,81 @@ switch(klass){
 				
 				<section>
 					<h2>條件運算子</h2>
+					<p class="fragment">(<span style="color: #FF0000">cond</span>)?(<span style="color: #00FF00">stateT</span>):(<span style="color: #0000FF">stateF</span>)</p>
+					<p class="fragment">迷你版的if-else</p>
+					<p class="fragment">依照條件(<span style="color: #FF0000">cond</span>)決定要執行敘述T(<span style="color: #00FF00">stateT</span>)還是敘述F(<span style="color: #0000FF">stateF</span>)</p>
+					<p class="fragment">請謹慎使用避免破壞可讀性</p>
 				</section>
 				
 				<section>
 					<h2>選擇結構與邏輯運算子</h2>
+					<p class="fragment">需要很多條件判斷時要寫很多if-else嗎?</p>
+					<p class="fragment">大家記得反(!)、且(&amp;&amp;)、或(||)和互斥或(^)嗎?</p>
+					<p class="fragment">利用邏輯運算子可以減少多餘的if-else</p>
+				</section>
+				
+				<section>
+					<h2>使用且(&amp;&amp;)之前</h2>
+					<pre><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+var num=100
+if(num&gt;=0){
+	if(num&lt;=999){
+		console.log("between 0 and 999")
+	}
+}//=>between 0 and 999
+					</code></pre>
+					<p class="fragment">有沒有更好的寫法呢?</p>
+				</section>
+				
+				<section>
+					<h2>使用且(&amp;&amp;)之後</h2>
+					<pre><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+var num=100
+if(num&gt;=0&amp;&amp;num&lt;=999){
+	console.log("between 0 and 999")
+}//=>between 0 and 999
+					</code></pre>
+					<p class="fragment">結果一樣但是更加精簡</p>
+				</section>
+				
+				<section>
+					<h2>使用或(||)之前</h2>
+					<pre><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+var num=Infinity
+if(num&lt;=0){
+	console.log("outside 0 and 999")
+}
+else if(num&gt;=999){
+	console.log("outside 0 and 999")
+}//=>console.log("outside 0 and 999")
+					</code></pre>
+					<p class="fragment">結果一樣的東西要複製貼上很不方便</p>
+					<p class="fragment">有沒有可能修改忘了一起改?</p>
+				</section>
+				
+				<section>
+					<h2>使用或(||)之後</h2>
+					<pre><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+var num=Infinity
+if(num&lt;=0||num&gt;=999){
+	console.log("outside 0 and 999")
+}//=>console.log("outside 0 and 999")
+					</code></pre>
+					<p class="fragment">再也不需要複製貼上</p>
+					<p class="fragment">只要改一個地方就好</p>
+				</section>
+				
+				<section>
+					<h2>國王的程式碼</h2>
+					<p class="fragment">有些程式碼就是不會被執行</p>
+					<pre><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+var num=Infinity
+if(num&lt;=0&amp;&amp;num&gt;=999){
+	console.log("outside 0 and 999")
+}
+					</code></pre>
+					<p class="fragment">仔細看看就會發現哪有可能跑起來呢</p>
+					<p class="fragment">使用前請先腦中小劇場練習一下</p>
 				</section>
 			</section>
 			
