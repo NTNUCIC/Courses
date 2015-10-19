@@ -50,10 +50,8 @@
 			
 			<section>
 				<h2>今日重點</h2>
-				<p class="fragment">流程控制</p>
 				<p class="fragment">選擇結構</p>
 				<p class="fragment">重複結構</p>
-				<p class="fragment">流程控制</p>
 			</section>
 			
 			<section>
@@ -459,6 +457,12 @@ if(num&lt;=0&amp;&amp;num&gt;=999){
 					<p class="fragment">仔細看看就會發現哪有可能跑起來呢</p>
 					<p class="fragment">使用前請先腦中小劇場練習一下</p>
 				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">除了依照條件執行一次還有別的嗎?</p>
+					<p class="fragment">可不可以執行N次敘述呢?</p>
+				</section>
 			</section>
 			
 			<section>
@@ -558,10 +562,142 @@ do{
 				
 				<section>
 					<h2>for</h2>
-					<img src="./for.png"  class="fragment" style="padding: 10px;">
+					<img src="./for.png" class="fragment" style="padding: 10px;">
 				</section>
 				
+				<section>
+					<h2>for介紹</h2>
+					<p class="fragment">for(<span style="color: #0000FF">init</span>;<span style="color: #FF0000">cond</span>;<span style="color: #00FF00">routine</span>){<span style="color: #00FFFF">statement</span>}</p>
+					<p class="fragment">執行一次初始化(<span style="color: #0000FF">init</span>)</p>
+					<p class="fragment">判斷條件(<span style="color: #FF0000">cond</span>)為真則執行敘述(<span style="color: #00FFFF">statement</span>)</p>
+					<p class="fragment">接著執行既定事項(<span style="color: #00FF00">routine</span>)後回頭重新判斷條件(<span style="color: #FF0000">cond</span>)</p>
+				</section>
+
+				<section>
+					<h2>陣列操作</h2>
+					<p class="fragment">可以把陣列的內容依序讀出來</p>
+					<pre class="fragment"><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+var arr=[4004,8008,8086,8087,5566]
+for(var i=0;i&lt;=5;i++){
+	console.log(arr[i])
+}
+//=>4004 8008 8086 8087 5566
+					</code></pre>
+				</section>
 				
+				<section>
+					<h2>for階層</h2>
+					<p class="fragment">for迴圈也可以做階層</p>
+					<pre class="fragment"><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+var result=1
+for(var i=1;i&lt;=5;i++){
+	result*=i
+}
+console.log(result)//=>120
+					</code></pre>
+					<p class="fragment">for迴圈就是個把東西寫在一起的while</p>
+				</section>
+				
+				<section>
+					<h2>for-in</h2>
+					<p class="fragment">這個東西好像沒有圖耶?</p>
+					<p class="fragment">對於Object或是Array的操作可以用這個</p>
+					<p class="fragment">for(<span style="color: #FF0000">prop</span> in <span style="color: #0000FF">obejct</span>){<span style="color: #00FF00">statement</span>}</p>
+					<p class="fragment">代入物件(<span style="color: #0000FF">obejct</span>)的索引(<span style="color: #FF0000">prop</span>)並執行敘述(<span style="color: #00FF00">statement</span>)</p>
+				</section>
+				
+				<section>
+					<h2>操作陣列</h2>
+					<pre class="fragment"><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+var arr=["catear","dogear","wolfear","foxear"]
+for(idx in arr){
+	console.log(arr[idx])
+}//=>catear dogear wolfear foxear
+					</code></pre>
+					<p class="fragment">雖然看來是循序但其實不保證執行的順序</p>
+				</section>
+				
+				<section>
+					<h2>操作物件</h2>
+					<p class="fragment">不保證執行的順序</p>
+					<pre class="fragment"><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+var obj={"win95":1995,"win98":1998,"winXP":2001}
+for(key in obj){
+	console.log("%s@%d",key,obj[key])
+}//=>win95@1995 win98@1998 winXP@2001
+					</code></pre>
+					<p class="fragment">記得取得的是索引，要自己去取對應值</p>
+				</section>
+				
+				<section>
+					<h2>巢狀迴圈</h2>
+					<p class="fragment">在迴圈裏面還有迴圈</p>
+					<p class="fragment">比較複雜要謹慎使用</p>
+				</section>
+				
+				<section>
+					<h2>九九乘法表</h2>
+					<p class="fragment">為了方便示範我們用三三乘法表</p>
+					<pre class="fragment"><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+for(var i=1;i&lt;=3;i++){
+	for(var j=1;j&lt;=3;j++){
+		console.log("%dx%d=%d",i,j,i*j)
+	}
+}
+					</code></pre>
+					<p class="fragment">各位觀察一下i和j的變化</p>
+				</section>
+				
+				<section>
+					<h2>畫星星</h2>
+					<p class="fragment">利用巢狀迴圈畫星星...</p>
+					<p class="fragment"><del>頭上都是星星</del></p>
+				</section>
+				
+				<section>
+					<h2>迴圈控制</h2>
+					<p class="fragment">可以改變迴圈執行的流程</p>
+					<p class="fragment">break和continue</p>
+				</section>
+				
+				<section>
+					<h2>break介紹</h2>
+					<p class="fragment">大家是否記得switch中有用到?</p>
+					<p class="fragment">用來中斷目前執行的敘述</p>
+				</section>
+				
+				<section>
+					<h2>break使用</h2>
+					<pre class="fragment"><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+for(var count=0;true;count++){
+	console.log("before")
+	if(count===2){break;}
+	console.log("after")
+}
+					</code></pre>
+				</section>
+					
+				<section>
+					<h2>continue介紹</h2>
+					<p class="fragment">這個之前就沒有用到了</p>
+					<p class="fragment">可以忽略後方的敘述前往下次的迴圈判斷</p>
+				</section>
+					
+				<section>
+					<h2>continue使用</h2>
+					<pre class="fragment"><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+for(var i=0;i&lt;=10;i++){
+	if(i%2==1){continue;}
+	console.log("%d is an even",i)
+}
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>迴圈控制</h2>
+					<p class="fragment">要改變迴圈的執行可以使用</p>
+					<p class="fragment">但是不能用在不是迴圈或switch的地方</p>
+				</section>
 			</section>
 			
 			<section>
