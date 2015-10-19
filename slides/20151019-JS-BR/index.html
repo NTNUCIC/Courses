@@ -63,6 +63,13 @@
 				
 				<section>
 					<h2>選擇結構</h2>
+					<p class="fragment">有些程式碼只想要在特定時候執行</p>
+					<p class="fragment"><del>程式都往下執行，電子學讀不完了怎麼辦</del></p>
+					<p class="fragment">需要使用選擇結構改變程式運行的流程</p>
+				</section>
+				
+				<section>
+					<h2>選擇結構</h2>
 					<p class="fragment">if</p>
 					<p class="fragment">switch</p>
 					<p class="fragment">條件運算子</p>
@@ -385,7 +392,7 @@ switch(klass){
 				<section>
 					<h2>選擇結構與邏輯運算子</h2>
 					<p class="fragment">需要很多條件判斷時要寫很多if-else嗎?</p>
-					<p class="fragment">大家記得反(!)、且(&amp;&amp;)、或(||)和互斥或(^)嗎?</p>
+					<p class="fragment">大家記得且(&amp;&amp;)和或(||)嗎?</p>
 					<p class="fragment">利用邏輯運算子可以減少多餘的if-else</p>
 				</section>
 				
@@ -461,15 +468,16 @@ if(num&lt;=0&amp;&amp;num&gt;=999){
 				
 				<section>
 					<h2>重複結構</h2>
-					<p class="fragment">for</p>
-					<p class="fragment">for-in</p>
-					<p class="fragment">while</p>
-					<p class="fragment">do-while</p>
+					<p class="fragment">有些事情想要做很多次</p>
+					<p class="fragment"><del>那就複製貼上啊誰不會???</del></p>
+					<p class="fragment">所以需要使用又稱"迴圈"的重複結構來操作</p>
 				</section>
 				
 				<section>
-					<h2>for</h2>
-					<img src="./for.png"  class="fragment" style="padding: 10px;">
+					<h2>重複結構</h2>
+					<p class="fragment">while</p>
+					<p class="fragment">do-while</p>
+					<p class="fragment">for</p>
 				</section>
 				
 				<section>
@@ -478,9 +486,82 @@ if(num&lt;=0&amp;&amp;num&gt;=999){
 				</section>
 				
 				<section>
+					<h2>while介紹</h2>
+					<p class="fragment">while(<span style="color: #FF0000">cond</span>){<span style="color: #00FF00">statement</span>}</p>
+					<p class="fragment">條件(<span style="color: #FF0000">cond</span>)為真則執行敘述(<span style="color: #00FF00">statement</span>)並會再次判斷</p>
+					<p class="fragment">想像成會自動從頭開始的if</p>
+				</section>
+				
+				<section>
+					<h2>等差級數</h2>
+					<p class="fragment">從1加到100</p>
+					<pre><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+var count=1,sum=0
+while(count&lt;=100){
+	sum+=count
+	count++
+}
+console.log(sum)//=>5050
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>階層</h2>
+					<p class="fragment">1*2*3*4*5*6</p>
+					<pre><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+var count=result=1
+while(count&lt;=6){
+	result*=count
+	count+=1
+}
+console.log(result)//=>120
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>無限迴圈</h2>
+					<p class="fragment">請不要執行以下的程式碼</p>
+					<pre><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+while(true){
+	console.log("Q_Q")
+}
+					</code></pre>
+					<p class="fragment">中止條件無法成立的迴圈</p>
+				</section>
+				
+				<section>
 					<h2>do-while</h2>
 					<img src="./do-while.png"  class="fragment" style="padding: 10px;">
 				</section>
+				
+				<section>
+					<h2>do-while介紹</h2>
+					<p class="fragment">do{<span style="color: #00FF00">statement</span>}while(<span style="color: #FF0000">cond</span>)</p>
+					<p class="fragment">執行敘述(<span style="color: #00FF00">statement</span>)後判斷條件(<span style="color: #FF0000">cond</span>)為真則重來</p>
+					<p class="fragment">想成不論如何都會先執行一次內容的while</p>
+				</section>
+				
+				<section>
+					<h2>while與do-while的比較</h2>
+					<pre><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+while(false){
+	console.log("execute")
+}//=>
+					</code></pre>
+					<pre><code data-trim style="font-family:'consolas','ubuntu mono';font-size: 32px;">
+do{
+	console.log("execute")
+}while(false)//=>execute
+					</code></pre>
+					<p class="fragment">除了這點不同其他都一樣</p>
+				</section>
+				
+				<section>
+					<h2>for</h2>
+					<img src="./for.png"  class="fragment" style="padding: 10px;">
+				</section>
+				
+				
 			</section>
 			
 			<section>
