@@ -208,7 +208,7 @@ int call(int a, int b, int (*func)(int a,int b)){
 int main(){
     printf("%d",call(100,200,add));
 }
-					</pre></code>
+					</code></pre>
 					<p class="fragment">當然有其他更強大的功能</p>
 				</section>
 				
@@ -217,7 +217,6 @@ int main(){
 					<p class="fragment">程式語言慢慢發展出了更多概念</p>
 				</section>
 			</section>
-			
 			
 			<section>
 				<section>
@@ -229,12 +228,11 @@ int main(){
 					<p class="fragment">C</p>
 					<p class="fragment">Pascal</p>
 					<p class="fragment">Prolog</p>
-					<p class="fragment">Simula</p>
 					<p class="fragment">Smalltalk</p>
 				</section>
 				
 				<section>
-					<h2>C語言歷史</h2>
+					<h2>C語言演進歷史</h2>
 					<p class="fragment">CPL</p>
 					<p class="fragment">BCPL</p>
 					<p class="fragment">B</p>
@@ -292,7 +290,7 @@ printn(n, b) {
 				
 				<section>
 					<h2>非結構化程式設計</h2>
-					<pre style="left:auto;right:auto;width:700px;"><code class="c" style="font-size:24px;font-family: 'consolas','Ubuntu Mono'">
+					<pre class="fragment" style="left:auto;right:auto;width:700px;"><code class="c" style="font-size:24px;font-family: 'consolas','Ubuntu Mono'">
 #include&lt;stdio.h&gt;
 int main(){
 	int i=0;
@@ -306,13 +304,13 @@ inner:
 	i++;
 	if(i&lt;5){goto outer;}
 }
-					</pre></code>
+					</code></pre>
 					<p class="fragment">其實只是印5*5的星星</p>
 				</section>
 				
 				<section>
 					<h2>結構化程式設計</h2>
-					<pre style="left:auto;right:auto;width:700px;"><code class="c" style="font-size:24px;font-family: 'consolas','Ubuntu Mono'">
+					<pre class="fragment" style="left:auto;right:auto;width:700px;"><code class="c" style="font-size:24px;font-family: 'consolas','Ubuntu Mono'">
 #include&lt;stdio.h&gt;
 int main(){
 	for(int i=0;i&lt;5;i++){
@@ -322,7 +320,7 @@ int main(){
 		printf("\n");
 	}
 }
-					</pre></code>
+					</code></pre>
 				</section>
 				
 				<section>
@@ -330,6 +328,97 @@ int main(){
 					<p class="fragment">因為有指標以前用來上資料結構</p>
 					<p class="fragment">linss："C難看死了，Pascal多優美啊"</p>
 					<p class="fragment">時代的眼淚</p>
+				</section>
+				
+				<section>
+					<h2>Prolog</h2>
+					<p class="fragment">運用在自然語言與人工智慧</p>
+					<p class="fragment">邏輯程式設計</p>
+					<p class="fragment">定義答案所需要的規則由電腦執行之</p>
+					<pre class="fragment" style="left:auto;right:auto;width:800px;"><code class="prolog" style="font-size:30px;font-family: 'consolas','Ubuntu Mono'">
+power(N,0,1):- !.
+power(N,K,R):- K1 is K-1,power(N,K1,R1),R is R1*N.
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>Smalltalk</h2>
+					<p class="fragment">所有的東西都是物件(連條件和重複語句也是)</p>
+					<p class="fragment">物件導向程式設計</p>
+					<pre class="fragment" style="left:auto;right:auto;width:800px;"><code class="st" style="font-size:22px;font-family: 'consolas','Ubuntu Mono'">
+| rectangles aPoint collisions |
+rectangles := OrderedCollection 
+  with: (Rectangle left: 0 right: 10 top: 100 bottom: 200)
+  with: (Rectangle left: 10 right: 10 top: 110 bottom: 210).
+aPoint := Point x: 20 y: 20.
+collisions := rectangles select: [:aRect | aRect containsPoint: aPoint].
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>物件導向程式設計</h2>
+					<p class="fragment">將程式和資料封裝在類別的實體中</p>
+					<p class="fragment">繼承</p>
+					<p class="fragment">封裝</p>
+					<p class="fragment">多型</p>
+				</section>
+				
+				<section>
+					<h2>繼承</h2>
+					<p class="fragment">獲得原先的屬性和行為</p>
+					<pre class="fragment" style="left:auto;right:auto;width:700px;"><code class="rb" style="font-size:24px;font-family: 'consolas','Ubuntu Mono'">
+class Bomb
+	def explode
+		print "你已經死了"
+	end
+end
+class MadeInChina &lt; Bomb;end
+MadeInChina.new.explode #=> 你已經死了
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>封裝</h2>
+					<p class="fragment">隱藏程式內部的具體執行步驟</p>
+					<pre class="fragment" style="left:auto;right:auto;width:700px;"><code class="rb" style="font-size:24px;font-family: 'consolas','Ubuntu Mono'">
+class Killer
+private
+	def drink_coffee;end
+	def read_news_paper;end
+	def time_to_die
+		print "你已經死了"
+	end
+public
+	def assassinate
+		drink_coffee
+		read_news_paper
+		time_to_die
+	end
+end
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>多型</h2>
+					<p class="fragment">不同類別對於同樣呼叫有不同的行為</p>
+					<pre class="fragment" style="left:auto;right:auto;width:700px;"><code class="rb" style="font-size:24px;font-family: 'consolas','Ubuntu Mono'">
+class Wine
+	def drunk
+		print "讚啦~~"
+	end
+end
+class FakeWine
+	def drunk
+		print "你已經死了"
+	end
+end
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">接下來的時代是上個時代的持續成長</p>
+					<p class="fragment">將之前的構想發揚光大</p>
 				</section>
 			</section>
 			
