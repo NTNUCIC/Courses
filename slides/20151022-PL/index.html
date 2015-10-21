@@ -225,10 +225,10 @@ int main(){
 				
 				<section>
 					<h2>基礎範式確立</h2>
-					<p class="fragment">C</p>
-					<p class="fragment">Pascal</p>
-					<p class="fragment">Prolog</p>
-					<p class="fragment">Smalltalk</p>
+					<p class="fragment">1972-C</p>
+					<p class="fragment">1970-Pascal</p>
+					<p class="fragment">1972-Prolog</p>
+					<p class="fragment">1972-Smalltalk</p>
 				</section>
 				
 				<section>
@@ -429,9 +429,9 @@ end
 				
 				<section>
 					<h2>功能強化</h2>
-					<p class="fragment">Ada</p>
-					<p class="fragment">C++</p>
-					<p class="fragment">Perl</p>
+					<p class="fragment">1980-Ada</p>
+					<p class="fragment">1983-C++</p>
+					<p class="fragment">1987-Perl</p>
 				</section>
 				
 				<section>
@@ -514,19 +514,125 @@ s/x/pack+/g;eval
 				</section>
 			</section>
 			
-			<!--
-			程式語言的歷史
-			ASM
+			<section>
+				<section>
+					<h1>1990年代後</h1>
+				</section>
+
+				<section>
+					<h2>百家爭鳴</h2>
+					<p class="fragment">1991-Python</p>
+					<p class="fragment">1993-Ruby</p>
+					<p class="fragment">1995-Java</p>
+					<p class="fragment">1995-JavaScript</p>
+					<p class="fragment">2001-C#</p>
+				</section>
+				
+				<section>
+					<h2>Python</h2>
+					<p class="fragment">直譯式語言但有編譯功能</p>
+					<p class="fragment">"用一種方法，最好是只有一種方法來做一件事"</p>
+					<p class="fragment">縮排與單行長度限制讓可讀性高</p>
+					<p class="fragment">歐美流行的語言</p>
+				</section>
+				
+				<section>
+					<h2>Ruby</h2>
+					<p class="fragment">完全物件導向的直譯式語言</p>
+					<p class="fragment">由日本人發明所以支援多位元組字元</p>
+					<p class="fragment">"讓程式設計更快樂"</p>
+					<p class="fragment">"想盡辦法讓寫程式更輕鬆"</p>
+					<p class="fragment">特色：區塊,猴子補丁</p>
+				</section>
+				
+				<section>
+					<h2>區塊</h2>
+					<p class="fragment">呼叫方法時可以傳入一段程式碼</p>
+					<pre class="fragment" style="left:auto;right:auto;width:700px;"><code class="rb" style="font-size:24px;font-family: 'consolas','Ubuntu Mono'">
+arr=nil
+File.open('file.txt','r'){|file|
+	str=file.read
+	arr=str.split(/ /)
+	arr.collect!{|word| word.upcase!}
+}
+					</code></pre>
+					<p class="fragment">可以用在物件的迭代之外</p>
+				</section>
+				
+				<section>
+					<h2>Monkey Patching</h2>
+					<p class="fragment">連核心功能都能重新導向的語言</p>
+					<pre class="fragment" style="left:auto;right:auto;width:700px;"><code class="rb" style="font-size:28px;font-family: 'consolas','Ubuntu Mono'">
+$require_count=0
+module ::Kernel
+	alias origin_require require
+	def require(lib)
+		origin_require(lib)
+		$require_count+=1
+		Game.draw_loading
+	end
+end
+					</code></pre>
+					<p class="fragment">這段程式用在遊戲載入的進度表</p>
+				</section>
+				
+				<section>
+					<h2>反射性</h2>
+					<p class="fragment">Ruby可以在執行時動態操作類別的成員或方法</p>
+					<pre class="fragment" style="left:auto;right:auto;width:600px;"><code class="rb" style="font-size:28px;font-family: 'consolas','Ubuntu Mono'">
+class Point
+	attr_reader :x,:y
+	attr_accessor :value
+	define_method(:~@){
+		@x,@y=@y,@x
+	}
+end
+					</code></pre>
+					<p class="fragment">可以設定實體變數讀寫的權限甚至動態定義方法</p>
+				</section>
+				
+				<section>
+					<h2>Ruby的優缺點</h2>
+					<p class="fragment">自由度高</p>
+					<p class="fragment">可讀性高</p>
+					<p class="fragment">爽快度高</p>
+					<p class="fragment">但是沒有編譯器...</p>
+				</section>
+				
+				<section>
+					<h2>Java</h2>
+					<p class="fragment">跨平台的編譯式語言</p>
+					<p class="fragment">使用JVM運行自己的位元碼</p>
+					<p class="fragment">安卓系統用Java但是不用JVM</p>
+					<p class="fragment">JavaScript和Java沒有關係</p>
+				</section>
+				
+				<section>
+					<h2>JavaScript</h2>
+					<p class="fragment">本來叫作LiveScript</p>
+					<p class="fragment">為了出名就和Java合作改名字</p>
+					<p class="fragment">大量使用在網頁前端或者少量伺服器後端</p>
+					<p class="fragment">原型程式設計</p>
+				</section>
+				
+				<section>
+					<h2>C#</h2>
+					<p class="fragment">M$在.net平台上開發的程式語言</p>
+					<p class="fragment">使用.net虛擬機運行</p>
+					<p class="fragment">有圖形介面可以用贏一半</p>
+					<p class="fragment"><del>千萬別念成西井</del></p>
+				</section>
+			</section>
 			
-			C/C++/Java
+			<section>
+				<h3 class="fragment">程式語言只是個工具</h3>
+				<h3 class="fragment">但是心中抱持對語言的熱情助你前進</h3>
+			</section>
 			
-			LISP
-			Prolog
+			<section>
+				<h1>感謝各位!!</h1>
+			</section>
 			
-			Ruby
-			Python
-			Perl
-			-->
 			</div>
 		</div>
 		<script src="../lib/js/head.min.js"></script>
