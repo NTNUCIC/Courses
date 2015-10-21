@@ -3,12 +3,12 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>JS</title>
+		<title>PL</title>
 
 		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
 		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
 
-		<meta name="og:title" content="JS">
+		<meta name="og:title" content="PL">
 		<meta name="og:url" content="http://ntnucic.github.io/104/slides/20151022-PL/index.html">
 		<meta name="og:description" content="國立臺灣師範大學資訊研究社程式語言課程投影片">
 		<meta name="og:image" content="../../images/cic.jpg">
@@ -220,7 +220,7 @@ int main(){
 			
 			<section>
 				<section>
-					<h1>確立了基礎範式</h1>
+					<h1>1970年代</h1>
 				</section>
 				
 				<section>
@@ -422,7 +422,97 @@ end
 				</section>
 			</section>
 			
-			
+			<section>
+				<section>
+					<h1>1980年代</h1>
+				</section>
+				
+				<section>
+					<h2>功能強化</h2>
+					<p class="fragment">Ada</p>
+					<p class="fragment">C++</p>
+					<p class="fragment">Perl</p>
+				</section>
+				
+				<section>
+					<h2>Ada</h2>
+					<p class="fragment">統合美軍系統的語言之用</p>
+					<p class="fragment">命名由來為愛達·勒芙蕾絲，她是第一位電腦程式設計師</p>
+					<p class="fragment">雖然很嚴謹但是還是有火箭炸了...</p>
+					<p class="fragment">整合在GCC中</p>
+				</section>
+				
+				<section>
+					<h2>C++</h2>
+					<p class="fragment">本來稱為C&nbsp;with&nbsp;classes</p>
+					<p class="fragment">除了物件導向還有模版系統</p>
+					<p class="fragment">現在連lambda特性都加入了</p>
+					<p class="fragment">C++11,C++14...</p>
+				</section>
+				
+				<section>
+					<h2>C++模版</h2>
+					<pre class="fragment" style="left:auto;right:auto;width:600px;"><code class="c++" style="font-size:24px;font-family: 'consolas','Ubuntu Mono'">
+template &lt;int N&gt;
+struct Factorial {
+    enum { value = N * Factorial&lt;N - 1&gt;::value };
+};
+template &lt;&gt;
+struct Factorial&lt;0&gt; {
+    enum { value = 1 };
+};
+void foo()
+{
+    int x = Factorial&lt;4&gt;::value; // == 24
+    int y = Factorial&lt;0&gt;::value; // == 1
+}
+</code></pre>
+				</section>
+				
+				<section>
+					<h2>C++11的lambda</h2>
+					<p class="fragment">長得很像之前的功能齁</p>
+					<pre class="fragment" style="left:auto;right:auto;width:650px;"><code class="c++" style="font-size:24px;font-family: 'consolas','Ubuntu Mono'">
+#include&lt;stdio.h&gt;
+int call(int a,int b,int (*func)(int,int)){
+    return func(a,b);
+}
+int main(){
+    auto add = [](int a, int b) { return a + b; };
+    printf("%d",call(100,200,add));
+}
+					</code></pre>
+					<p class="fragment">反正看不太懂就是了</p>
+				</section>
+				
+				<section>
+					<h2>Perl</h2>
+					<p class="fragment">多用途的直譯式語言</p>
+					<p class="fragment">"不只一種方法來做一件事"</p>
+					<p class="fragment">因為自由度太高所以可讀性差...</p>
+				</section>
+				
+				<section>
+					<h2>Perl的神code</h2>
+					<p class="fragment">說可讀性差?哪有可能啊</p>
+					<pre class="fragment" style="left:auto;right:auto;width:1000px;"><code class="perl" style="font-size:20px;font-family: 'consolas','Ubuntu Mono'">
+$_='while(read+STDIN,$_,2048){$a=29;$b=73;$c=142;$t=255;
+@t=map{$_%16or$t^=$c^=( $m=(11,10,116,100,11,122,20,100)[$_/16%8])&amp;110;
+$t^=(72,@z=(64,72,$a^=12*($_%16 -2?0:$m&amp;17)),$b^=$_%64?12:0,@z)[$_%8]}(16..271);
+if((@a=unx"C*",$_)[20]&amp;48){$h =5;$_=unxb24,join"",@b=map{xB8,unxb8,chr($_^$a[--$h+84])}@ARGV;s/…$/1$&amp;/;
+$d=unxV,xb25,$_;$e=256|(ord$b[4])&lt;&lt;9|ord$b[3];
+$d=$d8^($f=$t&amp;($d12^$d4^ $d^$d/8))&lt;&lt;17,$e=$e8^($t&amp;($g=($q=$e14&amp;7^$e)^$q*8^$q&lt;&lt;6))&lt;&lt;9,$_=$t[$_]^ (($h=8)+=$f+(~$g&amp;$t))for@a [128..$#a]}print+x"C*",@a}';
+s/x/pack+/g;eval
+					</code></pre>
+					<p class="fragment"><del>請吃雞排的時候到了</del></p>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">生產力也被視為語言的重要指標</p>
+					<p class="fragment">網際網路時代來啦~~</p>
+				</section>
+			</section>
 			
 			<!--
 			程式語言的歷史
