@@ -66,41 +66,52 @@
 			</section>
 			
 			<section>
-				<h2>電腦發明之前</h2>
-				<img class="fragment" src="./360px-Analytical_Engine_(2290032530).jpg">
-				<p class="fragment" style="font-size: 12px" >
-				<a href="https://commons.wikimedia.org/wiki/File:Analytical_Engine_(2290032530).jpg#/media/File:Analytical_Engine_(2290032530).jpg">Analytical Engine (2290032530)</a>" 由 <a rel="nofollow" class="external text" href="http://www.flickr.com/people/8399025@N07">Marcin Wichary</a> from San Francisco, U.S.A. - <a rel="nofollow" class="external text" href="http://www.flickr.com/photos/8399025@N07/2290032530/">Analytical Engine Mill</a>。 使用來自 <a href="https://commons.wikimedia.org/wiki/">維基共享資源</a> 的 <a title="Creative Commons Attribution 2.0" href="http://creativecommons.org/licenses/by/2.0">知識共享 署名 2.0</a> 條款授權。
-				</p>
+				<section>
+					<h1>1940年代前</h1>
+				</section>
+			
+				<section>
+					<h2>電腦發明之前</h2>
+					<img class="fragment" src="./360px-Analytical_Engine_(2290032530).jpg">
+					<p class="fragment" style="font-size: 12px" >
+					<a href="https://commons.wikimedia.org/wiki/File:Analytical_Engine_(2290032530).jpg#/media/File:Analytical_Engine_(2290032530).jpg">Analytical Engine (2290032530)</a>" 由 <a rel="nofollow" class="external text" href="http://www.flickr.com/people/8399025@N07">Marcin Wichary</a> from San Francisco, U.S.A. - <a rel="nofollow" class="external text" href="http://www.flickr.com/photos/8399025@N07/2290032530/">Analytical Engine Mill</a>。 使用來自 <a href="https://commons.wikimedia.org/wiki/">維基共享資源</a> 的 <a title="Creative Commons Attribution 2.0" href="http://creativecommons.org/licenses/by/2.0">知識共享 署名 2.0</a> 條款授權。
+					</p>
+				</section>
+				
+				<section>
+					<h2>分析機</h2>
+					<p class="fragment">蒸氣驅動，打孔紙帶輸入</p>
+					<p class="fragment">四則運算、比較、求平方根</p>
+					<p class="fragment">1871年被發明</p>
+					<p class="fragment">使用的語言類似於今天的程式語言</p>
+				</section>
 			</section>
 			
 			<section>
-				<h2>分析機</h2>
-				<p class="fragment">蒸氣驅動，打孔紙帶輸入</p>
-				<p class="fragment">四則運算、比較、求平方根</p>
-				<p class="fragment">1871年被發明</p>
-				<p class="fragment">使用的語言類似於今天的程式語言</p>
-			</section>
+				<section>
+					<h1>1940年代</h1>
+				</section>
 			
-			<section>
-				<h2>組合語言</h2>
-				<p class="fragment">當時只是數字的填空遊戲</p>
-				<img class="fragment" src="./EONGx.png">
-				<p class="fragment">這張圖是MIPS的格式(雖然是1981才發明)</p>
-				<p class="fragment" style="font-size: 12px">http://stackoverflow.com/questions/23123106/mips-i-instruction-immediate-field</p>
-			</section>
-			
-			<section>
-				<h2>馮紐曼的八卦</h2>
-				<p class="fragment">沒錯就是那個天才</p>
-				<p class="fragment">他的學生發明了組譯器(assembler)被他發現</p>
-				<p class="fragment">It is a waste of a valuable scientific computing instrument to use it to do clerical work</p>
-				<p class="fragment"><del>拿珍貴的計算工具做文書工作真是暴殄天物</del></p>
-			</section>
-			
-			<section>
-				<h2>組合語言vs機械語言</h2>
-				<p class="fragment">底下是x86格式的機械語言和組合語言</p>
-				<pre class="fragment" style="left:auto;right:auto;width:600px;"><code class="x86asm" style="font-family: 'consolas','Ubuntu Mono'">
+				<section>
+					<h2>組合語言</h2>
+					<p class="fragment">當時只是數字的填空遊戲</p>
+					<img class="fragment" src="./EONGx.png">
+					<p class="fragment">這張圖是MIPS的格式(雖然是1981才發明)</p>
+					<p class="fragment" style="font-size: 12px">http://stackoverflow.com/questions/23123106/mips-i-instruction-immediate-field</p>
+				</section>
+				
+				<section>
+					<h2>馮紐曼的八卦</h2>
+					<p class="fragment">沒錯就是那個天才</p>
+					<p class="fragment">他的學生花時間弄組譯器(assembler)被他發現</p>
+					<p class="fragment" style="color:red"><strong>It is a waste of a valuable scientific computing instrument to use it to do clerical work</strong></p>
+					<p class="fragment"><del>拿珍貴的計算工具做文書工作真是暴殄天物</del></p>
+				</section>
+				
+				<section>
+					<h2>組合語言vs機械語言</h2>
+					<p class="fragment">底下是x86格式的機械語言和組合語言</p>
+					<pre class="fragment" style="left:auto;right:auto;width:600px;"><code class="x86asm" style="font-family: 'consolas','Ubuntu Mono'">
 8d 74 26 00          lea    0x0(%esi,%eiz,1),%esi
 8b 54 24 28          mov    0x28(%esp),%edx
 89 44 24 04          mov    %eax,0x4(%esp)
@@ -111,91 +122,128 @@ e8 38 06 00 00       call   6b902250 &lt;___mingw_TLScallback&gt;
 b8 01 00 00 00       mov    $0x1,%eax
 83 c4 1c             add    $0x1c,%esp
 c2 0c 00             ret    $0xc
-				</code></pre>
-				<p class="fragment"><del>假如機械語言友善方便誰還要當丐幫</del></p>
-			</section>
-			
-			<section>
-				<h2>高階語言發明</h2>
-				<p class="fragment">1957-Fortran(<strong>FOR</strong>mula <strong>TRAN</strong>slator)</p>
-				<p class="fragment">1958-LISP(<strong>LIS</strong>t <strong>P</strong>rocessor)</p>
-				<p class="fragment">1960-COBOL(<strong>CO</strong>mmon <strong>B</strong>usiness <strong>O</strong>riented <strong>L</strong>anguage)</p>
-				<p class="fragment">到現在還是很有用處</p>
-			</section>
-			
-			<section>
-				<h2>Fortran</h2>
-				<p class="fragment">第一個正式採用且現在還活著的高階語言</p>
-				<p class="fragment">用在數學及科學的計算</p>
-				<p class="fragment">計算矩陣和複數很方便</p>
-				<p class="fragment">整合在GCC中</p>
-			</section>
-			
-			<section>
-				<h2>LISP</h2>
-				<p class="fragment">第二個被發明的高階語言</p>
-				<p class="fragment">函數性程式語言</p>
-				<p class="fragment">其帶來的概念被其他語言所吸收</p>
-			</section>
-			
-			<section>
-				<h2>LISP</h2>
-				<p class="fragment">以下為比較是否同號的程式碼</p>
-				<pre class="fragment" style="left:auto;right:auto;width:600px;"><code class="lisp" style="font-size:32px;font-family: 'consolas','Ubuntu Mono'">
-(defun same-sign (x y)
-    (or (and (zerop x) (zerop y))
-          (and (&lt; x 0) (&lt; y 0))
-          (and (&gt; x 0) (&gt; y 0))))
-				</code></pre>
-			</section>
+					</code></pre>
+					<p class="fragment"><del>假如機械語言友善方便誰還要當丐幫</del></p>
+				</section>
 				
-			<section>
-				<h2>函數性語言設計</h2>
-				<p class="fragment">將電腦運算視為數學上的函式計算</p>
-				<p class="fragment">避免程式的內部狀態</p>
-				<p class="fragment">避免可以被改變的物件</p>
-				<p class="fragment">可以將函式當引數傳入</p>
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">全部都是數字太恐怖了!!</p>
+					<p class="fragment">不能逃不能逃</p>
+					<p class="fragment">於是高階語言就出來拯救世界</p>
+				</section>
 			</section>
 			
 			<section>
-				<h2>避免副作用</h2>
-				<p class="fragment">唉呦~副作用有很嚴重嗎?</p>
-				<pre class="fragment" style="left:auto;right:auto;width:600px;"><code class="c++" style="font-size:24px;font-family: 'consolas','Ubuntu Mono'">
-#include&lt;stdio.h&gt;
+				<section>
+					<h1>1950~1960年代</h1>
+				</section>
+				
+				<section>
+					<h2>高階語言發明</h2>
+					<p class="fragment">1957-Fortran(<strong>FOR</strong>mula <strong>TRAN</strong>slator)</p>
+					<p class="fragment">1958-LISP(<strong>LIS</strong>t <strong>P</strong>rocessor)</p>
+					<p class="fragment">1960-COBOL(<strong>CO</strong>mmon <strong>B</strong>usiness <strong>O</strong>riented <strong>L</strong>anguage)</p>
+					<p class="fragment">到現在還是很有用處</p>
+				</section>
+				
+				<section>
+					<h2>Fortran</h2>
+					<p class="fragment">第一個正式採用且現在還活著的高階語言</p>
+					<p class="fragment">用在數學及科學的計算</p>
+					<p class="fragment">計算矩陣和複數很方便</p>
+					<p class="fragment">整合在GCC中</p>
+				</section>
+				
+				<section>
+					<h2>LISP</h2>
+					<p class="fragment">第二個被發明的高階語言</p>
+					<p class="fragment">函數性程式語言</p>
+					<p class="fragment">其帶來的概念被其他語言所吸收</p>
+				</section>
+				
+				<section>
+					<h2>LISP</h2>
+					<p class="fragment">以下為比較是否同號的程式碼</p>
+					<pre class="fragment" style="left:auto;right:auto;width:600px;"><code class="lisp" style="font-size:28px;font-family: 'consolas','Ubuntu Mono'">
+(defun same-sign (x y)
+	(or (and (zerop x) (zerop y))
+		(and (&lt; x 0) (&lt; y 0))
+		(and (&gt; x 0) (&gt; y 0))))
+					</code></pre>
+				</section>
+					
+				<section>
+					<h2>函數性語言設計</h2>
+					<p class="fragment">將電腦運算視為數學上的函式計算</p>
+					<p class="fragment">避免程式的內部狀態</p>
+					<p class="fragment">避免可以被改變的物件</p>
+					<p class="fragment">可以將函式當引數傳入</p>
+				</section>
+				
+				<section>
+					<h2>避免副作用</h2>
+					<p class="fragment">唉呦~副作用有很嚴重嗎?</p>
+					<pre class="fragment" style="left:auto;right:auto;width:600px;"><code class="c++" style="font-size:24px;font-family: 'consolas','Ubuntu Mono'">
+#include &lt;stdio.h&gt;
 int main(){
-	int num=100;
-	int *p[3]={&amp;num,&amp;num,&amp;num};
-	*p[0]=200;
-	printf("%d %d %d",*p[0],*p[1],*p[2]);
+	int num = 100;
+	int *p[3] = { &amp;num, &amp;num, &amp;num };
+	*p[0] = 200;
+	printf( "%d %d %d", *p[0], *p[1], *p[2]);
 }
-				</code></pre>
-				<p class="fragment" style="color:red">恭喜你得到3個200!!</p>
+					</code></pre>
+					<p class="fragment" style="color:red">恭喜你得到3個200!!</p>
+				</section>
+				
+				<section>
+					<h2>函式當引數傳入</h2>
+					<p class="fragment">這個等等會再講到</p>
+					<pre class="fragment" style="left:auto;right:auto;width:600px;"><code class="c++" style="font-size:24px;font-family: 'consolas','Ubuntu Mono'">
+#include&lt;stdio.h&gt;
+int add(int a,int b){ return a+b; }
+int call(int a, int b, int (*func)(int a,int b)){
+    return (*func)(a,b);
+}
+int main(){
+    printf("%d",call(100,200,add));
+}
+					</pre></code>
+					<p class="fragment">當然有其他更強大的功能</p>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">程式語言慢慢發展出了更多概念</p>
+				</section>
 			</section>
 			
-			<section>
-				<h2></h2>
-			</section>
 			
 			<section>
-				<h2>基礎範式確立</h2>
-				<p class="fragment">C</p>
-				<p class="fragment">Pascal</p>
-				<p class="fragment">Prolog</p>
-				<p class="fragment">Simula</p>
-				<p class="fragment">Smalltalk</p>
-			</section>
-			
-			<section>
-				<h2>C語言歷史</h2>
-				<p class="fragment">CPL</p>
-				<p class="fragment">BCPL</p>
-				<p class="fragment">B</p>
-				<p class="fragment">C</p>
-			</section>
-			
-			<section>
-				<h2>BCPL</h2>
-				<pre style="left:auto;right:auto;width:600px;"><code style="font-size:24px;font-family: 'consolas','Ubuntu Mono'">
+				<section>
+					<h1>確立了基礎範式</h1>
+				</section>
+				
+				<section>
+					<h2>基礎範式確立</h2>
+					<p class="fragment">C</p>
+					<p class="fragment">Pascal</p>
+					<p class="fragment">Prolog</p>
+					<p class="fragment">Simula</p>
+					<p class="fragment">Smalltalk</p>
+				</section>
+				
+				<section>
+					<h2>C語言歷史</h2>
+					<p class="fragment">CPL</p>
+					<p class="fragment">BCPL</p>
+					<p class="fragment">B</p>
+					<p class="fragment">C</p>
+				</section>
+				
+				<section>
+					<h2>BCPL</h2>
+					<pre style="left:auto;right:auto;width:600px;"><code style="font-size:24px;font-family: 'consolas','Ubuntu Mono'">
 GET "LIBHDR"
 
 LET START() = VALOF $(
@@ -205,41 +253,88 @@ LET START() = VALOF $(
 $)
 
 AND FACT(N) = N = 0 -> 1, N * FACT(N - 1)
-				</code></pre>
-			</section>
-			
-			<section>
-				<h2>B語言</h2>
-				<pre style="left:auto;right:auto;width:700px;"><code class="c" style="font-size:20px;font-family: 'consolas','Ubuntu Mono'">
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>B語言</h2>
+					<pre style="left:auto;right:auto;width:800px;"><code class="c" style="font-size:22px;font-family: 'consolas','Ubuntu Mono'">
 /* The following function will print a non-negative number, n, to
-   the base b, where 2&lt;=b&lt;=10.  This routine uses the fact that
-   in the ASCII character set, the digits 0 to 9 have sequential
-   code values.  */
+	 the base b, where 2&lt;=b&lt;=10.  This routine uses the fact that
+	 in the ASCII character set, the digits 0 to 9 have sequential
+	 code values.  */
 
 printn(n, b) {
-        extrn putchar;
-        auto a;
+	extrn putchar;
+	auto a;
 
-        if (a = n / b)        /* assignment, not test for equality */
-                printn(a, b); /* recursive */
-        putchar(n % b + '0');
+	if (a = n / b)        /* assignment, not test for equality */
+		printn(a, b); /* recursive */
+	putchar(n % b + '0');
 }
-				</code></pre>
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>C語言</h2>
+					<p class="fragment">由B語言改進而來</p>
+					<p class="fragment">廣泛使用在與硬體相關的環境下</p>
+					<p class="fragment">結構化程式設計</p>
+				</section>
+				
+				<section>
+					<h2>結構化程式設計</h2>
+					<p class="fragment">循序結構-直直跑下去</p>
+					<p class="fragment">選擇結構-if,switch</p>
+					<p class="fragment">重複結構-for,while</p>
+					<p class="fragment">程式可以以流程圖表示</p>
+				</section>
+				
+				<section>
+					<h2>非結構化程式設計</h2>
+					<pre style="left:auto;right:auto;width:700px;"><code class="c" style="font-size:24px;font-family: 'consolas','Ubuntu Mono'">
+#include&lt;stdio.h&gt;
+int main(){
+	int i=0;
+outer:
+	int j=0;
+inner:
+	printf("*");
+	j++;
+	if(j&lt;5){goto inner;}
+	printf("\n");
+	i++;
+	if(i&lt;5){goto outer;}
+}
+					</pre></code>
+					<p class="fragment">其實只是印5*5的星星</p>
+				</section>
+				
+				<section>
+					<h2>結構化程式設計</h2>
+					<pre style="left:auto;right:auto;width:700px;"><code class="c" style="font-size:24px;font-family: 'consolas','Ubuntu Mono'">
+#include&lt;stdio.h&gt;
+int main(){
+	for(int i=0;i&lt;5;i++){
+		for(int j=0;j&lt;5;j++){
+			printf("*");
+		}
+		printf("\n");
+	}
+}
+					</pre></code>
+				</section>
+				
+				<section>
+					<h2>Pascal</h2>
+					<p class="fragment">因為有指標以前用來上資料結構</p>
+					<p class="fragment">linss："C難看死了，Pascal多優美啊"</p>
+					<p class="fragment">時代的眼淚</p>
+				</section>
 			</section>
 			
-			<section>
-				<h2>C語言</h2>
-				<p class="fragment">由B語言改進而來</p>
-				<p class="fragment">廣泛使用在與硬體相關的環境下</p>
-				<p class="fragment">由此發展出很多子孫</p>
-			</section>
 			
-			<section>
-				<h2>Pascal</h2>
-				<p class="fragment">因為有指標以前用來上資料結構</p>
-				<p class="fragment">linss："C難看死了，Pascal多優美啊"</p>
-				<p class="fragment">時代的眼淚</p>
-			</section>
+			
 			<!--
 			程式語言的歷史
 			ASM
