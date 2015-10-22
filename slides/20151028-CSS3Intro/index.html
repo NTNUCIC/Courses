@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>資訊研究社社課20151028</title>
+
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+		<meta name="author" content="ntnucic">
+
+		<meta name="og:title" content="資訊研究社社課20151028">
+		<meta name="og:url" content="http://ntnucic.github.io/104-1_welcom_party/">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社104學年度社課(2015/10/28)">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<style>
+			samp{
+				display:block;
+				text-align:left;
+				background:#3f3f3f;
+			}
+			pre.fragment>samp>p{
+				margin:0;
+			}
+			samp.white{
+				background:white;
+				color:black;
+			}
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="../lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>CSS3</h1>
+					<h3>2015/10/28 阮韞澂</h3>
+				</section>
+				<section>
+					<section>
+						<h2>CSS</h2>
+						<ul>
+							<li class="fragment">Cascading Style Sheets</li>
+							<li class="fragment">層疊樣式表</li>
+							<li class="fragment">1996年發明</li>
+							<li class="fragment">由W3C維護</li>
+						</ul>
+					</section>
+					<section>
+						<h2>CSS</h2>
+						<ul>
+							<li class="fragment">設定樣式</li>
+							<li class="fragment">版面配置</li>
+							<li class="fragment"><del><a href="http://rei.idv.tw/sample/mio.html" target="_blank">畫圖</a></del></li>
+						</ul>
+					</section>
+					<section>
+						<img src="CSS3.png" alt="CSS3">
+					</section>
+					<section>
+						<h2>CSS3</h2>
+						<ul>
+							<li class="fragment">CSS最新標準</li>
+							<li class="fragment">用於取代HTML的樣式設定</li>
+							<li class="fragment">瀏覽器尚未完全支援<small>像是IE阿...</small></li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Try It!</h2>
+						<pre class="fragment"><code data-trim>
+&lt;p style="color:yellow;"&gt;Yellow&lt;/p&gt;
+						</code></pre>
+						<p class="fragment">在網頁中加入以上元素</p>
+						<p class="fragment" style="color:yellow;">Yellow</p>
+					</section>
+					<section>
+						<h2>CSS屬性</h2>
+						<pre class="fragment"><code data-trim>
+CSS屬性: 值;
+CSS屬性: 值 值;
+						</code></pre>
+						<ul>
+							<li class="fragment">基本語法由屬性與值組成</li>
+							<li class="fragment">若有多個值則以空格分隔</li>
+							<li class="fragment">多個屬性以分號分隔</li>
+						</ul>
+					</section>
+					<section>
+						<h2>使用CSS</h2>
+						<ul>
+							<li class="fragment">
+								<p>行內樣式<span class="fragment">(style屬性)</span></p>
+								<pre class="fragment"><code data-trim>
+&lt;p style="color:yellow;"&gt;Yellow&lt;/p&gt;
+								</code></pre>
+							</li>
+							<li class="fragment">
+								<p>內部樣式表<span class="fragment">(head中style標籤+selector)</span></p>
+								<pre class="fragment"><code data-trim>
+&lt;head&gt;
+	&lt;style&gt;
+		p{
+			color: yellow;
+		}
+	&lt;/style&gt;
+								</code></pre>
+							</li>
+							<li class="fragment">
+								<p>外部樣式表<span class="fragment">(head中連結獨立CSS檔案+selector)</span></p>
+								<pre class="fragment"><code data-trim>
+&lt;link rel="stylesheet" href="style.css"&gt;
+								</code></pre>
+								<pre class="fragment"><code data-trim>
+p{
+	color: yellow;
+}
+								</code></pre>
+							</li>
+						</ul>
+					</section>
+					<section>
+						<h2>CSS:color</h2>
+						<pre class="fragment"><code data-trim>
+&lt;p style="color:red;"&gt;RED&lt;/p&gt;
+&lt;p style="color:#00ffff;"&gt;#00FFFF&lt;/p&gt;
+&lt;p style="color:rgb(150,255,175);"&gt;RGB&lt;/p&gt;
+						</code></pre>
+						<pre class="fragment"><samp data-trim><p style="color:red;">RED</p><p style="color:#00ffff;">#00FFFF</p><p style="color:rgb(150,255,175);">RGB</p></samp></pre>
+						<ul>
+							<li class="fragment">用於改變文字顏色</li>
+							<li class="fragment">可輸入顏色名、六進位RGB碼、顏色函式(多種)</li>
+							<li class="fragment"><a href="http://www.w3schools.com/cssref/css_colors_legal.asp" target="_blank">W3C School Color Value</a></li>
+							<li class="fragment"><a href="http://www.w3schools.com/tags/ref_colorpicker.asp" target="_blank">W3C School Color Picker</a></li>
+						</ul>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<pre class="fragment"><samp class="white" data-trim><h3 style="color:#cccccc;">三原色</h3><p style="color:red;">紅</p><p style="color:yellow;">黃</p><p style="color:blue;">藍</p></samp></pre>
+						<p class="fragment">試著在網頁中達成以上效果</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>CSS:background-color</h2>
+						<pre class="fragment"><code data-trim>
+(background|background-color): (color-value)|transparent;
+						</code></pre>
+						<p class="fragment" style="background:yellow;">Yellow</p>
+						<ul>
+							<li class="fragment"><mark>&lt;mark&gt;</mark></li>
+							<li class="fragment">指定背景顏色</li>
+							<li class="fragment">使用任意顏色值</li>
+							<li class="fragment">設定transparent為透明，預設值</li>
+						</ul>
+					</section>
+					<section>
+						<h2>div/span</h2>
+						<pre class="fragment"><code data-trim>
+123&lt;div style="color:red;background:yellow;"&gt;red div&lt;/div&gt;456&lt;br&gt;
+ABC&lt;span style="color:green;background:yellow;"&gt;green span&lt;/span&gt;DEF
+						</code></pre>
+						<pre class="fragment"><samp data-trim>123<div style="color:red;background:yellow;">red div</div>456<br>ABC<span style="color:green;background:yellow;">green span</span>DEF</samp></pre>
+						<ul>
+							<li class="fragment">div為block元素</li>
+							<li class="fragment">span為inline元素</li>
+							<li class="fragment">沒有功能的HTML元素</li>
+							<li class="fragment">常用於CSS控制</li>
+						</ul>
+					</section>
+					<section>
+						<h2>CSS:width/height</h2>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<pre class="fragment"><samp class="white" data-trim><h3 style="color:orange;">三原光</h3><p style="background:black;"><span style="color:red;">紅</span><span style="color:lime;">綠</span><span style="color:blue;">藍</span></p></samp></pre>
+						<p class="fragment">試著在網頁中達成以上效果</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>CSS:font-weight</h2>
+						<pre class="fragment"><code class="bash" data-trim>
+font-weight: normal|bold;
+						</code></pre>
+						<pre class="fragment"><samp data-trim><p>標準字</p><p style="font-weight:bold">粗體字</p></samp></pre>
+						<ul>
+							<li class="fragment"><strong>&lt;strong&gt;</strong></li>
+							<li class="fragment">bold為粗體</li>
+							<li class="fragment">normal非粗體，預設值</li>
+						</ul>
+					</section>
+					<section>
+						<h2>CSS:font-style</h2>
+						<pre class="fragment"><code class="bash" data-trim>
+font-style: normal|italic|oblique;
+						</code></pre>
+						<pre class="fragment"><samp data-trim><p>標準字</p><p style="font-style:italic;">斜體字</p><p style="font-style:oblique;">斜體字(更斜)</p></samp></pre>
+						<ul>
+							<li class="fragment"><em>&lt;em&gt;</em></li>
+							<li class="fragment">normal為非斜體，預設值</li>
+							<li class="fragment">italic為斜體</li>
+							<li class="fragment">oblique為更斜的斜體，只有chrome支援</li>
+						</ul>
+					</section>
+					<section>
+						<h2>CSS:text-decoration</h2>
+						<pre class="fragment"><code data-trim>
+text-decoration: none|[underline|overline|line-through];
+						</code></pre>
+						<pre class="fragment"><samp data-trim><p>標準字</p><p style="text-decoration:underline;">底線underline</p><p style="text-decoration:overline;">頂線overline</p><p style="text-decoration:line-through;">刪除線line-through</p></samp></pre>
+						<ul>
+							<li class="fragment"><u>&lt;u&gt;</u><del>&lt;del&gt;</del></li>
+							<li class="fragment">在文字上畫線</li>
+							<li class="fragment">none為無，預設值</li>
+							<li class="fragment">可同時使用多個值，像是<span style="text-decoration:underline overline line-through;">這樣</span></li>
+						</ul>
+					</section>
+					<section>
+						<h2>CSS:text-align</h2>
+						<pre class="fragment"><code class="bash" data-trim>
+text-align: left|right|center|justify;
+						</code></pre>
+						<pre class="fragment"><samp data-trim><p style="text-align:left;">靠左</p><p style="text-align:right;">靠右</p><p style="text-align:center;">置中</p><p style="text-align:justify;">左右對齊(用於拼音語言)</p></samp></pre>
+						<ul>
+							<li class="fragment">用於文字對齊</li>
+							<li class="fragment">對於block元素無效</li>
+							<li class="fragment">左右對齊在自動換行的非等寬字時對齊左右</li>
+						</ul>
+					</section>
+					<section>
+						<h2>CSS:font-size</h2>
+						<pre class="fragment"><code class="bash" data-trim>
+font-size: (size-value)|xx-small|x-small|smaller|small|medium
+           |larger|large|x-large|xx-large;
+						</code></pre>
+						<pre class="fragment"><samp data-trim><p style="font-size:small;">小字</p><p>標準字</p><p style="font-size:larger;">大字</p></samp></pre>
+						<ul>
+							<li class="fragment">設定字體大小</li>
+							<li class="fragment">medium為預設值</li>
+							<li class="fragment">數值可用各種尺寸單位</li>
+							<li class="fragment">常用px,%,em,vw,vh等</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<pre class="fragment"><samp class="white" data-trim><div style="background:orange;padding:1em;"><div style="font-weight:bold;font-size:2em;text-align:center;margin:0.2em;">警告</div><div style="font-style:italic;">CSS3有許多功能瀏覽器尚未實作、或是實作不完全，像是IE阿，IE阿，或是IE之類的，因此有許多功能可能無法使用、需要加上前墜(<span style="text-decoration:line-through;">+1~42電傷</span>,-webkit-,-moz-)、使用不同語法支援不同瀏覽器，或是發生莫名其妙的錯誤；</div></div></samp></pre>
+						<p class="fragment">試著以CSS在網頁中達成以上效果</p>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../plugin/zoom-js/zoom.js', async: true },
+					{ src: '../plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+	</body>
+</html>
