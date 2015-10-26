@@ -43,9 +43,75 @@
 			<div class="slides">
 
 			<section>
-				<h1 style="margin-top:100px">JS基本操作</h1>
+				<h1 style="margin-top:100px">JS的函式</h1>
 					<h4>林品儒</h4>
-					<h4>2015/10/12</h4>
+					<h4>2015/10/26</h4>
+			</section>
+			
+			<section>
+				<h2>今日重點</h2>
+				<p class="fragment">函式宣告</p>
+				<p class="fragment">使用函式</p>
+				<p class="fragment">物件的函式</p>
+			</section>
+			
+			<section>
+				<section>
+					<h1>函式宣告</h1>
+				</section>
+				
+				<section>
+					<h2>函式</h2>
+					<p class="fragment">可被呼叫執行之程式片段</p>
+					<p class="fragment">把可以重複使用的程式放裏面</p>
+					<p class="fragment">也是一種型別</p>
+				</section>
+				
+				<section>
+					<h2>函式宣告</h2>
+					<p class="fragment">宣告一個函式</p>
+					<pre class="fragment"><code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">
+function add(a,b){
+	return a+b
+}
+					</code></pre>
+					<p class="fragment">可以在任何時候呼叫</p>
+				</section>
+				
+				<section>
+					<h2>函式指派</h2>
+					<p class="fragment">將匿名函式指派給變數</p>
+					<pre class="fragment"><code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">
+var sub=function(a,b){
+	return a-b
+}
+					</code></pre>
+					<p class="fragment">要指派完才能呼叫</p>
+				</section>
+				
+				<section>
+					<h2>匿名函式</h2>
+					<p class="fragment">將函式當成可執行之資料</p>
+					<p class="fragment">可以直接執行不用給名字</p>
+					<pre class="fragment"><code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">
+typeof(function(a,b){
+	return a*b
+})
+					</code></pre>
+					<p class="fragment">型別一樣是function</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h1>使用函式</h1>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h1>物件的函式</h1>
+				</section>
 			</section>
 			
 			</div>
