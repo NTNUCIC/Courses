@@ -100,11 +100,65 @@ typeof(function(a,b){
 					</code></pre>
 					<p class="fragment">型別一樣是function</p>
 				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">現在已經知道變數是什麼了</p>
+					<p class="fragment">要怎麼使用呢?</p>
+				</section>
 			</section>
 			
 			<section>
 				<section>
 					<h1>使用函式</h1>
+				</section>
+				
+				<section>
+					<h2>函式呼叫</h2>
+					<p class="fragment">不論是函式還是匿名函式呼叫法都一樣</p>
+					<p class="fragment">console.log("%s is %s","Tom","Mary")</p>
+					<p class="fragment">使用小括號並用逗號分隔引數</p>
+				</section>
+				
+				<section>
+					<h2>引數?參數?</h2>
+					<p class="fragment">argument&nbsp;引數</p>
+					<p class="fragment">parameter&nbsp;參數</p>
+					<p class="fragment">引數是指值，參數是指變數</p>
+				</section>
+				
+				<section>
+					<h2>看看實際例子</h2>
+					<pre class="fragment"><code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">
+var div=function(a,b){
+	return a/b
+}
+div(30,5)
+					</code></pre>
+					<p class="fragment">30和5是引數，a和b是參數</p>
+					<p class="fragment"><del>雖然如此但還是很難分啦</del></p>
+				</section>
+				
+				<section>
+					<h2>變動長度參數</h2>
+					<p class="fragment">console.log怎麼傳引數都可以</p>
+					<p class="fragment"><del>"我是副市長的姪子，你們看著辦。"</del></p>
+					<p class="fragment">請使用arguments取得參數</p>
+				</section>
+				
+				<section>
+					<h2>使用範例</h2>
+					<p class="fragment">把傳入的數都加起來</p>
+					<pre class="fragment"><code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">
+(function(){
+	var sum=0
+	for(var i=0;i&lt;arguments.length;i++){
+		sum+=arguments[i]
+	}
+	return sum
+})(1,2,3,4,5)
+					</code></pre>
+					<p class="fragment">arguments用法和Array很像</p>
 				</section>
 			</section>
 			
