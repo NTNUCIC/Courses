@@ -52,6 +52,7 @@
 				<h2>今日重點</h2>
 				<p class="fragment">函式宣告</p>
 				<p class="fragment">使用函式</p>
+				<p class="fragment">變數作用域</p>
 				<p class="fragment">物件的函式</p>
 			</section>
 			
@@ -159,6 +160,60 @@ div(30,5)
 })(1,2,3,4,5)
 					</code></pre>
 					<p class="fragment">arguments用法和Array很像</p>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">函式中變數作用範圍道理是如何運作</p>
+					<p class="fragment"><del>JavaScripy劣質部份</del></p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h1>變數作用域</h1>
+				</section>
+				
+				<section>
+					<h2>作用域</h2>
+					<p class="fragment">scope</p>
+					<p class="fragment">變數可以被使用的範圍</p>
+				</section>
+				
+				<section>
+					<h2>區域變數</h2>
+					<p class="fragment">Local variable</p>
+					<p class="fragment">宣告在函式中的變數</p>
+					<p class="fragment">只有該函式可以取用</p>
+					<p class="fragment">要有var才是區域變數</p>
+				</section>
+				
+				<section>
+					<h2>全域變數</h2>
+					<p class="fragment">Global variable</p>
+					<p class="fragment">在任何地方都可以被使用</p>
+					<p class="fragment">有同名之區域變數則無法使用</p>
+				</section>
+				
+				<section>
+					<h2>自動全域變數</h2>
+					<p class="fragment">沒有var就賦值的變數</p>
+					<p class="fragment">當你以為是區域結果到處都可以用...</p>
+					<p class="fragment">不論如何都用var吧</p>
+				</section>
+				
+				<section>
+					<h2>變數存活時間</h2>
+					<p class="fragment">從被宣告時出生</p>
+					<p class="fragment">區域變數在離開函式呼叫後刪除</p>
+					<p class="fragment">全域變數隸屬於window物件</p>
+					<p class="fragment">全域變數在頁面被關閉時刪除</p>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">JS有很多的內建函式可以使用</p>
+					<p class="fragment">不要重新做輪子了，找找有沒有可用的函式</p>
 				</section>
 			</section>
 			
