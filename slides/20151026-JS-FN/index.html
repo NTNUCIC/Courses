@@ -226,7 +226,7 @@ div(30,5)
 					<h2>物件的函式</h2>
 					<p class="fragment">數字相關</p>
 					<p class="fragment">字串相關</p>
-					<p class="fragment">頁面相關</p>
+					<p class="fragment">BOM</p>
 					<p class="fragment">DOM</p>
 				</section>
 				
@@ -303,6 +303,103 @@ div(30,5)
 					<p class="fragment">.split(str)</p>
 					<p class="fragment">可以不切(不傳引數)也可以都切(傳空字串)</p>
 				</section>
+				
+				<section>
+					<h2>BOM</h2>
+				</section>
+				
+				<section>
+					<h2>BOM</h2>
+					<p class="fragment">Browser&nbsp;Object&nbsp;Model</p>
+					<p class="fragment">每個頁面都有個window物件</p>
+					<p class="fragment">裏面包含頁面所有東西</p>
+					<p class="fragment">另外還有DOM等等會說</p>
+				</section>
+				
+				<section>
+					<h2>頁面尺寸屬性</h2>
+					<p class="fragment">這個不是函式</p>
+					<p class="fragment">.innerHeight</p>
+					<p class="fragment">.innerWidth</p>
+				</section>
+				
+				<section>
+					<h2>頁面操作</h2>
+					<p class="fragment">.open(URL,name,sepc,replace)</p>
+					<p class="fragment">.focus()</p>
+					<p class="fragment">.close()</p>
+					<p class="fragment">.moveTo(x,y)</p>
+					<p class="fragment">.resizeTo(x,y)</p>
+				</section>
+				
+				<section>
+					<h2>全域變數與函式</h2>
+					<p class="fragment">存放全域變數還有函式</p>
+					<p class="fragment">雖然說哪裡都能看到就是了...</p>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment"><del>DOOM</del></p>
+					<p class="fragment">要說明HTML文件在JS中的表現樣式</p>
+				</section>
+				
+				<section>
+					<h2>DOM</h2>
+				</section>
+				
+				<section>
+					<h2>DOM</h2>
+					<p class="fragment">Document&nbsp;Object&nbsp;Model</p>
+					<img src="./pic_htmltree.gif">
+					<p class="fragment"><del>一棵不開花的樹</del></p>
+				</section>
+				
+				<section>
+					<h2>JS的能力</h2>
+					<p class="fragment">由於整個html文件都被DOM所表達</p>
+					<p class="fragment">可以改變HTML元素、屬性</p>
+					<p class="fragment">可以換CSS風格</p>
+					<p class="fragment">可以新增移除HTML元素</p>
+				</section>
+				
+				<section>
+					<h2>JS的無力</h2>
+					<p class="fragment">JS可以新增&lt;script&gt;元素</p>
+					<p class="fragment">所以沒有引入函式庫的函式呼叫...</p>
+					<p class="fragment">ES6終於會有啦<del>IE持續悲劇中</del></p>
+				</section>
+				
+				<section>
+					<h2>取得元素</h2>
+					<p class="fragment">document.getElementById(id)</p>
+					<p class="fragment">document.getElementsByTagName(name)</p>
+					<p class="fragment">document.getElementsByClassName(name)</p>
+				</section>
+				
+				<section>
+					<h2>改變元素</h2>
+					<p class="fragment">此處element代換任意DOM中的元素</p>
+					<p class="fragment">element.innerHTML=newHtmlContent</p>
+					<p class="fragment">element.attribute=newValue</p>
+					<p class="fragment">element.setAttribute(attribute, value)</p>
+					<p class="fragment">element.style.property =newStyle</p>
+				</section>
+				
+				<section>
+					<h2>增刪元素</h2>
+					<p class="fragment">document.createElement(element)</p>
+					<p class="fragment">以下的document可依節點做代換</p>
+					<p class="fragment">document.removeChild(element)</p>
+					<p class="fragment">document.appendChild(element)</p>
+					<p class="fragment">document.replaceChild(oldNode,newNode)</p>
+					<p class="fragment">document.write(text)</p>
+				</section>
+			</section>
+				
+			<section>
+				<h2>以上為函式以及基本的DOM介紹</h2>
+				<h2>謝謝大家</h2>
 			</section>
 			
 			</div>
