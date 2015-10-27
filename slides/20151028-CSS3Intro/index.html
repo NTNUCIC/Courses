@@ -94,6 +94,7 @@
 							<li class="fragment">CSS最新標準</li>
 							<li class="fragment">用於取代HTML的樣式設定</li>
 							<li class="fragment">瀏覽器尚未完全支援<small>像是IE阿...</small></li>
+							<li class="fragment">目前有大量功能尚未實作</li>
 						</ul>
 					</section>
 				</section>
@@ -202,10 +203,28 @@ ABC&lt;span style="color:green;background:yellow;"&gt;green span&lt;/span&gt;DEF
 					</section>
 					<section>
 						<h2>CSS:width/height</h2>
+						<pre class="fragment"><code data-trim>
+width: (size-value)|auto;
+height: (size-value)|auto;
+						</code></pre>
+						<pre class="fragment"><samp data-trim><div style="background:blue;width:50%;">50% width</div><div style="background:green;height:40px;">40px height</div></samp></pre>
+						<ul>
+							<li class="fragment">設定寬度和高度</li>
+							<li class="fragment">auto為自動計算，預設值</li>
+							<li class="fragment">數值可使用各種尺寸單位</li>
+							<li class="fragment">常用px,%,em,vw,vh等</li>
+							<li class="fragment">%為相對上一層標籤</li>
+							<li class="fragment">cm等絕對單位可用於列印等功能</li>
+							<li class="fragment">只對block元素有效</li>
+						</ul>
+					</section>
+					<section>
+						<h2></h2>
+						<!--(size-value)-->
 					</section>
 					<section>
 						<h2>Try It!</h2>
-						<pre class="fragment"><samp class="white" data-trim><h3 style="color:orange;">三原光</h3><p style="background:black;"><span style="color:red;">紅</span><span style="color:lime;">綠</span><span style="color:blue;">藍</span></p></samp></pre>
+						<pre class="fragment"><samp class="white" data-trim><h3 style="color:orange;">三原光</h3><p style="background:black;width:30%;height:3em;"><span style="color:red;">紅</span><span style="color:lime;">綠</span><span style="color:blue;">藍</span></p></samp></pre>
 						<p class="fragment">試著在網頁中達成以上效果</p>
 					</section>
 				</section>
@@ -256,7 +275,8 @@ text-align: left|right|center|justify;
 						<pre class="fragment"><samp data-trim><p style="text-align:left;">靠左</p><p style="text-align:right;">靠右</p><p style="text-align:center;">置中</p><p style="text-align:justify;">左右對齊(用於拼音語言)</p></samp></pre>
 						<ul>
 							<li class="fragment">用於文字對齊</li>
-							<li class="fragment">對於block元素無效</li>
+							<li class="fragment">對於block元素的對齊無效</li>
+							<li class="fragment">inline元素中沒有效果(因為width也無效)</li>
 							<li class="fragment">左右對齊在自動換行的非等寬字時對齊左右</li>
 						</ul>
 					</section>
@@ -271,13 +291,207 @@ font-size: (size-value)|xx-small|x-small|smaller|small|medium
 							<li class="fragment">設定字體大小</li>
 							<li class="fragment">medium為預設值</li>
 							<li class="fragment">數值可用各種尺寸單位</li>
-							<li class="fragment">常用px,%,em,vw,vh等</li>
 						</ul>
 					</section>
 					<section>
 						<h2>Try It!</h2>
-						<pre class="fragment"><samp class="white" data-trim><div style="background:orange;padding:1em;"><div style="font-weight:bold;font-size:2em;text-align:center;margin:0.2em;">警告</div><div style="font-style:italic;">CSS3有許多功能瀏覽器尚未實作、或是實作不完全，像是IE阿，IE阿，或是IE之類的，因此有許多功能可能無法使用、需要加上前墜(<span style="text-decoration:line-through;">+1~42電傷</span>,-webkit-,-moz-)、使用不同語法支援不同瀏覽器，或是發生莫名其妙的錯誤；</div></div></samp></pre>
-						<p class="fragment">試著以CSS在網頁中達成以上效果</p>
+						<pre class="fragment"><samp class="white" data-trim><div style="background:orange;padding:1em;"><div style="font-weight:bold;font-size:2em;text-align:center;margin:0.2em;">警告</div><div style="font-style:italic;">CSS3有許多功能瀏覽器尚未實作、或是實作不完全，像是IE阿，IE阿，或是IE之類的，因此有許多功能可能無法使用、只支援一部份，或是發生莫名其妙的錯誤；需要以加上前墜(<span style="text-decoration:line-through;">+1~42電傷</span>,-webkit-,-moz-)、使用不同語法支援不同瀏覽器等方式達成效果。<br><div style="text-align:right;font-style:normal;text-decoration:underline;">或是等待，時間會解決所有問題，或至少解決發現問題的人。</div></div></div></samp></pre>
+						<p class="fragment">試著以div/span配合CSS在網頁中達成以上效果</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>CSS:display</h2>
+						<pre class="fragment"><code class="bash" data-trim>
+display: inline|block|none|inline-block|list-item|(flex)|(table元素);
+						</code></pre>
+						<ul>
+							<li class="fragment">決定元素的顯示方式</li>
+							<li class="fragment">inline為預設值</li>
+							<li class="fragment">none為不顯示</li>
+							<li class="fragment">inline-block為inline與block的混合</li>
+							<li class="fragment">flex為CSS3新功能，須搭配其他flex系列的屬性使用</li>
+							<li class="fragment">list-item使該元素表現為&lt;li&gt;</li>
+							<li class="fragment">設定table類則表現為HTML5-table系列各種元素</li>
+						</ul>
+					</section>
+					<section>
+						<h2>CSS display:inline/block</h2>
+						<pre class="fragment"><code data-trim>
+123&lt;p style="display:inline;background:red;"&gt;inline的p&lt;/p&gt;456&lt;br&gt;
+ABC&lt;mark style="display:block;"&gt;block的mark&lt;/mark&gt;DEF
+						</code></pre>
+						<pre class="fragment"><samp data-trim>123<p style="display:inline;background:red;">inline的p</p>456<br>ABC<mark style="display:block;">block的mark</mark>DEF</samp></pre>
+						<ul>
+							<li class="fragment">設定元素為inline或block</li>
+							<li class="fragment">可覆蓋HTML設定</li>
+							<li class="fragment">常用於div或span排版</li>
+						</ul>
+					</section>
+					<section>
+						<h2>CSS display:none</h2>
+						<pre class="fragment"><code data-trim>
+123&lt;div style="display:none;"&gt;456&lt;/div&gt;789
+						</code></pre>
+						<pre class="fragment"><samp data-trim>123<div style="display:none;">456</div>789</samp></pre>
+						<ul>
+							<li class="fragment">將整個元素隱藏</li>
+							<li class="fragment">不佔空間</li>
+							<li class="fragment">JS仍然可以抓取</li>
+						</ul>
+					</section>
+					<section>
+						<h2>CSS visibility</h2>
+						<pre class="fragment"><code class="bash" data-trim>
+visibility: visible|hidden;
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+123&lt;span style="visibility:hidden;"&gt;456&lt;/span&gt;789
+						</code></pre>
+						<pre class="fragment"><samp data-trim>123<span style="visibility:hidden;">456</span>789</samp></pre>
+						<ul>
+							<li class="fragment">設定元素是否可見</li>
+							<li class="fragment">visible為可見，預設值</li>
+							<li class="fragment">hidden為不可見</li>
+							<li class="fragment">會保留排版位置</li>
+						</ul>
+					</section>
+					<section>
+						<h2>CSS display:inline-block</h2>
+						<pre class="fragment"><code data-trim>
+123&lt;span style="display:inline-block;width:300px;height:100px;background:green;"&gt;inline-block&lt;/span&gt;456
+						</code></pre>
+						<pre class="fragment"><samp data-trim>123<span style="display:inline-block;background:green;width:300px;height:100px;">inline-block</span>456</samp></pre>
+						<ul>
+							<li class="fragment">本身作為inline元素排列</li>
+							<li class="fragment">元素內部視為block</li>
+							<li class="fragment">可設定width、height等</li>
+						</ul>
+					</section>
+					<section>
+						<h2>CSS display:list-item</h2>
+						<pre class="fragment"><code data-trim>
+&lt;ul&gt;
+	&lt;div style="display:list-item"&gt;item1&lt;/div&gt;
+	&lt;a href="#" style="display:list-item"&gt;item2&lt;/a&gt;
+	&lt;div style="display:list-item"&gt;item3&lt;/div&gt;
+&lt;/ul&gt;
+						</code></pre>
+						<pre class="fragment"><samp data-trim><ul><div style="display:list-item">item1</div><a href="#" style="display:list-item">item2</a><div style="display:list-item">item3</div></ul></samp></pre>
+						<ul>
+							<li class="fragment">將元素表現為&lt;li&gt;</li>
+							<li class="fragment">可以達成一些很奇怪的效果</li>
+							<li class="fragment">通常不建議使用</li>
+						</ul>
+					</section>
+					<section>
+						<h2>CSS display:(table元素)</h2>
+						<pre class="fragment"><code data-trim>
+&lt;div style="display:table;"&gt;
+	&lt;div style="display:table-row;"&gt;
+		&lt;div style="display:table-cell;"&gt;AA&lt;/div&gt;
+		&lt;div style="display:table-cell;"&gt;AB&lt;/div&gt;
+	&lt;/div&gt;
+	&lt;div style="display:table-row;"&gt;
+		&lt;div style="display:table-cell;"&gt;BA&lt;/div&gt;
+		&lt;div style="display:table-cell;"&gt;BB&lt;/div&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+						</code></pre>
+						<pre class="fragment"><samp data-trim><div style="display:table;"><div style="display:table-row;"><div style="display:table-cell;">AA</div><div style="display:table-cell;">AB</div></div><div style="display:table-row;"><div style="display:table-cell;">BA</div><div style="display:table-cell;">BB</div></div></div></samp></pre>
+						<ul>
+							<li class="fragment">將元素表現為各種表格元素</li>
+							<li class="fragment">可取代HTML表格</li>
+							<li class="fragment">IE8以下不支援</li>
+						</ul>
+					</section>
+					<section>
+						<h2>CSS display:(table元素)</h2>
+						<table>
+							<tr>
+								<th>display value</th>
+								<th>HTML tag</th>
+							</tr>
+							<tr class="fragment">
+								<td>table</td>
+								<td>&lt;table&gt;</td>
+							</tr>
+							<tr class="fragment">
+								<td>inline-table</td>
+								<td>inline的&lt;table&gt;</td>
+							</tr>
+							<tr class="fragment">
+								<td>table-row</td>
+								<td>&lt;tr&gt;</td>
+							</tr>
+							<tr class="fragment">
+								<td>table-cell</td>
+								<td>&lt;td&gt;</td>
+							</tr>
+							<tr class="fragment">
+								<td>table-caption</td>
+								<td>&lt;caption&gt;</td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<h2>CSS display:(table元素)</h2>
+						<table>
+							<tr>
+								<th>display value</th>
+								<th>HTML tag</th>
+							</tr>
+							<tr class="fragment">
+								<td>table-header-group</td>
+								<td>&lt;thead&gt;</td>
+							</tr>
+							<tr class="fragment">
+								<td>table-row-group</td>
+								<td>&lt;tbody&gt;</td>
+							</tr>
+							<tr class="fragment">
+								<td>table-footer-group</td>
+								<td>&lt;tfoot&gt;</td>
+							</tr>
+							<tr class="fragment">
+								<td>table-column</td>
+								<td>&lt;col&gt;</td>
+							</tr>
+							<tr class="fragment">
+								<td>table-column-group</td>
+								<td>&lt;colgroup&gt;</td>
+							</tr>
+						</table>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<pre class="fragment"><samp data-trim><div style="background:yellow;width:500px;height:300px;text-align:center;"><div style="display:inline-block;height:50px;visibility:hidden;"></div><br><div style="display:inline-block;width:400px;height:200px;background:blue;"></div></div></samp></pre>
+						<p class="fragment">試著以CSS達成以上效果</p>
+					</section>
+				</section>
+				<!--initial,inherit-->
+				<section>
+					<section>
+						<h2>initial</h2>
+						<pre class="fragment"><code class="bash" data-trim>
+(CSS屬性): initial;
+						</code></pre>
+						<ul>
+							<li class="fragment">將該屬性設定為初始值</li>
+							<li class="fragment">可用於任意屬性</li>
+							<li class="fragment">IE無效<small>習慣就好，習慣就好</small></li>
+						</ul>
+					</section>
+					<section>
+						<h2>inherit</h2>
+						<pre class="fragment"><code class="bash" data-trim>
+(CSS屬性): inherit;
+						</code></pre>
+						<ul>
+							<li class="fragment">使該屬性繼承父元素之值</li>
+							<li class="fragment">可用於任意屬性</li>
+							<li class="fragment">IE8以下不支援</li>
+						</ul>
 					</section>
 				</section>
 			</div>
