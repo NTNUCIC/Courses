@@ -204,23 +204,39 @@ ABC&lt;span style="color:green;background:yellow;"&gt;green span&lt;/span&gt;DEF
 					<section>
 						<h2>CSS:width/height</h2>
 						<pre class="fragment"><code data-trim>
-width: (size-value)|auto;
-height: (size-value)|auto;
+width: (units)|auto;
+height: (units)|auto;
 						</code></pre>
 						<pre class="fragment"><samp data-trim><div style="background:blue;width:50%;">50% width</div><div style="background:green;height:40px;">40px height</div></samp></pre>
 						<ul>
 							<li class="fragment">設定寬度和高度</li>
 							<li class="fragment">auto為自動計算，預設值</li>
-							<li class="fragment">數值可使用各種尺寸單位</li>
+							<li class="fragment">數值可使用各種長度單位</li>
 							<li class="fragment">常用px,%,em,vw,vh等</li>
-							<li class="fragment">%為相對上一層標籤</li>
-							<li class="fragment">cm等絕對單位可用於列印等功能</li>
 							<li class="fragment">只對block元素有效</li>
 						</ul>
 					</section>
 					<section>
-						<h2></h2>
-						<!--(size-value)-->
+						<h2>CSS 長度單位</h2>
+						<ul>
+							<li class="fragment">分為相對單位與絕對單位</li>
+							<li class="fragment">最常用px,%,em</li>
+							<li class="fragment">絕對單位包含px,cm,mm,in(inch),pt,pc(pica,12pt)</li>
+							<li class="fragment">px為一個像素點，相對於解析度</li>
+							<li class="fragment">px之外通常只用於列印</li>
+						</ul>
+					</section>
+					<section>
+						<h2>CSS 長度單位</h2>
+						<ul>
+							<li class="fragment">相對單位包含%,em,rem,ex,ch,vw,vh,vmin,vmax</li>
+							<li class="fragment">%為相對上一層標籤</li>
+							<li class="fragment">em為'M'寬度、ex為'x'高度、ch為'0'寬度</li>
+							<li class="fragment">rem為root元素的em</li>
+							<li class="fragment">vw為可瀏覽部分寬度的1%,vh為高度的1%</li>
+							<li class="fragment">vmin為vw與vh中較小值，vmax為較大值</li>
+							<li class="fragment">em相對於當前字體大小，會受到上層元素影響</li>
+						</ul>
 					</section>
 					<section>
 						<h2>Try It!</h2>
@@ -283,7 +299,7 @@ text-align: left|right|center|justify;
 					<section>
 						<h2>CSS:font-size</h2>
 						<pre class="fragment"><code class="bash" data-trim>
-font-size: (size-value)|xx-small|x-small|smaller|small|medium
+font-size: (units)|xx-small|x-small|smaller|small|medium
            |larger|large|x-large|xx-large;
 						</code></pre>
 						<pre class="fragment"><samp data-trim><p style="font-size:small;">小字</p><p>標準字</p><p style="font-size:larger;">大字</p></samp></pre>
@@ -292,6 +308,27 @@ font-size: (size-value)|xx-small|x-small|smaller|small|medium
 							<li class="fragment">medium為預設值</li>
 							<li class="fragment">數值可用各種尺寸單位</li>
 						</ul>
+					</section>
+					<section>
+						<h2>CSS em</h2>
+						<pre class="fragment"><code data-trim>
+&lt;span style="font-size:1.2em;"&gt;
+	M
+	&lt;span style="font-size:1.2em;"&gt;
+		M
+		&lt;span style="font-size:1.2em;"&gt;
+			M
+			&lt;span style="font-size:1.2em;"&gt;
+				M
+				&lt;span style="font-size:1.2em;"&gt;
+					M
+				&lt;/span&gt;
+			&lt;/span&gt;
+		&lt;/span&gt;
+	&lt;/span&gt;
+&lt;/span&gt;
+						</code></pre>
+						<pre class="fragment"><samp data-trim><span style="font-size:1.2em;">M<span style="font-size:1.2em;">M<span style="font-size:1.2em;">M<span style="font-size:1.2em;">M<span style="font-size:1.2em;">M</span></span></span></span></span></samp></pre>
 					</section>
 					<section>
 						<h2>Try It!</h2>
