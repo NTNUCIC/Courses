@@ -159,13 +159,18 @@ Henry{
 				</section>
 
 				<section>
+					<p style="font-size:5rem">為甚麼要 Coding Style?</p>
+				</section>
+
+				<section>
 					<h2>甚麼是漂亮的程式碼?</h2>
 					<ul style="font-size:3rem">
 						<li class="fragment">可讀性</li>
 						<li class="fragment">結構性</li>
 						<li class="fragment">一致性</li>
-						<li class="fragment">易擴充性</li>
+						<li class="fragment">簡潔</li>
 					</ul>
+					<p strle="3rem" class="fragment">但最要先考慮的是<span style="font-size:5rem">給誰看</span></p>
 				</section>
 
 				<section>
@@ -231,6 +236,252 @@ if(!good)
     return false;
 						</code></pre>
 					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>結構性</h1>
+					</section>
+					<section>
+						<h3>清楚的分層</h3>
+						<pre class="fragment" style="font-size:2rem"><code 
+						data-trim>
+//In C++:
+if(!good)
+    printf("bad");
+    return false;
+						</code></pre>
+						<pre class="fragment" style="font-size:2rem"><code 
+						data-trim>
+//In C++:
+if(!good){
+    printf("bad");
+    if(very_bad){
+        // ...
+    }
+}
+return false;
+						</code></pre>
+					</section>
+					<section>
+						<h3>相關的放一起，還要注意順序</h3>
+						<pre class="fragment" style="font-size:1.5rem"><code 
+						data-trim>
+int foo(int attr){
+	int input;
+	scanf("%d",&amp;input);
+
+	int version = convert(attr);
+	return version + input;
+}
+						</code></pre>
+						<pre class="fragment" style="font-size:1.5rem"><code 
+						data-trim>
+class MyString{
+public:
+	MyString();
+	~MyString();
+
+	int length();
+	char IndexOf(int index) ;
+}
+						</code></pre>
+					</section>
+					<section>
+						<h3>邏輯</h3>
+						<pre class="fragment" style="font-size:1.5rem"><code 
+						data-trim>
+if(a==1){
+    //...
+}
+else if(a==2){
+    //...
+}
+else if(a==3){
+	//...
+}
+						</code></pre>
+						<pre class="fragment" style="font-size:1.5rem"><code 
+						data-trim>
+switch(a){
+case1:
+    // ...
+case2:
+    // ...
+case3:
+    // ...
+}
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>一致性</h1>
+						<h3 class="fragment zoom-in">團隊溝通</h3>
+					</section>
+					<section>
+						<h3>呈現風格要一致</h3>
+						<pre class="fragment" style="font-size:1.5rem"><code 
+						data-trim>
+function fuzz(){
+	//...
+}
+
+function buzz()
+{
+	//...
+}
+						</code></pre>
+					</section>
+					<section>
+						<h3>命名風格要一致</h3>
+						<pre class="fragment" style="font-size:1.5rem"><code 
+						data-trim>
+int name_style;
+int nameStyle;
+int Name_Style;
+int name_Style;
+int Name_Style;
+						</code></pre>
+						<pre class="fragment" style="font-size:1.5rem"><code 
+						data-trim>
+String str;
+length(str);
+len(str);
+						</code></pre>
+					</section>
+					<section>
+						<h3>結構要一致</h3>
+						<pre class="fragment" style="font-size:1.5rem"><code 
+						data-trim>
+String str;
+length(str);
+sizeOf(len);
+str.length();
+str.size();
+str.sizeOf();
+						</code></pre>
+					</section>
+					<section>
+						<h3>縮排要一致</h3>
+						<p style="font-size:4rem">tab v.s. space</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>簡潔</h1>
+					</section>
+					<section>
+						<h3>不要複製</h3>
+						<pre class="fragment" style="font-size:1.5rem"><code 
+						data-trim>
+doSomethong(1)
+doSomethong(2)
+doSomethong(3)
+doSomethong(4)
+doSomethong(5)
+
+for i in range(1,6):
+    doSomethong(i)
+						</code></pre>
+						<pre class="fragment" style="font-size:1.5rem"><code 
+						data-trim>
+for i in range(1,6):
+    # do 1
+for i in range(1,6):
+    # do 2
+
+for i in range(1,6):
+    # do 1
+    # do 2
+						</code></pre>
+					</section>
+					<section>
+						<h3>注意邏輯</h3>
+						<pre class="fragment" style="font-size:1.5rem"><code 
+						data-trim>
+if(true)//...
+
+if(false)//..
+						</code></pre>
+						<pre class="fragment" style="font-size:1.5rem"><code 
+						data-trim>
+if(a OR (!a AND b))
+if(a OR b)
+
+if(a){
+	if(a AND b)//..
+}
+						</code></pre>
+					</section>
+					<section>
+						<h3>簡化語法</h3>
+						<pre class="fragment" style="font-size:1.5rem"><code 
+						data-trim>
+if( expression ){
+    return true;
+}
+else{
+	return false;
+}
+
+return expression;
+						</code></pre>
+						<pre class="fragment" style="font-size:1.5rem"><code 
+						data-trim>
+if(result == true)
+
+if(result)
+						</code></pre>
+						<pre class="fragment" style="font-size:1.5rem"><code 
+						data-trim>
+if(str){
+    return str.length()==10;
+}
+else{
+    return false;
+}
+
+return str &amp;&amp; ( str.length()==10 );
+						</code></pre>
+					</section>
+					<section>
+						<h3>注意註解</h3>
+						<pre class="fragment" style="font-size:1.5rem"><code 
+						data-trim>
+i += 1 ; // i plus 1
+						</code></pre>
+						<pre class="fragment" style="font-size:1.5rem"><code 
+						data-trim>
+// use loop to calculate the total
+int total = 0;
+for(int i=0; i &lt; Max; i+=1){
+	total += items[i];
+}
+						</code></pre>
+						<pre class="fragment" style="font-size:1.5rem"><code 
+						data-trim>
+/*************************************
+* This is a pretty comment*
+* This look so cool ! *
+* But hope it never need to fix what*
+* this to comment, and I will not need*
+* to fix this....*
+***************************************/
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<h3>說了那麼多，其實最重要的是:</h3>
+					<h1 class="fragment zoom-in">想看的人要看得懂</h1>
+					<h1 class="fragment zoom-in">團隊一開始要溝通好</h1>
+				</section>
+
+				<section>
+					<p style="font-size:6rem;font-weight:900">謝謝大家!m(_ _)m</p>
 				</section>
 			</div>
 		</div>
