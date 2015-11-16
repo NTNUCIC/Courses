@@ -404,7 +404,7 @@ data.lastElementChild
 				
 				<section id="thispage">
 					<h2>實際測試</h2>
-					<pre class="fragment" style="width:800px;left:auto;right:auto;">
+					<pre class="fragment" style="width:850px;left:auto;right:auto;">
 					<code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">
 var thispage=document.getElementById("thispage")
 var newH1=document.createElement("h1")
@@ -416,6 +416,89 @@ newH1.appendChild(text)
 thispage.removeChild(newH1)
 					</code></pre>
 				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">對元素的屬性進行操作</p>
+					<p class="fragment">標籤裏面的等號配對就是Attribute</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>Attribute</h2>
+				</section>
+				
+				<section>
+					<h2>Atrribute</h2>
+					<p class="fragment">由名稱和數值構成</p>
+					<p class="fragment">標籤後面的等號配對就是Attribute</p>
+				</section>
+				
+				<section>
+					<h2>取出資料</h2>
+					<p class="fragment">attr.name</p>
+					<p class="fragment">attr.value</p>
+					<p class="fragment">attr.isId</p>
+					<p class="fragment">attr.specified</p>
+				</section>
+				
+				<section>
+					<h2>實際實驗</h2>
+					<p class="fragment"></p>
+					<pre class="fragment" style="width:800px;left:auto;right:auto;">
+					<code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">
+n.attributes[0].name
+n.attributes[0].value
+n.attributes["style"].isId
+n.attributes["style"].specified
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>由元素存取屬性</h2>
+					<p class="fragment">element.getAttribute(name)</p>
+					<p class="fragment">element.setAttribute(name,value)</p>
+					<p class="fragment">element.hasAttribute()</p>
+				</section>
+				
+				<section>
+					<h2>操作元素的屬性</h2>
+					<p class="fragment">直接看看如何操作吧</p>
+					<a class="fragment" target="_blank" id="thisa">超連結</a>
+					<pre class="fragment" style="width:900px;left:auto;right:auto;">
+					<code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">
+var thisa=document.getElementById("thisa")
+thisa.getAttribute("target")
+thisa.setAttribute("href","https://www.google.com.tw")</code></pre>
+				</section>
+				
+				<section>
+					<h2>在JS中引入程式</h2>
+					<pre class="fragment" style="width:1000px;left:auto;right:auto;">
+					<code style="font-size:32px;font-family:'consolas','ubuntu mono'" data-trim>
+					function loadScript(url)
+{
+	var head = document.getElementsByTagName('head')[0];
+	var script = document.createElement('script');
+	script.type = 'text/javascript';
+	script.src = url;
+	head.appendChild(script);
+}
+					</code></pre>
+					<p class="fragment">有沒有忽然能看懂意思了?</p>
+				</section>
+				
+				<section>
+					<h2>下集待續</h2>
+					<p class="fragment">DOM當然不只這樣</p>
+					<p class="fragment">還有CSS和Event</p>
+				</section>
+			</section>
+			
+			<section>
+				<h2>以上為今日JS教學課程</h2>
+				<h2>感謝各位</h2>
 			</section>
 			
 			</div>
