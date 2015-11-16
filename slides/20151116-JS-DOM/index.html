@@ -272,7 +272,81 @@ document.getElementsByName("armstrong")
 				
 				<section>
 					<h2>接下來</h2>
-					<p class="fragment">對取的的元素進行操作</p>
+					<p class="fragment">對取得的元素進行操作</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>Element</h2>
+				</section>
+				
+				<section>
+					<h2>Element</h2>
+					<p class="fragment">許多的Element組成了Document</p>
+					<p class="fragment">一個標籤就是一個Element</p>
+				</section>
+				
+				<section>
+					<h2>取得元素資料</h2>
+					<p class="fragment">element.textContent</p>
+					<p class="fragment">element.innerHTML</p>
+					<p class="fragment">element.style</p>
+					<p class="fragment">element.attributes</p>
+				</section>
+				
+				<section>
+					<h2>樹狀結構</h2>
+					<p class="fragment">DOM是以樹狀結構表達</p>
+					<p class="fragment">裏面的元素也是以樹狀結構存在</p>
+					<p class="fragment">可以操作元素附近的東西</p>
+				</section>
+				
+				<section>
+					<h2>樹狀操作</h2>
+					<p class="fragment">父節點</p>
+					<p class="fragment">平輩節點</p>
+					<p class="fragment">子節點</p>
+				</section>
+				
+				<section>
+					<h2>父節點</h2>
+					<p class="fragment">"You&nbsp;are&nbsp;someone's&nbsp;son"</p>
+					<p class="fragment">element.parentNode</p>
+					<p class="fragment">element.parentElement</p>
+					<p class="fragment">注意上層有可能是Document而非Element</p>
+				</section>
+				
+				<section>
+					<h2>平輩節點</h2>
+					<p class="fragment">和自己屬於同個樹狀階層</p>
+					<p class="fragment">element.nextSibling</p>
+					<p class="fragment">element.nextElementSibling</p>
+					<p class="fragment">element.previousSibling</p>
+					<p class="fragment">element.previousElementSibling</p>
+					<p class="fragment">想想隔壁有可能是文字或是註解</p>
+				</section>
+				
+				<section>
+					<h2>子節點列表</h2>
+					<p class="fragment">element.childNodes</p>
+					<p class="fragment">element.children</p>
+					<p class="fragment">element.childElementCount</p>
+				</section>
+				
+				<section>
+					<h2>取得子節點</h2>
+					<p class="fragment">element.firstChild</p>
+					<p class="fragment">element.firstElementChild</p>
+					<p class="fragment">element.lastChild</p>
+					<p class="fragment">element.lastElementChild</p>
+				</section>
+				
+				<section>
+					<h2>子節點增刪</h2>
+					<p class="fragment">element.appendChild()</p>
+					<p class="fragment">element.removeChild()</p>
+					<p class="fragment">element.replaceChild()</p>
 				</section>
 			</section>
 			
