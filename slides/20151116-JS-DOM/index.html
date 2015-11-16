@@ -246,10 +246,19 @@ document.title="JASS"</code></pre>
 					<p class="fragment"><del>然後標題就真的變了很不方便</del></p>
 				</section>
 				
-				<h1 style="display:none" id="nekomimi">喵喵喵~~</h1>
-				<h6 style="display:none" id="r6">RRRRRR</h6>
-				<p style="display:none" class="x86">100和14差86</p>
-				<p style="display:none" name="armstrong">手很壯</p>
+<div style="display:none" id="expdata">
+	<h1 style="display:none" id="nekomimi">喵喵喵~~</h1>
+	<h6 style="display:none" id="r6">RRRRRR</h6>
+	<p style="display:none" class="x86">100和14差86</p><!-- 手無縛雞之力 -->
+	<p style="display:none" name="armstrong">手很壯</p>
+<!-- 隱蔽版捏~~ --></div>
+				
+				<section>
+					<h2>創造物件</h2>
+					<p class="fragment">document.createAttribute(attr)</p>
+					<p class="fragment">document.createElement(tag)</p>
+					<p class="fragment">document.createTextNode(text)</p>
+				</section>
 				
 				<section>
 					<h2>取得元素</h2>
@@ -263,10 +272,10 @@ document.title="JASS"</code></pre>
 				<section>
 					<h2>實際實驗</h2>
 					<pre class="fragment"><code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">
-document.getElementById("nekomimi")
-document.getElementsByTagName("h6")
-document.getElementsByClassName("x86")
-document.getElementsByName("armstrong")
+var n=document.getElementById("nekomimi")
+var h=document.getElementsByTagName("h6")[0]
+var x=document.getElementsByClassName("x86")[0]
+var a=document.getElementsByName("armstrong")[0]
 					</code></pre>
 				</section>
 				
@@ -296,6 +305,16 @@ document.getElementsByName("armstrong")
 				</section>
 				
 				<section>
+					<h2>實際實驗</h2>
+					<pre class="fragment" style="width:400px;left:auto;right:auto;">
+					<code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">
+n.textContent
+h.innerHTML
+x.style
+a.attributes</code></pre>
+				</section>
+				
+				<section>
 					<h2>樹狀結構</h2>
 					<p class="fragment">DOM是以樹狀結構表達</p>
 					<p class="fragment">裏面的元素也是以樹狀結構存在</p>
@@ -318,6 +337,17 @@ document.getElementsByName("armstrong")
 				</section>
 				
 				<section>
+					<h2>實際實驗</h2>
+					<pre class="fragment" style="width:800px;left:auto;right:auto;">
+					<code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">
+document.body.parentNode
+document.body.parentElement
+document.documentElement.parentNode
+document.documentElement.parentElement
+					</code></pre>
+				</section>
+				
+				<section>
 					<h2>平輩節點</h2>
 					<p class="fragment">和自己屬於同個樹狀階層</p>
 					<p class="fragment">element.nextSibling</p>
@@ -325,6 +355,17 @@ document.getElementsByName("armstrong")
 					<p class="fragment">element.previousSibling</p>
 					<p class="fragment">element.previousElementSibling</p>
 					<p class="fragment">想想隔壁有可能是文字或是註解</p>
+				</section>
+				
+				<section>
+					<h2>實際測試</h2>
+					<pre class="fragment" style="width:800px;left:auto;right:auto;">
+					<code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">
+x.nextElementSibling
+x.nextSibling
+x.nextSibling.nextSibling
+x.nextSibling.nextSibling.nextSibling
+					</code></pre>
 				</section>
 				
 				<section>
@@ -343,10 +384,37 @@ document.getElementsByName("armstrong")
 				</section>
 				
 				<section>
+					<h2>實際測試</h2>
+					<pre class="fragment" style="width:800px;left:auto;right:auto;">
+					<code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">
+var data=document.getElementById("expdata");
+data.firstChild
+data.firstElementChild
+data.lastChild
+data.lastElementChild
+					</code></pre>
+				</section>
+				
+				<section>
 					<h2>子節點增刪</h2>
 					<p class="fragment">element.appendChild()</p>
 					<p class="fragment">element.removeChild()</p>
 					<p class="fragment">element.replaceChild()</p>
+				</section>
+				
+				<section id="thispage">
+					<h2>實際測試</h2>
+					<pre class="fragment" style="width:800px;left:auto;right:auto;">
+					<code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">
+var thispage=document.getElementById("thispage")
+var newH1=document.createElement("h1")
+var text=document.createTextNode("ㄈ十 ㄈ艸 ㄈ卉")
+
+thispage.appendChild(newH1)
+newH1.appendChild(text)
+
+thispage.removeChild(newH1)
+					</code></pre>
 				</section>
 			</section>
 			
