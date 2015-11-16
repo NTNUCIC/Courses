@@ -83,11 +83,11 @@ function increase(n){
 			
 				<section>
 					<h2>函式呼叫</h2>
-					<pre class="fragment"style="width:700px;left: auto;right:auto;">
+					<pre class="fragment"style="width:800px;left: auto;right:auto;">
 					<code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">
 console.log("%c囧囧囧囧囧","font-size:72px;")
 console.log(square(9))
-					<code></pre>
+					</code></pre>
 				</section>
 				
 				<section>
@@ -155,6 +155,118 @@ console.log(square(9))
 					<h2>namedNodeMap</h2>
 					<p class="fragment">裝著element的無序集合</p>
 					<p class="fragment">可由名稱或索引取得元素</p>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">使用DOM之前讓JS能在HTML中運作</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>在HTML內使用JS</h2>
+				</section>
+				
+				<section>
+					<h2>觀念釐清</h2>
+					<p class="fragment">HTML只是標記語言不能執行</p>
+					<p class="fragment">JavaScript是程式語言可以執行</p>
+					<p class="fragment">將JS放在HTML裡要另外標記</p>
+				</section>
+				
+				<section>
+					<h2>程式內嵌</h2>
+					<p class="fragment">將JS視為HTML中的內容</p>
+					<pre class="fragment" style="width:650px;left:auto;right:auto;">
+					<code style="font-size:32px;font-family:'consolas','ubuntu mono'" data-trim>
+&lt;script&gt;alert("hello, world")&lt;/script&gt;
+					</code></pre>
+					<p class="fragment">要用&lt;script&gt;包起來才能執行</p>
+				</section>
+				
+				<section>
+					<h2>引入程式</h2>
+					<p class="fragment">要用此方法才可以引入外部的JS程式碼</p>
+					<pre class="fragment" style="width:740px;left:auto;right:auto;">
+					<code style="font-size:32px;font-family:'consolas','ubuntu mono'" data-trim>
+&lt;script src="../lib/js/head.min.js"&gt;&lt;/script&gt;
+					</code></pre>
+					<p class="fragment">這裡的&lt;script&gt;標籤中間不能有東西</p>
+				</section>
+				
+				<section>
+					<h2>在JS中引入程式</h2>
+					<pre class="fragment" style="width:1000px;left:auto;right:auto;">
+					<code style="font-size:32px;font-family:'consolas','ubuntu mono'" data-trim>
+					function loadScript(url)
+{
+	var head = document.getElementsByTagName('head')[0];
+	var script = document.createElement('script');
+	script.type = 'text/javascript';
+	script.src = url;
+	head.appendChild(script);
+}
+					</code></pre>
+					<p class="fragment">真的是有夠麻煩...</p>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">DOM到底可以如何操作咧?</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h1>Document</h1>
+				</section>
+				
+				
+				<section>
+					<h2>Document</h2>
+					<p class="fragment">可由window.document或document取得</p>
+					<p class="fragment">裏面裝了網頁所有的東西</p>
+					<p class="fragment">對其節點操作可以改變網頁內容</p>
+				</section>
+				
+				<h1 style="display:none" id="nekomimi">喵喵喵~~</h1>
+				<h6 style="display:none" id="r6">RRRRRR</h6>
+				<p style="display:none" class="x86">100和14差86</p>
+				<p style="display:none" name="armstrong">手很壯</p>
+				
+				<section>
+					<h2>取得元素</h2>
+					<p class="fragment"></p>
+					<p class="fragment">document.getElementById(id)</p>
+					<p class="fragment">document.getElementsByName(name)</p>
+					<p class="fragment">document.getElementsByTagName(name)</p>
+					<p class="fragment">document.getElementsByClassName(name)</p>
+				</section>
+				
+				<section>
+					<h2>實際實驗</h2>
+					<pre class="fragment"><code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">
+document.getElementById("nekomimi")
+document.getElementsByTagName("h6")
+document.getElementsByClassName("x86")
+document.getElementsByName("armstrong")
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>改變元素</h2>
+					<p class="fragment">此處element代換任意DOM中的元素</p>
+					<p class="fragment">element.innerHTML=newHtmlContent</p>
+					<p class="fragment">element.attribute=newValue</p>
+					<p class="fragment">element.setAttribute(attribute, value)</p>
+					<p class="fragment">element.style.property =newStyle</p>
+				</section>
+				
+				<section>
+					<h2>來看看JS執行效果</h2>
+					<a href="./js_after.html" target="_blank">後執行</a>
+					<a href="./js_before.html" target="_blank">先執行</a>
 				</section>
 			</section>
 			
