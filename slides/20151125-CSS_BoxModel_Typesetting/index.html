@@ -59,7 +59,7 @@
 				</section>
 				<section>
 					<section>
-						<h1>CSS Box Model</h1>
+						<h1>HTML Tags for CSS</h1>
 					</section>
 					<section>
 						<h2>&lt;span&gt; 和 &lt;div&gt;</h2>
@@ -78,14 +78,54 @@
 						<p class="fragment">像<span style="background-color:white;color:gray;">反白</span></p>
 						<p class="fragment">本身沒有任何作用</p>
 					</section>
+					<section>
+						<h2>&lt;div&gt;</h2>
+						<p class="fragment">block元素</p>
+						<p class="fragment">&lt;div&gt;成對標籤&lt;/div&gt;</p>
+						<p class="fragment">像
+						<span style="display:inline-block;border-style:solid;border-width:2px;">文字方塊</span>
+						或選取框框
+						<span style="display:inline-block;border-style:dashed;border-width:2px;width:100px;">&nbsp;</span></p>
+						<p class="fragment">本身沒有任何作用</p>
+					</section>
+					<section>
+						<h2>Examples</h2>
+						<p class="fragment">&lt;span&gt;&lt;/span&gt;</p>
+						<pre class="fragment"><code data-trim>
+This is a &lt;span&gt;span without CSS settings&lt;/span&gt;.
+						</code></pre>
+						<pre class="fragment"><samp data-trim>
+This is a <span>span without CSS settings</span>.
+						</samp></pre>
+						<pre class="fragment"><code data-trim>
+This is a &lt;span style="color:red;"&gt;span and set color to red&lt;/span&gt;.
+						</code></pre>
+						<pre class="fragment"><samp data-trim>
+This is a <span style="color:red;">span and set color to red</span>.
+						</samp></pre>
+					</section>
+					<section>
+						<h2>Examples</h2>
+						<p class="fragment">&lt;div&gt;&lt;/div&gt;</p>
+						<pre class="fragment"><code data-trim>
+This is a &lt;div&gt;div without CSS settings&lt;/div&gt;.
+						</code></pre>
+						<pre class="fragment"><samp data-trim>
+This is a <div>div without CSS settings</div>.
+						</samp></pre>
+						<pre class="fragment"><code data-trim>
+This is a &lt;div style="background:red;"&gt;div and set background to red&lt;/div&gt;.
+						</cod></pre>
+						<pre class="fragment"><samp data-trim>
+This is a <div style="background:red;">div and set background to red</div>.
+						</samp></pre>
+					</section>
 				</section>
 			</div>
-
 		</div>
 
 		<script src="../lib/js/head.min.js"></script>
 		<script src="../js/reveal.js"></script>
-
 		<script>
 
 			// Full list of configuration options available at:
