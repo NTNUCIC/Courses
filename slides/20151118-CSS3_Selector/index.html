@@ -288,7 +288,7 @@ Selector1~Selector2{
 					</section>
 					<section>
 						<h2>Try It!</h2>
-						<p>試著以選擇器達成<a href="relationselecotr.html" target="_blank">Demo</a>中的效果</p>
+						<p>試著以關係選擇器與標籤名達成<a href="relationselecotr.html" target="_blank">Demo</a>中的效果</p>
 					</section>
 				</section>
 				<section>
@@ -312,6 +312,51 @@ p{
 h1{
 	background:yellow;
 }
+						</code></pre>
+					</section>
+					<section>
+						<h2>CSS規則</h2>
+						<ul class="fragment">
+							<li>行內優先於選擇器</li>
+						</ul>
+						<pre class="fragment"><code data-trim>
+p{
+	color:red;
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+&lt;p style="color:green;"&gt;abc&lt;/p&gt;
+						</code></pre>
+					</section>
+					<section>
+						<h2>CSS規則</h2>
+						<ul class="fragment">
+							<li>And選擇器中，若有標籤名則放於最前端</li>
+						</ul>
+						<pre class="fragment"><code data-trim>
+div#box1{
+	(Attribute)
+}
+span.output{
+	(Attribute)
+}
+div#content.main.center{
+	(Attribute)
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>CSS規則</h2>
+						<ul class="fragment">
+							<li>Or選擇器永遠為最外層</li>
+						</ul>
+						<pre class="fragment"><code data-trim>
+div h2,p{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+(div h2),(p)
 						</code></pre>
 					</section>
 				</section>
