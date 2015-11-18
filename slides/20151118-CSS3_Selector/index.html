@@ -295,42 +295,6 @@ Selector1~Selector2{
 					<section>
 						<h2>CSS規則</h2>
 						<ul class="fragment">
-							<li>後優先於前</li>
-						</ul>
-						<pre class="fragment"><code data-trim>
-p{
-	color:red;
-}
-p{
-	color:green;
-}
-						</code></pre>
-						<pre class="fragment"><code data-trim>
-*{
-	background:black;
-}
-h1{
-	background:yellow;
-}
-						</code></pre>
-					</section>
-					<section>
-						<h2>CSS規則</h2>
-						<ul class="fragment">
-							<li>行內優先於選擇器</li>
-						</ul>
-						<pre class="fragment"><code data-trim>
-p{
-	color:red;
-}
-						</code></pre>
-						<pre class="fragment"><code data-trim>
-&lt;p style="color:green;"&gt;abc&lt;/p&gt;
-						</code></pre>
-					</section>
-					<section>
-						<h2>CSS規則</h2>
-						<ul class="fragment">
 							<li>And選擇器中，若有標籤名則放於最前端</li>
 						</ul>
 						<pre class="fragment"><code data-trim>
@@ -357,6 +321,152 @@ div h2,p{
 						</code></pre>
 						<pre class="fragment"><code data-trim>
 (div h2),(p)
+						</code></pre>
+					</section>
+					<section>
+						<h2>CSS規則</h2>
+						<ul class="fragment">
+							<li>相同選擇器中後優先於前</li>
+						</ul>
+						<pre class="fragment"><code data-trim>
+p{
+	color:blue;
+	color:red;
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>CSS規則</h2>
+						<ul class="fragment">
+							<li>行內優先於選擇器</li>
+						</ul>
+						<span class="fragment">
+							<pre><code data-trim>
+p{
+	color:red;
+}
+							</code></pre>
+							<pre><code data-trim>
+&lt;p style="color:green;"&gt;abc&lt;/p&gt;
+							</code></pre>
+						</span>
+					</section>
+					<section>
+						<h2>CSS規則</h2>
+						<ul class="fragment">
+							<li>Id選擇器有最高優先權</li>
+						</ul>
+						<pre class="fragment"><code data-trim>
+#aa{
+	color:red;
+}
+p{
+	color:blue;
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>CSS規則</h2>
+						<ul class="fragment">
+							<li>Class選擇器、屬性選擇器與Pseudo-Class擁有次於Id的優先權</li>
+						</ul>
+						<pre class="fragment"><code data-trim>
+.bb{
+	color:red;
+}
+p{
+	color:blue;
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>CSS規則</h2>
+						<ul class="fragment">
+							<li>標籤選擇器與Pseudo-Element優先權僅高於*</li>
+						</ul>
+						<pre class="fragment"><code data-trim>
+*{
+	color:red;
+}
+p{
+	color:blue;
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>CSS規則</h2>
+						<ul class="fragment">
+							<li>以選擇器中最高優先權先決定</li>
+						</ul>
+						<pre class="fragment"><code data-trim>
+#aa{
+	color:red;
+}
+p{
+	color:yellow;
+}
+p.bb.cc{
+	color:green;
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>CSS規則</h2>
+						<ul class="fragment">
+							<li>相同優先權時以數量計算</li>
+						</ul>
+						<pre class="fragment"><code data-trim>
+div span p{
+	color:yellow;
+}
+div p{
+	color:red;
+}
+p{
+	color:green;
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>CSS規則</h2>
+						<ul class="fragment">
+							<li>優先權完全相同時後優先於前</li>
+						</ul>
+						<pre class="fragment"><code data-trim>
+p{
+	color:red;
+}
+p{
+	color:green;
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>CSS規則</h2>
+						<ul class="fragment">
+							<li>*與:not不加入計算</li>
+						</ul>
+						<pre class="fragment"><code data-trim>
+* p{
+	color:red;
+}
+p{
+	color:green;
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>CSS規則</h2>
+						<ul class="fragment">
+							<li>繼承之屬性會直接被覆蓋</li>
+						</ul>
+						<pre class="fragment"><code data-trim>
+html>body#aa{
+	color:red;
+}
+p{
+	color:green;
+}
 						</code></pre>
 					</section>
 				</section>
