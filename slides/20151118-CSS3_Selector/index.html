@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>資訊研究社社課20151118</title>
+
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+		<meta name="author" content="ntnucic">
+
+		<meta name="og:title" content="資訊研究社社課20151118">
+		<meta name="og:url" content="http://ntnucic.github.io/104-1_welcom_party/">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社104學年度社課(2015/11/18)">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<style>
+			samp{
+				display:block;
+				text-align:left;
+				background:#3f3f3f;
+			}
+			pre.fragment>samp>p{
+				margin:0;
+			}
+			samp.white{
+				background:white;
+				color:black;
+			}
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="../lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>CSS3 Selector</h1>
+					<h3>2015/11/18 阮韞澂</h3>
+				</section>
+				<section>
+					<section>
+						<h2>CSS Selector</h2>
+						<pre><code data-trim>
+&lt;div style="background: yellow;"&gt;
+	&lt;h2 style="color: red;"&gt;紅色的標題&lt;/h2&gt;
+	&lt;p style="color: green;"&gt;綠色的字&lt;/p&gt;
+	&lt;p style="color: green;"&gt;綠色的字&lt;/p&gt;
+	&lt;p style="color: green;"&gt;綠色的字&lt;/p&gt;
+&lt;/div&gt;
+						</code></pre>
+						<pre><samp data-trim><div style="background: yellow;"><h2 style="color: red;">紅色的標題</h2><p style="color: green;">綠色的字</p><p style="color: green;">綠色的字</p><p style="color: green;">綠色的字</p></div></samp></pre>
+					</section>
+					<section>
+						<h2>CSS Selector</h2>
+						<ul>
+							<li class="fragment">用於內部樣式表或外部樣式表</li>
+							<li class="fragment">套用屬性於所有符合規則的元素</li>
+							<li class="fragment">被動套用</li>
+							<li class="fragment">瞬間套用</li>
+							<li class="fragment">主要的CSS使用方法</li>
+						</ul>
+					</section>
+					<section>
+						<h2>CSS 內部樣式表</h2>
+						<pre><code data-trim>
+&lt;head&gt;
+	...
+	&lt;style&gt;
+		Selector{
+			屬性1
+			屬性2
+		}
+	&lt;/style&gt;
+	...
+&lt;/head&gt;
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+div{
+	background: yellow;
+}
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Basic Selector</h2>
+						<ul>
+							<li>*</li>
+							<li>tag</li>
+							<li>id</li>
+							<li>class</li>
+						</ul>
+					</section>
+					<section>
+						<h2>* Selector</h2>
+						<pre><code data-trim>
+*{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 微軟正黑體,Microsoft JhengHei,黑體,SimHei,標楷體,DFKai-SB,BiauKai,全字庫正楷體,TW-Kai,'Source Sans Pro', Helvetica, sans-serif;
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>Tag Selector</h2>
+						<pre><code data-trim>
+TagName{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+p{
+	background: black;
+	color: white;
+}
+						</code></pre>
+						<a href="tagselecotr.html" target="_blank" class="fragment">Demo</a>
+					</section>
+					<section>
+						<h2>Id Selector</h2>
+						<pre><code data-trim>
+#IdName{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+#center{
+	text-align: center;
+}
+						</code></pre>
+						<a href="idselecotr.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Class Selector</h2>
+						<pre><code data-trim>
+.ClassName{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+.blue{
+	color: blue;
+}
+						</code></pre>
+						<a href="classselecotr.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<p>試著以選擇器達成<a href="basicselecotr.html" target="_blank">Demo</a>中的效果</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Relation Selector</h2>
+						<ul>
+							<li>且</li>
+							<li>或</li>
+							<li>後代</li>
+							<li>子代</li>
+							<li>緊鄰</li>
+							<li>接續</li>
+						</ul>
+					</section>
+					<section>
+						<h2>And Selector</h2>
+						<p>符合所有選擇器</p>
+						<pre class="fragment"><code data-trim>
+Selector1Selector2{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+p.blue{
+	color:blue;
+}
+						</code></pre>
+						<a href="andselecotr.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Or Selector</h2>
+						<p>符合任一選擇器</p>
+						<pre class="fragment"><code data-trim>
+Selector1,Selector2{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+h1,.blue{
+	color:blue;
+}
+						</code></pre>
+						<a href="orselecotr.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Inside Selector</h2>
+						<p>符合Selector2且位於Selector1中</p>
+						<pre class="fragment"><code data-trim>
+Selector1 Selector2{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+div p{
+	color:blue;
+}
+						</code></pre>
+						<a href="insideselecotr.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Child Selector</h2>
+						<p>符合Selector2且是Selector1的子代</p>
+						<pre class="fragment"><code data-trim class="bash">
+Selector1>Selector2{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+div>p{
+	color:blue;
+}
+						</code></pre>
+						<a href="childselecotr.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>NextTo Selector</h2>
+						<p>符合Selector2且同層並緊鄰Selector1</p>
+						<pre class="fragment"><code data-trim>
+Selector1+Selector2{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+p+p{
+	color:blue;
+}
+						</code></pre>
+						<a href="nexttoselecotr.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Follow Selector</h2>
+						<p>符合Selector2且同層並位於Selector1之後</p>
+						<pre class="fragment"><code data-trim>
+Selector1~Selector2{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+#aa~p{
+	color:red;
+}
+						</code></pre>
+						<a href="followselecotr.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<p>試著以關係選擇器與標籤名達成<a href="relationselecotr.html" target="_blank">Demo</a>中的效果</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>CSS規則</h2>
+						<ul class="fragment">
+							<li>後優先於前</li>
+						</ul>
+						<pre class="fragment"><code data-trim>
+p{
+	color:red;
+}
+p{
+	color:green;
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+*{
+	background:black;
+}
+h1{
+	background:yellow;
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>CSS規則</h2>
+						<ul class="fragment">
+							<li>行內優先於選擇器</li>
+						</ul>
+						<pre class="fragment"><code data-trim>
+p{
+	color:red;
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+&lt;p style="color:green;"&gt;abc&lt;/p&gt;
+						</code></pre>
+					</section>
+					<section>
+						<h2>CSS規則</h2>
+						<ul class="fragment">
+							<li>And選擇器中，若有標籤名則放於最前端</li>
+						</ul>
+						<pre class="fragment"><code data-trim>
+div#box1{
+	(Attribute)
+}
+span.output{
+	(Attribute)
+}
+div#content.main.center{
+	(Attribute)
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>CSS規則</h2>
+						<ul class="fragment">
+							<li>Or選擇器永遠為最外層</li>
+						</ul>
+						<pre class="fragment"><code data-trim>
+div h2,p{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+(div h2),(p)
+						</code></pre>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../plugin/zoom-js/zoom.js', async: true },
+					{ src: '../plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+	</body>
+</html>
