@@ -143,6 +143,34 @@ This is a <div style="background:red;">div and set background to red</div>.
 							<li class="fragment">Height(高)</li>
 						</ul>
 					</section>
+					<section>
+						<h2>Box Model</h2>
+						<p class="fragment">在不同瀏覽器上有不同定義</p>
+						<pre class="fragment"><code data-trim>
+width: 30px;
+padding: 20px;
+border: 1px;
+margin: 20px;
+						</code></pre>
+						<div style="float:left; width: 50%;">
+						<img src="box-model.gif" class="fragment" style="float:left;">
+						<p class="fragment">IE: 30+1*2+20*2 = 72px</p>
+						<p class="fragment">非IE: 30+20*2+1*2+20*2 = 112px</p>
+						<p class="fragment">摁，IE嘛......</p>
+						</div>
+					</section>
+					<section>
+						<h2>Example</h2>
+						<pre class="fragment"><code data-term>
+.div{
+	width: 30px;
+	padding: 20px;
+	border: 1px;
+	margin: 20px;
+	background-color: blue;
+}
+						</code></pre>
+					</section>
 				</section>
 			</div>
 		</div>
