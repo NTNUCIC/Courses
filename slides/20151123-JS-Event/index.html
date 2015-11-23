@@ -51,7 +51,8 @@
 			<section>
 				<h2>今日重點</h2>
 				<p class="fragment">Style</p>
-				<p class="fragment">Event</p>
+				<p class="fragment">Event介紹</p>
+				<p class="fragment">使用Event</p>
 			</section>
 			
 			<section>
@@ -116,7 +117,7 @@ st["color"]="green"
 			
 			<section>
 				<section>
-					<h2>Event</h2>
+					<h2>Event介紹</h2>
 				</section>
 				
 				<section>
@@ -138,6 +139,12 @@ st["color"]="green"
 					<h2>鎖右鍵</h2>
 					<p class="fragment">可以藉由把oncontextmenu="return false"鎖右鍵</p>
 					<p class="fragment"><del>不過我都用火狐娘一鍵停用JS</del></p>
+				</section>
+				
+				<section>
+					<h2>左鍵觸發小八卦</h2>
+					<p class="fragment">有些網站會在頁面上放個透明的大div蓋住頁面</p>
+					<p class="fragment">然後你按下滑鼠就是幫忙按讚...</p>
 				</section>
 				
 				<section>
@@ -168,6 +175,12 @@ st["color"]="green"
 					<p class="fragment">onerror</p>
 					<p class="fragment">onload</p>
 					<p class="fragment">onresize</p>
+				</section>
+				
+				<section>
+					<h2>框架事件小八卦</h2>
+					<p class="fragment">圖片載入失敗也可以註冊事件</p>
+					<p class="fragment">然後忘了過濾就發生了XSS很不方便</p>
 				</section>
 				
 				<section>
@@ -238,6 +251,83 @@ st["color"]="green"
 					<p class="fragment">TransitionEvent物件的屬性</p>
 					<p class="fragment">propertyName</p>
 					<p class="fragment">elapsedTime</p>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">講解Event在HTML中的使用</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>使用Event</h2>
+				</section>
+				
+				<section>
+					<h2>使用Event</h2>
+					<p class="fragment">可以在HTML的元素中給予屬性</p>
+					<p class="fragment">利用JS對指定物件註冊事件</p>
+				</section>
+				
+				<section>
+					<h2>HTML版</h2>
+<button onclick="alert('Troll!!')">這是個按鈕，認同請按下</button>
+					<pre class="fragment"><code style="font-family:'consolas','ubuntu mono';font-size:24px;" data-trim>
+<button onclick="alert('Troll!!')">這是個按鈕，認同請按下</button>
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>JS版</h2>
+					<p class="fragment">可以註冊或取消事件</p>
+					<pre class="fragment"><code class="js" style="font-family:'consolas','ubuntu mono';font-size:32px;" data-trim>
+element.addEventListener(event,func,useCapture)
+element.removeEventListener(event,func,useCapture)
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>參數說明</h2>
+					<p class="fragment">event為字串&nbsp;不用加"on"</p>
+					<p class="fragment">func為函式&nbsp;可為匿名函式</p>
+					<p class="fragment">useCapture為觸發順序&nbsp;可以暫且不管他</p>
+				</section>
+				
+				<section>
+					<h2>為何取消也要指定函式呢</h2>
+					<p class="fragment">一個元素可以在同一個事件觸發多個函式</p>
+					<button class="fragment" id="myBtn">這不是個按鈕，不認同請按下</button>
+<pre class="fragment"><code class="js" style="font-family:'consolas','ubuntu mono';font-size:32px;">
+<script class="fragment">
+var x = document.getElementById("myBtn");
+x.addEventListener("click", myFunction);
+x.addEventListener("click", someOtherFunction);
+function myFunction() {
+	alert ("Hello World!")
+}
+function someOtherFunction() {
+	alert ("This function was also executed!")
+}
+</script>
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>也就是說...</h2>
+					<p class="fragment">使用匿名函式的話要取消註冊很麻煩</p>
+					<p class="fragment">儘量使用有名字的函式來註冊事件</p>
+				</section>
+				
+				<section>
+					<h2>結論</h2>
+					<p class="fragment">有了Event的基本觀念就能寫動態網頁</p>
+					<p class="fragment"><del>還有XSS</del></p>
+				</section>
+				
+				<section>
+					<h2>今天的JS課程就到這邊</h2>
+					<h2>謝謝大家</h2>
 				</section>
 			</section>
 			
