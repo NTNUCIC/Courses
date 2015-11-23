@@ -48,6 +48,78 @@
 					<h4>2015/11/23</h4>
 			</section>
 			
+			<section>
+				<h2>今日重點</h2>
+				<p class="fragment">Style</p>
+				<p class="fragment">Event</p>
+			</section>
+			
+			<section>
+				<section>
+					<h2>Style</h2>
+				</section>
+				
+				<section>
+					<h2>CSS和DOM</h2>
+					<p class="fragment">CSS也被表示在DOM中</p>
+					<p class="fragment">使用Attribute的列表表示</p>
+				</section>
+				
+				<section>
+					<h2>命名規則</h2>
+					<p class="fragment">CSS使用小寫和減號</p>
+					<p class="fragment">JS使用大小寫</p>
+					<p class="fragment">將減號後面的英文改為大寫</p>
+				</section>
+				
+				<section>
+					<h2>命名範例</h2>
+					<p class="fragment">font-family</p>
+					<p class="fragment">fontFamily</p>
+					<p class="fragment">list-style-image</p>
+					<p class="fragment">listStyleImage</p>
+				</section>
+				
+				<section>
+					<h2>命名例外</h2>
+					<p class="fragment">唯一的例外...</p>
+					<p class="fragment">float</p>
+					<p class="fragment">cssFloat</p>
+				</section>
+				
+				<section>
+					<h2>取得屬性</h2>
+					<pre class="fragment"><code id="pcd" style="font-family:'consolas','ubuntu mono';font-size:32px;">
+var pcd=document.getElementById('pcd').style
+pcd.getPropertyValue("font-family")
+pcd.fontFamily
+pcd["font-family"]
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2 id="TAT">設定屬性</h2>
+					<pre class="fragment"><code style="font-family:'consolas','ubuntu mono';font-size:32px;">
+var st=document.getElementById('TAT').style
+st.setProperty("color","red")
+st.color="blue"
+st["color"]="green"
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">動態網頁不可少的Event</p>
+					<p class="fragment"><del>李組長眉頭一皺&nbsp;發現執行並不單純</del></p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>Event</h2>
+				</section>
+			</section>
+			
 			</div>
 		</div>
 		<script src="../lib/js/head.min.js"></script>
