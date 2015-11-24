@@ -59,7 +59,8 @@
 				</section>
 				<section>
 					<section>
-						<h1>HTML Tags for CSS</h1>
+						<h1>HTML Tags</h1>
+						<h2>for CSS</h2>
 					</section>
 					<section>
 						<h2>&lt;span&gt; 和 &lt;div&gt;</h2>
@@ -107,18 +108,10 @@ This is a <span style="color:red;">span and set color to red</span>.
 					<section>
 						<h2>Examples</h2>
 						<p class="fragment">&lt;div&gt;&lt;/div&gt;</p>
-						<pre class="fragment"><code data-trim>
-This is a &lt;div&gt;div without CSS settings&lt;/div&gt;.
-						</code></pre>
-						<pre class="fragment"><samp data-trim>
-This is a <div>div without CSS settings</div>.
-						</samp></pre>
-						<pre class="fragment"><code data-trim>
-This is a &lt;div style="background:red;"&gt;div and set background to red&lt;/div&gt;.
-						</code></pre>
-						<pre class="fragment"><samp data-trim>
-This is a <div style="background:red;">div and set background to red</div>.
-						</samp></pre>
+						<pre class="fragment"><code data-trim>This is a &lt;div&gt;div without CSS settings&lt;/div&gt;.</code></pre>
+						<pre class="fragment"><samp data-trim>This is a <div>div without CSS settings</div>.</samp></pre>
+						<pre class="fragment"><code data-trim>This is a &lt;div style="background:red;"&gt;div and set background to red&lt;/div&gt;.</code></pre>
+						<pre class="fragment"><samp data-trim>This is a <div style="background:red;">div and set background to red</div>.</samp></pre>
 					</section>
 				</section>
 				<section>
@@ -145,31 +138,15 @@ This is a <div style="background:red;">div and set background to red</div>.
 					</section>
 					<section>
 						<h2>Box Model</h2>
-						<p class="fragment">在不同瀏覽器上有不同定義</p>
-						<pre class="fragment"><code data-trim>
-width: 30px;
+						<p class="fragment">寬和高在不同瀏覽器上有不同定義</p>
+						<pre class="fragment"><code data-trim>width: 30px;
 padding: 20px;
 border: 1px;
-margin: 20px;
-						</code></pre>
-						<div style="float:left; width: 50%;">
+margin: 20px;</code></pre>
 						<img src="box-model.gif" class="fragment" style="float:left;">
-						<p class="fragment">IE: 30+1*2+20*2 = 72px</p>
-						<p class="fragment">非IE: 30+20*2+1*2+20*2 = 112px</p>
+						<p class="fragment">IE: <span style="color:yellow;">72px</span><br>30+1*2+20*2</p>
+						<p class="fragment">非IE: <span style="color:yellow;">112px</span><br>30+20*2+1*2+20*2</p>
 						<p class="fragment">摁，IE嘛......</p>
-						</div>
-					</section>
-					<section>
-						<h2>Example</h2>
-						<pre class="fragment"><code data-term>
-.div{
-	width: 30px;
-	padding: 20px;
-	border: 1px;
-	margin: 20px;
-	background-color: blue;
-}
-						</code></pre>
 					</section>
 				</section>
 			</div>
