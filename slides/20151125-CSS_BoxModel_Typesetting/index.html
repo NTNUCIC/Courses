@@ -148,6 +148,12 @@ margin: 20px;</code></pre>
 						<p class="fragment">非IE: <span style="color:yellow;">112px</span><br>30+20*2+1*2+20*2</p>
 						<p class="fragment">摁，IE嘛......</p>
 					</section>
+					<section>
+						<h2>Practice</h2>
+						<p>用兩種不同的方法畫出實際大小600px*400px的矩形</p>
+						<img src="sample.png" class="fragment" style="border:0px;"><br>
+						<a href="practice_1.html" target="_blank" class="fragment">See the code</a>
+					</section>
 				</section>
 				<section>
 					<section>
@@ -185,19 +191,46 @@ margin: 20px;</code></pre>
 						<a href="http://www.w3schools.com/css/css_font.asp" target="_blank" class="fragment">w3schools.com</a>
 					</section>
 					<section>
-						<h2>Examples</h2>
-						<pre class="fragment"><code data-trim>
-This is a &lt;span&gt;span without CSS settings&lt;/span&gt;.
-						</code></pre>
-						<pre class="fragment"><samp data-trim>
-This is a <span>span without CSS settings</span>.
-						</samp></pre>
-						<pre class="fragment"><code data-trim>
-This is a &lt;span style="color:red;"&gt;span and set color to red&lt;/span&gt;.
-						</code></pre>
-						<pre class="fragment"><samp data-trim>
-This is a <span style="color:red;">span and set color to red</span>.
-						</samp></pre>
+						<h2>群組</h2>
+						<ul>
+							<li class="fragment">善用div標籤「打包」各式內容</li>
+							<p class="fragment">selector的運用很重要！</p>
+							<li class="fragment">利用box model進行排版</li>
+							<p class="fragment">不要再用大量空白了，拜託！</p>
+						</ul>
+					</section>
+					<section>
+						<h2>色塊</h2>
+						<p class="fragment">用div標籤的box model和background-color</p>
+						<p class="fragment">boder-radius可以讓他們看起來可愛一點</p>
+						<p class="fragment">像這樣：</p>
+						<div class="fragment">
+							<div style="width:300px;height:200px;background-color:violet;border-radius:20px;float:left;"></div>
+							<div style="width:280px;height:180px;background-color:gray;border:10px solid white;border-radius:50px;float:left;"></div>
+							<div style="width:300px;height:200px;background-color:skyblue;border-radius:200px;float:left;"></div>
+						</div>
+					</section>
+					<section>
+						<h2>定位</h2>
+						<p class="fragment">position屬性</p>
+						<ul>
+							<li class="fragment">static：不會被特別定位，預設值</li>
+							<li class="fragment">relative：相對的出現在原本位置，但不影響其他內容</li>
+							<li class="fragment">fixed：固定在視窗的特定位置，不影響其他內容</li>
+							<li class="fragment">absolute：固定在上層元素的定位置，儘量少用他</li>
+						</ul>
+					</section>
+					<section>
+						<h2>定位</h2>
+						<ul>
+							<li class="fragment">position</li>
+							<li class="fragment">top</li>
+							<li class="fragment">bottom</li>
+							<li class="fragment">left</li>
+							<li class="fragment">right</li>
+						</ul>
+						<p class="fragment">可以有負數！</p>
+						<a href="position.html" target="_blank" class="fragment">Examples</a>
 					</section>
 				</section>
 				<section>
