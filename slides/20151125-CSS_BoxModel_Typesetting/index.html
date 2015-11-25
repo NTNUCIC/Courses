@@ -201,13 +201,13 @@ margin: 20px;</code></pre>
 					</section>
 					<section>
 						<h2>色塊</h2>
-						<p class="fragment">用div標籤的box model和background-color</p>
+						<p class="fragment">block元素和background-color</p>
 						<p class="fragment">boder-radius可以讓他們看起來可愛一點</p>
-						<p class="fragment">像這樣：</p>
+						<p class="fragment">box-shadow還可以加陰影</p>
 						<div class="fragment">
 							<div style="width:300px;height:200px;background-color:violet;border-radius:20px;float:left;"></div>
 							<div style="width:280px;height:180px;background-color:gray;border:10px solid white;border-radius:50px;float:left;"></div>
-							<div style="width:300px;height:200px;background-color:skyblue;border-radius:200px;float:left;"></div>
+							<div style="width:300px;height:200px;background-color:skyblue;border-radius:200px;float:left;box-shadow:5px 5px #e9f6fb;"></div>
 						</div>
 					</section>
 					<section>
@@ -217,7 +217,7 @@ margin: 20px;</code></pre>
 							<li class="fragment">static：不會被特別定位，預設值</li>
 							<li class="fragment">relative：相對的出現在原本位置，但不影響其他內容</li>
 							<li class="fragment">fixed：固定在視窗的特定位置，不影響其他內容</li>
-							<li class="fragment">absolute：固定在上層元素的定位置，儘量少用他</li>
+							<li class="fragment">absolute：固定在上層元素的定位置</li>
 						</ul>
 					</section>
 					<section>
@@ -260,20 +260,73 @@ margin: 20px;</code></pre>
 				</section>
 				<section>
 					<section>
-						<h1>Applications</h1>
+						<h1>Typesetting</h1>
 					</section>
 					<section>
-						<h2>基本應用</h2>
+						<h2>排版</h2>
+						<p class="fragment">版面規劃事一件相當重要的事情</p>
+						<p class="fragment">做得好很有質感</p>
+						<p class="fragment">做不好就是個<a href="http://www.mathland.idv.tw/" target="_blank">悲劇</a></p>
+						<p class="fragment">或是個<a href="http://www.charts.kh.edu.tw/" target="_blank">慘劇</a></p>
+					</section>
+					<section>
+						<h2>常見排版</h2>
 						<ul>
-							<li class="fragment">置中</li>
-							<li class="fragment">按鈕</li>
-							<li class="fragment">導覽列</li>
+							<li class="fragment"><a href="http://ntnucic.github.io/104/" target="_blank">單欄式</a></li>
+							<li class="fragment"><a href="http://seba.tw/" target="_blank">雙欄式</a></li>
+							<li class="fragment"><a href="http://rjadine85.pixnet.net/blog" target="_blank">三欄式</a></li>
 						</ul>
 					</section>
-				</section>
-				<section>
 					<section>
-						<h1>Typesetting</h1>
+						<h2>單欄式排版</h2>
+						<p class="fragment">頁首</p>
+						<p class="fragment">內容</p>
+						<p class="fragment">頁尾</p>
+					</section>
+					<section>
+						<h2>雙(三)欄式排版</h2>
+						<p class="fragment">頁首</p>
+						<p class="fragment">側欄</p>
+						<p class="fragment">內容</p>
+						<p class="fragment">頁尾</p>
+					</section>
+					<section>
+						<h2>使用&lt;div&gt;&lt;/div&gt;排版(position)</h2>
+						<div class="fragment" style="border:2px solid #6AC5AC;height:500px;">
+							<div class="fragment" style="border:2px solid #28a8d7; height:100px;">頁首</div>
+							<div class="fragment" style="border:2px solid #D64078; width:150px;height:338px;position:absolute;left:2px;">
+								側欄<br>
+								<ul style="list-style-type:none; font-size:0.5em;">
+									<li>關於我</li>
+									<li>相簿</li>
+									<li>部落格</li>
+									<li>好友</li>
+									<li>留言版</li>
+								</ul>
+							</div>
+							<div class="fragment" style="border:2px solid #FDC72F;margin-left:154px;height:338px;">網頁內容</div>
+							<div class="fragment" style="border:2px solid #b266ff;height:50px;">頁尾</div>
+						</div>
+					</section>
+					<section>
+						<h2>practice</h2>
+						<p class="fragment">試著把下面排版做出來</p>
+						<div class="fragment" style="border:2px solid #6AC5AC;height:450px;">
+							<div style="border:2px solid #28a8d7; height:100px;">頁首</div>
+							<div style="border:2px solid #D64078; width:150px;height:288px;position:absolute;left:2px;">
+								側欄<br>
+								<ul style="list-style-type:none; font-size:0.5em;">
+									<li>關於我</li>
+									<li>相簿</li>
+									<li>部落格</li>
+									<li>好友</li>
+									<li>留言版</li>
+								</ul>
+							</div>
+							<div style="border:2px solid #FDC72F;margin-left:154px;height:288px;">網頁內容</div>
+							<div style="border:2px solid #b266ff;height:50px;">頁尾</div>
+						</div>
+						<a href="practice_2.html" target="_blank" class="fragment">See the code</a>
 					</section>
 				</section>
 			</div>
