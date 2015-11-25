@@ -1,0 +1,362 @@
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>JS</title>
+
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+		<meta name="og:title" content="JS">
+		<meta name="og:url" content="http://ntnucic.github.io/104/slides/20151123-JS-Event/index.html">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社JS課程投影片">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+			<section>
+				<h1 style="margin-top:100px">Event和Style</h1>
+					<h4>林品儒</h4>
+					<h4>2015/11/23</h4>
+			</section>
+			
+			<section>
+				<h2>今日重點</h2>
+				<p class="fragment">Style</p>
+				<p class="fragment">Event介紹</p>
+				<p class="fragment">使用Event</p>
+			</section>
+			
+			<section>
+				<section>
+					<h2>Style</h2>
+				</section>
+				
+				<section>
+					<h2>CSS和DOM</h2>
+					<p class="fragment">CSS也被表示在DOM中</p>
+					<p class="fragment">使用Attribute的列表表示</p>
+				</section>
+				
+				<section>
+					<h2>命名規則</h2>
+					<p class="fragment">CSS使用小寫和減號</p>
+					<p class="fragment">JS使用大小寫</p>
+					<p class="fragment">將減號後面的英文改為大寫</p>
+				</section>
+				
+				<section>
+					<h2>命名範例</h2>
+					<p class="fragment">font-family</p>
+					<p class="fragment">fontFamily</p>
+					<p class="fragment">list-style-image</p>
+					<p class="fragment">listStyleImage</p>
+				</section>
+				
+				<section>
+					<h2>命名例外</h2>
+					<p class="fragment">唯一的例外...</p>
+					<p class="fragment">float</p>
+					<p class="fragment">cssFloat</p>
+				</section>
+				
+				<section>
+					<h2>取得屬性</h2>
+					<pre class="fragment"><code id="pcd" style="font-family:'consolas','ubuntu mono';font-size:28px;line-height:150%">
+var pcd=document.getElementById('pcd').style
+pcd.getPropertyValue("font-family")
+pcd.fontFamily
+pcd["font-family"]
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2 id="TAT">設定屬性</h2>
+					<pre class="fragment"><code style="font-family:'consolas','ubuntu mono';font-size:32px;line-height:150%">
+var st=document.getElementById('TAT').style
+st.setProperty("color","red")
+st.color="blue"
+st["color"]="green"
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">動態網頁不可少的Event</p>
+					<p class="fragment"><del>李組長眉頭一皺&nbsp;發現執行並不單純</del></p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>Event介紹</h2>
+				</section>
+				
+				<section>
+					<h2>Event</h2>
+					<p class="fragment">DOM讓JS可以對HTML元素定義handler</p>
+					<p class="fragment">在事件觸發時可以執行特定指令</p>
+				</section>
+				
+				<section>
+					<h2>滑鼠事件</h2>
+					<p class="fragment">onclick/ondbclick</p>
+					<p class="fragment">oncontextmenu</p>
+					<p class="fragment">onmousemove</p>
+					<p class="fragment">onmousedown/onmouseup</p>
+					<p class="fragment">onmouseover/onmouseout</p>
+				</section>
+				
+				<section>
+					<h2>鎖右鍵</h2>
+					<p class="fragment">可以藉由把oncontextmenu="return false"鎖右鍵</p>
+					<p class="fragment"><del>不過我都用火狐娘一鍵停用JS</del></p>
+				</section>
+				
+				<section>
+					<h2>左鍵觸發小八卦</h2>
+					<p class="fragment">有些網站會在頁面上放個透明的大div蓋住頁面</p>
+					<p class="fragment">然後你按下滑鼠就是幫忙按讚...</p>
+				</section>
+				
+				<section>
+					<h2>滑鼠事件物件</h2>
+					<p class="fragment">MouseEvent物件的屬性</p>
+					<p class="fragment">alyKey/ctrlKey/shiftKey</p>
+					<p class="fragment">clientX/clientY</p>
+					<p class="fragment">screenX/screenY</p>
+				</section>
+				
+				<section>
+					<h2>鍵盤事件</h2>
+					<p class="fragment">onkeydown</p>
+					<p class="fragment">onkeypress</p>
+					<p class="fragment">onkeyup</p>
+				</section>
+				
+				<section>
+					<h2>鍵盤事件物件</h2>
+					<p class="fragment">KeyboardEvent物件的屬性</p>
+					<p class="fragment">alyKey/ctrlKey/shiftKey</p>
+					<p class="fragment">charCode/key/keyCode</p>
+				</section>
+				
+				<section>
+					<h2>框架事件</h2>
+					<p class="fragment">onabort</p>
+					<p class="fragment">onerror</p>
+					<p class="fragment">onload</p>
+					<p class="fragment">onresize</p>
+				</section>
+				
+				<section>
+					<h2>框架事件小八卦</h2>
+					<p class="fragment">圖片載入失敗也可以註冊事件</p>
+					<p class="fragment">然後忘了過濾就發生了XSS很不方便</p>
+				</section>
+				
+				<section>
+					<h2>表單事件</h2>
+					<p class="fragment">onblur/onfocus</p>
+					<p class="fragment">onchange</p>
+					<p class="fragment">oninput</p>
+					<p class="fragment">onreset</p>
+					<p class="fragment">onsearch</p>
+					<p class="fragment">onsubmit</p>
+				</section>
+				
+				<section>
+					<h2>拖曳事件</h2>
+					<p class="fragment">ondrag</p>
+					<p class="fragment">ondragend</p>
+					<p class="fragment">ondragenter/ondragleave/ondragover</p>
+					<p class="fragment">ondragstart</p>
+					<p class="fragment">ondrop</p>
+				</section>
+				
+				<section>
+					<h2>剪貼簿事件</h2>
+					<p class="fragment">oncopy</p>
+					<p class="fragment">oncut</p>
+					<p class="fragment">onpaste</p>
+				</section>
+				
+				<section>
+					<h2>剪貼簿小八卦</h2>
+					<p class="fragment">IE可以存取剪貼簿內容</p>
+					<p class="fragment">貼上前請看看你複製的內容是否正確...</p>
+					<p class="fragment"><del>你說你沒在用IE?&nbsp;那就沒事了</del></p>
+				</section>
+				
+				<section>
+					<h2>媒體事件</h2>
+					<p class="fragment">oncanpolay</p>
+					<p class="fragment">onended</p>
+					<p class="fragment">onerror</p>
+					<p class="fragment">onpause/onplay</p>
+					<p class="fragment">onseeking</p>
+				</section>
+				
+				<section>
+					<h2>動畫事件</h2>
+					<p class="fragment">此事件和CSS的animation有關</p>
+					<p class="fragment">animationend</p>
+					<p class="fragment">animationiteration</p>
+					<p class="fragment">animationstart</p>
+				</section>
+				
+				<section>
+					<h2>動畫事件物件</h2>
+					<p class="fragment">AnimationEvent物件的屬性</p>
+					<p class="fragment">animationName</p>
+					<p class="fragment">elapsedTime</p>
+				</section>
+				
+				<section>
+					<h2>轉換事件</h2>
+					<p class="fragment">此事件和CSS的transition有關</p>
+					<p class="fragment">transitionend</p>
+				</section>
+				
+				<section>
+					<h2>轉換事件物件</h2>
+					<p class="fragment">TransitionEvent物件的屬性</p>
+					<p class="fragment">propertyName</p>
+					<p class="fragment">elapsedTime</p>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">講解Event在HTML中的使用</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>使用Event</h2>
+				</section>
+				
+				<section>
+					<h2>使用Event</h2>
+					<p class="fragment">可以在HTML的元素中給予屬性</p>
+					<p class="fragment">利用JS對指定物件註冊事件</p>
+				</section>
+				
+				<section>
+					<h2>HTML版</h2>
+<button onclick="alert('Troll!!')">這是個按鈕，認同請按下</button>
+					<pre class="fragment"><code style="font-family:'consolas','ubuntu mono';font-size:24px;" data-trim>
+<button onclick="alert('Troll!!')">這是個按鈕，認同請按下</button>
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>JS版</h2>
+					<p class="fragment">可以註冊或取消事件</p>
+					<pre class="fragment"><code class="js" style="font-family:'consolas','ubuntu mono';font-size:32px;" data-trim>
+element.addEventListener(event,func,useCapture)
+element.removeEventListener(event,func,useCapture)
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>參數說明</h2>
+					<p class="fragment">event為字串&nbsp;不用加"on"</p>
+					<p class="fragment">func為函式&nbsp;可為匿名函式</p>
+					<p class="fragment">useCapture為觸發順序&nbsp;可以暫且不管他</p>
+				</section>
+				
+				<section>
+					<h2>為何取消也要指定函式呢</h2>
+					<p class="fragment">一個元素可以在同一個事件觸發多個函式</p>
+					<button class="fragment" id="myBtn">這不是個按鈕，不認同請按下</button>
+<pre class="fragment"><code class="js" style="font-family:'consolas','ubuntu mono';font-size:32px;">
+<script class="fragment">
+var x = document.getElementById("myBtn");
+x.addEventListener("click", myFunction);
+x.addEventListener("click", someOtherFunction);
+function myFunction() {
+	alert ("Hello World!")
+}
+function someOtherFunction() {
+	alert ("This function was also executed!")
+}
+</script>
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>也就是說...</h2>
+					<p class="fragment">使用匿名函式的話要取消註冊很麻煩</p>
+					<p class="fragment">儘量使用有名字的函式來註冊事件</p>
+				</section>
+				
+				<section>
+					<h2>結論</h2>
+					<p class="fragment">有了Event的基本觀念就能寫動態網頁</p>
+					<p class="fragment"><del>還有XSS</del></p>
+				</section>
+				
+				<section>
+					<h2>今天的JS課程就到這邊</h2>
+					<h2>謝謝大家</h2>
+				</section>
+			</section>
+			
+			</div>
+		</div>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true },
+				{ src: '../plugin/notes/notes.js', async: true }
+			]
+		});
+		</script>
+	</body>
+</html>
