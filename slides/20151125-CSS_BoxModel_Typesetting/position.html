@@ -3,9 +3,85 @@
 <head>
 	<title>position屬性</title>
 	<meta charset="utf-8">
+
+	<style type="text/css">
+	.relative1 {
+		position: relative;
+    	left: 30px;
+    	border: 5px solid #73AD21;
+    	width: 500px;
+    	z-index: 0;
+	}
+	.relative2 {
+		position: relative;
+		top: -40px;
+		left: 300px;
+		border: 5px solid #d24dff;
+		width: 500px;
+		z-index: 1;
+	}
+	.fixed {
+		position: fixed;
+		right: 0px;
+		top: 50%;
+		width: 100px;
+		height: 200px;
+		border: 5px solid #6699ff;
+		z-index: 10;
+	}
+	.absolute {
+		position: absolute;
+		right: 0px;
+		bottom: 0px;
+		width: 200px;
+		height: 200px;
+		border: 5px solid #9966ff;
+	}
+	</style>
+
 </head>
 <body>
-
-
+	<h2>position屬性</h2>
+	<div class="relative1">
+		relative：相對的出現在原本位置，但不影響其他內容。<br>
+		像是這個方框沒有設margin<br>
+		理論上應該要左邊一點(也就是他的static位置)<br>
+		但是當我們把position設成relative<br>
+		並且將left設為30px後<br>
+		它就會出現在距離左邊30px的位置</div>
+	<div class="relative2">
+		這個框框顯示在綠色relative框框「下方」的另一個relative框框<br>
+		當我們把他的top設為-40px時<br>
+		你會發現他跑上來了！<br>
+		而且不會影響到原本頁面上其他東西的排版</div>
+	<div class="fixed">0.0/<br>I'm fixed</div>
+	<p>
+		你會發現上面兩個框框有交疊的部分<br>
+		而z-index就是用在這時候<br>
+		z-index的大小決定它到底是壓人的那個<br>
+		還是被壓的那個=\\\\\\=<br>
+		數字大的在上面<br>
+		例如z-index: 1;的桃紅色框框會壓在z-index: 0;的綠色框框上面<br>
+		<del>1壓在0上面，有沒有很好記?</del>
+	</p>
+	<p>
+		當今天我們的頁面足夠長<br>
+		像這樣可以上下捲動<br>
+		fixed的功能就可以被看見了<br>
+		你可以發現右邊的藍色框框在視窗中的位置不會因滾動卷軸而改變<br>
+		<div style="height:1000px; background-color:#ccffcc;position:relative;">
+			<div class="absolute">在這邊我在右下角</div>
+			<p>我是來佔空間的</p>
+			<p>至於absolute<br>
+			它的功能跟fixed很像<br>
+			差別在於fixed會固定在「視窗」的特定位置<br>
+			而absolute則是固定在「上層元素絕對位置」的特定位置<br>
+			像是紫色框框會固定在上層元素的右下角</p>
+		</div>
+		<div style="height:800px; width:300px; background-color: #33cccc; position:relative;">
+			<div class="absolute">在這邊我也在右下角</div>
+			</div>
+		</div>
+	</p>
 </body>
 </html>
