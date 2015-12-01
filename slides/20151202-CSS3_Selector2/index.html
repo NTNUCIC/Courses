@@ -67,7 +67,122 @@
 					<h1>CSS3 Selector</h1>
 					<h3>2015/12/02 阮韞澂</h3>
 				</section>
-				
+				<section>
+					<section>
+						<h2>Attribute Selector</h2>
+						<ul>
+							<li class="fragment">[ ]</li>
+							<li class="fragment">用於判斷標籤的屬性</li>
+							<li class="fragment">與Class選擇器同級</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Has Attribute</h2>
+						<p>擁有某個屬性</p>
+						<pre class="fragment"><code data-trim>
+[HTMLAttribute]{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+[placeholder]{
+    background:lightblue;
+}
+						</code></pre>
+						<a href="hasattribute.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Attribute Value Is</h2>
+						<p>屬性為指定值</p>
+						<pre class="fragment"><code data-trim>
+[HTMLAttribute="Value"]{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+[type="number"]{
+    background:lightblue;
+}
+						</code></pre>
+						<a href="attributevalueis.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Attribute Value Substring</h2>
+						<p>屬性值之子字串</p>
+						<pre class="fragment"><code data-trim>
+[HTMLAttribute*="Value"]{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+[value*="abc"]{
+    background:lightblue;
+}
+						</code></pre>
+						<a href="attributevaluesubstring.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Attribute Value Has</h2>
+						<p>屬性之值包含(空白分隔)</p>
+						<pre class="fragment"><code data-trim>
+[HTMLAttribute~="Value"]{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+[value~="abc"]{
+    background:lightblue;
+}
+						</code></pre>
+						<a href="attributevaluehas.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Attribute Value Begin With</h2>
+						<p>屬性之值開頭</p>
+						<pre class="fragment"><code data-trim>
+[HTMLAttribute^="Value"]{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+[value^="als"]{
+    background:lightblue;
+}
+						</code></pre>
+						<a href="attributevaluebeginwith.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Attribute Value End With</h2>
+						<p>屬性之值結尾</p>
+						<pre class="fragment"><code data-trim>
+[HTMLAttribute$="Value"]{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+[value$="le"]{
+    background:lightblue;
+}
+						</code></pre>
+						<a href="attributevalueendwith.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Attribute Value Start With</h2>
+						<p>屬性之值開始('-'分隔)</p>
+						<p class="fragment">abc-def</p>
+						<pre class="fragment"><code data-trim>
+[HTMLAttribute|="Value"]{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+[value|="star"]{
+    background:lightblue;
+}
+						</code></pre>
+						<a href="" class="fragment" target="_blank">Demo</a>
+					</section>
+				</section>
 			</div>
 		</div>
 
