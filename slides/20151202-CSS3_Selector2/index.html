@@ -255,11 +255,11 @@ div:empty{
 					<section>
 						<h2>Pseudo-Classes:Link</h2>
 						<ul>
-							<li class="fragment">:link</li>
-							<li class="fragment">:visited</li>
-							<li class="fragment">:focus</li>
-							<li class="fragment">:hover</li>
-							<li class="fragment">:active</li>
+							<li>:link</li>
+							<li>:visited</li>
+							<li>:focus</li>
+							<li>:hover</li>
+							<li>:active</li>
 						</ul>
 					</section>
 					<section>
@@ -316,6 +316,134 @@ a:active{
 					<section>
 						<h2>Pseudo-Classes:Link</h2>
 						<a href="pseudo-classes-link.html" target="_blank">Demo</a>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Pseudo-Classes:Sequence</h2>
+						<ul>
+							<li>:first-child</li>
+							<li>:first-of-type</li>
+							<li>:last-child</li>
+							<li>:last-of-type</li>
+							<li>:only-child</li>
+							<li>:only-of-type</li>
+							<li>:nth-child()</li>
+							<li>:nth-of-type()</li>
+							<li>:nth-last-child()</li>
+							<li>:nth-last-of-type()</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Pseudo-Classes:Sequence</h2>
+						<p class="fragment">-child為同層所有元素</p>
+						<p class="fragment">-of-type為同層同一種元素</p>
+					</section>
+					<section>
+						<h2>:first-</h2>
+						<p>:first-child &amp; :first-of-type</p>
+						<p class="fragment">選取同層中第一個元素/同層中同一種元素中的第一個</p>
+						<p class="fragment">:first-of-type在IE9以下不支援</p>
+						<pre class="fragment"><code data-trim>
+div:first-child{
+    background:lightblue;
+}
+p:first-of-type{
+    background:yellow;
+}
+						</code></pre>
+						<a href="first-.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>:last-</h2>
+						<p>:last-child &amp; :last-of-type</p>
+						<p class="fragment">選取同層中最後一個元素/同層中同一種元素的最後一個</p>
+						<p class="fragment">IE9以下不支援</p>
+						<pre class="fragment"><code data-trim>
+div:last-child{
+    border:1px solid red;
+}
+p:last-of-type{
+    background:yellow;
+}
+						</code></pre>
+						<a href="last-.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>:only-</h2>
+						<p>:only-child &amp; :only-of-type</p>
+						<p class="fragment">選取同層中只有一個元素/同層中該元素只有一個</p>
+						<p class="fragment">IE9以下不支援</p>
+						<pre class="fragment"><code data-trim>
+div:only-child{
+    background:lightblue;
+}
+p:only-of-type{
+    background:yellow;
+}
+						</code></pre>
+						<a href="only-.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>:nth- &amp; :nth-last-</h2>
+						<p>依照指定順序選取</p>
+						<p class="fragment">:nth-last- 由後往前</p>
+						<ul class="fragment">
+							<li>:nth-child()</li>
+							<li>:nth-of-type()</li>
+							<li>:nth-last-child()</li>
+							<li>:nth-last-of-type()</li>
+						</ul>
+						<p class="fragment">選取時第一項為1</p>
+					</section>
+					<section>
+						<h2>:nth- 參數</h2>
+						<ul>
+							<li class="fragment">odd/even</li>
+							<li class="fragment">an+b</li>
+						</ul>
+					</section>
+					<section>
+						<h2>:nth- odd/even</h2>
+						<p>選取奇數項或偶數項</p>
+						<pre class="fragment"><code data-trim>
+div:nth-child(odd){
+    border:1px solid red;
+}
+p:nth-last-of-type(even){
+    border:1px solid green;
+}
+						</code></pre>
+						<a href="nth-odd&even.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>:nth- an+b</h2>
+						<p class="fragment">a為間距，預設1</p>
+						<p class="fragment">b為起始點，預設0</p>
+						<p class="fragment">起始點也會選取</p>
+						<pre class="fragment"><code data-trim>
+div:nth-child(3n+1){
+    border:1px solid red;
+}
+						</code></pre>
+						<a href="nth-an+b1.html" class="fragment" target="_blank">Demo</a>
+						<a href="nth-an+b2.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>:nth- an+b</h2>
+						<p>a與b可為負數</p>
+						<p class="fragment">a負數代表反向</p>
+						<p class="fragment">b為0或負數代表不存在的虛擬元素，不作用但列入計算</p>
+						<pre class="fragment"><code data-trim>
+:nth-child(-2n+3){
+    border:1px solid red;
+}
+:nth-child(5n-3){
+    border:1px solid red;
+}
+						</code></pre>
+						<a href="nth-an+b3.html" class="fragment" target="_blank">Demo</a>
+						<a href="nth-an+b4.html" class="fragment" target="_blank">Demo</a>
 					</section>
 				</section>
 			</div>
