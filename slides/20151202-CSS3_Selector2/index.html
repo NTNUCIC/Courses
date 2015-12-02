@@ -223,6 +223,21 @@ body :not(h2){
 					<a href="notselector.html" class="fragment" target="_blank">Demo</a>
 				</section>
 				<section>
+					<h2>Empty Selector</h2>
+					<ul>
+						<li class="fragment">選擇沒有子代的元素</li>
+						<li class="fragment">包含文字在內</li>
+						<li class="fragment">直接作用於單標籤元素</li>
+						<li class="fragment">IE9以下不支援</li>
+					</ul>
+					<pre class="fragment"><code data-trim>
+div:empty{
+    background:lightblue;
+}
+					</code></pre>
+					<a href="emptyselector.html" class="fragment" target="_blank">Demo</a>
+				</section>
+				<section>
 					<h2>lang Selector</h2>
 					<p>用於判斷元素的lang屬性</p>
 					<pre class="fragment"><code data-trim>

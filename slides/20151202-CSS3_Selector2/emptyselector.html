@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Empty Selector</title>
+    <style>
+        div{
+            height:1em;
+        }
+        div:empty{
+            background:lightblue;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div>123</div>
+    <div>
+        <p>ABC</p>
+    </div>
+</body>
+</html>
