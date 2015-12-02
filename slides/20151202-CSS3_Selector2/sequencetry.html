@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pseudo-Classes:Sequence</title>
+    <style>
+        tbody tr:nth-of-type(odd){
+            background:lightblue;
+        }
+        thead tr,tbody tr:nth-of-type(even){
+            background:yellow;
+        }
+        tr :nth-child(n+2){
+            font-style:italic;
+        }
+        tbody tr:nth-last-of-type(-2n+3) :first-of-type{
+            text-decoration:line-through;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>表頭</th>
+                <th>表頭</th>
+                <th>表頭</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>內容</td>
+                <td>內容</td>
+                <td>內容</td>
+            </tr>
+            <tr>
+                <td>內容</td>
+                <td>內容</td>
+                <td>內容</td>
+            </tr>
+            <tr>
+                <td>內容</td>
+                <td>內容</td>
+                <td>內容</td>
+            </tr>
+            <tr>
+                <td>內容</td>
+                <td>內容</td>
+                <td>內容</td>
+            </tr>
+            <tr>
+                <td>內容</td>
+                <td>內容</td>
+                <td>內容</td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
