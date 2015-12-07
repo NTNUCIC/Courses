@@ -123,6 +123,89 @@
 				</section>
 			</section>
 			
+			<section>
+				<section>
+					<h2>localStorage</h2>
+				</section>
+				
+				<section>
+					<h2>localStorage</h2>
+					<p class="fragment">無存放期限的數據儲存</p>
+					<p class="fragment">最高可以存放5MB</p>
+					<p class="fragment">Object型態的全域變數</p>
+				</section>
+				
+				<section>
+					<h2>優點</h2>
+					<p class="fragment">Object使用容易度高</p>
+					<p class="fragment">只能取用目前網域和父網域的數據</p>
+				</section>
+				
+				<section>
+					<h2>缺點</h2>
+					<p class="fragment">伺服器看不到該資料</p>
+					<p class="fragment"><del>IE6不支援也算缺點嗎?</del></p>
+				</section>
+				
+				<section>
+					<h2>取得資料</h2>
+					<p class="fragment">length</p>
+					<p class="fragment">key(key)</p>
+					<p class="fragment">getItem(key)</p>
+				</section>
+				
+				<section>
+					<h2>設定資料</h2>
+					<p class="fragment">setItem(key,value)</p>
+					<p class="fragment">removeItem(key)</p>
+					<p class="fragment">clear()</p>
+				</section>
+				
+				<section>
+					<h2>使用方法</h2>
+					<pre class="fragment" style="width:550px;">
+					<code class="js" style="font-family:'consolas','ubuntu mono';font-size:32px;">
+localStorage["&lt;3"]="nekomimi"
+localStorage.nekomimi="cat ear"
+console.log(localStorage["&lt;3"])
+console.log(localStorage.nekomimi)</code></pre>
+				</section>
+				
+				<section>
+					<h2>安全議題</h2>
+					<p class="fragment">DNS欺騙</p>
+					<p class="fragment">跨目錄攻擊</p>
+					<p class="fragment">實作風險</p>
+				</section>
+				
+				<section>
+					<h2>DNS欺騙</h2>
+					<p class="fragment">由於是看域名來存取資料</p>
+					<p class="fragment">偽裝自己是特定域名以存取資料</p>
+					<p class="fragment">使用TLS(傳輸層安全協議)</p>
+				</section>
+				
+				<section>
+					<h2>跨目錄攻擊</h2>
+					<p class="fragment">同一個域名下的不同網站存取相同資料</p>
+					<p class="fragment">目前沒有針對路徑名稱的存取限制</p>
+					<p class="fragment">在域名相同的個人網頁上要小心該功能</p>
+				</section>
+				
+				<section>
+					<h2>實作風險</h2>
+					<p class="fragment">讓第三方可讀取資料造成資訊洩漏</p>
+					<p class="fragment">讓第三方可寫入資料造成資訊欺騙</p>
+					<p class="fragment">此問題是實作該標準要小心的</p>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">講講類似但是有時間限制的資料儲存</p>
+					<p class="fragment">sessionStorage</p>
+				</section>
+			</section>
+			
 			</div>
 		</div>
 		<script src="../lib/js/head.min.js"></script>
