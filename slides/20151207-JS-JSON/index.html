@@ -206,6 +206,112 @@ console.log(localStorage.nekomimi)</code></pre>
 				</section>
 			</section>
 			
+			<section>
+				<section>
+					<h2>sessionStorage</h2>
+				</section>
+				
+				<section>
+					<h2>sessionStorage</h2>
+					<p class="fragment">基本上和localStorage很像</p>
+					<p class="fragment">關掉頁面或瀏覽器就消失</p>
+				</section>
+				
+				<section>
+					<h2>使用方法</h2>
+					<pre class="fragment" style="width:550px;">
+					<code class="js" style="font-family:'consolas','ubuntu mono';font-size:32px;">
+sessionStorage.love="dogear"
+console.log(sessionStorage.love)
+sessionStorage["?"]="Ob'_'ov"
+console.log(sessionStorage["?"])</code></pre>
+				</section>
+				
+				<section>
+					<h2>和localStorage的不同</h2>
+					<p class="fragment">每個頁面分開儲存</p>
+					<p class="fragment">可以用來讓使用者多重登入</p>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">看看JavaScript如何儲存資料</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>JSON</h2>
+				</section>
+				
+				<section>
+					<h2>JSON</h2>
+					<p class="fragment">JavaScript Object Notation</p>
+					<p class="fragment">可以直接當成JavaScript執行</p>
+					<p class="fragment">但是其他語言也可以使用該格式</p>
+				</section>
+				
+				<section>
+					<h2>資料格式</h2>
+					<p class="fragment">物件：使用"{}"將鍵值配對包住並用","分隔之</p>
+					<p class="fragment">鍵值配對：使用":"隔開鍵和值</p>
+					<p class="fragment">有序清單：使用"[]"將以","分割之值包住</p>
+					<p class="fragment">字串：使用""將文字包起來</p>
+					<p class="fragment">數值：可使用數字或是使用科學記號</p>
+					<p class="fragment">布林值: 就true和false</p>
+				</section>
+				
+				<section>
+					<h2>讀取資料</h2>
+					<p class="fragment"><del>既然可以執行就直接eval啦~~</del></p>
+					<p class="fragment">請使用JSON.parse(str)</p>
+					<pre class="fragment" style="width:720px;">
+					<code class="js" style="font-family:'consolas','ubuntu mono';font-size:32px;">var j="{msg: (function(){alert('XSS')})()}";</pre></code>
+					<p class="fragment"><del>XSS的好只有駭客最知道</del></p>
+				</section>
+				
+				<section>
+					<h2>輸出資料</h2>
+					<p class="fragment">使用JSON.stringify(obj)</p>
+					<p class="fragment">這樣就可以得到JSON格式的字串</p>
+				</section>
+				
+				<section>
+					<h2>YAML</h2>
+					<p class="fragment">YAML Ain't a Markup Language</p>
+					<p class="fragment">JSON是該語言的子集</p>
+					<p class="fragment">使用上更加廣泛也沒有執行其內容的問題</p>
+					<p class="fragment"><del>其實我是來宣傳YAML的</del></p>
+				</section>
+				
+				<section>
+					<h2>AJAX</h2>
+					<p class="fragment">Asynchronous JavaScript and XML</p>
+					<p class="fragment">可以只傳輸部份需要的資料</p>
+					<p class="fragment">降低網頁數據的流量</p>
+					<p class="fragment">經典案例如Facebook</p>
+				</section>
+				
+				<section>
+					<h2>那和JSON有啥關係?</h2>
+					<p class="fragment">雖然叫AJAX但實際上可以AJAJ</p>
+					<p class="fragment">XML和HTML是同樣胖胖的好伙伴...</p>
+					<p class="fragment">利用JSON代替XML降低數據大小</p>
+				</section>
+				
+				<section>
+					<h2>其他應用</h2>
+					<p class="fragment">JSON也有除了網頁外的應用</p>
+					<p class="fragment">各語言也有其解析函式庫</p>
+					<p class="fragment">想存資料的話不妨使用看看</p>
+				</section>
+			</section>
+			
+			<section>
+				<h2>以上為資料儲存的課程</h2>
+				<h2>感謝各位</h2>
+			</section>
+			
 			</div>
 		</div>
 		<script src="../lib/js/head.min.js"></script>
