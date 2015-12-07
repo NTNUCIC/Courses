@@ -43,12 +43,85 @@
 			<div class="slides">
 
 			<section>
-				<h1 style="margin-top:100px">資料儲存及閉包</h1>
+				<h1 style="margin-top:100px">資料儲存</h1>
 					<h4>林品儒</h4>
 					<h4>2015/12/07</h4>
 			</section>
 			
+			<section>
+				<h2>本日重點</h2>
+				<p class="fragment">cookie</p>
+				<p class="fragment">localStorage</p>
+				<p class="fragment">sessionStorage</p>
+				<p class="fragment">JSON</p>
+			</section>
 			
+			<section>
+				<section>
+					<h2>cookie</h2>
+				</section>
+				
+				<section>
+					<h2>cookie</h2>
+					<p class="fragment">document.cookie</p>
+					<p class="fragment">用來辨識使用者身份放在用戶端</p>
+					<p class="fragment">可以用來和伺服器溝通</p>
+					<p class="fragment"><del>可以吃嗎?</del></p>
+				</section>
+				
+				<section>
+					<h2>用途</h2>
+					<p class="fragment">紀錄使用者的登入情形</p>
+					<p class="fragment">使用者網頁個人設定</p>
+				</section>
+				
+				<section>
+					<h2>操作</h2>
+					<p class="fragment">因為cookie是單純字串</p>
+					<p class="fragment">所以要自己想辦法弄字串處理</p>
+					<p class="fragment">很麻煩所以不講...</p>
+				</section>
+				
+				<section>
+					<h2>缺點</h2>
+					<p class="fragment">附加在HTTP封包之中增加流量</p>
+					<p class="fragment">HTTP傳送時使用明文</p>
+					<p class="fragment">大小限制在4KB</p>
+				</section>
+				
+				<section>
+					<h2>其他反對的原因</h2>
+					<p class="fragment">登入識別不準確</p>
+					<p class="fragment">網頁臭蟲</p>
+				</section>
+				
+				<section>
+					<h2>登入識別不精確</h2>
+					<p class="fragment">cookie可能存有使用者的ID</p>
+					<p class="fragment">若無認証可以變更ID提高權限</p>
+					<p class="fragment">複製他人cookie直接登入</p>
+				</section>
+				
+				<section>
+					<h2>登入識別改進</h2>
+					<p class="fragment">辨識IP和UserAgent</p>
+					<p class="fragment">HTTPonly</p>
+					<p class="fragment">偵測可疑行為並清除cookie</p>
+				</section>
+				
+				<section>
+					<h2>網頁臭蟲</h2>
+					<p class="fragment">隱藏版的透明GIF或PNG</p>
+					<p class="fragment">收集使用者資料並寫入cookie</p>
+					<p class="fragment">常被垃圾郵件使用</p>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">既然不要用cookie那有啥替代品呢?</p>
+					<p class="fragment">localStorage和sessionStorage</p>
+				</section>
+			</section>
 			
 			</div>
 		</div>
