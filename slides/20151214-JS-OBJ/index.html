@@ -48,6 +48,187 @@
 					<h4>2015/12/14</h4>
 			</section>
 			
+			<section>
+				<h2>本日重點</h2>
+				<p class="fragment">物件簡介</p>
+				<p class="fragment">建立物件</p>
+				<p class="fragment">物件導向</p>
+				<p class="fragment">閉包</p>
+			</section>
+			
+			<section>
+				<section>
+					<h2>物件簡介</h2>
+				</section>
+				
+				<section>
+					<h2>物件</h2>
+					<p class="fragment">也就是之前講過的Object</p>
+					<p class="fragment">在JS中幾乎所有東西都是Object</p>
+					<p class="fragment">了解了Object你就了解了JavaScript</p>
+				</section>
+				
+				<section>
+					<h2>不是物件</h2>
+					<p class="fragment">Boolean</p>
+					<p class="fragment">Number</p>
+					<p class="fragment">String</p>
+					<p class="fragment">但是也可以用物件來建立</p>
+				</section>
+				
+				<section>
+					<h2>原始型別</h2>
+					<p class="fragment">primitive data</p>
+					<p class="fragment">裏面只存放了單一的值</p>
+					<p class="fragment">不是物件的就是原始型別</p>
+				</section>
+				
+				<section>
+					<h2>踹踹看</h2>
+					<pre class="fragment" style="width:420px;"><code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">
+new Boolean(true)==true
+new Boolean(true)===true
+typeof new Boolean(true)
+typeof true</code></pre>
+				</section>
+				
+				<section>
+					<h2>各位注意</h2>
+					<p class="fragment">能用原始型別就不要用物件</p>
+					<p class="fragment">為了執行速度也為了少打字(?)</p>
+					<p class="fragment">避免判斷時結果有些差異</p>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">知道物件是啥之後來看看如何使用</p>
+					<p class="fragment">先來學習<del>浪費記憶體</del>產生新物件</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>建立物件</h2>
+				</section>
+				
+				<section>
+					<h2>創造物件</h2>
+					<p class="fragment">直接建立字面常數</p>
+					<p class="fragment">使用new關鍵字</p>
+					<p class="fragment">定義建構子後產生物件</p>
+					<p class="fragment">Object.create()</p>
+				</section>
+				
+				<section>
+					<h2>字面常數</h2>
+					<p class="fragment">用大括號包起用逗號分開的鍵值配對</p>
+					<p class="fragment">就長得和JSON一樣</p>
+					<p class="fragment">最常看到的建立方法</p>
+				</section>
+				
+				<section>
+					<h2>踹踹看</h2>
+					<pre class="fragment" style="width:500px;"><code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">
+var cat={
+  ear:"貓耳",
+  tongue:"貓舌",
+  mewmewmew:function(){
+    alert("9999999 DAMAGE!!")
+  }
+}</code></pre>
+				</section>
+				
+				<section>
+					<h2>屬性</h2>
+					<p class="fragment">物件的鍵值配對</p>
+					<p class="fragment">排列順序是無序的!!</p>
+					<p class="fragment">千萬不要心存僥倖...</p>
+				</section>
+				
+				<section>
+					<h2>方法</h2>
+					<p class="fragment">專屬於該物件的動作</p>
+					<p class="fragment">也包含在物件的屬性中</p>
+					<p class="fragment">可以被呼叫</p>
+				</section>
+				
+				<section>
+					<h2>使用關鍵字</h2>
+					<p class="fragment">剛才看到的new關鍵字</p>
+					<p class="fragment">特定場合會用到</p>
+					<p class="fragment">此外不要把new用在變數或函式名稱</p>
+				</section>
+				
+				<section>
+					<h2>定義建構子後產生物件</h2>
+					<p class="fragment">！！！</p>
+					<p class="fragment">等等再說比較好...</p>
+				</section>
+				
+				<section>
+					<h2>神奇的函式呼叫</h2>
+					<p class="fragment">JavaScript1.9支援了Object.create()</p>
+					<p class="fragment">比new更厲害一些</p>
+					<p class="fragment">可以指定新屬性的存取限制</p>
+					<p class="fragment"><del>舊的瀏覽器又不能用了</del></p>
+				</section>
+				
+				<section>
+					<h2>屬性的存取限制</h2>
+					<p class="fragment">所有屬性皆可讀取</p>
+					<p class="fragment">可設定是否可迭代,可設定,可寫入</p>
+					<p class="fragment">這個就暫且先不管他啦~~</p>
+				</section>
+				
+				<section>
+					<h2>建構子</h2>
+					<p class="fragment">可以傳入參數並且建立物件的函式</p>
+					<p class="fragment">使用this關鍵字設定物件的屬性</p>
+					<p class="fragment">對於建立自訂物件很重要</p>
+					<p class="fragment">搭配new關鍵字建立物件</p>
+				</section>
+				
+				<section>
+					<h2>踹踹看</h2>
+					<pre class="fragment" style="width:800px;"><code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">
+function Cat(name,age,color){
+  this.name=name
+  this.age=age
+  this.color=color
+  this.toString=function(){
+    return name+" is a "+age+" old "+color+" cat"
+  }
+}
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>this關鍵字</h2>
+					<p class="fragment">代表是誰擁有此段程式碼</p>
+					<p class="fragment">在函式中被使用則代表該擁有該函式的物件</p>
+					<p class="fragment">在物件中被使用代表該物件</p>
+					<p class="fragment">在建構子中代表了新的物件</p>
+					<p class="fragment">這個this也是JS神奇的部份...</p>
+				</section>
+				
+				<section>
+					<h2>小實驗</h2>
+					<p class="fragment">不同時候的this會是不同東西...</p>
+					<pre class="fragment" style="width:320px;"><code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">
+function Foo(){
+  this.a=100
+  console.log(this)
+}</code></pre>
+					<p class="fragment">我們得到了新的全域變數了&nbsp;可喜可賀</p>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">雖然說是物件導向但是和Java絕對不一樣</p>
+					<p class="fragment">複製人 vs 鯛魚燒</p>
+				</section>
+			</section>
+			
 			</div>
 		</div>
 		<script src="../lib/js/head.min.js"></script>
