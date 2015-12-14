@@ -224,8 +224,57 @@ function Foo(){
 				
 				<section>
 					<h2>接下來</h2>
-					<p class="fragment">雖然說是物件導向但是和Java絕對不一樣</p>
+					<p class="fragment">雖然說是物件導向但是和Java不一樣</p>
 					<p class="fragment">複製人 vs 鯛魚燒</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>物件導向</h2>
+				</section>
+				
+				<section>
+					<h2>物件導向</h2>
+					<p class="fragment">今天只講JS的原型程式設計</p>
+					<p class="fragment">和常見的類別導向不太一樣</p>
+				</section>
+				
+				<section>
+					<h2>原型程式設計</h2>
+					<p class="fragment">屬性和方法皆由原型複製而來</p>
+					<p class="fragment">獨立個體的行為可以被修改</p>
+					<p class="fragment">偏好動態的行為改變</p>
+				</section>
+				
+				<section>
+					<h2>原型</h2>
+					<p class="fragment">所有物件的屬性和方法都是繼承自Object.prototype</p>
+					<p class="fragment">從哪new出來就從哪裡繼承屬性和方法</p>
+					<p class="fragment">複製人大軍</p>
+				</section>
+				
+				<section>
+					<h2>Prototype</h2>
+					<p class="fragment">可以對建構子設定prototype的屬性</p>
+					<p class="fragment">影響所有該建構子建出來的物件</p>
+				</section>
+				
+				<section>
+					<h2>踹踹看</h2>
+					<pre class="fragment" style="width:320px;"><code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">
+function Foo(){this.a=100}
+var a=new Foo()
+Foo.prototype.b=200
+var b=new Foo()
+					</code></pre>
+					<p class="fragment">之前的物件也被會影響</p>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">講解有點奇怪的原型繼承</p>
+					<p class="fragment">有沒有JS優良部份的八卦?</p>
 				</section>
 			</section>
 			
