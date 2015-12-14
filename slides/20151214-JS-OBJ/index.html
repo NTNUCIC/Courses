@@ -43,7 +43,7 @@
 			<div class="slides">
 
 			<section>
-				<h1 style="margin-top:100px">物件和閉包</h1>
+				<h1 style="margin-top:100px">物件和物件</h1>
 					<h4>林品儒</h4>
 					<h4>2015/12/14</h4>
 			</section>
@@ -53,7 +53,6 @@
 				<p class="fragment">物件簡介</p>
 				<p class="fragment">建立物件</p>
 				<p class="fragment">物件導向</p>
-				<p class="fragment">閉包</p>
 			</section>
 			
 			<section>
@@ -262,20 +261,67 @@ function Foo(){
 				
 				<section>
 					<h2>踹踹看</h2>
-					<pre class="fragment" style="width:320px;"><code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">
+					<pre class="fragment" style="width:450px;"><code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">
 function Foo(){this.a=100}
 var a=new Foo()
 Foo.prototype.b=200
-var b=new Foo()
-					</code></pre>
+var b=new Foo()</code></pre>
 					<p class="fragment">之前的物件也被會影響</p>
 				</section>
 				
 				<section>
-					<h2>接下來</h2>
-					<p class="fragment">講解有點奇怪的原型繼承</p>
-					<p class="fragment">有沒有JS優良部份的八卦?</p>
+					<h2>原型繼承</h2>
+					<p class="fragment">有父類別和子類別(!)</p>
+					<p class="fragment">先定義子類別建構子</p>
+					<p class="fragment">將父類別prototype複製給子類別</p>
+					<p class="fragment">將子類別建構子重新導向</p>
 				</section>
+				
+				<section>
+					<h2>踹踹看</h2>
+					<pre class="fragment" style="width:750px;"><code class="js" style="font-size:28px;font-family:'consolas','ubuntu mono'">
+function SilverCat(n,a){Cat.call(this,n,a,"silver")}
+SilverCat.prototype = Object.create(Cat.prototype);
+SilverCat.prototype.constructor = SilverCat;
+					</code></pre>
+					<p class="fragment">注意要如何呼叫原先的建構子</p>
+				</section>
+				
+				<section>
+					<h2>至於其他函式呼叫父函式</h2>
+					<p class="fragment">要用prototype定義才可繼承</p>
+					<p class="fragment">用this的話只有自己能看</p>
+					<p class="fragment">有沒有JS惡劣部份的八卦?</p>
+				</section>
+				
+				<section>
+					<h2>網路上的範例</h2>
+					<pre class="fragment" style="width:600px;"><code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">
+function Base() {}
+Base.prototype.foo = function() {
+  console.log('called foo in Base');
+}
+function Sub() {}
+Sub.prototype = new Base();
+Sub.prototype.foo = function() {
+  Base.prototype.foo.call(this);
+  console.log('called foo in Sub');
+}
+var base = new Base();
+base.foo();
+var sub = new Sub();
+sub.foo();</code></pre>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">JS實在太難搞了很頭痛</p>
+					<p class="fragment">所以課程就到這裡...</p>
+				</section>
+			</section>
+			
+			<section>
+				<h2>感謝大家今日的聆聽</h2>
 			</section>
 			
 			</div>
