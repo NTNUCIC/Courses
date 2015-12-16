@@ -220,6 +220,23 @@ p:target{
 						<li class="fragment">與其他選擇器的互動不太正常...</li>
 					</ul>
 				</section>
+				<section>
+					<h2>::selection</h2>
+					<p>被框選的部分</p>
+					<p class="fragment">只有color,background,outline,cursor可以使用</p>
+					<p class="fragment">Firefox要加-moz-</p>
+					<pre class="fragment"><code data-trim>
+::-moz-selection{
+    background:yellow;
+    color:red;
+}
+::selection{
+    background:yellow;
+    color:red;
+}
+					</code></pre>
+					<a href="selection.html" class="fragment" target="_blank">Demo</a>
+				</section>
 			</div>
 		</div>
 
