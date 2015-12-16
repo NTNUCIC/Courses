@@ -270,6 +270,32 @@ p:target{
 					<p class="fragment">IE:selection&amp;first-letter&gt;first-line<br>selection與first-letter同時作用則使selection恢復預設值</p>
 					<a href="pseudoelementsrelation.html" class="fragment" target="_blank">Demo</a>
 				</section>
+				<section>
+					<section>
+						<h2>::before &amp; ::after</h2>
+						<p>元素前後的空白</p>
+						<p class="fragment">搭配content屬性使用</p>
+						<p class="fragment">常用於排版、繪圖等</p>
+					</section>
+					<section>
+						<h2>CSS content</h2>
+						<pre><code class="bash" data-trim>
+content:normal|none|attr()|url()|("text")|counter|open-quote|close-quote|no-open-quote|no-close-quote
+						</code></pre>
+						<ul>
+							<li class="fragment">normal為none，預設值</li>
+							<li class="fragment">attr()為所屬於元素之HTML屬性</li>
+							<li class="fragment">url()為一個物件的路徑(圖片、影片、音訊等)</li>
+							<li class="fragment">"text"為指定之文字</li>
+							<li class="fragment">counter為計數器，從1開始</li>
+							<li class="fragment">可以多個值</li>
+						</ul>
+					</section>
+					<section>
+						<h2>::before &amp; ::after</h2>
+						<a href="beforeafter.html" target="_blank">Demo</a>
+					</section>
+				</section>
 			</div>
 		</div>
 
