@@ -78,7 +78,7 @@
 							<li>:invalid</li>
 							<li>:required</li>
 							<li>:optional</li>
-							<li>:readonly</li>
+							<li>:read-only</li>
 							<li>:read-write</li>
 							<li>:in-range</li>
 							<li>:out-of-range</li>
@@ -140,6 +140,27 @@ input:invalid{
 }
 						</code></pre>
 						<a href="required&optional.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>:read-only &amp; :read-write</h2>
+						<p>判斷是否有readonly屬性</p>
+						<p class="fragment">IE不支援，Firefox要加-moz-</p>
+						<p class="fragment">可用於任意元素</p>
+						<pre class="fragment"><code data-trim>
+:-moz-read-only{
+    background:yellow;
+}
+:read-only{
+    background:yellow;
+}
+:-moz-read-write{
+    background:red;
+}
+:read-write{
+    background:red;
+}
+						</code></pre>
+						<a href="readonly&readwrite.html" class="fragment" target="_blank">Demo</a>
 					</section>
 				</section>
 			</div>
