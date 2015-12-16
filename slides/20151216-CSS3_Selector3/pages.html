@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Pages</title>
+    <style>
+        .pages{
+            position:relative;
+        }
+        .pages section{
+            border:1px solid gray;
+            position:absolute;
+            top:1em;
+            left:0;
+            width:500px;
+            height:300px;
+            background:#CCCCCC;
+        }
+        .pages section:target{
+            z-index:1;
+        }
+    </style>
+</head>
+<body>
+    <div class="pages">
+        <nav>
+            <a href="#page1">page1</a>
+            <a href="#page2">page2</a>
+            <a href="#page3">page3</a>
+        </nav>
+        <section id="page1">
+            這裡是第一頁，blablabla
+        </section>
+        <section id="page2">
+            This is page 2.
+        </section>
+        <section id="page3">
+            1234567890<br>
+            ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+            abcdefghiklmnopqrstuvwxyz
+        </section>
+    </div>
+</body>
+</html>
