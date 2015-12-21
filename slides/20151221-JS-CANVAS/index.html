@@ -118,9 +118,94 @@
 				</section>
 				
 				<section>
+					<h2>座標軸</h2>
+					<p class="fragment">和數學的笛卡兒座標軸略有不同</p>
+					<p class="fragment">右方為X軸正向</p>
+					<p class="fragment">下方為Y軸正向</p>
+					<p class="fragment">下方為Y軸正向</p>
+					<p class="fragment">下方為Y軸正向</p>
+					<p class="fragment">很重要所以說三次</p>
+				</section>
+				
+				<section>
 					<h2>接下來</h2>
 					<p class="fragment">光簡單介紹canvas大家不會用</p>
 					<p class="fragment">還要講解相關函式才行</p>
+				</section>
+			</section>
+			
+			<section>
+				<h2>相關函式</h2>
+			</section>
+			
+			<section>
+				<section>
+					<h2>顏色樣式及陰影</h2>
+					<p class="fragment">此canvas是狀態機</p>
+					<p class="fragment">改變狀態後其行為也會改變</p>
+					<p class="fragment">顏色和圖形繪製是分開設定的</p>
+				</section>
+				
+				<section>
+					<h2>填滿樣式</h2>
+					<p class="fragment">fillStyle屬性</p>
+					<p class="fragment">可以指定以下樣式：</p>
+					<p class="fragment">顏色字串</p>
+					<p class="fragment">漸層物件</p>
+					<p class="fragment">式樣物件</p>
+				</section>
+				
+				<section>
+					<h2>stroke樣式</h2>
+					<p class="fragment">strokeStyle屬性</p>
+					<p class="fragment">一樣可以指定以下樣式：</p>
+					<p class="fragment">顏色字串</p>
+					<p class="fragment">漸層物件</p>
+					<p class="fragment">式樣物件</p>
+				</section>
+				
+				<section>
+					<h2>陰影設定</h2>
+					<p class="fragment">shadowColor屬性設定顏色字串</p>
+					<p class="fragment">shadowBlur屬性設定模糊數值</p>
+					<p class="fragment">shadowOffsetX屬性設定X軸偏移數值</p>
+					<p class="fragment">shadowOffsetY屬性設定Y軸偏移數值</p>
+				</section>
+				
+				<section>
+					<h2>產生式樣物件</h2>
+					<p class="fragment">createPattern(img,style)</p>
+					<p class="fragment">img可為image,canvas或video元素</p>
+					<p class="fragment">style可為以下字串：</p>
+					<p class="fragment">repeat,repeat-x,repeat-y,no-repeat</p>
+				</section>
+				
+				<section>
+					<h2>畫布中的圖像</h2>
+					<p class="fragment">畫布中的圖像不能用路徑直接當圖</p>
+					<p class="fragment">要從img抓出物件或另外建立Image物件</p>
+					<p class="fragment">先用Image建構子傳入x,y</p>
+					<p class="fragment">再來用src屬性指定圖片路徑就完成了</p>
+				</section>
+				
+				<section>
+					<h2>產生線性漸層物件</h2>
+					<p class="fragment">createLinearGradientc(x0,y0,x1,y1)</p>
+					<p class="fragment">產生以(x0,y0)到(x1,y1)的漸層</p>
+				</section>
+				
+				<section>
+					<h2>產生放射狀漸層物件</h2>
+					<p class="fragment">createRadialGradient(x0,y0,r0,r1,y1,r1)</p>
+					<p class="fragment">從(x0,y0)半徑r0之圓周漸層至(x1,y1)半徑r1之圓周</p>
+				</section>
+				
+				<section>
+					<h2>指定漸層的顏色</h2>
+					<p class="fragment">addColorStop(stop,color)</p>
+					<p class="fragment">使用該函式對漸層物件指定關鍵點顏色</p>
+					<p class="fragment">stop值為0.0~1.0之間的浮點代表位置</p>
+					<p class="fragment">color僅能為顏色字串</p>
 				</section>
 			</section>
 			
