@@ -48,6 +48,81 @@
 					<h4>2015/12/21</h4>
 			</section>
 			
+			<section>
+				<h2>今日重點</h2>
+				<p class="fragment">Canvas介紹</p>
+				<p class="fragment">Canvas函式</p>
+			</section>
+			
+			<section>
+				<section>
+					<h2>介紹</h2>
+				</section>
+				
+				<section>
+					<h2>畫布</h2>
+					<p class="fragment">HTML的canvas元素</p>
+					<p class="fragment">由蘋果公司首先推出</p>
+					<p class="fragment">可以在畫布上渲染圖形</p>
+					<p class="fragment">連IE9都有支援</p>
+				</section>
+				
+				<section>
+					<h2>出生</h2>
+					<p class="fragment">蘋果公司要給OS&nbsp;X的Dashboard和Safari用的</p>
+					<p class="fragment">後變為HTML5的規格之一</p>
+					<p class="fragment">舊版的IE可以用Google的Explorer&nbsp;Canvas函式庫</p>
+				</section>
+				
+				<section>
+					<h2>元素屬性</h2>
+					<p class="fragment">只有width和height</p>
+					<p class="fragment">沒有src和alt</p>
+					<p class="fragment">預設寬300px高150px</p>
+				</section>
+				
+				<section>
+					<h2>錯誤替代內容</h2>
+					<p class="fragment">為了避免不支援canvas</p>
+					<p class="fragment">使用成對的canvas並在之中夾入內容</p>
+					<p class="fragment"><del>IE6&nbsp;RIP</del></p>
+				</section>
+				
+				<section>
+					<h2>寬度高度設定</h2>
+					<p class="fragment">也可以用CSS改變尺寸</p>
+					<p class="fragment">但是CSS可能造成圖片扭曲</p>
+					<p class="fragment">使用本身的width和height進行尺寸調整</p>
+				</section>
+				
+				<section>
+					<h2>渲染環境</h2>
+					<p class="fragment">rendering&nbsp;context</p>
+					<p class="fragment">元素本身不能畫圖</p>
+					<p class="fragment">要用getContext()取得該環境</p>
+				</section>
+				
+				<section>
+					<h2>渲染選項</h2>
+					<p class="fragment">繪圖種類有2D,webgl,webgl2</p>
+					<p class="fragment">不只2D還可以畫3D</p>
+					<p class="fragment">alhpa可以設定該元素是否透明</p>
+					<p class="fragment">webgl選項不在此討論...</p>
+				</section>
+				
+				<section>
+					<h2>DOM載入</h2>
+					<p class="fragment">在DOM完成載入前canvas繪圖沒有作用</p>
+					<p class="fragment">將繪圖的函式在onload時觸發<del>認同請分享</del></p>
+					<p class="fragment">儘量這樣做否則不保證可以運作</p>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">光簡單介紹canvas大家不會用</p>
+					<p class="fragment">還要講解相關函式才行</p>
+				</section>
+			</section>
 			
 			</div>
 		</div>
