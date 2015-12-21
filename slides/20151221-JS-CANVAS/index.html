@@ -276,7 +276,94 @@
 				</section>
 			</section>
 			
-			
+			<section>
+				<section>
+					<h2>路徑相關</h2>
+					<p class="fragment">Canvas中存在著路徑的狀態</p>
+					<p class="fragment">改變其狀態可獲得不同結果</p>
+				</section>
+				
+				<section>
+					<h2>填滿路徑</h2>
+					<p class="fragment">fill()將目前的路徑包起來填滿</p>
+					<p class="fragment">路徑沒有包起來則將終點起點自動連線</p>
+					<p class="fragment">剛才的rect()其實也只是製造路徑</p>
+					<p class="fragment">記得搭配fillStyle設定樣式</p>
+				</section>
+				
+				<section>
+					<h2>繪製路徑</h2>
+					<p class="fragment">stroke()把目前的路徑畫出來</p>
+					<p class="fragment">可搭配其他路徑移動的函式將路徑定義</p>
+					<p class="fragment">記得搭配strokeStyle設定樣式</p>
+				</section>
+				
+				<section>
+					<h2>路徑開始</h2>
+					<p class="fragment">beginPath()產生新路徑</p>
+					<p class="fragment">將目前路徑清除重新開始</p>
+				</section>
+				
+				<section>
+					<h2>路徑封閉</h2>
+					<p class="fragment">closePath()將頭尾相連</p>
+					<p class="fragment">這樣就不用記住起點是哪裡了</p>
+				</section>
+				
+				<section>
+					<h2>移動</h2>
+					<p class="fragment">moveTo(x,y)將路徑移動至(x,y)但不畫線</p>
+					<p class="fragment">只有改變目前路徑的位置</p>
+				</section>
+				
+				<section>
+					<h2>畫直線</h2>
+					<p class="fragment">lineTo(x,y)就是畫線並移動到(x,y)</p>
+					<p class="fragment">會改變目前路徑的位置</p>
+					<p class="fragment"><del>但是不能用來發訊息給別人</del></p>
+				</section>
+				
+				<section>
+					<h2>畫二次曲線</h2>
+					<p class="fragment">quadraticCurveTo(cpx,cpy,x,y)畫二次曲線並移動至(x,y)</p>
+					<p class="fragment">就是拋物線啦~~</p>
+					<p class="fragment">(cpx,cpy)為其控制點</p>
+				</section>
+				
+				<section>
+					<h2>畫貝茲曲線</h2>
+					<p class="fragment">bezierCurveTo(cpx1,cpy1,cpx2,cpy2,x,y)</p>
+					<p class="fragment">用2個控制點來畫貝茲曲線</p>
+					<p class="fragment">不要問&nbsp;你會怕</p>
+				</section>
+				
+				<section>
+					<h2>畫圓弧</h2>
+					<p class="fragment">arc(x,y,r,sA,eA,counterclockwise)</p>
+					<p class="fragment">以(x,y)為圓心從角度sA到角度eA畫出半徑r的弧形</p>
+					<p class="fragment">角度計算是用Math::PI來計算</p>
+					<p class="fragment">單純畫圓弧就好不要用來做路徑的移動</p>
+				</section>
+				
+				<section>
+					<h2>畫圓弧並移動</h2>
+					<p class="fragment">arcTo(x1,y1,x2,y2,r)畫弧線並移動到(x2,y2)</p>
+					<p class="fragment">(x1,y1)為切線的交界</p>
+					<p class="fragment">此函式就會移動路徑了</p>
+				</section>
+				
+				<section>
+					<h2>偵測某點是否在路徑上</h2>
+					<p class="fragment">IsPointInPath(x,y)可偵測該點是否再路徑上</p>
+					<p class="fragment">我也不知道有啥用處...</p>
+				</section>
+				
+				<section>
+					<h2>指定繪圖區域</h2>
+					<p class="fragment">clip()將路徑外的區域設定為不可繪圖</p>
+					<p class="fragment">使用save()和restore()儲存或回復canvas的狀態</p>
+				</section>
+			</section>
 			
 			</div>
 		</div>
