@@ -365,6 +365,169 @@
 				</section>
 			</section>
 			
+			<section>
+				<section>
+					<h2>文字繪製</h2>
+				</section>
+				
+				<section>
+					<h2>字體設定</h2>
+					<p class="fragment">font屬性可設定字體樣式字串</p>
+					<p class="fragment">原理和CSS的字體樣式一樣</p>
+				</section>
+				
+				<section>
+					<h2>文字對齊</h2>
+					<p class="fragment">textAlign屬性設定對齊字串</p>
+					<p class="fragment">start,left</p>
+					<p class="fragment">center</p>
+					<p class="fragment">end,right</p>
+				</section>
+				
+				<section>
+					<h2>文字基準線</h2>
+					<p class="fragment">textBaseline屬性設定文自己基準字串</p>
+					<p class="fragment">alphabetic,ideographic</p>
+					<p class="fragment">top,hanging</p>
+					<p class="fragment">middle</p>
+					<p class="fragment">bottom</p>
+				</section>
+				
+				<section>
+					<h2>填滿文字</h2>
+					<p class="fragment">fillText(text,x,y,maxWidth)</p>
+					<p class="fragment">可以先設定文字樣式或填滿樣式</p>
+					<p class="fragment">最大寬度可以設定讓全都擠在裏面</p>
+				</section>
+				
+				<section>
+					<h2>空心文字</h2>
+					<p class="fragment">strokeText(text,x,y,maxwidth)</p>
+					<p class="fragment">參數和fillText一樣</p>
+					<p class="fragment">僅有文字外框而不填滿</p>
+				</section>
+				
+				<section>
+					<h2>測量文字寬度</h2>
+					<p class="fragment">measureText(text)可測量指定字串的寬度</p>
+					<p class="fragment">不同字體下寬度有可能不同</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>圖片繪製</h2>
+					<p class="fragment">函式就一個...</p>
+				</section>
+				
+				<section>
+					<h2>圖片繪製</h2>
+					<p class="fragment">drawImage(img,x,y)</p>
+					<p class="fragment">drawImage(img,x,y,w,h)</p>
+					<p class="fragment">drawImage(img,sx,sy,sw,sh,x,y,width,height)</p>
+					<p class="fragment">可以全畫出來或只畫部份圖片</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>像素處理</h2>
+				</section>
+				
+				<section>
+					<h2>相關屬性</h2>
+					<p class="fragment">width屬性可取得寬度</p>
+					<p class="fragment">height屬性可取得高度</p>
+					<p class="fragment">data屬性可取得像RGBA位元陣列</p>
+				</section>
+				
+				<section>
+					<h2>產生圖形數據</h2>
+					<p class="fragment">createImageData(w,h)產生RGBA陣列</p>
+					<p class="fragment">可以再放回canvas</p>
+				</section>
+				
+				<section>
+					<h2>取得指定矩形數據</h2>
+					<p class="fragment">getImageData(x,y,w,h)取得RGBA陣列複本</p>
+				</section>
+				
+				<section>
+					<h2>繪製圖形數據</h2>
+					<p class="fragment">putImageData(data,x,y)將數據當圖畫回canvas</p>
+					<p class="fragment">實際上還可以指定只畫數據內部的x,y,w,h</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>變形效果</h2>
+					<p class="fragment">transform很難翻啊~~</p>
+				</section>
+				
+				<section>
+					<h2>縮放</h2>
+					<p class="fragment">scale(w,h)設定長寬的縮放比例</p>
+					<p class="fragment">路徑也會受到縮放的影響</p>
+				</section>
+				
+				<section>
+					<h2>旋轉</h2>
+					<p class="fragment">rotate(angle)旋轉指定的弳度量</p>
+					<p class="fragment">路徑會受到旋轉影響</p>
+				</section>
+				
+				<section>
+					<h2>位移</h2>
+					<p class="fragment">translate(x,y)將原點位移至(x,y)</p>
+					<p class="fragment">因為是狀態所以持續有效...</p>
+				</section>
+				
+				<section>
+					<h2>變形</h2>
+					<p class="fragment">transform(a,b,c,d,e,f)累加變形效果</p>
+					<p class="fragment">a,d為水平和垂直縮放量</p>
+					<p class="fragment">b,c為水平和垂直的歪曲</p>
+					<p class="fragment">e,f為水平和垂直的位移</p>
+					<p class="fragment">其實這是個矩陣...</p>
+				</section>
+				
+				<section>
+					<h2>指定變形</h2>
+					<p class="fragment">setTransform(a,b,c,d,e,f)直接設定變形矩陣</p>
+					<p class="fragment">參數效果相同但直接設定矩陣值</p>
+					<p class="fragment">沒有累加的效果</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>合成</h2>
+				</section>
+				
+				<section>
+					<h2>設定透明度</h2>
+					<p class="fragment">globalAlpha屬性設定0~1的透明度</p>
+					<p class="fragment">讓繪圖有半透明的效果</p>
+				</section>
+				
+				<section>
+					<h2>設定合成運算</h2>
+					<p class="fragment">globalCompositeOperation屬性</p>
+					<p class="fragment">讓圖片疊加時顯示不同合成效果</p>
+				</section>
+				
+				<section>
+					<h2>合成效果</h2>
+					<p class="fragment"><img src="./composite.png"></p>
+				</section>
+			</section>
+			
+			<section>
+				<h2>以上</h2>
+				<p class="fragment">今天的JS課程到這邊結束</p>
+			</section>
+			
 			</div>
 		</div>
 		<script src="../lib/js/head.min.js"></script>
