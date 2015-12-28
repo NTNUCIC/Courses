@@ -70,7 +70,7 @@
 				<section>
 					<h2>實際案例</h2>
 					<div id="demo_dh" class="fragment"></div>
-					<pre class="fragment" style="width:700px;font-size:28px;"><code class="html"><script style="display:block">
+					<pre class="fragment" style="width:700px;font-size:28px;"><code style="font-family:'consolas','ubuntu mono'" class="html"><script style="display:block">
 	x = 5566
 	elem = document.getElementById("demo_dh")
 	elem.innerHTML = x
@@ -87,9 +87,9 @@
 				<section>
 					<h2>使用前初始化</h2>
 					<div id="demo_ihb" class="fragment"></div>
-					<pre class="fragment" style="width:680px;font-size:28px;"><code class="html"><script style="display:block">
+					<pre class="fragment" style="width:720px;font-size:28px;"><code style="font-family:'consolas','ubuntu mono'" class="html"><script style="display:block">
 	var a = 775
-	var b = 664
+	var b = 478
 	elem = document.getElementById("demo_ihb")
 	elem.innerHTML = a + " " + b
 </script></code></pre>
@@ -98,7 +98,7 @@
 				<section>
 					<h2>使用後初始化</h2>
 					<div id="demo_iha" class="fragment"></div>
-					<pre class="fragment" style="width:680px;font-size:28px;"><code class="html"><script style="display:block">
+					<pre class="fragment" style="width:720px;font-size:28px;"><code style="font-family:'consolas','ubuntu mono'" class="html"><script style="display:block">
 	var p = 8088
 	elem = document.getElementById("demo_iha")
 	elem.innerHTML = p + " " + q
@@ -109,7 +109,7 @@
 				<section>
 					<h2>先宣告使用後初始化</h2>
 					<div id="demo_dbi" class="fragment"></div>
-					<pre class="fragment" style="width:680px;font-size:28px;"><code class="html"><script style="display:block">
+					<pre class="fragment" style="width:720px;font-size:28px;"><code style="font-family:'consolas','ubuntu mono'" class="html"><script style="display:block">
 	var c = 4004
 	var d
 	elem = document.getElementById("demo_dbi")
@@ -140,62 +140,64 @@
 				
 				<section>
 					<h2>變數指派</h2>
-					<pre class="fragment" style="width:400px;font-size:28px;"><code class="html"><script style="display:block">
-"use strict"
-freq = 4.8e9
-alert(freq)
+					<pre class="fragment" style="width:450px;font-size:28px;"><code style="font-family:'consolas','ubuntu mono'" class="html"><script style="display:block">
+	"use strict"
+	freq = 4.8e9
+	alert(freq)
 </script></code></pre>
 				</section>
 				
 				<section>
 					<h2>指派物件</h2>
-					<pre class="fragment" style="width:500px;font-size:28px;"><code class="html"><script style="display:block">
-"use strict"
-P3Coppermine = {L1:16+16,L2:256}
-alert(P3Coppermine)
+					<pre class="fragment" style="width:600px;font-size:28px;"><code style="font-family:'consolas','ubuntu mono'" class="html"><script style="display:block">
+	"use strict"
+	P3Coppermine = {L1:16+16,L2:256}
+	alert(P3Coppermine)
 </script></code></pre>
 				</section>
 				
 				<section>
 					<h2>函式參數</h2>
 					<p class="fragment">兩個相同的參數其實本來不會錯...</p>
-					<pre class="fragment" style="width:500px;font-size:28px;"><code class="html"><script style="display:block">
-"use strict"
-function square(a,a){return a*a}
+					<pre class="fragment" style="width:600px;font-size:28px;"><code style="font-family:'consolas','ubuntu mono'" class="html"><script style="display:block">
+	"use strict"
+	function square(a,a){return a*a}
 </script></code></pre>
 				</section>
 				
 				<section>
 					<h2>八進位字面常數</h2>
-					<pre class="fragment" style="width:400px;font-size:28px;"><code class="html"><script style="display:block">
-"use strict"
-var nine = 011
-alert(nine)
+					<pre class="fragment" style="width:450px;font-size:28px;"><code style="font-family:'consolas','ubuntu mono'" class="html"><script style="display:block">
+	"use strict"
+	var nine = 011
+	alert(nine)
 </script></code></pre>
 				</section>
 				
 				<section>
 					<h2>唯讀屬性</h2>
-					<pre class="fragment" style="width:400px;font-size:28px;"><code class="html"><script style="display:block">
-"use strict"
-var obj = {get x() {return 0} }
-obj.x = 2266
+					<pre class="fragment" style="width:500px;font-size:28px;"><code style="font-family:'consolas','ubuntu mono'" class="html"><script style="display:block">
+	"use strict"
+	var obj = {
+		get x() {return 0}
+	}
+	obj.x = 2266
 </script></code></pre>
 				</section>
 				
 				<section>
 					<h2>特別變數名稱</h2>
 					<p class="fragment">eval可以用來對字串賦值</p>
-					<pre class="fragment" style="width:400px;font-size:28px;"><code class="html"><script style="display:block">
-"use strict"
-var eval = "evil"
+					<pre class="fragment" style="width:450px;font-size:28px;"><code style="font-family:'consolas','ubuntu mono'" class="html"><script style="display:block">
+	"use strict"
+	var eval = "evil"
 </script></code></pre>
 				</section>
 				
 				<section>
 					<h2>字串賦值</h2>
 					<p class="fragment">為了安全因素所以不能創造變數</p>
-					<pre class="fragment" style="width:540px;font-size:28px;"><code class="html"><script style="display:block">
+					<pre class="fragment" style="width:600px;font-size:28px;"><code style="font-family:'consolas','ubuntu mono'" class="html"><script style="display:block">
 "use strict"
 eval("var P4Prescott={L1:16+12,L2:2048}")
 </script></code></pre>
@@ -224,32 +226,30 @@ eval("var P4Prescott={L1:16+12,L2:2048}")
 					<h2>條件敘述</h2>
 					<p class="fragment">把if條件的相等寫成指派</p>
 					<pre class="fragment" style="width:500px;font-size:28px;font-family:'consolas','ubuntu mono'">
-<code class="js">var obov="ob'_'ov"
-if(obov="apple"){alert("XXXXRAT")}
-					</code></pre>
+<code style="font-family:'consolas','ubuntu mono'" class="js">var odov="od'_'ov"
+if(odov="apple"){alert("XXXXRAT")}</code></pre>
 				</section>
 				
 				<section>
 					<h2>如何避免</h2>
 					<p class="fragment">把常數寫在左邊寫錯就會炸</p>
 					<pre class="fragment" style="width:500px;font-size:28px;font-family:'consolas','ubuntu mono'">
-<code class="js">var obov="ob'_'ov"
-if("apple"=obov){alert("XXXXRAT")}
-					</code></pre>
+<code style="font-family:'consolas','ubuntu mono'" class="js">var odov="od'_'ov"
+if("apple"=odov){alert("XXXXRAT")}</code></pre>
 				</section>
 				
 				<section>
 					<h2>比較運算</h2>
-					<pre class="fragment" style="width:150px;font-size:28px;font-family:'consolas','ubuntu mono'">
-<code class="js">var e=666
+					<pre class="fragment" style="width:170px;font-size:28px;font-family:'consolas','ubuntu mono'">
+<code style="font-family:'consolas','ubuntu mono'" class="js">var e=666
 var f="666"
 alert(e==f)</code></pre>
 				</section>
 				
 				<section>
 					<h2>不要以為這樣是對的</h2>
-					<pre class="fragment" style="width:150px;font-size:28px;font-family:'consolas','ubuntu mono'">
-<code class="js">var g=011
+					<pre class="fragment" style="width:170px;font-size:28px;font-family:'consolas','ubuntu mono'">
+<code style="font-family:'consolas','ubuntu mono'" class="js">var g=011
 var h="011"
 alert(g==h)</code></pre>
 					<p class="fragment"><del>型別轉換有風險詳情請見JS規格書</del></p>
@@ -258,8 +258,8 @@ alert(g==h)</code></pre>
 				<section>
 					<h2>如何避免</h2>
 					<p class="fragment">記得使用3個等號===的比較</p>
-					<pre class="fragment" style="width:170px;font-size:28px;font-family:'consolas','ubuntu mono'">
-<code class="js">var m=223
+					<pre class="fragment" style="width:180px;font-size:28px;font-family:'consolas','ubuntu mono'">
+<code style="font-family:'consolas','ubuntu mono'" class="js">var m=223
 var n="223"
 alert(m===n)</code></pre>
 				</section>
@@ -273,16 +273,18 @@ alert(m===n)</code></pre>
 				<section>
 					<h2>實際案例</h2>
 					<pre class="fragment" style="width:250px;font-size:28px;font-family:'consolas','ubuntu mono'">
-<code class="js">var num = 10
-var str = "5"
-var res = num + str</code></pre>
+<code style="font-family:'consolas','ubuntu mono'" class="js">var num=10
+var str="5"
+var res=num+str</code></pre>
 				</section>
 				
 				<section>
 					<h2>錯誤的分號</h2>
-					<pre class="fragment" style="width:250px;font-size:28px;font-family:'consolas','ubuntu mono'">
-<code class="js">if(false);
-{alert("RRRR")}
+					<pre class="fragment" style="width:300px;font-size:28px;font-family:'consolas','ubuntu mono'">
+<code style="font-family:'consolas','ubuntu mono'" class="js">if(false);
+{
+	alert("RRRR")
+}
 </code></pre>
 					<p class="fragment">就這樣莫名其妙地執行了</p>
 				</section>
@@ -309,10 +311,9 @@ var res = num + str</code></pre>
 				
 				<section>
 					<h2>實際案例</h2>
-					<pre class="fragment" style="width:300px;font-size:28px;font-family:'consolas','ubuntu mono'">
-<code class="js">var limit=arr.length
-for(var i=0;i&lt;limit;i++)
-					</code></pre>
+					<pre class="fragment" style="width:350px;font-size:28px;font-family:'consolas','ubuntu mono'">
+<code style="font-family:'consolas','ubuntu mono'" class="js">var limit=arr.length
+for(var i=0;i&lt;limit;i++)</code></pre>
 					<p class="fragment">迴圈次數愈多效益愈高</p>
 				</section>
 				
@@ -325,8 +326,8 @@ for(var i=0;i&lt;limit;i++)
 				
 				<section>
 					<h2>實際案例</h2>
-					<pre class="fragment" style="width:300px;font-size:28px;font-family:'consolas','ubuntu mono'">
-<code class="js">obj = document.getElementById("demo");
+					<pre class="fragment" style="width:550px;font-size:28px;font-family:'consolas','ubuntu mono'">
+<code style="font-family:'consolas','ubuntu mono'" class="js">obj = document.getElementById("demo");
 obj.innerHTML = "Hello";</code></pre>
 				</section>
 				
@@ -349,8 +350,88 @@ obj.innerHTML = "Hello";</code></pre>
 					<p class="fragment">最好加上個onload時才執行所需程式碼</p>
 				</section>
 				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">講解神奇的閉包</p>
+				</section>
 			</section>
 			
+			<section>
+				<section>
+					<h2>閉包</h2>
+					<p class="fragment">上次建構子不小心用到了</p>
+					<p class="fragment">將所能取得的變數環境記起來</p>
+					<p class="fragment">變數會和函式一起存在</p>
+				</section>
+				
+				<section>
+					<h2>作用域</h2>
+					<pre class="fragment" style="width:500px;font-size:28px;font-family:'consolas','ubuntu mono'">
+<code style="font-family:'consolas','ubuntu mono'" class="js">function init() {
+	var name = "Nekomimi"
+	function display() {
+		alert(name)
+	}
+	display()
+}</code></pre>
+				</section>
+				
+				<section>
+					<h2>閉包</h2>
+					<pre class="fragment" style="width:500px;font-size:28px;font-family:'consolas','ubuntu mono'">
+<code style="font-family:'consolas','ubuntu mono'" class="js">function init() {
+	var name = "Nekomimi"
+	function display() {
+		alert(name)
+	}
+	return display
+}</code></pre>
+				</section>
+				
+				<section>
+					<h2>限制成員存取</h2>
+					<p class="fragment">可以用閉包取得別人無法取得的作用域</p>
+					<p class="fragment">把東西藏起來不給別人改</p>
+				</section>
+				
+				<section>
+					<h2>計數器</h2>
+					<p class="fragment">最簡單的回傳物件</p>
+					<pre class="fragment" style="width:720px;font-size:28px;font-family:'consolas','ubuntu mono'">
+<code style="font-family:'consolas','ubuntu mono'" class="js">function Counter(){
+	var count=0
+	return {
+		add:function(){count+=1;},
+		num:function(){return count;}
+	}
+}</code></pre>
+				</section>
+				
+				<section>
+					<h2>計數器</h2>
+					<p class="fragment">複雜一點的回傳物件</p>
+					<pre class="fragment" style="width:720px;font-size:28px;font-family:'consolas','ubuntu mono'">
+<code style="font-family:'consolas','ubuntu mono'" class="js">function Counter(){
+	var count=0
+	return new (function(){
+		this.add=function(){count+=1;}
+		this.num=function(){return count;}
+	})
+}</code></pre>
+				</section>
+				
+				<section>
+					<h2>閉包</h2>
+					<p class="fragment">其實不只是JavaScript有閉包</p>
+					<p class="fragment">連C++11也支援啦！！</p>
+					<p class="fragment">概念學起來到處可以用</p>
+				</section>
+			</section>
+			
+			<section>
+				<h2>以上是今天的JavaScript課程</h2>
+				<h2>感謝各位</h2>
+			</section>
 			</div>
 		</div>
 		<script src="../lib/js/head.min.js"></script>
