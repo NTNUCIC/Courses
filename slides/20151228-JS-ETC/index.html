@@ -213,6 +213,86 @@ eval("var P4Prescott={L1:16+12,L2:2048}")
 				</section>
 			</section>
 			
+			<section>
+				<section>
+					<h2>常見錯誤</h2>
+					<p class="fragment">不能說都是你的錯</p>
+					<p class="fragment">但是也不能都怪JS...</p>
+				</section>
+				
+				<section>
+					<h2>條件敘述</h2>
+					<p class="fragment">把if條件的相等寫成指派</p>
+					<pre class="fragment" style="width:500px;font-size:28px;font-family:'consolas','ubuntu mono'">
+<code class="js">var obov="ob'_'ov"
+if(obov="apple"){alert("XXXXRAT")}
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>如何避免</h2>
+					<p class="fragment">把常數寫在左邊寫錯就會炸</p>
+					<pre class="fragment" style="width:500px;font-size:28px;font-family:'consolas','ubuntu mono'">
+<code class="js">var obov="ob'_'ov"
+if("apple"=obov){alert("XXXXRAT")}
+					</code></pre>
+				</section>
+				
+				<section>
+					<h2>比較運算</h2>
+					<pre class="fragment" style="width:150px;font-size:28px;font-family:'consolas','ubuntu mono'">
+<code class="js">var e=666
+var f="666"
+alert(e==f)</code></pre>
+				</section>
+				
+				<section>
+					<h2>不要以為這樣是對的</h2>
+					<pre class="fragment" style="width:150px;font-size:28px;font-family:'consolas','ubuntu mono'">
+<code class="js">var g=011
+var h="011"
+alert(g==h)</code></pre>
+					<p class="fragment"><del>型別轉換有風險詳情請見JS規格書</del></p>
+				</section>
+				
+				<section>
+					<h2>如何避免</h2>
+					<p class="fragment">記得使用3個等號===的比較</p>
+					<pre class="fragment" style="width:170px;font-size:28px;font-family:'consolas','ubuntu mono'">
+<code class="js">var m=223
+var n="223"
+alert(m===n)</code></pre>
+				</section>
+				
+				<section>
+					<h2>加法和串接</h2>
+					<p class="fragment">字串和數字的加法是不一樣的</p>
+					<p class="fragment">小心變數所使用的型別</p>
+				</section>
+				
+				<section>
+					<h2>實際案例</h2>
+					<pre class="fragment" style="width:250px;font-size:28px;font-family:'consolas','ubuntu mono'">
+<code class="js">var num = 10
+var str = "5"
+var res = num + str</code></pre>
+				</section>
+				
+				<section>
+					<h2>錯誤的分號</h2>
+					<pre class="fragment" style="width:250px;font-size:28px;font-family:'consolas','ubuntu mono'">
+<code class="js">if(false);
+{alert("RRRR")}
+</code></pre>
+					<p class="fragment">就這樣莫名其妙地執行了</p>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">講解如何增進JS執行效能</p>
+				</section>
+			</section>
+			
 			</div>
 		</div>
 		<script src="../lib/js/head.min.js"></script>
