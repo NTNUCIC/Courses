@@ -71,10 +71,10 @@
 					<h2>實際案例</h2>
 					<div id="demo_dh" class="fragment"></div>
 					<pre class="fragment" style="width:700px;font-size:28px;"><code class="html"><script style="display:block">
-	x = 5;
-	elem = document.getElementById("demo_dh");
-	elem.innerHTML = x;
-	var x;
+	x = 5566
+	elem = document.getElementById("demo_dh")
+	elem.innerHTML = x
+	var x
 </script></code></pre>
 				</section>
 				
@@ -88,10 +88,10 @@
 					<h2>使用前初始化</h2>
 					<div id="demo_ihb" class="fragment"></div>
 					<pre class="fragment" style="width:680px;font-size:28px;"><code class="html"><script style="display:block">
-	var a = 5;
-	var b = 7;
-	elem = document.getElementById("demo_ihb");
-	elem.innerHTML = a + " " + b;
+	var a = 775
+	var b = 664
+	elem = document.getElementById("demo_ihb")
+	elem.innerHTML = a + " " + b
 </script></code></pre>
 				</section>
 				
@@ -99,10 +99,10 @@
 					<h2>使用後初始化</h2>
 					<div id="demo_iha" class="fragment"></div>
 					<pre class="fragment" style="width:680px;font-size:28px;"><code class="html"><script style="display:block">
-	var p = 5;
-	elem = document.getElementById("demo_iha");
-	elem.innerHTML = p + " " + q;
-	var q = 7;
+	var p = 8088
+	elem = document.getElementById("demo_iha")
+	elem.innerHTML = p + " " + q
+	var q = 8086
 </script></code></pre>
 				</section>
 				
@@ -110,20 +110,107 @@
 					<h2>先宣告使用後初始化</h2>
 					<div id="demo_dbi" class="fragment"></div>
 					<pre class="fragment" style="width:680px;font-size:28px;"><code class="html"><script style="display:block">
-	var c = 5;
-	var d;
-	elem = document.getElementById("demo_dbi");
-	elem.innerHTML = c + " " + d;
-	d = 7;
+	var c = 4004
+	var d
+	elem = document.getElementById("demo_dbi")
+	elem.innerHTML = c + " " + d
+	d = 6006
 </script></code></pre>
 				</section>
-			</section>
-						
-						
-						
-			<section>
-				<h2>閉包</h2>
 				
+				<section>
+					<h2>提醒各位</h2>
+					<p class="fragment">雖然JS會將變數宣告提到最前面</p>
+					<p class="fragment">但是還是請各位將變數宣告寫在最前面...</p>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">介紹一下JS的嚴格模式</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>嚴格模式</h2>
+					<p class="fragment">在JavaScript1.8.5時可使用</p>
+					<p class="fragment">只是個字面常數不是敘述</p>
+					<p class="fragment">會被不支援的瀏覽器忽略</p>
+				</section>
+				
+				<section>
+					<h2>變數指派</h2>
+					<pre class="fragment" style="width:400px;font-size:28px;"><code class="html"><script style="display:block">
+"use strict"
+freq = 4.8e9
+alert(freq)
+</script></code></pre>
+				</section>
+				
+				<section>
+					<h2>指派物件</h2>
+					<pre class="fragment" style="width:500px;font-size:28px;"><code class="html"><script style="display:block">
+"use strict"
+P3Coppermine = {L1:16+16,L2:256}
+alert(P3Coppermine)
+</script></code></pre>
+				</section>
+				
+				<section>
+					<h2>函式參數</h2>
+					<p class="fragment">兩個相同的參數其實本來不會錯...</p>
+					<pre class="fragment" style="width:500px;font-size:28px;"><code class="html"><script style="display:block">
+"use strict"
+function square(a,a){return a*a}
+</script></code></pre>
+				</section>
+				
+				<section>
+					<h2>八進位字面常數</h2>
+					<pre class="fragment" style="width:400px;font-size:28px;"><code class="html"><script style="display:block">
+"use strict"
+var nine = 011
+alert(nine)
+</script></code></pre>
+				</section>
+				
+				<section>
+					<h2>唯讀屬性</h2>
+					<pre class="fragment" style="width:400px;font-size:28px;"><code class="html"><script style="display:block">
+"use strict"
+var obj = {get x() {return 0} }
+obj.x = 2266
+</script></code></pre>
+				</section>
+				
+				<section>
+					<h2>特別變數名稱</h2>
+					<p class="fragment">eval可以用來對字串賦值</p>
+					<pre class="fragment" style="width:400px;font-size:28px;"><code class="html"><script style="display:block">
+"use strict"
+var eval = "evil"
+</script></code></pre>
+				</section>
+				
+				<section>
+					<h2>字串賦值</h2>
+					<p class="fragment">為了安全因素所以不能創造變數</p>
+					<pre class="fragment" style="width:540px;font-size:28px;"><code class="html"><script style="display:block">
+"use strict"
+eval("var P4Prescott={L1:16+12,L2:2048}")
+</script></code></pre>
+				</section>
+				
+				<section>
+					<h2>不要忘了</h2>
+					<p class="fragment">雖然有嚴格模式的字串可以用</p>
+					<p class="fragment">但是一定要寫在第1行才行</p>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">講解JS常見的錯誤</p>
+				</section>
 			</section>
 			
 			</div>
