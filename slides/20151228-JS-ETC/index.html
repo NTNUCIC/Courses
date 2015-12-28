@@ -293,6 +293,64 @@ var res = num + str</code></pre>
 				</section>
 			</section>
 			
+			<section>
+				<section>
+					<h2>增進效能</h2>
+					<p class="fragment"><del>很簡單就先灌V8引擎</del></p>
+					<p class="fragment">當然還是要靠使用者的技術啦</p>
+				</section>
+				
+				<section>
+					<h2>迴圈限制外置</h2>
+					<p class="fragment">將迴圈的限制值放在for外面</p>
+					<p class="fragment">才不會每次都去算</p>
+					<p class="fragment">此方法各語言通用</p>
+				</section>
+				
+				<section>
+					<h2>實際案例</h2>
+					<pre class="fragment" style="width:300px;font-size:28px;font-family:'consolas','ubuntu mono'">
+<code class="js">var limit=arr.length
+for(var i=0;i&lt;limit;i++)
+					</code></pre>
+					<p class="fragment">迴圈次數愈多效益愈高</p>
+				</section>
+				
+				<section>
+					<h2>降低DOM取用</h2>
+					<p class="fragment">取用HTML的DOM是很慢的動作</p>
+					<p class="fragment">取到節點後就用變數存起來</p>
+					<p class="fragment">對於高消耗的取用都可以適用</p>
+				</section>
+				
+				<section>
+					<h2>實際案例</h2>
+					<pre class="fragment" style="width:300px;font-size:28px;font-family:'consolas','ubuntu mono'">
+<code class="js">obj = document.getElementById("demo");
+obj.innerHTML = "Hello";</code></pre>
+				</section>
+				
+				<section>
+					<h2>減少DOM大小</h2>
+					<p class="fragment">儘量讓HTML的節點愈少愈好</p>
+					<p class="fragment">加速網頁載入以及渲染</p>
+					<p class="fragment">當然對搜尋元素也很有利</p>
+				</section>
+				
+				<section>
+					<h2>減少不必要的變數</h2>
+					<p class="fragment">雖然說把變數東拼西湊後取名比較好</p>
+					<p class="fragment">不過只用一次的變數還是免了吧...</p>
+				</section>
+				
+				<section>
+					<h2>指令稿延遲載入</h2>
+					<p class="fragment">將JS的程式放在網頁的最後</p>
+					<p class="fragment">最好加上個onload時才執行所需程式碼</p>
+				</section>
+				
+			</section>
+			
 			</div>
 		</div>
 		<script src="../lib/js/head.min.js"></script>
