@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Practice Demo</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            font-family: 微軟正黑體,Microsoft JhengHei,黑體,SimHei,標楷體,DFKai-SB,BiauKai,全字庫正楷體,TW-Kai,'Source Sans Pro', Helvetica, sans-serif;
+        }
+        body{
+            overflow-x: hidden;
+            font-size:3vmin;
+        }
+        nav{
+            position:fixed;
+            top:0;
+            height:10vh;
+            background:#92a8d1;
+        }
+        nav ul{
+            overflow: auto;
+            text-align:center;
+            width:96vw;
+            height:10vh;
+            line-height:9.5vh;
+            margin-left:2vw;
+            margin-right:2vw;
+        }
+        nav li{
+            list-style:none;
+            display:inline-block;
+            font-size:1.5em;
+        }
+        nav li:not(:last-child)::after{
+            display:inline-block;
+            content:"|";
+            color:#ffffff;
+            margin-left:1em;
+            margin-right:1em;
+        }
+        nav a{
+            text-decoration:none;
+            color:#ffffff;
+        }
+        nav a:hover,
+        nav a:focus{
+            text-decoration:underline;
+        }
+        section{
+            width:90vw;
+            height:90vh;
+            padding-left:5vw;
+            padding-right:5vw;
+            padding-top:10vh;
+        }
+        section#title{
+            background:#f7c9c9;
+        }
+        section#about{
+            background:#f7e0c9;
+        }
+        section#content1{
+            background:#f7f7c9;
+        }
+        section#content2{
+            background:#e0f7c9;
+        }
+        section#info{
+            background:#c9f7c9;
+        }
+        section h1{
+            font-size:4em;
+            text-align:center;
+            margin-top:25vh;
+        }
+        section h2{
+            font-size:3em;
+            text-align:center;
+            margin:3vw;
+        }
+        section article{
+            background:rgba(255,255,255,0.4);
+            max-height:60vh;
+            overflow-y: auto;
+        }
+        section p{
+            text-align:justify;
+            margin:2vw;
+        }
+        section p+p{
+            margin-top:2vw;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#title">Title</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#content1">Content 1</a></li>
+            <li><a href="#content2">Content 2</a></li>
+            <li><a href="#info">Infomation</a></li>
+        </ul>
+    </nav>
+    <section id="title">
+        <h1>CSS Practice</h1>
+        <h2>And Pizza</h2>
+    </section>
+    <section id="about">
+        <h2>About</h2>
+        <article>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris fermentum cursus orci, sed pharetra neque euismod non. Nam ac erat sit amet massa vehicula tincidunt. Vestibulum laoreet velit enim, id fringilla felis porttitor vitae. Sed vel mi luctus, sodales augue ut, aliquet enim. Fusce pharetra mi ut erat imperdiet lacinia. Sed mattis maximus lorem. Donec vitae hendrerit est. Sed euismod molestie ex in aliquam. Praesent nisi tellus, volutpat non commodo in, pretium ac odio. Curabitur quis lacus in elit sodales rutrum a eu nisi. Donec in fringilla felis, et consequat enim. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus volutpat neque sed massa suscipit elementum. Cras vel euismod dui, non consequat sapien. Suspendisse quis ornare mi. Aliquam erat volutpat.</p>
+            <p>Donec eu nibh vitae arcu laoreet consequat. Nulla a sem pulvinar, hendrerit justo ultricies, elementum eros. Nulla iaculis maximus tellus, a viverra augue convallis non. Nunc venenatis viverra odio, bibendum sollicitudin nibh rutrum et. Morbi in nisi et lacus iaculis semper. Vestibulum dui metus, ultrices sed convallis et, imperdiet sed neque. Suspendisse at dapibus ex, in condimentum turpis. Aliquam rutrum a metus a mollis. Praesent viverra massa sed egestas porttitor. Ut ultricies ultrices ex, a elementum quam ultricies vel. Nam.</p>
+        </article>
+    </section>
+    <section id="content1">
+        <h2>Content 1</h2>
+        <article>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent odio nulla, egestas condimentum pulvinar ac, dapibus non dolor. Ut scelerisque elementum turpis, nec bibendum ipsum lacinia sit amet. Sed mollis enim vel turpis tristique, sed pulvinar sapien convallis. Nullam vulputate nunc tellus, id ullamcorper velit facilisis placerat. Mauris dapibus viverra sapien eget interdum. Integer consequat ullamcorper justo. Proin ultrices, dui imperdiet tempor laoreet, dui libero faucibus enim, vitae lobortis metus est quis velit. Aliquam porta hendrerit iaculis. Nulla ut ultricies arcu, dapibus mattis sem.</p>
+            <p>Donec sed placerat ligula. Nullam vitae efficitur dui. Cras a volutpat ligula. Nunc eget ornare augue. Integer at facilisis nisi. Proin pulvinar vulputate eros eu imperdiet. Integer gravida tellus eget commodo placerat. In blandit leo at tincidunt malesuada. Praesent lacinia tortor id blandit maximus. Proin mauris sapien, dictum nec tellus sed, placerat bibendum turpis. Vivamus mattis velit id elit mollis, eu viverra lectus fermentum. Cras molestie magna ac odio consequat, vel commodo odio auctor.</p>
+            <p>Aliquam in mauris quis odio lacinia commodo. Suspendisse nec lorem eu neque facilisis congue. Aliquam a metus sit amet felis efficitur hendrerit. Aliquam fringilla massa vitae venenatis mollis. Maecenas non felis eget ex bibendum pretium id vitae dolor. Nam porta pretium urna id tempus. Suspendisse id vestibulum ligula. Pellentesque sit amet felis et risus accumsan blandit vitae non nunc. Curabitur luctus risus dolor, vel fringilla arcu dictum auctor.</p>
+        </article>
+    </section>
+    <section id="content2">
+        <h2>Content 2</h2>
+        <article>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam at congue lorem, et consectetur arcu. Integer gravida porttitor dolor, ut pretium sapien efficitur et. Sed et convallis odio. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi nec lorem sodales, elementum diam ac, interdum odio. Suspendisse fermentum eleifend pretium. Vestibulum non sagittis velit, imperdiet rhoncus massa. Donec egestas egestas sollicitudin. Aliquam id eros euismod neque volutpat finibus molestie sit amet augue.</p>
+            <p>Etiam sit amet justo quis elit pretium ultrices. Quisque ut ligula vulputate quam aliquet placerat quis in nulla. Suspendisse laoreet felis dui, non vestibulum ipsum sodales a. Mauris lectus tortor, ultricies ut rutrum at, facilisis facilisis enim. Praesent laoreet eros arcu, ut scelerisque velit convallis id. Nunc dictum felis dignissim ex blandit porttitor. Aenean tincidunt laoreet tortor vitae commodo. Nulla lobortis finibus lacus. Morbi in vestibulum lectus. In consequat magna sed porttitor ullamcorper. Nullam est massa, posuere eget massa et, rhoncus laoreet lorem. Suspendisse vel purus eu ante bibendum faucibus eu nec nulla. Curabitur sagittis justo in orci varius, nec tristique magna efficitur. In tincidunt nisl quis velit rhoncus consequat. Phasellus tempor pellentesque ante sit amet mollis.</p>
+            <p>Sed aliquet quam metus, non malesuada elit luctus ut. Duis sed dapibus nulla. Ut lectus ante, fringilla vitae leo nec, imperdiet elementum lacus. Aliquam ac interdum diam. Donec tristique auctor massa, nec maximus metus molestie sit amet. Donec eu ex nibh. Nulla consequat, purus sit amet tempor fringilla, augue metus commodo est, eu accumsan urna turpis aliquam lectus. Suspendisse ultricies mi finibus orci bibendum, eget egestas libero rhoncus. Vestibulum vel hendrerit lorem. Fusce tempor leo et neque scelerisque tristique. Quisque iaculis augue neque, et aliquet velit tempor efficitur. Duis eleifend ipsum vitae ligula fringilla, nec lobortis dolor rhoncus. Fusce erat risus, facilisis nec elit in, euismod congue lorem.</p>
+        </article>
+    </section>
+    <section id="info">
+        <h2>Infomation</h2>
+        <article>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque porta volutpat nisi, a rhoncus purus tristique in. Nullam cursus ligula sed eros convallis, in condimentum est malesuada. Mauris porta placerat sodales. Nulla risus urna, interdum eu elit vel, pretium feugiat nisl. Cras sit amet lacinia dolor. Sed mattis risus id accumsan accumsan. Cras condimentum, augue nec lacinia scelerisque, libero risus ullamcorper elit, vitae faucibus tellus ante at nisi. Sed venenatis, purus sed rhoncus bibendum, ex risus tempus massa, quis euismod.</p>
+        </article>
+    </section>
+</body>
+</html>
