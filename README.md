@@ -1,5 +1,5 @@
-# 104
-104學年度課程投影片[http://ntnucic.github.io/104/](http://ntnucic.github.io/104/)
+# Courses
+資訊研究社課程投影片[http://ntnucic.github.io/Courses/](http://ntnucic.github.io/Courses/)
 
 ##Slide's Name
 使用西元日期命名資料夾，e.g.
