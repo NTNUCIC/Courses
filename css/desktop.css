@@ -54,3 +54,10 @@ footer{
 	text-align: center;
 	font-size: 1.5vw;
 }
+#go-down{
+	right: 10vw;
+	bottom: 10vh;
+}
+#go-down img{
+	width: 10vmin;
+}

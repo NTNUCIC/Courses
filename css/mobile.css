@@ -62,6 +62,13 @@ footer{
 	text-align: center;
 	font-size: 4vw;
 }
+#go-down{
+	right: 2vmin;
+	bottom: 2vmin;
+}
+#go-down img{
+	width: 15vmin;
+}
 
 @media only screen and (orientation: landscape){
 	/*mobile and tablets on horizontal*/
