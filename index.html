@@ -409,8 +409,14 @@
 		<footer id="footer">
 			<p>Copyright &copy; NTNUCIC 2015</p>
 		</footer>
-		<a href="#footer" id="go-down">
+		<a href="#" id="go-down">
 			<img src="images/down-arrow.png" alt="GoDown">
 		</a>
+		<script>
+			document.getElementById("go-down").addEventListener("click",function(e){
+				e.preventDefault();
+				window.scrollTo(0,document.body.scrollHeight);
+			});
+		</script>
 	</body>
 </html>
