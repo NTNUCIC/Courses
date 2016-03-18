@@ -11,14 +11,20 @@ header h1{
 	letter-spacing: 1vw;
 	line-height: 19vw;
 }
-body>nav ul{
+.nav ul{
+	margin-left: 10vw;
+	margin-right: 10vw;
 	text-align: center;
+	line-height: 3vw;
 }
-body>nav li{
+.nav li{
 	display: inline-block;
-	font-size: 3vw;
+	font-size: 2vw;
 	margin-left: 1vw;
 	margin-right: 1vw;
+}
+.nav li:hover{
+	border-bottom: 0.2vh solid #FE9A1E;
 }
 section{
 	margin: 5%;
