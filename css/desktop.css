@@ -20,14 +20,6 @@ body>nav li{
 	margin-left: 1vw;
 	margin-right: 1vw;
 }
-.pages,
-.pages:target~.pages:last-of-type{
-	display: none;
-}
-.pages:target,
-.pages:last-of-type{
-	display: block;
-}
 section{
 	margin: 5%;
 	margin-top: 0;
