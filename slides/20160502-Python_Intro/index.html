@@ -35,12 +35,12 @@
             document.getElementsByTagName( 'head' )[0].appendChild( link );
 
         </script>
-		<style>
-			code{
-				font-family: consolas !important;
-				font-weight: 900;
-			}
-		</style>
+        <style>
+            code{
+                font-family: consolas !important;
+                font-weight: 900;
+            }
+        </style>
         <!--[if lt IE 9]>
         <script src="lib/js/html5shiv.js"></script>
         <![endif]-->
@@ -123,20 +123,47 @@ print("Hello World")
                     <section>
                         <pre style="font-size: 2rem"><code data-trim>
 "Hello World"
-	"Hello	World"
+    "Hello  World"
     "Hello      World"
                         </code></pre>
                     </section>
                 </section>
 
                 <section>
-                    <h2>變數宣告</h2>
-                    <img src="variable.png" alt="variable" style="height: 17rem">
-                </section>
-
-                <section>
                     <section>
                         <h1>基礎型別與運算</h1>
+                    </section>
+                    <section>
+                        <h2>整數與浮點數</h2>
+                        <ul>
+                            <li>整數(integer)：不含小數點的數</li>
+                            <li>浮點數(float)：含小數點的數</li>
+                            <li>皆有正負值</li>
+                            <li>皆能使用加(+)、減(-)、乘(*)、除(/或//)、指數(**)和mod(%)</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>試試看</h2>
+                        <pre style="font-size: 1.7rem;width: 50%;"><code data-trim>
+3+2
+3 + 2.5
+3 / 2
+3 // 2 #整數除法=>取商
+4 / 2
+3 * 2
+3 * 2.0
+3 ** 2
+2 ** 0.5
+3 % 2
+3.3 % 2
+3 % 2.1
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>精度損失</h2>
+                        <p>0.1 + 0.2 是多少？</p>
+                        <p>0.1 * 0.2 是多少？</p>
+                        <img src="precision.png" alt="float precision" class="fragment" style="height: 10rem">
                     </section>
                     <section>
                         <h2>字串</h2>
@@ -145,19 +172,6 @@ print("Hello World")
                         </ul>
                         <br>
                         <img src="string.png" alt="string" style="height: 17rem">
-                    </section>
-                    <section>
-                        <h2>字串的特殊運算</h2>
-                        <ul>
-                            <li>
-                                字串相加："str" + "str"
-                            </li>
-                            <img src="stradd.png" alt="string add string" style="height: 5rem">
-                            <li>
-                                字串乘法："str" * n
-                            </li>
-                            <img src="strmulti.png" alt="string multiplication" style="height: 5rem">
-                        </ul>
                     </section>
                     <section>
                         <p>
@@ -198,36 +212,66 @@ print("Hello '卍 \"XDD\" 卍' World")
                         </code></pre>
                     </section>
                     <section>
-                        <h2>整數與浮點數</h2>
+                        <h2>字串的特殊運算</h2>
                         <ul>
-                            <li>整數(integer)：不含小數點的數</li>
-                            <li>浮點數(float)：含小數點的數</li>
-                            <li>皆有正負值</li>
-                            <li>皆能使用加(+)、減(-)、乘(*)、除(/或//)、指數(**)和mod(%)</li>
+                            <li>
+                                字串相加："str" + "str"
+                            </li>
+                            <img src="stradd.png" alt="string add string" style="height: 5rem">
+                            <li>
+                                字串乘法："str" * n
+                            </li>
+                            <img src="strmulti.png" alt="string multiplication" style="height: 5rem">
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>兩個事實…</h2>
+                        <ol>
+                            <li>Python沒又「字元型別(character)」</li>
+                            <li>Python是強型別</li>
+                        </ol>
+                        <img src="type_error.png" alt="type error" style="height: 15rem" class="fragment">
+                    </section>
+                    <section>
+                        <h2>轉型</h2>
+                        <ul>
+                            <li>str()</li>
+                            <li>int()</li>
+                            <li>float()</li>
                         </ul>
                     </section>
                     <section>
                         <h2>試試看</h2>
-                        <pre style="font-size: 1.7rem;width: 50%;"><code data-trim>
-3+2
-3 + 2.5
-3 / 2
-3 // 2 #整數除法=>取商
-4 / 2
-3 * 2
-3 * 2.0
-3 ** 2
-2 ** 0.5
-3 % 2
-3.3 % 2
-3 % 2.1
+                        <pre style="font-size: 2rem"><code data-trim>
+str(24)   
+str(56.1)
+int(56.1)
+int(56)
+float(56)
+int("123 Hello World")
+int("123.1")
+int("123 Hello World")
+float("123.1")
                         </code></pre>
                     </section>
                     <section>
-                        <h2>精度損失</h2>
-                        <p>0.1 + 0.2 是多少？</p>
-                        <p>0.1 * 0.2 是多少？</p>
-                        <img src="precision.png" alt="float precision" class="fragment" style="height: 10rem">
+                        <h2>布林型別(boolean)</h2>
+                        <ul>
+                            <li>只有 True 和 False</li>
+                            <li>用於「判斷」</li>
+                            <li>注意！首字為大寫</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <img src="bool.png" alt="bool" style="height: 20rem">
+                        <img src="3b2.png" alt="3>2 v.s 3<2" style="height: 10rem">
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>變數宣告</h2>
+                        <img src="variable.png" alt="variable" style="height: 17rem">
                     </section>
                     <section>
                         <h2>變數指派</h2>
@@ -237,7 +281,10 @@ print("Hello '卍 \"XDD\" 卍' World")
                             <li>相加指派：a += b → a=a+b</li>
                             <li>相減指派：a -= b → a=a-b</li>
                             <li>相乘指派：a *= b → a=a*b</li>
-                            <li>相除指派：a /= b → a=a/b</li>
+                            <li>
+                                相除指派：a /= b → a=a/b<br>
+                                　　　　　a //= b → a=a//b
+                            </li>
                             <li>mod指派：a %= b → a=a%b</li>
                             <li>指數指派：a **= b → a=a**b</li>
                         </ul>
