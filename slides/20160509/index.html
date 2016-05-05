@@ -24,7 +24,8 @@
 
     <!-- Code syntax highlighting -->
     <link rel="stylesheet" href="../lib/css/zenburn.css">
-
+    <!-- Display line number in code blocks-->
+    <link rel="stylesheet" href="../lib/css/line-number.css">
     <!-- Printing and PDF exports -->
     <script>
         var link = document.createElement( 'link' );
@@ -83,9 +84,41 @@
                 </section>
                 <section>
                     <h2>這就要從指派變數說起了...</h2>
-                    <pre class="fragment" style="font-size: 0.8em"><code>a = 123     # integer
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">a = 123     # integer
 a = "abc"   # string</code></pre>
                     <h3 class="fragment" style="text-transform: initial;">Is a mutable?</h3>
+                </section>
+                <section>
+                    <h2>其實變數只是個有名稱的箱子</h2>
+                    <p class="fragment">可以裝不同型態的資料</p>
+                    <p class="fragment">指派就是取出舊資料再放入新資料</p>
+                    <h4 class="fragment" style="font-size: 1.3em">可以指派變數不代表資料型態是可變動的喔0.<</h4>
+                </section>
+                <section>
+                    <h2>到底什麼是 immutable ?</h2>
+                    <p class="fragment">試試以下程式碼：</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python line-numbers">a = 1           # line 1
+print(id(a))    # line 2
+a = 2           # line 3
+print(id(a))    # line 4</code></pre>
+                    <p class="fragment">Line 2 和 Line 4會不同</p>
+                </section>
+                <section>
+                    <h2>還是不懂？</h2>
+                    <p class="fragment">再試試：</p>
+                    <pre style="font-size: 0.8em" class="fragment"><code class="python">s = "123"       # line 1
+print(s[0])     # line 2
+s[0] = 'a'      # line 3</code></pre>
+                    <p class="fragment">會出現 TypeError </p>
+                </section>
+                <section>
+                    <h2>Immutable data types</h2>
+                    <ul>
+                        <li>String</li>
+                        <li>Number(integer, real, complex)</li>
+                        <li>Boolean</li>
+                        <li>Tuple</li>
+                    </ul>
                 </section>
             </section>
             <section>
@@ -125,7 +158,8 @@ a = "abc"   # string</code></pre>
                 { src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                 { src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
                 { src: '../plugin/zoom-js/zoom.js', async: true },
-                { src: '../plugin/notes/notes.js', async: true }
+                { src: '../plugin/notes/notes.js', async: true },
+                { src: '../lib/js/line-numbers.js'}
             ]
         });
 
