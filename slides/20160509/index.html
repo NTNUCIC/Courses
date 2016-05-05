@@ -35,11 +35,11 @@
 
     </script>
     <style>
-    	* {
-    		letter-spacing: 5px !important;
-    	}
-        code{
-            font-family: consolas !important;
+        /* {
+            letter-spacing: 5px !important;
+        }*/
+        pre code{
+            font: consolas !important;
             font-weight: 900;
         }
     </style>
@@ -49,53 +49,59 @@
 
 </head>
 <body>
-	<div class="reveal">
-		<div class="slides">
-			<section>
-				<h1>Python 入門 - 2</h1>
-				<h3>劉慈恩</h3>
-				<h3>2016/5/9</h3>
-			</section>
-			<section>
-				<h2>Outline for today</h2>
-				<ul>
-					<li class="fragment">Review</li>
-					<li class="fragment">More Data Types</li>
-					<li class="fragment">Standard input &amp; output</li>
-					<li class="fragment">Conditional statement</li>
-				</ul>
-			</section>
-			<section>
-				<section>
-					<h2>Review</h2>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h2>More Data Types</h2>
-					<p>list, tuple, dict &amp; set</p>
-				</section>
-				<section>
-					<h2>先來聊聊immutable</h2>
-					<p class="fragment">immutable <span class="fragment">不可變的</span></p>
-					<p class="fragment">大多數資料型態為 immutable</p>
-					<h3 class="fragment">Whyyyyyyyyy?</h3>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h2>Standard I/O</h2>
-					<p>input, output &amp; format</p>
-				</section>
-			</section>
-			<section>
-				<section>
-					<h2>Conditional Statements</h2>
-					<p>The if statement</p>
-				</section>
-			</section>
-		</div>
-	</div>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Python 入門 - 2</h1>
+                <h3>劉慈恩</h3>
+                <h3>2016/5/9</h3>
+            </section>
+            <section>
+                <h2>Outline for today</h2>
+                <ul>
+                    <li class="fragment">Review</li>
+                    <li class="fragment">More Data Types</li>
+                    <li class="fragment">Standard input &amp; output</li>
+                    <li class="fragment">Conditional statement</li>
+                </ul>
+            </section>
+            <section>
+                <section>
+                    <h2>Review</h2>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>More Data Types</h2>
+                    <p>list, tuple, dict &amp; set</p>
+                </section>
+                <section>
+                    <h2>先來聊聊immutable</h2>
+                    <p class="fragment">immutable <span class="fragment">不可變的</span></p>
+                    <p class="fragment">大多數資料型態為 immutable</p>
+                    <h3 class="fragment" style="text-transform: initial;">Whyyyyyyyyy?</h3>
+                </section>
+                <section>
+                    <h2>這就要從指派變數說起了...</h2>
+                    <pre class="fragment" style="font-size: 0.8em"><code>a = 123     # integer
+a = "abc"   # string</code></pre>
+                    <h3 class="fragment" style="text-transform: initial;">Is a mutable?</h3>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Standard I/O</h2>
+                    <p>input, output &amp; format</p>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Conditional Statements</h2>
+                    <p>The if statement</p>
+                </section>
+            </section>
+        </div>
+    </div>
 
     <script src="../lib/js/head.min.js"></script>
     <script src="../js/reveal.js"></script>
