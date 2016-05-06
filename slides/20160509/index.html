@@ -92,7 +92,7 @@ a = "abc"   # string</code></pre>
                     <h2>其實變數只是個有名稱的箱子</h2>
                     <p class="fragment">可以裝不同型態的資料</p>
                     <p class="fragment">指派就是取出舊資料再放入新資料</p>
-                    <h4 class="fragment" style="font-size: 1.3em">可以指派變數不代表資料型態是可變動的喔0.<</h4>
+                    <h4 class="fragment" style="font-size: 1.3em">可以指派變數不代表資料型態是可變動的喔0.&lt;</h4>
                 </section>
                 <section>
                     <h2>到底什麼是 immutable ?</h2>
@@ -147,6 +147,51 @@ s[0] = 'a'      # line 3</code></pre>
                         <li class="fragment">每個 element 可為不同型態</li>
                     </ul>
                     <pre class="fragment" style="font-size: 0.8em"><code class="python">b = ['4', 5, 6]</code></pre>
+                </section>
+                <section>
+                    <h2>Tuple 和 List 的數學運算</h2>
+                    <p>
+                        相加<br>
+                        <pre class="fragment" style="font-size: 0.8em"><code class="python">(1, 2, 3) + (4, 5, 6)
+[1, 2, 3] + [4, 5, 6]</code></pre>
+                    </p>
+                    <p>
+                        倍增<br>
+                        <pre class="fragment" style="font-size: 0.8em"><code class="python">(1, 2, 3) * 5
+[4, 5, 6] * 7</code></pre>
+                    </p>
+                    <p class="fragment">String 也適用</p>
+                </section>
+                <section>
+                    <h2>Tuple 和 List 的取值運算</h2>
+                    <p>
+                        正數取值<br>
+                        <pre class="fragment" style="font-size: 0.8em"><code class="python">a = (1, 2, '3')
+a[2]</code></pre>
+                    </p>
+                    <p>
+                        負數取值<br>
+                        <pre class="fragment" style="font-size: 0.8em"><code class="python">b = ['4', 5, 6]
+b[-1]</code></pre>
+                    </p>
+                    <p class="fragment">String 也適用</p>
+                </section>
+                <section>
+                    <h2>Tuple 和 List 的切片(?)運算</h2>
+                    <p>
+                        <b>[ start : end : step ]</b><br>
+                        <img class="fragment" src="list-index.png">
+                    </p>
+                </section>
+                <section>
+                    <h2>Tuple 和 List 的切片(?)運算</h2>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">a = [1, 2, 3, 4, 5, 6]
+a[0:]
+a[:5]
+a[::-1]
+a[0:5:3]</code></pre>
+                    <p class="fragment">切片後不會影響原來的序列</p>
+                    <p class="fragment">String 也適用喔～</p>
                 </section>
             </section>
             <section>
