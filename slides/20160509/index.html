@@ -193,6 +193,25 @@ a[0:5:3]</code></pre>
                     <p class="fragment">切片後不會影響原來的序列</p>
                     <p class="fragment">String 也適用喔～</p>
                 </section>
+                <section>
+                    <h2>Tuple v.s List</h2>
+                    <p class="fragment">
+                        List can do<br>
+                        <pre class="fragment" style="font-size: 0.8em"><code class="python">a = [1, 2, 3, 4, 5, 6]
+# print(id(a))
+a[0] = 0
+# print(id(a))
+a += [7, 8, 9]
+# print(id(a))</code></pre>
+                    </p>
+                    <p class="fragment">
+                        Tuple cannot do<br>
+                        <pre class="fragment" style="font-size: 0.8em"><code class="python">b = (1, 2, 3, 4, 5, 6)
+b[-1] = 7       # Error!
+b += (7, 8, 9)  # Error!</code></pre>
+                    </p>
+                    <h3 class="fragment" style="text-transform: initial;">So, Tuple is immutable, and List is mutable!</h3>
+                </section>
             </section>
             <section>
                 <section>
