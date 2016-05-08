@@ -99,9 +99,9 @@ a = "abc"   # string</code></pre>
                     <p class="fragment">試試以下程式碼：</p>
                     <pre class="fragment" style="font-size: 0.8em"><code class="python line-numbers">a = 1           # line 1
 print(id(a))    # line 2
-a = 2           # line 3
+a += 2          # line 3
 print(id(a))    # line 4</code></pre>
-                    <p class="fragment">Line 2 和 Line 4會不同</p>
+                    <p class="fragment">Line 2 和 Line 4 會不同</p>
                 </section>
                 <section>
                     <h2>還是不懂？</h2>
@@ -211,6 +211,17 @@ b[-1] = 7       # Error!
 b += (7, 8, 9)  # Error!</code></pre>
                     </p>
                     <h3 class="fragment" style="text-transform: initial;">So, Tuple is immutable, and List is mutable!</h3>
+                </section>
+                <section>
+                    <h2>Tuple 到底能幹嘛？</h2>
+                    <p class="fragment">可以一次指派多個變數</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">(a, b, c) = (1, 2, 3)
+a, b, c = 1, 2, 3   # The same as previous line</code></pre>
+                    <p class="fragment">或許你想試試</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">a, b = 1, 2, 3</code></pre>
+                    <p class="fragment">然後...
+                        <p class="fragment">他就屎掉惹RRRRRRRRR</p>
+                    </p>
                 </section>
             </section>
             <section>
