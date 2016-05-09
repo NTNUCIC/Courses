@@ -321,6 +321,38 @@ test[[1, 2, 3, 4, 5, 6]]</code></pre>
                     <h2>Standard I/O</h2>
                     <p>input, output &amp; format</p>
                 </section>
+                <section>
+                    <h2>標準輸出</h2>
+                    <ul>
+                        <li class="fragment">直接顯示在螢幕上</li>
+                        <li class="fragment">使用 print()</li>
+                        <li class="fragment">用 , 間隔可同時印出多筆資料</li>
+                        <li class="fragment">預設每筆資料間用空白間隔</li>
+                        <li class="fragment">以換行符號做結尾</li>
+                    </ul>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">print('Hello', 'World')
+print(1, 2, 3, 4, 5, 6)</code></pre>
+                </section>
+                <section>
+                    <h2>修改間隔與結尾符號</h2>
+                    <p class="fragment">將間隔設為<code>'*'</code></p>
+                    <p class="fragment">修改 <code>sep = '*'</code></p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">print(5, 6, sep='*')</code></pre>
+                    <p class="fragment">將結尾設為 tab</p>
+                    <p class="fragment">修改 <code>end = '\t'</code></p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">print('Hello', end='\t')
+print('World')</code></pre>
+                </section>
+                <section>
+                    <h2>標準輸入</h2>
+                    <ul>
+                        <li class="fragment">直接從鍵盤輸入</li>
+                        <li class="fragment">使用 input()</li>
+                        <li class="fragment">輸入後會得到一個 String</li>
+                        <li class="fragment">() 中可放入要顯示在螢幕上的文字</li>
+                    </ul>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">name = input('輸入你的名字：')</code></pre>
+                </section>
             </section>
             <section>
                 <section>
