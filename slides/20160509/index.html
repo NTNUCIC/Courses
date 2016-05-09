@@ -446,7 +446,8 @@ print('World')</code></pre>
 8 != 3  # 不等於</code></pre>
                     <h3 class="fragment">身分識別子</h3>
                     <pre class="fragment" style="font-size: 0.8em"><code class="python">a = "123"
-a is "123"</code></pre>
+a is "123"
+a is not "456"</code></pre>
                     <h4 class="fragment">結果以 boolean（True/False） 表示</h4>
                 </section>
                 <section>
@@ -460,6 +461,19 @@ a is "123"
 a == "123"
 b is [4, 5, 6]
 b == [4, 5, 6]</code></pre>
+                </section>
+                <section>
+                    <h2>條件判斷相關運算</h2>
+                    <h3 class="fragment">成員運算子</h3>
+                    <p class="fragment">List</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">a = [1, 2, 3, 4, 5, 6]
+5 in a
+7 not in a</code></pre>
+                    <p class="fragment">Dict</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">d = {'a': 1, 8: 'gg', (1, 2, 3): [4, 5, 6]}
+'a' in d
+1 in d
+1 in d.values()</code></pre>
                 </section>
                 <section>
                     <h2>Boolean 運算</h2>
@@ -538,13 +552,16 @@ else:
                 </section>
                 <section>
                     <h2>Extra Practice</h2>
-                    <h3 class="fragment">閏年判斷</h3>
+                    <h3 class="fragment">閏年及月份天數判斷</h3>
                     <p class="fragment">
-                        閏年定義：每四年為閏年，但每一百年非閏年，又每四百年為閏年
-                    </p>
-                    <ul class="fragment">
-                        <li>輸入：西元年份</li>
-                        <li>輸出：閏年 or 平年</li>
+                        閏年定義：每四年為閏年<br>
+                        但每一百年非閏年<br>
+                        又每四百年為閏年<br><br>
+                        而閏年的 2月天數為 29 天
+                    </p><br>
+                    <ul class="fragment" style="list-style: none">
+                        <li>輸入：西元年份+月份</li>
+                        <li>輸出：閏年 or 平年 &amp; 該月份天數</li>
                     </ul>
                 </section>
                 <section>
@@ -556,8 +573,8 @@ else:
                         <li>C: 60~69</li>
                         <li>D: 50~59</li>
                         <li>E: 小於50</li>
-                    </ul>
-                    <ul class="fragment">
+                    </ul><br><br>
+                    <ul class="fragment" style="list-style: none">
                         <li>輸入：原始成績</li>
                         <li>輸出：等第制成績</li>
                     </ul>
