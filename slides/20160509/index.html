@@ -428,6 +428,140 @@ print('World')</code></pre>
                     <h2>Conditional Statements</h2>
                     <p>The if statement</p>
                 </section>
+                <section>
+                    <h2>條件判斷</h2>
+                    <ul>
+                        <li class="fragment">當事件成立時，就作對應的動作</li>
+                        <li class="fragment">用 Boolean（True/False）判斷</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>條件判斷相關運算</h2>
+                    <h3 class="fragment">邏輯運算子</h3>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">2 > 1   # 大於
+3 < 5   # 小於
+4 >= 1  # 大於等於
+5 <= 9  # 小於等於
+7 == 5  # 等於
+8 != 3  # 不等於</code></pre>
+                    <h3 class="fragment">身分識別子</h3>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">a = "123"
+a is "123"</code></pre>
+                    <h4 class="fragment">結果以 boolean（True/False） 表示</h4>
+                </section>
+                <section>
+                    <h2><code>is</code> v.s <code>==</code></h2>
+                    <p class="fragment">is 是比較資料 id</p>
+                    <p class="fragment">== 是比較資料內容</p>
+                    <p class="fragment">對於 String 和 Number 是相同的</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">a = "123"
+b = [4, 5, 6]
+a is "123"
+a == "123"
+b is [4, 5, 6]
+b == [4, 5, 6]</code></pre>
+                </section>
+                <section>
+                    <h2>Boolean 運算</h2>
+                    <p class="fragment">所有資料型態都可作為 Boolean</p>
+                    <p class="fragment">0, "", (), [], {}, None 為 False</p>
+                    <p class="fragment">Boolean 運算子有not, and, or</p>
+                    <p class="fragment">運算優先度：not &gt; and &gt; or</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">not True
+not False
+True and True
+True and False
+True or False
+False or False</code></pre>
+                </section>
+                <section>
+                    <h2><code>if</code>判斷</h2>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">ans = "hello"
+
+if ans == "hi":
+    print("Correct!")</code></pre>
+                    <ul>
+                        <li class="fragment">條件敘述不需用括號()包起</li>
+                        <li class="fragment">以冒號 : 標示對應的程式敘述開始</li>
+                        <li class="fragment">條件下的程式敘述需有相同的<span class="fragment highlight-green visible">縮排</span></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Practice</h2>
+                    <p class="fragment">利用前面寫過的 BMI 程式</p>
+                    <p class="fragment">加個判斷：如果 BMI 落於 18.5~24，就印“正常”之類的</p>
+                    <img class="fragment" src="bmi-if.png">
+                </section>
+                <section>
+                    <h2><code>else</code>判斷</h2>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">ans = "hello"
+
+if ans == "hi":
+    print("Correct!")
+else:
+  print("Oh no!")</code></pre>
+                    <ul>
+                        <li class="fragment">任何不符合 if 敘述的情況會進入 else 區塊</li>
+                        <li class="fragment">一樣以 : 標示對應的程式敘述開始</li>
+                        <li class="fragment">同一區塊有相同縮排</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Practice</h2>
+                    <p class="fragment">接續前一個練習</p>
+                    <p class="fragment">加個 else 判斷</p>
+                    <img class="fragment" src="bmi-else.png">
+                </section>
+                <section>
+                    <h2><code>elif</code>判斷</h2>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">ans = "hello"
+
+if ans == "hi":
+    print("Correct!")
+elif ans == "hello":
+    print(ans)
+else:
+  print("Oh no!")</code></pre>
+                    <ul>
+                        <li class="fragment">不符合 if 條件者會再判斷是否符合 elif 的條件</li>
+                        <li class="fragment">一樣以 : 標示對應的程式敘述開始</li>
+                        <li class="fragment">同一區塊有相同縮排</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Practice</h2>
+                    <p class="fragment">
+                        延續剛剛的 BMI 判斷<br>
+                        加入以下條件：BMI &lt; 18.5 則過輕, &gt; 24 過重
+                    </p>
+                    <img class="fragment" src="bmi-elif.png">
+                </section>
+                <section>
+                    <h2>Extra Practice</h2>
+                    <h3 class="fragment">閏年判斷</h3>
+                    <p class="fragment">
+                        閏年定義：每四年為閏年，但每一百年非閏年，又每四百年為閏年
+                    </p>
+                    <ul class="fragment">
+                        <li>輸入：西元年份</li>
+                        <li>輸出：閏年 or 平年</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Extra Practice</h2>
+                    <h3 class="fragment">成績轉換</h3>
+                    <ul class="fragment">
+                        <li>A: 80以上</li>
+                        <li>B: 70~79</li>
+                        <li>C: 60~69</li>
+                        <li>D: 50~59</li>
+                        <li>E: 小於50</li>
+                    </ul>
+                    <ul class="fragment">
+                        <li>輸入：原始成績</li>
+                        <li>輸出：等第制成績</li>
+                    </ul>
+                </section>
             </section>
         </div>
     </div>
