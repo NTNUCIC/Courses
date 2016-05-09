@@ -39,7 +39,7 @@
         /* {
             letter-spacing: 5px !important;
         }*/
-        pre code{
+        pre code, code{
             font: consolas !important;
             font-weight: 900;
         }
@@ -210,7 +210,7 @@ a += [7, 8, 9]
 b[-1] = 7       # Error!
 b += (7, 8, 9)  # Error!</code></pre>
                     </p>
-                    <h3 class="fragment" style="text-transform: initial;">So, Tuple is immutable, and List is mutable!</h3>
+                    <h4 class="fragment" style="text-transform: initial;">So, Tuple is immutable, and List is mutable!</h4>
                 </section>
                 <section>
                     <h2>Tuple 到底能幹嘛？</h2>
@@ -220,7 +220,7 @@ a, b, c = 1, 2, 3   # The same as previous line</code></pre>
                     <p class="fragment">或許你想試試</p>
                     <pre class="fragment" style="font-size: 0.8em"><code class="python">a, b = 1, 2, 3</code></pre>
                     <p class="fragment">然後...
-                        <span class="fragment">他就屎掉惹RRRRRRRRR</span>
+                        <span class="fragment" style="text-decoration-line: line-through;">他就屎掉惹RRRRRRRRR</span>
                     </p>
                 </section>
                 <section>
@@ -229,6 +229,91 @@ a, b, c = 1, 2, 3   # The same as previous line</code></pre>
                     <pre class="fragment" style="font-size: 0.8em"><code class="python">tuple()</code></pre>
                     <p class="fragment">將 String, Tuple 轉成 List</p>
                     <pre class="fragment" style="font-size: 0.8em"><code class="python">list()</code></pre>
+                </section>
+                <section>
+                    <h2>另類的 List：Dict</h2>
+                    <ul>
+                        <li class="fragment">使用不同的索引值：key</li>
+                        <li class="fragment">key 可使用所有 immutable 的資料型態</li>
+                        <li class="fragment">value 則不限資料型態</li>
+                        <li class="fragment">hash table 的概念</li>
+                        <li class="fragment">以大括號表示</li>
+                        <li class="fragment">內部資料以 <code>key: value</code> 型式表示</li>
+                    </ul>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">d = {'a': 1, 8: 'gg', (1, 2, 3): [4, 5, 6]}</code></pre>   
+                </section>
+                <section>
+                    <h2>Dict 的取值運算</h2>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">d = {'a': 1, 8: 'gg', (1, 2, 3): [4, 5, 6]}
+d['a']</code></pre>
+                    <p class="fragment">Then, you can try......</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">d['b']</code></pre>
+                    <h4 class="fragment">不能使用不存在的 key 取值！</h4>
+                </section>
+                <section>
+                    <h2>如何新增 key？</h2>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">d = {'a': 1, 8: 'gg', (1, 2, 3): [4, 5, 6]}
+d['hello'] = 'world'</code></pre>
+                    <p class="fragment">直接對新 key 指派值即可</p>
+                </section>
+                <section>
+                    <h2>Dict 和 List 刪除元素</h2>
+                    <p class="fragment">直接使用 del 陳述句即可</p>
+                    <p class="fragment">List</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">a = [1, 2, 3, 4, 5, 6]
+del a[1]
+# print(a)</code></pre>
+                    <p class="fragment">Dict</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">d = {'a': 1, 8: 'gg', (1, 2, 3): [4, 5, 6]}
+del d[8]
+# print(d)</code></pre>
+                </section>
+                <section>
+                    <h2>Dict v.s List</h2>
+                    <p class="fragment">
+                        Dict can do
+                        <pre class="fragment" style="font-size: 0.8em"><code class="python">d = {'a': 1, 8: 'gg', (1, 2, 3): [4, 5, 6]}
+d['new'] = 'new value'</code></pre>
+                    </p>
+                    <p class="fragment">
+                        List cannot do
+                        <pre class="fragment" style="font-size: 0.8em"><code class="python">a = [1, 2, 3, 4, 5, 6]
+a[6] = 7</code></pre>
+                    </p>
+                </section>
+                <section>
+                    <h3>Why key cannot be mutable？</h3>
+                    <p class="fragment">假設我們使用一個 list 作 key...</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">t = [1, 2, 3]   # Assign a list to variable t
+test = {t: 'list'}  # Use t as a key in test</code></pre>
+                    <p class="fragment">然後增加 list 中的值...</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">t += [4, 5, 6]</code></pre>
+                    <p class="fragment">dict 中會怎麼變化呢...</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">test[[1, 2, 3]]
+test[[1, 2, 3, 4, 5, 6]]</code></pre>
+                    <p class="fragment">哪一種方式可以取到值呢？</p>
+                </section>
+                <section>
+                    <h3>Why key cannot be mutable？(cont.)</h3>
+                    <p class="fragment">或許你會認為這樣可行...</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">test[t]</code></pre>
+                    <p class="fragment">那麼......</p>
+                    <p class="fragment"><code class="python">[1, 2, 3]</code>和<code class="python">[1, 2, 3, 4, 5, 6]</code>是相同的嗎？</p>
+                    <p class="fragment">也許只要 id 相同就表示是相同的</p>
+                    <p class="fragment">但在 python 中不允許使用 id 存取資料喔！</p>
+                    <p class="fragment" style="text-decoration-line: line-through;">難道知道你家住哪，就可以對你為所欲為？</p>
+                </section>
+                <section>
+                    <h2>不重複的資料集合：Set</h2>
+                    <ul>
+                        <li class="fragment">元素都是單一不可重複的</li>
+                        <li class="fragment">可作聯集、交集等相關集合運算</li>
+                        <li class="fragment">使用大括號表示
+                        <pre class="fragment" style="font-size: 0.8em"><code class="python">s = {'1', '2', '3'}</code></pre></li>
+                        <li class="fragment">通常用於放置不會重複的資料（身分證字號...）</li>
+                        <li class="fragment">可使用set()將 String, Tuple, List 轉型
+                        <pre class="fragment" style="font-size: 0.8em"><code class="python">set([1, 2, 3, 4, 5, 6, 0, 1, 2, 3])</code></pre></li>
+                    </ul>
                 </section>
             </section>
             <section>
