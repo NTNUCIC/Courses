@@ -353,6 +353,68 @@ print('World')</code></pre>
                     </ul>
                     <pre class="fragment" style="font-size: 0.8em"><code class="python">name = input('輸入你的名字：')</code></pre>
                 </section>
+                <section>
+                    <h2>文字排版</h2>
+                    <p class="fragment">可讓字串用想要的方式顯示</p>
+                    <p class="fragment">不用打一堆空白、符號來排版</p>
+                    <p class="fragment">有兩種方式：%, format()</p>
+                </section>
+                <section>
+                    <h2>基本文字排版</h2>
+                    <p class="fragment">舊式</p>   
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'%s : %d' % ('abc', 3)</code></pre>
+                    <p class="fragment">新式</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'{} : {}'.format('abc', 3)
+'{1} : {0}'.format(3, 'abc')</code></pre>
+                    <p class="fragment">舊式顯示資料必須照順序，新式則可以指定位置</p>
+                </section>
+                <section>
+                    <h2>設定欄位寬度</h2>
+                    <p class="fragment">舊式</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'%10s' % ('line')</code></pre>
+                    <p class="fragment">新式</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'{:10}'.format('line')</code></pre>
+                </section>
+                <section>
+                    <h2>對齊位置</h2>
+                    <p class="fragment">舊式</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'%10s' % ('left')
+'%-10s' % ('right')</code></pre>
+                    <p class="fragment">新式</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'{:10}'.format('left')  # '{:&lt;10}'.format('left')
+'{:>10}'.format('right')
+'{:^10}'.format('center')</code></pre>
+                </section>
+                <section>
+                    <h2>擷取部份字串</h2>
+                    <p class="fragment">舊式</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'%.2s' % ('line')</code></pre>
+                    <p class="fragment">新式</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'{:.2}'.format('line')</code></pre>
+                </section>
+                <section>
+                    <h2>符號填滿</h2>
+                    <p class="fragment">舊式不支援</p>
+                    <p class="fragment">新式</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'{:_10}'.format('line')</code></pre>
+                </section>
+                <section>
+                    <h2>數字加正負號</h2>
+                    <p class="fragment">舊式</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'%+d' % (123)   # 強制加正負號
+'% d' % (123)   # 需要時才加</code></pre>
+                    <p class="fragment">新式</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'{:+d}'.format(123)
+'{: d}'.format(123)
+'{:=5d}'.format(-1) # 讓符號和數字對齊兩邊</code></pre>
+                </section>
+                <section>
+                    <h2>控制小數點後位數</h2>
+                    <p class="fragment">舊式</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'%.2f' % (3.1415926)</code></pre>
+                    <p class="fragment">新式</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'{:.2f}'.format(3.1415926)</code></pre>
+                </section>
             </section>
             <section>
                 <section>
