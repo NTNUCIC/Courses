@@ -1,0 +1,343 @@
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>JS</title>
+
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+		<meta name="og:title" content="JS">
+		<meta name="og:url" content="http://ntnucic.github.io/104/slides/20151207-JS-JSON/index.html">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社JS課程投影片">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+			<section>
+				<h1 style="margin-top:100px">資料儲存</h1>
+					<h4>林品儒</h4>
+					<h4>2015/12/07</h4>
+			</section>
+			
+			<section>
+				<h2>本日重點</h2>
+				<p class="fragment">cookie</p>
+				<p class="fragment">localStorage</p>
+				<p class="fragment">sessionStorage</p>
+				<p class="fragment">JSON</p>
+			</section>
+			
+			<section>
+				<section>
+					<h2>cookie</h2>
+				</section>
+				
+				<section>
+					<h2>cookie</h2>
+					<p class="fragment">document.cookie</p>
+					<p class="fragment">用來辨識使用者身份放在用戶端</p>
+					<p class="fragment">可以用來和伺服器溝通</p>
+					<p class="fragment"><del>可以吃嗎?</del></p>
+				</section>
+				
+				<section>
+					<h2>用途</h2>
+					<p class="fragment">紀錄使用者的登入情形</p>
+					<p class="fragment">使用者網頁個人設定</p>
+				</section>
+				
+				<section>
+					<h2>操作</h2>
+					<p class="fragment">因為cookie是單純字串</p>
+					<p class="fragment">所以要自己想辦法弄字串處理</p>
+					<p class="fragment">很麻煩所以不講...</p>
+				</section>
+				
+				<section>
+					<h2>缺點</h2>
+					<p class="fragment">附加在HTTP封包之中增加流量</p>
+					<p class="fragment">HTTP傳送時使用明文</p>
+					<p class="fragment">大小限制在4KB</p>
+				</section>
+				
+				<section>
+					<h2>其他反對的原因</h2>
+					<p class="fragment">登入識別不準確</p>
+					<p class="fragment">網頁臭蟲</p>
+				</section>
+				
+				<section>
+					<h2>登入識別不精確</h2>
+					<p class="fragment">cookie可能存有使用者的ID</p>
+					<p class="fragment">若無認証可以變更ID提高權限</p>
+					<p class="fragment">複製他人cookie直接登入</p>
+				</section>
+				
+				<section>
+					<h2>登入識別改進</h2>
+					<p class="fragment">辨識IP和UserAgent</p>
+					<p class="fragment">HTTPonly</p>
+					<p class="fragment">偵測可疑行為並清除cookie</p>
+				</section>
+				
+				<section>
+					<h2>網頁臭蟲</h2>
+					<p class="fragment">隱藏版的透明GIF或PNG</p>
+					<p class="fragment">收集使用者資料並寫入cookie</p>
+					<p class="fragment">常被垃圾郵件使用</p>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">既然不要用cookie那有啥替代品呢?</p>
+					<p class="fragment">localStorage和sessionStorage</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>localStorage</h2>
+				</section>
+				
+				<section>
+					<h2>localStorage</h2>
+					<p class="fragment">無存放期限的數據儲存</p>
+					<p class="fragment">最高可以存放5MB</p>
+					<p class="fragment">Object型態的全域變數</p>
+				</section>
+				
+				<section>
+					<h2>優點</h2>
+					<p class="fragment">Object使用容易度高</p>
+					<p class="fragment">只能取用目前網域和父網域的數據</p>
+				</section>
+				
+				<section>
+					<h2>缺點</h2>
+					<p class="fragment">伺服器看不到該資料</p>
+					<p class="fragment"><del>IE6不支援也算缺點嗎?</del></p>
+				</section>
+				
+				<section>
+					<h2>取得資料</h2>
+					<p class="fragment">length</p>
+					<p class="fragment">key(key)</p>
+					<p class="fragment">getItem(key)</p>
+				</section>
+				
+				<section>
+					<h2>設定資料</h2>
+					<p class="fragment">setItem(key,value)</p>
+					<p class="fragment">removeItem(key)</p>
+					<p class="fragment">clear()</p>
+				</section>
+				
+				<section>
+					<h2>使用方法</h2>
+					<pre class="fragment" style="width:550px;">
+					<code class="js" style="font-family:'consolas','ubuntu mono';font-size:32px;">
+localStorage["&lt;3"]="nekomimi"
+localStorage.nekomimi="cat ear"
+console.log(localStorage["&lt;3"])
+console.log(localStorage.nekomimi)</code></pre>
+				</section>
+				
+				<section>
+					<h2>安全議題</h2>
+					<p class="fragment">DNS欺騙</p>
+					<p class="fragment">跨目錄攻擊</p>
+					<p class="fragment">實作風險</p>
+				</section>
+				
+				<section>
+					<h2>DNS欺騙</h2>
+					<p class="fragment">由於是看域名來存取資料</p>
+					<p class="fragment">偽裝自己是特定域名以存取資料</p>
+					<p class="fragment">使用TLS(傳輸層安全協議)</p>
+				</section>
+				
+				<section>
+					<h2>跨目錄攻擊</h2>
+					<p class="fragment">同一個域名下的不同網站存取相同資料</p>
+					<p class="fragment">目前沒有針對路徑名稱的存取限制</p>
+					<p class="fragment">在域名相同的個人網頁上要小心該功能</p>
+				</section>
+				
+				<section>
+					<h2>實作風險</h2>
+					<p class="fragment">讓第三方可讀取資料造成資訊洩漏</p>
+					<p class="fragment">讓第三方可寫入資料造成資訊欺騙</p>
+					<p class="fragment">此問題是實作該標準要小心的</p>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">講講類似但是有時間限制的資料儲存</p>
+					<p class="fragment">sessionStorage</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>sessionStorage</h2>
+				</section>
+				
+				<section>
+					<h2>sessionStorage</h2>
+					<p class="fragment">基本上和localStorage很像</p>
+					<p class="fragment">關掉頁面或瀏覽器就消失</p>
+				</section>
+				
+				<section>
+					<h2>使用方法</h2>
+					<pre class="fragment" style="width:550px;">
+					<code class="js" style="font-family:'consolas','ubuntu mono';font-size:32px;">
+sessionStorage.love="dogear"
+console.log(sessionStorage.love)
+sessionStorage["?"]="Ob'_'ov"
+console.log(sessionStorage["?"])</code></pre>
+				</section>
+				
+				<section>
+					<h2>和localStorage的不同</h2>
+					<p class="fragment">每個頁面分開儲存</p>
+					<p class="fragment">可以用來讓使用者多重登入</p>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">看看JavaScript如何儲存資料</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>JSON</h2>
+				</section>
+				
+				<section>
+					<h2>JSON</h2>
+					<p class="fragment">JavaScript Object Notation</p>
+					<p class="fragment">可以直接當成JavaScript執行</p>
+					<p class="fragment">但是其他語言也可以使用該格式</p>
+				</section>
+				
+				<section>
+					<h2>資料格式</h2>
+					<p class="fragment">物件：使用"{}"將鍵值配對包住並用","分隔之</p>
+					<p class="fragment">鍵值配對：使用":"隔開鍵和值</p>
+					<p class="fragment">有序清單：使用"[]"將以","分割之值包住</p>
+					<p class="fragment">字串：使用""將文字包起來</p>
+					<p class="fragment">數值：可使用數字或是使用科學記號</p>
+					<p class="fragment">布林值: 就true和false</p>
+				</section>
+				
+				<section>
+					<h2>讀取資料</h2>
+					<p class="fragment"><del>既然可以執行就直接eval啦~~</del></p>
+					<p class="fragment">請使用JSON.parse(str)</p>
+					<pre class="fragment" style="width:720px;">
+					<code class="js" style="font-family:'consolas','ubuntu mono';font-size:32px;">var j="{msg: (function(){alert('XSS')})()}";</pre></code>
+					<p class="fragment"><del>XSS的好只有駭客最知道</del></p>
+				</section>
+				
+				<section>
+					<h2>輸出資料</h2>
+					<p class="fragment">使用JSON.stringify(obj)</p>
+					<p class="fragment">這樣就可以得到JSON格式的字串</p>
+				</section>
+				
+				<section>
+					<h2>YAML</h2>
+					<p class="fragment">YAML Ain't a Markup Language</p>
+					<p class="fragment">JSON是該語言的子集</p>
+					<p class="fragment">使用上更加廣泛也沒有執行其內容的問題</p>
+					<p class="fragment"><del>其實我是來宣傳YAML的</del></p>
+				</section>
+				
+				<section>
+					<h2>AJAX</h2>
+					<p class="fragment">Asynchronous JavaScript and XML</p>
+					<p class="fragment">可以只傳輸部份需要的資料</p>
+					<p class="fragment">降低網頁數據的流量</p>
+					<p class="fragment">經典案例如Facebook</p>
+				</section>
+				
+				<section>
+					<h2>那和JSON有啥關係?</h2>
+					<p class="fragment">雖然叫AJAX但實際上可以AJAJ</p>
+					<p class="fragment">XML和HTML是同樣胖胖的好伙伴...</p>
+					<p class="fragment">利用JSON代替XML降低數據大小</p>
+				</section>
+				
+				<section>
+					<h2>其他應用</h2>
+					<p class="fragment">JSON也有除了網頁外的應用</p>
+					<p class="fragment">各語言也有其解析函式庫</p>
+					<p class="fragment">想存資料的話不妨使用看看</p>
+				</section>
+			</section>
+			
+			<section>
+				<h2>以上為資料儲存的課程</h2>
+				<h2>感謝各位</h2>
+			</section>
+			
+			</div>
+		</div>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true },
+				{ src: '../plugin/notes/notes.js', async: true }
+			]
+		});
+		</script>
+	</body>
+</html>

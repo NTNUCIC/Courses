@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>資訊研究社社課20151216</title>
+
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+		<meta name="author" content="ntnucic">
+
+		<meta name="og:title" content="資訊研究社社課20151216">
+		<meta name="og:url" content="http://ntnucic.github.io/104-1_welcom_party/">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社104學年度社課(2015/12/16)">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<style>
+			samp{
+				display:block;
+				text-align:left;
+				background:#3f3f3f;
+			}
+			pre.fragment>samp>p{
+				margin:0;
+			}
+			samp.white{
+				background:white;
+				color:black;
+			}
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="../lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>CSS3 Selector</h1>
+					<h3>2015/12/16 阮韞澂</h3>
+				</section>
+				<section>
+					<section>
+						<h2>Form Selector</h2>
+						<ul>
+							<li>:checked</li>
+							<li>:enabled</li>
+							<li>:disabled</li>
+							<li>:valid</li>
+							<li>:invalid</li>
+							<li>:required</li>
+							<li>:optional</li>
+							<li>:read-only</li>
+							<li>:read-write</li>
+							<li>:in-range</li>
+							<li>:out-of-range</li>
+						</ul>
+					</section>
+					<section>
+						<h2>:checked</h2>
+						<p>被選擇的目標</p>
+						<p class="fragment">可用於radio,checkbox,&lt;option&gt;</p>
+						<pre class="fragment"><code data-trim>
+input:checked{
+    width:2em;
+    height:2em;
+}
+select :checked{
+    background:red;
+}
+						</code></pre>
+						<a href="checked.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>:enabled &amp; :disabled</h2>
+						<p>判斷是否有disabled屬性</p>
+						<p class="fragment">可用於任意元素</p>
+						<pre class="fragment"><code data-trim>
+:enabled{
+    background:lightgreen;
+}
+:disabled{
+    background:red;
+}
+						</code></pre>
+						<a href="enabled&disabled.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>:valid &amp; :invalid</h2>
+						<p>判斷是否符合驗證規則</p>
+						<p class="fragment">沒有驗證功能的元素為invalid</p>
+						<p class="fragment">IE10以下不支援</p>
+						<pre class="fragment"><code data-trim>
+input:valid{
+    background:yellow;
+}
+input:invalid{
+    background:red;
+}
+						</code></pre>
+						<a href="valid&invalid.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>:required &amp; :optional</h2>
+						<p>判斷是否有required屬性</p>
+						<p class="fragment">只作用於表單元素</p>
+						<p class="fragment">IE10以下不支援</p>
+						<pre class="fragment"><code data-trim>
+:required{
+    background:yellow;
+}
+:optional{
+    background:red;
+}
+						</code></pre>
+						<a href="required&optional.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>:read-only &amp; :read-write</h2>
+						<p>判斷是否有readonly屬性</p>
+						<p class="fragment">IE不支援，Firefox要加-moz-</p>
+						<p class="fragment">可用於任意元素</p>
+						<pre class="fragment"><code data-trim>
+:-moz-read-only{
+    background:yellow;
+}
+:read-only{
+    background:yellow;
+}
+:-moz-read-write{
+    background:red;
+}
+:read-write{
+    background:red;
+}
+						</code></pre>
+						<a href="readonly&readwrite.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>:in-range &amp; :out-of-range</h2>
+						<p>判斷值是否在指定的區間內</p>
+						<p class="fragment">只能用於可指定區間的元素</p>
+						<p class="fragment">區間未指定則認定in-range</p>
+						<p class="fragment">IE不支援</p>
+						<pre class="fragment"><code data-trim>
+:in-range{
+    background:yellow;
+}
+:out-of-range{
+    background:red;
+}
+						</code></pre>
+						<a href="inrange&outofrange.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<p>以FormSelectors裝飾網頁中的表單</p>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>:target</h2>
+						<p>被選取的錨點</p>
+						<pre class="fragment"><code data-trim>
+p:target{
+    background:yellow;
+}
+						</code></pre>
+						<a href="target.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>CSS Pages</h2>
+						<pre><code data-trim>
+.pages section{
+    border:1px solid gray;
+    position:absolute;
+    top:1em;
+    left:0;
+    width:500px;
+    height:300px;
+    background:#CCCCCC;
+}
+.pages section:target{
+    z-index:1;
+}
+						</code></pre>
+						<a href="pages.html" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<p>在網頁中以CSS達成分頁效果</p>
+					</section>
+				</section>
+				<section>
+					<h2>Pseudo-Elements</h2>
+					<ul>
+						<li class="fragment">::pseudo-element</li>
+						<li class="fragment">元素的一部份但不存在與程式碼中</li>
+						<li class="fragment">理論上與Tag選擇器同級</li>
+						<li class="fragment">與其他選擇器的互動不太正常...</li>
+					</ul>
+				</section>
+				<section>
+					<h2>::selection</h2>
+					<p>被框選的部分</p>
+					<p class="fragment">只有color,background,outline,cursor可以使用</p>
+					<p class="fragment">Firefox要加-moz-</p>
+					<pre class="fragment"><code data-trim>
+::-moz-selection{
+    background:yellow;
+    color:red;
+}
+::selection{
+    background:yellow;
+    color:red;
+}
+					</code></pre>
+					<a href="selection.html" class="fragment" target="_blank">Demo</a>
+				</section>
+				<section>
+					<h2>::first-line</h2>
+					<p>文字中第一行</p>
+					<p class="fragment">只有部分屬性可使用</p>
+					<p class="fragment">一定是block</p>
+					<pre class="fragment"><code data-trim>
+::first-line{
+    background:yellow;
+}
+					</code></pre>
+					<a href="firstline.html" class="fragment" target="_blank">Demo</a>
+				</section>
+				<section>
+					<h2>::first-letter</h2>
+					<p>一段文字中的第一個字</p>
+					<p class="fragment">只有部分屬性可使用</p>
+					<p class="fragment">一定是block</p>
+					<pre class="fragment"><code data-trim>
+::first-letter{
+    background:yellow;
+    font-size:2em;
+}
+					</code></pre>
+					<a href="firstletter.html" class="fragment" target="_blank">Demo</a>
+				</section>
+				<section>
+					<h2>Pseudo-Elements Relation</h2>
+					<p class="fragment">first-letter&gt;first-line&gt;selection</p>
+					<p class="fragment">若選擇包含完整first-line則selection優先</p>
+					<p class="fragment">Firefox:selection&gt;first-letter&gt;first-line</p>
+					<p class="fragment">IE:selection&amp;first-letter&gt;first-line<br>selection與first-letter同時作用則使selection恢復預設值</p>
+					<a href="pseudoelementsrelation.html" class="fragment" target="_blank">Demo</a>
+				</section>
+				<section>
+					<h2>Try It!</h2>
+					<p>以Pseudo-Elements裝飾網頁中的文字段落</p>
+				</section>
+				<section>
+					<section>
+						<h2>::before &amp; ::after</h2>
+						<p>元素前後的空白</p>
+						<p class="fragment">搭配content屬性使用</p>
+						<p class="fragment">常用於排版、繪圖等</p>
+					</section>
+					<section>
+						<h2>CSS content</h2>
+						<pre><code class="bash" data-trim>
+content:normal|none|attr()|url()|("text")|counter|open-quote|close-quote|no-open-quote|no-close-quote
+						</code></pre>
+						<ul>
+							<li class="fragment">normal為none，預設值</li>
+							<li class="fragment">attr()為所屬於元素之HTML屬性</li>
+							<li class="fragment">url()為一個物件的路徑(圖片、影片、音訊等)</li>
+							<li class="fragment">"text"為指定之文字</li>
+							<li class="fragment">counter為計數器，從1開始</li>
+							<li class="fragment">可以多個值</li>
+						</ul>
+					</section>
+					<section>
+						<h2>::before &amp; ::after</h2>
+						<a href="beforeafter.html" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<ol>
+							<li class="fragment">以::after提示超連結的目標<a href="beforeafter2.html" target="_blank">Demo</a></li>
+							<li class="fragment">以::before與::after將一個div裝飾為多重邊框</li>
+						</ol>
+					</section>
+				</section>
+				<section>
+					<h2>多重邊框進階版-boxshadow</h2>
+					<a href="beforeafter3.html" target="_blank">Demo</a>
+				</section>
+			</div>
+		</div>
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../plugin/zoom-js/zoom.js', async: true },
+					{ src: '../plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>:valid and :invalid</title>
+    <style>
+        input:valid{
+            background:yellow;
+        }
+        input:invalid{
+            background:red;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <input type="text">
+        <br>
+        required<input type="text" required>
+        <br>
+        email<input type="email">
+        <br>
+        0~10<input type="number" min="0" max="10">
+    </form>
+</body>
+</html>

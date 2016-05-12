@@ -1,0 +1,559 @@
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>JS</title>
+
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+		<meta name="og:title" content="JS">
+		<meta name="og:url" content="http://ntnucic.github.io/104/slides/20151221-JS-CANVAS/index.html">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社JS課程投影片">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+			<section>
+				<h1 style="margin-top:100px">CANVAS</h1>
+					<h4>林品儒</h4>
+					<h4>2015/12/21</h4>
+			</section>
+			
+			<section>
+				<h2>今日重點</h2>
+				<p class="fragment">Canvas介紹</p>
+				<p class="fragment">Canvas函式</p>
+			</section>
+			
+			<section>
+				<section>
+					<h2>介紹</h2>
+				</section>
+				
+				<section>
+					<h2>畫布</h2>
+					<p class="fragment">HTML的canvas元素</p>
+					<p class="fragment">由蘋果公司首先推出</p>
+					<p class="fragment">可以在畫布上渲染圖形</p>
+					<p class="fragment">連IE9都有支援</p>
+				</section>
+				
+				<section>
+					<h2>出生</h2>
+					<p class="fragment">蘋果公司要給OS&nbsp;X的Dashboard和Safari用的</p>
+					<p class="fragment">後變為HTML5的規格之一</p>
+					<p class="fragment">舊版的IE可以用Google的Explorer&nbsp;Canvas函式庫</p>
+				</section>
+				
+				<section>
+					<h2>元素屬性</h2>
+					<p class="fragment">只有width和height</p>
+					<p class="fragment">沒有src和alt</p>
+					<p class="fragment">預設寬300px高150px</p>
+				</section>
+				
+				<section>
+					<h2>錯誤替代內容</h2>
+					<p class="fragment">為了避免不支援canvas</p>
+					<p class="fragment">使用成對的canvas並在之中夾入內容</p>
+					<p class="fragment"><del>IE6&nbsp;RIP</del></p>
+				</section>
+				
+				<section>
+					<h2>寬度高度設定</h2>
+					<p class="fragment">也可以用CSS改變尺寸</p>
+					<p class="fragment">但是CSS可能造成圖片扭曲</p>
+					<p class="fragment">使用本身的width和height進行尺寸調整</p>
+				</section>
+				
+				<section>
+					<h2>渲染環境</h2>
+					<p class="fragment">rendering&nbsp;context</p>
+					<p class="fragment">元素本身不能畫圖</p>
+					<p class="fragment">要用getContext()取得該環境</p>
+				</section>
+				
+				<section>
+					<h2>渲染選項</h2>
+					<p class="fragment">繪圖種類有2D,webgl,webgl2</p>
+					<p class="fragment">不只2D還可以畫3D</p>
+					<p class="fragment">alhpa可以設定該元素是否透明</p>
+					<p class="fragment">webgl選項不在此討論...</p>
+				</section>
+				
+				<section>
+					<h2>DOM載入</h2>
+					<p class="fragment">在DOM完成載入前canvas繪圖沒有作用</p>
+					<p class="fragment">將繪圖的函式在onload時觸發<del>認同請分享</del></p>
+					<p class="fragment">儘量這樣做否則不保證可以運作</p>
+				</section>
+				
+				<section>
+					<h2>座標軸</h2>
+					<p class="fragment">和數學的笛卡兒座標軸略有不同</p>
+					<p class="fragment">右方為X軸正向</p>
+					<p class="fragment">下方為Y軸正向</p>
+					<p class="fragment">下方為Y軸正向</p>
+					<p class="fragment">下方為Y軸正向</p>
+					<p class="fragment">很重要所以說三次</p>
+				</section>
+				
+				<section>
+					<h2>接下來</h2>
+					<p class="fragment">光簡單介紹canvas大家不會用</p>
+					<p class="fragment">還要講解相關函式才行</p>
+				</section>
+			</section>
+			
+			<section>
+				<h2>相關函式</h2>
+			</section>
+			
+			<section>
+				<section>
+					<h2>顏色樣式及陰影</h2>
+					<p class="fragment">此canvas是狀態機</p>
+					<p class="fragment">改變狀態後其行為也會改變</p>
+					<p class="fragment">顏色和圖形繪製是分開設定的</p>
+				</section>
+				
+				<section>
+					<h2>填滿樣式</h2>
+					<p class="fragment">fillStyle屬性</p>
+					<p class="fragment">可以指定以下樣式：</p>
+					<p class="fragment">顏色字串</p>
+					<p class="fragment">漸層物件</p>
+					<p class="fragment">式樣物件</p>
+				</section>
+				
+				<section>
+					<h2>stroke樣式</h2>
+					<p class="fragment">strokeStyle屬性</p>
+					<p class="fragment">一樣可以指定以下樣式：</p>
+					<p class="fragment">顏色字串</p>
+					<p class="fragment">漸層物件</p>
+					<p class="fragment">式樣物件</p>
+				</section>
+				
+				<section>
+					<h2>陰影設定</h2>
+					<p class="fragment">shadowColor屬性設定顏色字串</p>
+					<p class="fragment">shadowBlur屬性設定模糊數值</p>
+					<p class="fragment">shadowOffsetX屬性設定X軸偏移數值</p>
+					<p class="fragment">shadowOffsetY屬性設定Y軸偏移數值</p>
+				</section>
+				
+				<section>
+					<h2>產生式樣物件</h2>
+					<p class="fragment">createPattern(img,style)</p>
+					<p class="fragment">img可為image,canvas或video元素</p>
+					<p class="fragment">style可為以下字串：</p>
+					<p class="fragment">repeat,repeat-x,repeat-y,no-repeat</p>
+				</section>
+				
+				<section>
+					<h2>畫布中的圖像</h2>
+					<p class="fragment">畫布中的圖像不能用路徑直接當圖</p>
+					<p class="fragment">要從img抓出物件或另外建立Image物件</p>
+					<p class="fragment">先用Image建構子傳入x,y</p>
+					<p class="fragment">再來用src屬性指定圖片路徑就完成了</p>
+				</section>
+				
+				<section>
+					<h2>產生線性漸層物件</h2>
+					<p class="fragment">createLinearGradientc(x0,y0,x1,y1)</p>
+					<p class="fragment">產生以(x0,y0)到(x1,y1)的漸層</p>
+				</section>
+				
+				<section>
+					<h2>產生放射狀漸層物件</h2>
+					<p class="fragment">createRadialGradient(x0,y0,r0,r1,y1,r1)</p>
+					<p class="fragment">從(x0,y0)半徑r0之圓周漸層至(x1,y1)半徑r1之圓周</p>
+				</section>
+				
+				<section>
+					<h2>指定漸層的顏色</h2>
+					<p class="fragment">addColorStop(stop,color)</p>
+					<p class="fragment">使用該函式對漸層物件指定關鍵點顏色</p>
+					<p class="fragment">stop值為0.0~1.0之間的浮點代表位置</p>
+					<p class="fragment">color僅能為顏色字串</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>線段相關</h2>
+				</section>
+				
+				<section>
+					<h2>線段結尾</h2>
+					<p class="fragment">lineCap屬性設定樣式字串</p>
+					<p class="fragment">butt增加平坦邊緣&nbsp;為預設值</p>
+					<p class="fragment">round增加圓弧形的結尾</p>
+					<p class="fragment">square增加方形的結尾</p>
+				</section>
+				
+				<section>
+					<h2>線段轉折</h2>
+					<p class="fragment">lineJoin設定樣式字串</p>
+					<p class="fragment">bevel為斜角轉折</p>
+					<p class="fragment">round為弧形轉折</p>
+					<p class="fragment">miter為尖銳轉折&nbsp;預設值</p>
+				</section>
+				
+				<section>
+					<h2>線段寬度</h2>
+					<p class="fragment">lineWidth設定寬度數值</p>
+					<p class="fragment">應該不用說明了吧...</p>
+				</section>
+				
+				<section>
+					<h2>尖銳轉折限制</h2>
+					<p class="fragment">miterLimit設定尖銳轉折點的長度</p>
+					<p class="fragment">只有在轉折為miter時可作用</p>
+					<p class="fragment">若長度超過限制則看起來是bevel轉折</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>矩形相關</h2>
+				</section>
+				
+				<section>
+					<h2>矩形產生</h2>
+					<p class="fragment">rect(x,y,w,h)產生矩形</p>
+					<p class="fragment">可先設定其相關樣式</p>
+					<p class="fragment">此函式不會將矩形畫出來</p>
+					<p class="fragment">搭配stroke()或fill()使用</p>
+				</section>
+				
+				<section>
+					<h2>繪製填滿矩形</h2>
+					<p class="fragment">fillRect(x,y,w,h)畫出填滿的矩形</p>
+					<p class="fragment">記得搭配fillStyle設定樣式</p>
+				</section>
+				
+				<section>
+					<h2>繪製不填滿的矩形</h2>
+					<p class="fragment">strokeRect(x,y,w,h)僅畫出矩形的外框</p>
+					<p class="fragment">記得搭配strokeStyle設定樣式</p>
+				</section>
+				
+				<section>
+					<h2>矩形消去</h2>
+					<p class="fragment">clearRect(x,y,w,h)可以清除制定範圍的像素</p>
+					<p class="fragment">指定範圍的橡皮擦</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>路徑相關</h2>
+					<p class="fragment">Canvas中存在著路徑的狀態</p>
+					<p class="fragment">改變其狀態可獲得不同結果</p>
+				</section>
+				
+				<section>
+					<h2>填滿路徑</h2>
+					<p class="fragment">fill()將目前的路徑包起來填滿</p>
+					<p class="fragment">路徑沒有包起來則將終點起點自動連線</p>
+					<p class="fragment">剛才的rect()其實也只是製造路徑</p>
+					<p class="fragment">記得搭配fillStyle設定樣式</p>
+				</section>
+				
+				<section>
+					<h2>繪製路徑</h2>
+					<p class="fragment">stroke()把目前的路徑畫出來</p>
+					<p class="fragment">可搭配其他路徑移動的函式將路徑定義</p>
+					<p class="fragment">記得搭配strokeStyle設定樣式</p>
+				</section>
+				
+				<section>
+					<h2>路徑開始</h2>
+					<p class="fragment">beginPath()產生新路徑</p>
+					<p class="fragment">將目前路徑清除重新開始</p>
+				</section>
+				
+				<section>
+					<h2>路徑封閉</h2>
+					<p class="fragment">closePath()將頭尾相連</p>
+					<p class="fragment">這樣就不用記住起點是哪裡了</p>
+				</section>
+				
+				<section>
+					<h2>移動</h2>
+					<p class="fragment">moveTo(x,y)將路徑移動至(x,y)但不畫線</p>
+					<p class="fragment">只有改變目前路徑的位置</p>
+				</section>
+				
+				<section>
+					<h2>畫直線</h2>
+					<p class="fragment">lineTo(x,y)就是畫線並移動到(x,y)</p>
+					<p class="fragment">會改變目前路徑的位置</p>
+					<p class="fragment"><del>但是不能用來發訊息給別人</del></p>
+				</section>
+				
+				<section>
+					<h2>畫二次曲線</h2>
+					<p class="fragment">quadraticCurveTo(cpx,cpy,x,y)畫二次曲線並移動至(x,y)</p>
+					<p class="fragment">就是拋物線啦~~</p>
+					<p class="fragment">(cpx,cpy)為其控制點</p>
+				</section>
+				
+				<section>
+					<h2>畫貝茲曲線</h2>
+					<p class="fragment">bezierCurveTo(cpx1,cpy1,cpx2,cpy2,x,y)</p>
+					<p class="fragment">用2個控制點來畫貝茲曲線</p>
+					<p class="fragment">不要問&nbsp;你會怕</p>
+				</section>
+				
+				<section>
+					<h2>畫圓弧</h2>
+					<p class="fragment">arc(x,y,r,sA,eA,counterclockwise)</p>
+					<p class="fragment">以(x,y)為圓心從角度sA到角度eA畫出半徑r的弧形</p>
+					<p class="fragment">角度計算是用Math::PI來計算</p>
+					<p class="fragment">單純畫圓弧就好不要用來做路徑的移動</p>
+				</section>
+				
+				<section>
+					<h2>畫圓弧並移動</h2>
+					<p class="fragment">arcTo(x1,y1,x2,y2,r)畫弧線並移動到(x2,y2)</p>
+					<p class="fragment">(x1,y1)為切線的交界</p>
+					<p class="fragment">此函式就會移動路徑了</p>
+				</section>
+				
+				<section>
+					<h2>偵測某點是否在路徑上</h2>
+					<p class="fragment">IsPointInPath(x,y)可偵測該點是否再路徑上</p>
+					<p class="fragment">我也不知道有啥用處...</p>
+				</section>
+				
+				<section>
+					<h2>指定繪圖區域</h2>
+					<p class="fragment">clip()將路徑外的區域設定為不可繪圖</p>
+					<p class="fragment">使用save()和restore()儲存或回復canvas的狀態</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>文字繪製</h2>
+				</section>
+				
+				<section>
+					<h2>字體設定</h2>
+					<p class="fragment">font屬性可設定字體樣式字串</p>
+					<p class="fragment">原理和CSS的字體樣式一樣</p>
+				</section>
+				
+				<section>
+					<h2>文字對齊</h2>
+					<p class="fragment">textAlign屬性設定對齊字串</p>
+					<p class="fragment">start,left</p>
+					<p class="fragment">center</p>
+					<p class="fragment">end,right</p>
+				</section>
+				
+				<section>
+					<h2>文字基準線</h2>
+					<p class="fragment">textBaseline屬性設定文自己基準字串</p>
+					<p class="fragment">alphabetic,ideographic</p>
+					<p class="fragment">top,hanging</p>
+					<p class="fragment">middle</p>
+					<p class="fragment">bottom</p>
+				</section>
+				
+				<section>
+					<h2>填滿文字</h2>
+					<p class="fragment">fillText(text,x,y,maxWidth)</p>
+					<p class="fragment">可以先設定文字樣式或填滿樣式</p>
+					<p class="fragment">最大寬度可以設定讓全都擠在裏面</p>
+				</section>
+				
+				<section>
+					<h2>空心文字</h2>
+					<p class="fragment">strokeText(text,x,y,maxwidth)</p>
+					<p class="fragment">參數和fillText一樣</p>
+					<p class="fragment">僅有文字外框而不填滿</p>
+				</section>
+				
+				<section>
+					<h2>測量文字寬度</h2>
+					<p class="fragment">measureText(text)可測量指定字串的寬度</p>
+					<p class="fragment">不同字體下寬度有可能不同</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>圖片繪製</h2>
+					<p class="fragment">函式就一個...</p>
+				</section>
+				
+				<section>
+					<h2>圖片繪製</h2>
+					<p class="fragment">drawImage(img,x,y)</p>
+					<p class="fragment">drawImage(img,x,y,w,h)</p>
+					<p class="fragment">drawImage(img,sx,sy,sw,sh,x,y,width,height)</p>
+					<p class="fragment">可以全畫出來或只畫部份圖片</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>像素處理</h2>
+				</section>
+				
+				<section>
+					<h2>相關屬性</h2>
+					<p class="fragment">width屬性可取得寬度</p>
+					<p class="fragment">height屬性可取得高度</p>
+					<p class="fragment">data屬性可取得像RGBA位元陣列</p>
+				</section>
+				
+				<section>
+					<h2>產生圖形數據</h2>
+					<p class="fragment">createImageData(w,h)產生RGBA陣列</p>
+					<p class="fragment">可以再放回canvas</p>
+				</section>
+				
+				<section>
+					<h2>取得指定矩形數據</h2>
+					<p class="fragment">getImageData(x,y,w,h)取得RGBA陣列複本</p>
+				</section>
+				
+				<section>
+					<h2>繪製圖形數據</h2>
+					<p class="fragment">putImageData(data,x,y)將數據當圖畫回canvas</p>
+					<p class="fragment">實際上還可以指定只畫數據內部的x,y,w,h</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>變形效果</h2>
+					<p class="fragment">transform很難翻啊~~</p>
+				</section>
+				
+				<section>
+					<h2>縮放</h2>
+					<p class="fragment">scale(w,h)設定長寬的縮放比例</p>
+					<p class="fragment">路徑也會受到縮放的影響</p>
+				</section>
+				
+				<section>
+					<h2>旋轉</h2>
+					<p class="fragment">rotate(angle)旋轉指定的弳度量</p>
+					<p class="fragment">路徑會受到旋轉影響</p>
+				</section>
+				
+				<section>
+					<h2>位移</h2>
+					<p class="fragment">translate(x,y)將原點位移至(x,y)</p>
+					<p class="fragment">因為是狀態所以持續有效...</p>
+				</section>
+				
+				<section>
+					<h2>變形</h2>
+					<p class="fragment">transform(a,b,c,d,e,f)累加變形效果</p>
+					<p class="fragment">a,d為水平和垂直縮放量</p>
+					<p class="fragment">b,c為水平和垂直的歪曲</p>
+					<p class="fragment">e,f為水平和垂直的位移</p>
+					<p class="fragment">其實這是個矩陣...</p>
+				</section>
+				
+				<section>
+					<h2>指定變形</h2>
+					<p class="fragment">setTransform(a,b,c,d,e,f)直接設定變形矩陣</p>
+					<p class="fragment">參數效果相同但直接設定矩陣值</p>
+					<p class="fragment">沒有累加的效果</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h2>合成</h2>
+				</section>
+				
+				<section>
+					<h2>設定透明度</h2>
+					<p class="fragment">globalAlpha屬性設定0~1的透明度</p>
+					<p class="fragment">讓繪圖有半透明的效果</p>
+				</section>
+				
+				<section>
+					<h2>設定合成運算</h2>
+					<p class="fragment">globalCompositeOperation屬性</p>
+					<p class="fragment">讓圖片疊加時顯示不同合成效果</p>
+				</section>
+				
+				<section>
+					<h2>合成效果</h2>
+					<p class="fragment"><img src="./composite.png"></p>
+				</section>
+			</section>
+			
+			<section>
+				<h2>以上</h2>
+				<p class="fragment">今天的JS課程到這邊結束</p>
+			</section>
+			
+			</div>
+		</div>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true },
+				{ src: '../plugin/notes/notes.js', async: true }
+			]
+		});
+		</script>
+	</body>
+</html>

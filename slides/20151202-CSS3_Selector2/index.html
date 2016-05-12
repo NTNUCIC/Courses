@@ -1,0 +1,495 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>資訊研究社社課20151202</title>
+
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+		<meta name="author" content="ntnucic">
+
+		<meta name="og:title" content="資訊研究社社課20151202">
+		<meta name="og:url" content="http://ntnucic.github.io/104-1_welcom_party/">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社104學年度社課(2015/12/02)">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<style>
+			samp{
+				display:block;
+				text-align:left;
+				background:#3f3f3f;
+			}
+			pre.fragment>samp>p{
+				margin:0;
+			}
+			samp.white{
+				background:white;
+				color:black;
+			}
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="../lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>CSS3 Selector</h1>
+					<h3>2015/12/02 阮韞澂</h3>
+				</section>
+				<section>
+					<section>
+						<h2>Attribute Selector</h2>
+						<ul>
+							<li class="fragment">[ ]</li>
+							<li class="fragment">用於判斷標籤的屬性</li>
+							<li class="fragment">與Class選擇器同級</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Has Attribute</h2>
+						<p>擁有某個屬性</p>
+						<pre class="fragment"><code data-trim>
+[HTMLAttribute]{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+[placeholder]{
+    background:lightblue;
+}
+						</code></pre>
+						<a href="hasattribute.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Attribute Value Is</h2>
+						<p>屬性為指定值</p>
+						<pre class="fragment"><code data-trim>
+[HTMLAttribute="Value"]{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+[type="number"]{
+    background:lightblue;
+}
+						</code></pre>
+						<a href="attributevalueis.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Attribute Value Substring</h2>
+						<p>屬性值之子字串</p>
+						<pre class="fragment"><code data-trim>
+[HTMLAttribute*="Value"]{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+[value*="abc"]{
+    background:lightblue;
+}
+						</code></pre>
+						<a href="attributevaluesubstring.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Attribute Value Has</h2>
+						<p>屬性之值包含(空白分隔)</p>
+						<pre class="fragment"><code data-trim>
+[HTMLAttribute~="Value"]{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+[value~="abc"]{
+    background:lightblue;
+}
+						</code></pre>
+						<a href="attributevaluehas.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Attribute Value Begin With</h2>
+						<p>屬性之值開頭</p>
+						<pre class="fragment"><code data-trim>
+[HTMLAttribute^="Value"]{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+[value^="als"]{
+    background:lightblue;
+}
+						</code></pre>
+						<a href="attributevaluebeginwith.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Attribute Value End With</h2>
+						<p>屬性之值結尾</p>
+						<pre class="fragment"><code data-trim>
+[HTMLAttribute$="Value"]{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+[value$="le"]{
+    background:lightblue;
+}
+						</code></pre>
+						<a href="attributevalueendwith.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Attribute Value Start With</h2>
+						<p>屬性之值開始('-'分隔)</p>
+						<p class="fragment">abc-def</p>
+						<pre class="fragment"><code data-trim>
+[HTMLAttribute|="Value"]{
+	(Attribute)
+}
+						</code></pre>
+						<pre class="fragment"><code data-trim>
+[value|="star"]{
+    background:lightblue;
+}
+						</code></pre>
+						<a href="attributevaluestartwith.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<p>將所有開新分頁的超連結設定為紅色</p>
+						<a href="attributetry.html" class="fragment" target="_blank">Demo</a>
+					</section>
+				</section>
+				<section>
+					<h2>Pseudo-Classes</h2>
+					<ul>
+						<li class="fragment">:pseudo-classes</li>
+						<li class="fragment">與Class選擇器同級</li>
+						<li class="fragment">無參數 :pseudo-classes</li>
+						<li class="fragment">有參數 :pseudo-classes(value)</li>
+					</ul>
+				</section>
+				<section>
+					<h2>Root Selector</h2>
+					<ul>
+						<li class="fragment">:root</li>
+						<li class="fragment">選取根元素</li>
+						<li class="fragment">HTML中為&lt;html&gt;元素</li>
+					</ul>
+					<pre class="fragment"><code data-trim>
+:root{
+	background: yellow;
+}
+					</code></pre>
+					<a href="rootselector.html" class="fragment" target="_blank">Demo</a>
+				</section>
+				<section>
+					<h2>Not Selector</h2>
+					<ul>
+						<li class="fragment">:not(Selector)</li>
+						<li class="fragment">選擇所有不符合選擇器之元素</li>
+						<li class="fragment">不列入優先權計算</li>
+					</ul>
+					<pre class="fragment"><code data-trim>
+body :not(h2){
+    display:block;
+    margin:5px;
+    border:1px solid red;
+}
+					</code></pre>
+					<a href="notselector.html" class="fragment" target="_blank">Demo</a>
+				</section>
+				<section>
+					<h2>Empty Selector</h2>
+					<ul>
+						<li class="fragment">選擇沒有子代的元素</li>
+						<li class="fragment">包含文字在內</li>
+						<li class="fragment">直接作用於單標籤元素</li>
+						<li class="fragment">IE9以下不支援</li>
+					</ul>
+					<pre class="fragment"><code data-trim>
+div:empty{
+    background:lightblue;
+}
+					</code></pre>
+					<a href="emptyselector.html" class="fragment" target="_blank">Demo</a>
+				</section>
+				<section>
+					<h2>lang Selector</h2>
+					<p>用於判斷元素的lang屬性</p>
+					<pre class="fragment"><code data-trim>
+:lang(eng){
+	(Attribute)
+}
+					</code></pre>
+					<pre class="fragment"><code data-trim>
+[lang="eng"]{
+	(Attribute)
+}
+					</code></pre>
+				</section>
+				<section>
+					<section>
+						<h2>Pseudo-Classes:Link</h2>
+						<ul>
+							<li>:link</li>
+							<li>:visited</li>
+							<li>:focus</li>
+							<li>:hover</li>
+							<li>:active</li>
+						</ul>
+					</section>
+					<section>
+						<h2>:link</h2>
+						<p>尚未造訪的連結</p>
+						<pre class="fragment"><code data-trim>
+a:link{
+    color:blue;
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>:visited</h2>
+						<p>造訪過的連結</p>
+						<pre class="fragment"><code data-trim>
+a:visited{
+    color:darkgreen;
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>:focus</h2>
+						<p>tab選擇的目標</p>
+						<p class="fragment">點擊時也會觸發</p>
+						<p class="fragment">可用於其他元素</p>
+						<pre class="fragment"><code data-trim>
+a:focus{
+    background:yellow;
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>:hover</h2>
+						<p>滑鼠停留的目標</p>
+						<p class="fragment">觸控點擊也會持續觸發</p>
+						<p class="fragment">可用於其他元素</p>
+						<pre class="fragment"><code data-trim>
+a:hover{
+    text-decoration:underline;
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>:active</h2>
+						<p>點擊時的目標</p>
+						<p class="fragment">可用於觸控</p>
+						<p class="fragment">可用於其他元素</p>
+						<pre class="fragment"><code data-trim>
+a:active{
+    font-size:2em;
+}
+						</code></pre>
+					</section>
+					<section>
+						<h2>Pseudo-Classes:Link</h2>
+						<a href="pseudo-classes-link.html" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<p>美化頁面中的超連結</p>
+						<a href="pseudo-classes-link.html" class="fragment" target="_blank">Demo</a>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Pseudo-Classes:Sequence</h2>
+						<ul>
+							<li>:first-child</li>
+							<li>:first-of-type</li>
+							<li>:last-child</li>
+							<li>:last-of-type</li>
+							<li>:only-child</li>
+							<li>:only-of-type</li>
+							<li>:nth-child()</li>
+							<li>:nth-of-type()</li>
+							<li>:nth-last-child()</li>
+							<li>:nth-last-of-type()</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Pseudo-Classes:Sequence</h2>
+						<p class="fragment">-child為同層所有元素</p>
+						<p class="fragment">-of-type為同層同一種元素</p>
+					</section>
+					<section>
+						<h2>:first-</h2>
+						<p>:first-child &amp; :first-of-type</p>
+						<p class="fragment">選取同層中第一個元素/同層中同一種元素中的第一個</p>
+						<p class="fragment">:first-of-type在IE9以下不支援</p>
+						<pre class="fragment"><code data-trim>
+div:first-child{
+    background:lightblue;
+}
+p:first-of-type{
+    background:yellow;
+}
+						</code></pre>
+						<a href="first-.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>:last-</h2>
+						<p>:last-child &amp; :last-of-type</p>
+						<p class="fragment">選取同層中最後一個元素/同層中同一種元素的最後一個</p>
+						<p class="fragment">IE9以下不支援</p>
+						<pre class="fragment"><code data-trim>
+div:last-child{
+    border:1px solid red;
+}
+p:last-of-type{
+    background:yellow;
+}
+						</code></pre>
+						<a href="last-.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>:only-</h2>
+						<p>:only-child &amp; :only-of-type</p>
+						<p class="fragment">選取同層中只有一個元素/同層中該元素只有一個</p>
+						<p class="fragment">IE9以下不支援</p>
+						<pre class="fragment"><code data-trim>
+div:only-child{
+    background:lightblue;
+}
+p:only-of-type{
+    background:yellow;
+}
+						</code></pre>
+						<a href="only-.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>:nth- &amp; :nth-last-</h2>
+						<p>依照指定順序選取</p>
+						<p class="fragment">:nth-last- 由後往前</p>
+						<ul class="fragment">
+							<li>:nth-child()</li>
+							<li>:nth-of-type()</li>
+							<li>:nth-last-child()</li>
+							<li>:nth-last-of-type()</li>
+						</ul>
+						<p class="fragment">選取時第一項為1</p>
+					</section>
+					<section>
+						<h2>:nth- 參數</h2>
+						<ul>
+							<li class="fragment">odd/even</li>
+							<li class="fragment">an+b</li>
+						</ul>
+					</section>
+					<section>
+						<h2>:nth- odd/even</h2>
+						<p>選取奇數項或偶數項</p>
+						<pre class="fragment"><code data-trim>
+div:nth-child(odd){
+    border:1px solid red;
+}
+p:nth-last-of-type(even){
+    border:1px solid green;
+}
+						</code></pre>
+						<a href="nth-odd&even.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>:nth- an+b</h2>
+						<p class="fragment">a為間距，預設1</p>
+						<p class="fragment">b為起始點，預設0</p>
+						<p class="fragment">起始點也會選取</p>
+						<pre class="fragment"><code data-trim>
+div:nth-child(3n+1){
+    border:1px solid red;
+}
+						</code></pre>
+						<a href="nth-an+b1.html" class="fragment" target="_blank">Demo</a>
+						<a href="nth-an+b2.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>:nth- an+b</h2>
+						<p>a與b可為負數</p>
+						<p class="fragment">a負數代表反向</p>
+						<p class="fragment">b為0或負數代表不存在的虛擬元素，不作用但列入計算</p>
+						<pre class="fragment"><code data-trim>
+:nth-child(-2n+3){
+    border:1px solid red;
+}
+:nth-child(5n-3){
+    border:1px solid red;
+}
+						</code></pre>
+						<a href="nth-an+b3.html" class="fragment" target="_blank">Demo</a>
+						<a href="nth-an+b4.html" class="fragment" target="_blank">Demo</a>
+					</section>
+					<section>
+						<h2>Try It!</h2>
+						<p>以順序選擇器美化表格</p>
+						<a href="sequencetry.html" class="fragment" target="_blank">Demo</a>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../plugin/zoom-js/zoom.js', async: true },
+					{ src: '../plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+	</body>
+</html>

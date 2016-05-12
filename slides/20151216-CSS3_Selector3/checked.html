@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>:checked</title>
+    <style>
+        input:checked{
+            width:2em;
+            height:2em;
+        }
+        select :checked{
+            background:red;
+        }
+    </style>
+</head>
+<body>
+    <input type="radio" name="radio1" checked>1A
+    <input type="radio" name="radio1">2B
+    <input type="radio" name="radio1">3C
+    <br>
+    <input type="checkbox">1A
+    <input type="checkbox" checked>2B
+    <input type="checkbox">3C
+    <br>
+    <select>
+        <option>1A</option>
+        <option>2B</option>
+        <option>3C</option>
+    </select>
+</body>
+</html>

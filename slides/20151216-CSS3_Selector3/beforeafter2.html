@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>::before and ::after</title>
+    <style>
+        a:hover::after{
+            content:attr(href);
+            text-decoration:none;
+            color:red;
+            background:yellow;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#a1">#a1</a><br>
+        <a href="http://www.google.com">Google</a><br>
+        <a href="http://ntnucic.github.io/104">NTNUCIC</a>
+    </nav>
+</body>
+</html>

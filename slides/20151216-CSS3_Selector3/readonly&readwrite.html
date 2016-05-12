@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>:read-only and :read-write</title>
+    <style>
+        :-moz-read-only{
+            background:yellow;
+        }
+        :read-only{
+            background:yellow;
+        }
+        :-moz-read-write{
+            background:red;
+        }
+        :read-write{
+            background:red;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" value="normal">
+    <br>
+    <input type="text" value="readonly" readonly>
+</body>
+</html>

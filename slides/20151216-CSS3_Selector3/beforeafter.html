@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>::before and ::after</title>
+    <style>
+        .text p::after{
+            content:"ABCDE";
+            text-decoration:underline;
+        }
+        .attr p::after{
+            content:attr(title);
+            background:yellow;
+        }
+        .counter p::before{
+            content:counter;
+            color:red;
+        }
+        #box{
+            width:500px;
+            height:300px;
+            background:yellow;
+            border:20px solid red;
+            position:relative;
+            padding:80px;
+            z-index:1;
+        }
+        #box::before,#box::after{
+            content:"";
+            display:block;
+            position:absolute;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            z-index:-1;
+        }
+        #box::before{
+            border:20px solid blue;
+            background:violet;
+            margin:20px;
+        }
+        #box::after{
+            border:20px solid green;
+            background:orange;
+            margin:60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="text">
+        <p>A!</p>
+        <p>B@</p>
+        <p>C#</p>
+    </div>
+    <div class="attr">
+        <p title="A!">title=A!</p>
+        <p title="B@">title=B@</p>
+        <p title="C#">title=C#</p>
+    </div>
+    <div class="counter">
+        <p>A!</p>
+        <p>B@</p>
+        <p>C#</p>
+    </div>
+    <div id="box">div#box</div>
+</body>
+</html>

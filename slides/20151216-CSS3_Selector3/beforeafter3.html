@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>::before and ::after</title>
+    <style>
+        #box{
+            width:500px;
+            height:300px;
+            position:relative;
+            padding:140px;
+            background:yellow;
+            border:20px solid red;
+            box-shadow:0 0 0 20px gray inset;
+            z-index:1;
+        }
+        #box::before,#box::after{
+            content:"";
+            display:block;
+            position:absolute;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            z-index:-1;
+        }
+        #box::before{
+            margin:40px;
+            border:20px solid blue;
+            background:violet;
+            box-shadow:0 0 0 20px black inset;
+        }
+        #box::after{
+            margin:100px;
+            border:20px solid green;
+            background:orange;
+            box-shadow:0 0 0 20px lightsteelblue inset;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">div#box</div>
+</body>
+</html>

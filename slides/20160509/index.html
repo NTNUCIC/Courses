@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Python 入門(2)</title>
+
+    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+    <meta name="og:title" content="Python_intro">
+    <meta name="og:url" content="http://ntnucic.github.io/104/slides/20151001-Git/index.html">
+    <meta name="og:description" content="國立臺灣師範大學資訊研究社Python課程-Python入門">
+    <meta name="og:image" content="../../images/cic.jpg">
+    <meta name="og:site_name" content="NTNUCIC">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../lib/css/zenburn.css">
+    <!-- Display line number in code blocks-->
+    <link rel="stylesheet" href="../lib/css/line-number.css">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+    </script>
+    <style>
+        /* {
+            letter-spacing: 5px !important;
+        }*/
+        pre code, code{
+            font: consolas !important;
+            font-weight: 900;
+        }
+    </style>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Python 入門 - 2</h1>
+                <h3>劉慈恩</h3>
+                <h3>2016/5/9</h3>
+            </section>
+            <section>
+                <h2>Outline for today</h2>
+                <ul>
+                    <li class="fragment">Review</li>
+                    <li class="fragment">Sequence Data Types</li>
+                    <li class="fragment">Standard input &amp; output</li>
+                    <li class="fragment">Conditional statement</li>
+                </ul>
+            </section>
+            <section>
+                <section>
+                    <h2>Review</h2>
+                </section>
+                <section>
+                    <h2>環境設置</h2>
+                </section>
+                <section>
+                    <h2>Python 簡介</h2>
+                </section>
+                <section>
+                    <h2>Basic Data Types</h2>
+                    <p class="fragment">Number</p>
+                    <p class="fragment">String</p>
+                    <p class="fragment">Boolean</p>
+                </section>
+                <section>
+                    <h2>Variable</h2>
+                </section>
+                <section>
+                    <h2>IDE</h2>
+                    <h3 class="fragment" style="text-transform: initial; text-decoration-line: line-through;">\Sublime Text/</h3>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Sequence Data Types</h2>
+                    <p>list, tuple, dict &amp; set</p>
+                </section>
+                <section>
+                    <h2>先來聊聊immutable</h2>
+                    <p class="fragment">immutable <span class="fragment">不可變的</span></p>
+                    <p class="fragment">大多數資料型態為 immutable</p>
+                    <h3 class="fragment" style="text-transform: initial;">Whyyyyyyyyy?</h3>
+                </section>
+                <section>
+                    <h2>這就要從指派變數說起了...</h2>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">a = 123     # integer
+a = "abc"   # string</code></pre>
+                    <h3 class="fragment" style="text-transform: initial;">Is a mutable?</h3>
+                </section>
+                <section>
+                    <h2>其實變數只是個有名稱的箱子</h2>
+                    <p class="fragment">可以裝不同型態的資料</p>
+                    <p class="fragment">指派就是取出舊資料再放入新資料</p>
+                    <h4 class="fragment" style="font-size: 1.3em">可以指派變數不代表資料型態是可變動的喔0.&lt;</h4>
+                </section>
+                <section>
+                    <h2>到底什麼是 immutable ?</h2>
+                    <p class="fragment">試試以下程式碼：</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python line-numbers">a = 1           # line 1
+print(id(a))    # line 2
+a += 2          # line 3
+print(id(a))    # line 4</code></pre>
+                    <p class="fragment">Line 2 和 Line 4 會不同</p>
+                </section>
+                <section>
+                    <h2>還是不懂？</h2>
+                    <p class="fragment">再試試：</p>
+                    <pre style="font-size: 0.8em" class="fragment"><code class="python">s = "123"       # line 1
+print(s[0])     # line 2
+s[0] = 'a'      # line 3</code></pre>
+                    <p class="fragment">會出現 TypeError </p>
+                </section>
+                <section>
+                    <h2>Immutable data types</h2>
+                    <ul>
+                        <li>String</li>
+                        <li>Number(integer, real, complex)</li>
+                        <li>Boolean</li>
+                        <li class="fragment highlight-green">Tuple</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Mutable data types</h2>
+                    <ul>
+                        <li class="fragment highlight-green">List</li>
+                        <li class="fragment highlight-green">Dictionary</li>
+                        <li class="fragment highlight-green">Set</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Tuple(元組)</h2>
+                    <ul>
+                        <li class="fragment">Array-like</li>
+                        <li class="fragment">Immutable</li>
+                        <li class="fragment">以小括號表示()</li>
+                        <li class="fragment">每個 element 可以為不同型態</li>
+                    </ul>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">a = (1, 2, '3')</code></pre>
+                </section>
+                <section>
+                    <h2>List</h2>
+                    <ul>
+                        <li class="fragment">Array-like</li>
+                        <li class="fragment">Mutable</li>
+                        <li class="fragment">以中括號表示[]</li>
+                        <li class="fragment">每個 element 可為不同型態</li>
+                    </ul>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">b = ['4', 5, 6]</code></pre>
+                </section>
+                <section>
+                    <h2>Tuple 和 List 的數學運算</h2>
+                    <p>
+                        相加<br>
+                        <pre class="fragment" style="font-size: 0.8em"><code class="python">(1, 2, 3) + (4, 5, 6)
+[1, 2, 3] + [4, 5, 6]</code></pre>
+                    </p>
+                    <p>
+                        倍增<br>
+                        <pre class="fragment" style="font-size: 0.8em"><code class="python">(1, 2, 3) * 5
+[4, 5, 6] * 7</code></pre>
+                    </p>
+                    <p class="fragment">String 也適用</p>
+                </section>
+                <section>
+                    <h2>Tuple 和 List 的取值運算</h2>
+                    <p>
+                        正數取值<br>
+                        <pre class="fragment" style="font-size: 0.8em"><code class="python">a = (1, 2, '3')
+a[2]</code></pre>
+                    </p>
+                    <p>
+                        負數取值<br>
+                        <pre class="fragment" style="font-size: 0.8em"><code class="python">b = ['4', 5, 6]
+b[-1]</code></pre>
+                    </p>
+                    <p class="fragment">String 也適用</p>
+                </section>
+                <section>
+                    <h2>Tuple 和 List 的切片(?)運算</h2>
+                    <p>
+                        <b>[ start : end : step ]</b><br>
+                        <img class="fragment" src="list-index.png">
+                    </p>
+                </section>
+                <section>
+                    <h2>Tuple 和 List 的切片(?)運算</h2>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">a = [1, 2, 3, 4, 5, 6]
+a[0:]
+a[:5]
+a[::-1]
+a[0:5:3]</code></pre>
+                    <p class="fragment">切片後不會影響原來的序列</p>
+                    <p class="fragment">String 也適用喔～</p>
+                </section>
+                <section>
+                    <h2>Tuple v.s List</h2>
+                    <p class="fragment">
+                        List can do<br>
+                        <pre class="fragment" style="font-size: 0.8em"><code class="python">a = [1, 2, 3, 4, 5, 6]
+# print(id(a))
+a[0] = 0
+# print(id(a))
+a += [7, 8, 9]
+# print(id(a))</code></pre>
+                    </p>
+                    <p class="fragment">
+                        Tuple cannot do<br>
+                        <pre class="fragment" style="font-size: 0.8em"><code class="python">b = (1, 2, 3, 4, 5, 6)
+b[-1] = 7       # Error!
+b += (7, 8, 9)  # Error!</code></pre>
+                    </p>
+                    <h4 class="fragment" style="text-transform: initial;">So, Tuple is immutable, and List is mutable!</h4>
+                </section>
+                <section>
+                    <h2>Tuple 到底能幹嘛？</h2>
+                    <p class="fragment">可以一次指派多個變數</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">(a, b, c) = (1, 2, 3)
+a, b, c = 1, 2, 3   # The same as previous line</code></pre>
+                    <p class="fragment">或許你想試試</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">a, b = 1, 2, 3</code></pre>
+                    <p class="fragment">然後...
+                        <span class="fragment" style="text-decoration-line: line-through;">他就屎掉惹RRRRRRRRR</span>
+                    </p>
+                </section>
+                <section>
+                    <h2>轉型</h2>
+                    <p class="fragment">將 String , List 轉成 Tuple</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">tuple()</code></pre>
+                    <p class="fragment">將 String, Tuple 轉成 List</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">list()</code></pre>
+                </section>
+                <section>
+                    <h2>另類的 List：Dict</h2>
+                    <ul>
+                        <li class="fragment">使用不同的索引值：key</li>
+                        <li class="fragment">key 可使用所有 immutable 的資料型態</li>
+                        <li class="fragment">value 則不限資料型態</li>
+                        <li class="fragment">hash table 的概念</li>
+                        <li class="fragment">以大括號表示</li>
+                        <li class="fragment">內部資料以 <code>key: value</code> 型式表示</li>
+                    </ul>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">d = {'a': 1, 8: 'gg', (1, 2, 3): [4, 5, 6]}</code></pre>   
+                </section>
+                <section>
+                    <h2>Dict 的取值運算</h2>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">d = {'a': 1, 8: 'gg', (1, 2, 3): [4, 5, 6]}
+d['a']</code></pre>
+                    <p class="fragment">Then, you can try......</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">d['b']</code></pre>
+                    <h4 class="fragment">不能使用不存在的 key 取值！</h4>
+                </section>
+                <section>
+                    <h2>如何新增 key？</h2>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">d = {'a': 1, 8: 'gg', (1, 2, 3): [4, 5, 6]}
+d['hello'] = 'world'</code></pre>
+                    <p class="fragment">直接對新 key 指派值即可</p>
+                </section>
+                <section>
+                    <h2>Dict 和 List 刪除元素</h2>
+                    <p class="fragment">直接使用 del 陳述句即可</p>
+                    <p class="fragment">List</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">a = [1, 2, 3, 4, 5, 6]
+del a[1]
+# print(a)</code></pre>
+                    <p class="fragment">Dict</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">d = {'a': 1, 8: 'gg', (1, 2, 3): [4, 5, 6]}
+del d[8]
+# print(d)</code></pre>
+                </section>
+                <section>
+                    <h2>Dict v.s List</h2>
+                    <p class="fragment">
+                        Dict can do
+                        <pre class="fragment" style="font-size: 0.8em"><code class="python">d = {'a': 1, 8: 'gg', (1, 2, 3): [4, 5, 6]}
+d['new'] = 'new value'</code></pre>
+                    </p>
+                    <p class="fragment">
+                        List cannot do
+                        <pre class="fragment" style="font-size: 0.8em"><code class="python">a = [1, 2, 3, 4, 5, 6]
+a[6] = 7</code></pre>
+                    </p>
+                </section>
+                <section>
+                    <h3>Why key cannot be mutable？</h3>
+                    <p class="fragment">假設我們使用一個 list 作 key...</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">t = [1, 2, 3]   # Assign a list to variable t
+test = {t: 'list'}  # Use t as a key in test</code></pre>
+                    <p class="fragment">然後增加 list 中的值...</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">t += [4, 5, 6]</code></pre>
+                    <p class="fragment">dict 中會怎麼變化呢...</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">test[[1, 2, 3]]
+test[[1, 2, 3, 4, 5, 6]]</code></pre>
+                    <p class="fragment">哪一種方式可以取到值呢？</p>
+                </section>
+                <section>
+                    <h3>Why key cannot be mutable？(cont.)</h3>
+                    <p class="fragment">或許你會認為這樣可行...</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">test[t]</code></pre>
+                    <p class="fragment">那麼......</p>
+                    <p class="fragment"><code class="python">[1, 2, 3]</code>和<code class="python">[1, 2, 3, 4, 5, 6]</code>是相同的嗎？</p>
+                    <p class="fragment">也許只要 id 相同就表示是相同的</p>
+                    <p class="fragment">但在 python 中不允許使用 id 存取資料喔！</p>
+                    <p class="fragment" style="text-decoration-line: line-through;">難道知道你家住哪，就可以對你為所欲為？</p>
+                </section>
+                <section>
+                    <h2>不重複的資料集合：Set</h2>
+                    <ul>
+                        <li class="fragment">元素都是單一不可重複的</li>
+                        <li class="fragment">可作聯集、交集等相關集合運算</li>
+                        <li class="fragment">使用大括號表示
+                        <pre class="fragment" style="font-size: 0.8em"><code class="python">s = {'1', '2', '3'}</code></pre></li>
+                        <li class="fragment">通常用於放置不會重複的資料（身分證字號...）</li>
+                        <li class="fragment">可使用set()將 String, Tuple, List 轉型
+                        <pre class="fragment" style="font-size: 0.8em"><code class="python">set([1, 2, 3, 4, 5, 6, 0, 1, 2, 3])</code></pre></li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Standard I/O</h2>
+                    <p>input, output &amp; format</p>
+                </section>
+                <section>
+                    <h2>標準輸出</h2>
+                    <ul>
+                        <li class="fragment">直接顯示在螢幕上</li>
+                        <li class="fragment">使用 print()</li>
+                        <li class="fragment">用 , 間隔可同時印出多筆資料</li>
+                        <li class="fragment">預設每筆資料間用空白間隔</li>
+                        <li class="fragment">以換行符號做結尾</li>
+                    </ul>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">print('Hello', 'World')
+print(1, 2, 3, 4, 5, 6)</code></pre>
+                </section>
+                <section>
+                    <h2>修改間隔與結尾符號</h2>
+                    <p class="fragment">將間隔設為<code>'*'</code></p>
+                    <p class="fragment">修改 <code>sep = '*'</code></p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">print(5, 6, sep='*')</code></pre>
+                    <p class="fragment">將結尾設為 tab</p>
+                    <p class="fragment">修改 <code>end = '\t'</code></p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">print('Hello', end='\t')
+print('World')</code></pre>
+                </section>
+                <section>
+                    <h2>標準輸入</h2>
+                    <ul>
+                        <li class="fragment">直接從鍵盤輸入</li>
+                        <li class="fragment">使用 input()</li>
+                        <li class="fragment">輸入後會得到一個 String</li>
+                        <li class="fragment">() 中可放入要顯示在螢幕上的文字</li>
+                    </ul>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">name = input('輸入你的名字：')</code></pre>
+                </section>
+                <section>
+                    <h2>文字排版</h2>
+                    <p class="fragment">可讓字串用想要的方式顯示</p>
+                    <p class="fragment">不用打一堆空白、符號來排版</p>
+                    <p class="fragment">有兩種方式：%, format()</p>
+                </section>
+                <section>
+                    <h2>基本文字排版</h2>
+                    <p class="fragment">舊式</p>   
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'%s : %d' % ('abc', 3)</code></pre>
+                    <p class="fragment">新式</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'{} : {}'.format('abc', 3)
+'{1} : {0}'.format(3, 'abc')</code></pre>
+                    <p class="fragment">舊式顯示資料必須照順序，新式則可以指定位置</p>
+                </section>
+                <section>
+                    <h2>設定欄位寬度</h2>
+                    <p class="fragment">舊式</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'%10s' % ('line')</code></pre>
+                    <p class="fragment">新式</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'{:10}'.format('line')</code></pre>
+                </section>
+                <section>
+                    <h2>對齊位置</h2>
+                    <p class="fragment">舊式</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'%10s' % ('left')
+'%-10s' % ('right')</code></pre>
+                    <p class="fragment">新式</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'{:10}'.format('left')  # '{:&lt;10}'.format('left')
+'{:>10}'.format('right')
+'{:^10}'.format('center')</code></pre>
+                </section>
+                <section>
+                    <h2>擷取部份字串</h2>
+                    <p class="fragment">舊式</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'%.2s' % ('line')</code></pre>
+                    <p class="fragment">新式</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'{:.2}'.format('line')</code></pre>
+                </section>
+                <section>
+                    <h2>符號填滿</h2>
+                    <p class="fragment">舊式不支援</p>
+                    <p class="fragment">新式</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'{:_&lt;10}'.format('line')</code></pre>
+                </section>
+                <section>
+                    <h2>數字加正負號</h2>
+                    <p class="fragment">舊式</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'%+d' % (123)   # 強制加正負號
+'% d' % (123)   # 需要時才加</code></pre>
+                    <p class="fragment">新式</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'{:+d}'.format(123)
+'{: d}'.format(123)
+'{:=5d}'.format(-1) # 讓符號和數字對齊兩邊</code></pre>
+                </section>
+                <section>
+                    <h2>控制小數點後位數</h2>
+                    <p class="fragment">舊式</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'%.2f' % (3.1415926)</code></pre>
+                    <p class="fragment">新式</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">'{:.2f}'.format(3.1415926)</code></pre>
+                </section>
+                <section>
+                    <h2>Practice：BMI calculator</h2>
+                    <p class="fragment">經典的BMI計算機</p>
+                    <p class="fragment">公式：體重(kg) / 身高(m) ^ 2</p>
+                    <p class="fragment">使用 % / format 排版</p>
+                    <img class="fragment" src="bmi-res.png">
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h2>Conditional Statements</h2>
+                    <p>The if statement</p>
+                </section>
+                <section>
+                    <h2>條件判斷</h2>
+                    <ul>
+                        <li class="fragment">當事件成立時，就作對應的動作</li>
+                        <li class="fragment">用 Boolean（True/False）判斷</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>條件判斷相關運算</h2>
+                    <h3 class="fragment">邏輯運算子</h3>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">2 > 1   # 大於
+3 < 5   # 小於
+4 >= 1  # 大於等於
+5 <= 9  # 小於等於
+7 == 5  # 等於
+8 != 3  # 不等於</code></pre>
+                    <h3 class="fragment">身分識別子</h3>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">a = "123"
+a is "123"
+a is not "456"</code></pre>
+                    <h4 class="fragment">結果以 boolean（True/False） 表示</h4>
+                </section>
+                <section>
+                    <h2><code>is</code> v.s <code>==</code></h2>
+                    <p class="fragment">is 是比較資料 id</p>
+                    <p class="fragment">== 是比較資料內容</p>
+                    <p class="fragment">對於 String 和 Number 是相同的</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">a = "123"
+b = [4, 5, 6]
+a is "123"
+a == "123"
+b is [4, 5, 6]
+b == [4, 5, 6]</code></pre>
+                </section>
+                <section>
+                    <h2>條件判斷相關運算</h2>
+                    <h3 class="fragment">成員運算子</h3>
+                    <p class="fragment">List</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">a = [1, 2, 3, 4, 5, 6]
+5 in a
+7 not in a</code></pre>
+                    <p class="fragment">Dict</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">d = {'a': 1, 8: 'gg', (1, 2, 3): [4, 5, 6]}
+'a' in d
+1 in d
+1 in d.values()</code></pre>
+                </section>
+                <section>
+                    <h2>Boolean 運算</h2>
+                    <p class="fragment">所有資料型態都可作為 Boolean</p>
+                    <p class="fragment">0, "", (), [], {}, None 為 False</p>
+                    <p class="fragment">Boolean 運算子有not, and, or</p>
+                    <p class="fragment">運算優先度：not &gt; and &gt; or</p>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">not True
+not False
+True and True
+True and False
+True or False
+False or False</code></pre>
+                </section>
+                <section>
+                    <h2><code>if</code>判斷</h2>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">ans = "hello"
+
+if ans == "hi":
+    print("Correct!")</code></pre>
+                    <ul>
+                        <li class="fragment">條件敘述不需用括號()包起</li>
+                        <li class="fragment">以冒號 : 標示對應的程式敘述開始</li>
+                        <li class="fragment">條件下的程式敘述需有相同的<span class="fragment highlight-green visible">縮排</span></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Practice</h2>
+                    <p class="fragment">利用前面寫過的 BMI 程式</p>
+                    <p class="fragment">加個判斷：如果 BMI 落於 18.5~24，就印“正常”之類的</p>
+                    <img class="fragment" src="bmi-if.png">
+                </section>
+                <section>
+                    <h2><code>else</code>判斷</h2>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">ans = "hello"
+
+if ans == "hi":
+    print("Correct!")
+else:
+  print("Oh no!")</code></pre>
+                    <ul>
+                        <li class="fragment">任何不符合 if 敘述的情況會進入 else 區塊</li>
+                        <li class="fragment">一樣以 : 標示對應的程式敘述開始</li>
+                        <li class="fragment">同一區塊有相同縮排</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Practice</h2>
+                    <p class="fragment">接續前一個練習</p>
+                    <p class="fragment">加個 else 判斷</p>
+                    <img class="fragment" src="bmi-else.png">
+                </section>
+                <section>
+                    <h2><code>elif</code>判斷</h2>
+                    <pre class="fragment" style="font-size: 0.8em"><code class="python">ans = "hello"
+
+if ans == "hi":
+    print("Correct!")
+elif ans == "hello":
+    print(ans)
+else:
+  print("Oh no!")</code></pre>
+                    <ul>
+                        <li class="fragment">不符合 if 條件者會再判斷是否符合 elif 的條件</li>
+                        <li class="fragment">一樣以 : 標示對應的程式敘述開始</li>
+                        <li class="fragment">同一區塊有相同縮排</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Practice</h2>
+                    <p class="fragment">
+                        延續剛剛的 BMI 判斷<br>
+                        加入以下條件：BMI &lt; 18.5 則過輕, &gt; 24 過重
+                    </p>
+                    <img class="fragment" src="bmi-elif.png">
+                </section>
+                <section>
+                    <h2>Extra Practice</h2>
+                    <h3 class="fragment">閏年及月份天數判斷</h3>
+                    <p class="fragment">
+                        閏年定義：每四年為閏年<br>
+                        但每一百年非閏年<br>
+                        又每四百年為閏年<br><br>
+                        而閏年的 2月天數為 29 天
+                    </p><br>
+                    <ul class="fragment" style="list-style: none">
+                        <li>輸入：西元年份+月份</li>
+                        <li>輸出：閏年 or 平年 &amp; 該月份天數</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Extra Practice</h2>
+                    <h3 class="fragment">成績轉換</h3>
+                    <ul class="fragment">
+                        <li>A: 80以上</li>
+                        <li>B: 70~79</li>
+                        <li>C: 60~69</li>
+                        <li>D: 50~59</li>
+                        <li>E: 小於50</li>
+                    </ul><br><br>
+                    <ul class="fragment" style="list-style: none">
+                        <li>輸入：原始成績</li>
+                        <li>輸出：等第制成績</li>
+                    </ul>
+                </section>
+            </section>
+        </div>
+    </div>
+
+    <script src="../lib/js/head.min.js"></script>
+    <script src="../js/reveal.js"></script>
+
+    <script>
+
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+            // Optional reveal.js plugins
+            dependencies: [
+                { src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                { src: '../plugin/zoom-js/zoom.js', async: true },
+                { src: '../plugin/notes/notes.js', async: true },
+                { src: '../lib/js/line-numbers.js'}
+            ]
+        });
+
+    
+    </script>
+
+</body>
+</html>
