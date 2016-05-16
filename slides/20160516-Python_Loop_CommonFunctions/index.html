@@ -79,18 +79,18 @@
             	</section>
             	<section>
             		<h2>想想看</h2>
-            		<p>如果你今天要寫「跳跳繩」...</p>
+            		<p class="fragment">如果你今天要寫「跳跳繩」...</p>
             		<ol>
-            			<li>拿起跳繩</li>
-            			<li>甩繩子</li>
-            			<li>跳起來</li>
-            			<li>停止</li>
+            			<li class="fragment">拿起跳繩</li>
+            			<li class="fragment">甩繩子</li>
+            			<li class="fragment">跳起來</li>
+            			<li class="fragment">停止</li>
             		</ol>
             	</section>
             	<section>
             		<h2>一直跳一直跳</h2>
-            		<img src="01.png">
-            		<pre>
+            		<img src="01.png" class="fragment">
+            		<pre class="fragment">
 拿起跳繩
 重複
 	甩繩子
@@ -100,8 +100,8 @@
             	</section>
             	<section>
             		<h2>一直跳到累了</h2>
-            		<img src="02.png">
-            		<pre>
+            		<img src="02.png" class="fragment">
+            		<pre class="fragment">
 拿起跳繩
 重複直到 累了
 	甩繩子
@@ -111,8 +111,8 @@
             	</section>
             	<section>
             		<h2>跳十下</h2>
-            		<img src="03.png">
-            		<pre>
+            		<img src="03.png" class="fragment">
+            		<pre class="fragment">
 拿起跳繩
 重複 十次
 	甩繩子
@@ -125,10 +125,119 @@
             	<section>
             		<h1>While Loop</h1>
             	</section>
+            	<section>
+            		<h2>while迴圈</h2>
+            		<img src="02.png" class="fragment">
+            		<ol>
+            			<li class="fragment">檢查條件</li>
+            			<li class="fragment">如果條件為真(True)</li>
+            			<li class="fragment">執行scope內的指令</li>
+            			<li class="fragment">重複上述步驟直到條件為False</li>
+            		</ol>
+            	</section>
+            	<section>
+            		<h2>while迴圈</h2>
+            		<pre class="fragment"><code data-trim>
+while 條件:
+	重複執行的指令
+其他指令
+            		</code></pre>
+            		<ul>
+            			<li class="fragment">條件為布林值</li>
+            			<li class="fragment">記得冒號</li>
+            			<li class="fragment">記得縮排</li>
+            		</ul>
+            	</section>
+            	<section>
+            		<h2>while迴圈──範例1</h2>
+            		<pre class="fragment"><code data-trim>
+isTired = False
+while isTired == False:
+	print('Jump!')
+	isTired = True
+print('End')
+            		</code></pre>
+            		<pre class="fragment"><samp data-trim>
+Jump!
+End
+            		</samp></pre>
+            		<p class="fragment"><a href="while_loop_1.py" download>Demo</a></p>
+            	</section>
+            	<section>
+            		<h2>while迴圈──範例2</h2>
+            		<pre class="fragment"><code data-trim>
+isTired = False
+limit = 3
+counts = 0
+while counts < limit:
+	print('Jump!')
+	counts += 1
+print('End')
+            		</code></pre>
+            		<pre class="fragment"><samp data-trim>
+Jump!
+Jump!
+Jump!
+End
+            		</samp></pre>
+            		<p class="fragment"><a href="while_loop_2.py" download>Demo</a></p>
+            	</section>
+            	<section>
+            		<h2>無窮迴圈</h2>
+            		<img src="01.png" class="fragment">
+            		<ul>
+            			<li class="fragment">一直重複</li>
+            			<li class="fragment">不會停止</li>
+            			<li class="fragment">耗資源</li>
+            		</ul>
+            	</section>
+            	<section>
+            		<h2>無窮迴圈</h2>
+            		<pre class="fragment"><code data-trim>
+while True:
+	print('hi~')
+print('End')
+            		</code></pre>
+            		<pre class="fragment"><samp>
+hi~
+hi~
+hi~
+hi~
+hi~
+hi~
+hi~
+            		</samp></pre>
+            		<p class="fragment"><a href="while_loop_3.py" download>Demo</a></p>
+            	</section>
+            	<section>
+            		<h2>注意事項</h2>
+            		<ul>
+            			<li class="fragment">重複執行某些動作</li>
+            			<li class="fragment">小心無窮迴圈的出現</li>
+            			<li class="fragment">注意執行條件有沒有更動</li>
+            		</ul>
+            	</section>
+            	<!--
+            	<section>
+            		<h2>練習1</h2>
+            		<p></p>
+            	</section>
+            	-->
             </section>
             <section>
             	<section>
             		<h1>For Loop</h1>
+            	</section>
+            	<section>
+            		<h2>For迴圈</h2>
+            		<img src="03.png" class="fragment">
+            		<ol>
+            			<li class="fragment">檢查條件(計數器)</li>
+            			<li class="fragment">如果條件為真(True)</li>
+            			<li class="fragment">執行scope內的指令</li>
+            			<li class="fragment">更新計數器</li>
+            			<li class="fragment">重複上述步驟直到條件為False</li>
+            		</ol>
             	</section>
             </section>
             <section>
