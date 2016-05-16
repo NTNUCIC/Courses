@@ -383,7 +383,7 @@ b = len(a)		#b = 5
             	</section>
 				<section>
 					<h2>輸入輸出</h2>
-					<ul>
+					<ul class="fragment">
 						<li>print()：顯示</li>
 						<li>format()：設定格式</li>
 						<li>input()：輸入</li>
@@ -393,7 +393,7 @@ b = len(a)		#b = 5
 				</section>
 				<section>
 					<h2>型別</h2>
-					<ul>
+					<ul class="fragment">
 						<li>int()：轉為整數</li>
 						<li>float()：轉為浮點數</li>
 						<li>complex()：轉為複數</li>
@@ -406,8 +406,29 @@ b = len(a)		#b = 5
 					</ul>
 				</section>
 				<section>
+					<h2>練習1</h2>
+					<p class="fragment">請問下列程式碼執行結果為何?</p>
+					<pre class="fragment"><code data-trim>
+a='15'
+print(a)
+print(int(a))
+print(float(a))
+print(complex(a))
+print(bool(a))
+b=15
+print(bin(b))
+print(hex(b))
+print(oct(b))
+c=97
+print(chr(c))
+d='a'
+print(ord(d))
+					</code></pre>
+					<p class="fragment"><a href="built-in_functions_1.py" download>Demo</a></p>
+				</section>
+				<section>
 					<h2>數學運算</h2>
-					<ul>
+					<ul class="fragment">
 						<li>abs()：取絕對值</li>
 						<li>max()：取最大值</li>
 						<li>min()：取最小值</li>
@@ -416,9 +437,47 @@ b = len(a)		#b = 5
 						<li>sum()：加總序列中的數值</li>
 					</ul>
 				</section>
+                <section>
+                    <h2>練習2</h2>
+                    <p class="fragment">請問下列程式碼執行結果為何?</p>
+                    <pre class="fragment"><code data-trim>
+a = 3
+b = -3
+c = 0
+d = -0
+print(abs(a))
+print(abs(b))
+print(abs(c))
+print(abs(d))
+print(max(a,b,c,d))
+print(min(a,b,c,d))
+                    </code></pre>
+                </section>
+                <section>
+                    <h2>練習2</h2>
+                    <pre class="fragment"><code data-trim>
+e = 2
+f = 3
+g = 9
+h = 0.5
+print(pow(e,f))
+print(pow(f,e))
+print(pow(g,h))
+i = 1.4
+j = 1.5
+k = -0.5
+print(round(i))
+print(round(j))
+print(round(k))
+x = [1,2,3,4,5]
+total = sum(x)
+print(total)
+                    </code></pre>
+                    <p class="fragment"><a href="built-in_functions_2.py" download>Demo</a></p>
+                </section>
 				<section>
 					<h2>序列</h2>
-					<ul>
+					<ul class="fragment">
 						<li>len()：回傳序列長度</li>
 						<li>sorted()：排序序列中的物件</li>
 						<li>reversed()：反轉序列中物件被取用的順序</li>
@@ -426,6 +485,25 @@ b = len(a)		#b = 5
 						<li>zip()：配對兩序列</li>
 					</ul>
 				</section>
+                <section>
+                    <h2>練習3</h2>
+                    <p class="fragment">請問下列程式碼執行結果為何?</p>
+                    <pre class="fragment"><code data-trim>
+a = [4,2,1,-3,5]
+b = [1,2,3,4,5]
+print(len(a))
+sorted(a)
+print(a)
+for x in reversed(a):
+    print(x,end=' ')
+print('\n====================')
+for x in range(1,5):
+    print(x,end=' ')
+print('\n====================')
+print(list(zip(a,b)))
+                    </code></pre>
+                    <p class="fragment"><a href="built-in_functions.py" download>Demo</a></p>
+                </section>
             </section>
         </div>
     </div>
