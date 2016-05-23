@@ -91,29 +91,113 @@
             		</ul>
             	</section>
             	<section>
+            		<h2>定義函式</h2>
+            		<pre class="fragment"><code data-trim>
+def 函式名稱(參數):
+	函式要做的事情
+	return 回傳值
+
+def say_hi_to(name):
+	print('Hi, '+name+'!')
+	return True;
+            		</code></pre>
+            		<ul>
+            			<li class="fragment">def開頭</li>
+            			<li class="fragment">有意義的命名</li>
+            			<li class="fragment">記得冒號</li>
+            			<li class="fragment">記得縮排</li>
+            		</ul>
+            	</section>
+            	<section>
             		<h2>呼叫函式</h2>
             		<pre class="fragment"><code data-trim>
 函式名稱(參數)
-print('Hi~')		#Hi~
-print('1','2','3')	#1 2 3
-a = [1,2,3,4,5]
-b = len(a)		#b = 5
+greet = False
+greet = say_hi_to('Peter')
+#'Hi, Peter!'
+#greet = True
             		</code></pre>
             		<ul>
             			<li class="fragment">以函式名稱+小括號呼叫(call)函式</li>
             			<li class="fragment">可以有多個參數</li>
             			<li class="fragment">可用變數接回傳值</li>
+            			<li class="fragment">先定義再呼叫</li>
             		</ul>
             	</section>
             </section>
             <section>
             	<section>
-            		<h1>Defining Function</h1>
+            		<h1>Parameter</h1>
+            		<h3>and</h3>
+            		<h1>Function</h1>
             	</section>
-            </section>
-            <section>
             	<section>
-            		<h1></h1>
+            		<h2>參數與函式</h2>
+            		<pre class="fragment"><code data-trim>
+def say_hi():
+	print('Hi~')
+def say_hi_to(name):
+	print('Hi, ' + name + '!')
+def say_sth_to(name, greet):
+	print(greet + ', ' + name + '!')
+            		</code></pre>
+            		<pre class="fragment"><code data-trim>
+say_hi()	#Hi~
+
+my_name = 'Python'
+say_hi_to(my_name)	#Hi, Python!
+
+my_name = 'World'
+say_sth_to(my_name, 'Hello')	#Hello, World!
+            		</code></pre>
+            		<p class="fragment"><a href="demo1.py" download>Demo</a></p>
+            	</section>
+            	<section>
+            		<h2>參數與函式</h2>
+            		<ul>
+            			<li class="fragment">參數可有可無</li>
+            			<li class="fragment">可以有兩個以上的參數</li>
+            			<li class="fragment">可傳入常數或變數</li>
+            			<li class="fragment">傳入參數時要照順序</li>
+            		</ul>
+            	</section>
+            	<section>
+            		<h2>可變與不可變參數</h2>
+            		<pre class="fragment"><code data-trim>
+def mutable_or_immutable(para):
+	para += '1'
+
+a = 'a'
+b = ['b']
+mutable_or_immutable(a)
+print(a)	#a
+mutable_or_immutable(b)
+print(b)	#['b','1']
+            		</code></pre>
+            		<p class="fragment"><a href="demo2.py" download>Demo</a></p>
+            	</section>
+            	<section>
+            		<h2>可變與不可變參數</h2>
+            		<p class="fragment">在函式中對參數做更動時：</p>
+            		<ul>
+            			<li class="fragment">不可變資料型態不會被改動</li>
+            			<li class="fragment">可變資料型態會被改動</li>
+            		</ul>
+            		<p class="fragment">使用時務必謹慎！</p>
+            	</section>
+            	<section>
+            		<h2>練習：成績轉換</h2>
+            		<img src="p1.png" class="fragment">
+            	</section>
+            	<section>
+            		<h2>練習：成績轉換</h2>
+            		<ul>
+            			<li class="fragment">輸入成績</li>
+            			<li class="fragment">將分數字串轉為整數</li>
+            			<li class="fragment">以函式判斷並顯示分數等第</li>
+            			<li class="fragment">輸入成績為-1時結束程式</li>
+            		</ul>
+            		<p class="fragment"><a href="practice1.py" download>Demo</a></p>
             	</section>
             </section>
         </div>
