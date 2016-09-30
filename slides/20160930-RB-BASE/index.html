@@ -128,6 +128,13 @@ c2 0c 00         ret  $0xc
 					<p class="fragment">不過還是歸類為直譯</p>
 					<p class="fragment">未來會引入JIT技術</p>
 				</section>
+				<section>
+					<h2>Ruby</h2>
+					<p class="fragment">由日本人所開發</p>
+					<p class="fragment">哲學是條條道路通羅馬</p>
+					<p class="fragment">開發的目的就是要快樂地寫程式</p>
+					<p class="fragment"><del>信徒會和Python對嗆</del></p>
+				</section>
 			</section>
 			
 			<section>
@@ -210,7 +217,149 @@ c2 0c 00         ret  $0xc
 				</section>
 			</section>
 			
+			<section>
+				<section>
+					<h1>基礎型別</h1>
+				</section>
+				<section>
+					<h2>類別</h2>
+					<p class="fragment">Ruby是基於物件導向的語言</p>
+					<p class="fragment">在此先不管物件導向</p>
+					<p class="fragment">只要知道物件有其屬於的類別</p>
+				</section>
+				<section>
+					<h2>基礎類別</h2>
+					<p class="fragment">Ruby提供了基本的類別讓使用者使用</p>
+					<p class="fragment">使用這些類別就能做到很多事</p>
+				</section>
+				<section>
+					<h2>列表</h2>
+					<ul>
+						<li>Numeric</li>
+						<li style="list-style-type: square;">&nbsp;&nbsp;&nbsp;&nbsp;Integer</li>
+						<li style="list-style-type: square;">&nbsp;&nbsp;&nbsp;&nbsp;Float</li>
+						<li>TrueClass/FalseClass/NilClass</li>
+						<li>String</li>
+						<li>Array</li>
+						<li>Hash</li>
+						<li>...</li>
+					</ul>
+				</section>
+				<section>
+					<h2>基本類別</h2>
+					<p class="fragment">Object類別</p>
+					<p class="fragment">沒有寫出來但是提供很多基本功能</p>
+					<p class="fragment">所有類別都是其子類別</p>
+					<p class="fragment">不會知道其存在</p>
+				</section>
+				<section>
+					<h2>數字相關</h2>
+					<p class="fragment">數字有整數和浮點數</p>
+					<p class="fragment">Interger</p>
+					<p class="fragment">Float</p>
+					<p class="fragment">其實還有實數和複數<del>誰用得到呢?</del></p>
+				</section>
+				<section>
+					<h2>整數</h2>
+					<p class="fragment">Integer</p>
+					<p class="fragment">在Ruby2.4整合了Fixnum和Bignum</p>
+					<p class="fragment">可以處理非常大的數字</p>
+					<p class="fragment">有很多種方法表達整數</p>
+				</section>
+				<section>
+					<h2>整數表達</h2>
+					<p class="fragment">十進位:&nbsp;5566,22_000</p>
+					<p class="fragment">八進位:&nbsp;0755,0422</p>
+					<p class="fragment">二進位:&nbsp;0b11001101</p>
+					<p class="fragment">十六進位:&nbsp;0xC8763,0xdeadface</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">到底0xC8763在10進位下是多少</p>
+					<p class="fragment">0b100,0100,100,0x100</p>
+					<p class="fragment">16進位大小寫有沒有關係呢?</p>
+				</section>
+				<section>
+					<h2>大數</h2>
+					<p class="fragment">大家可能對這個詞比較不熟悉</p>
+					<p class="fragment">電腦一般儲存數字大小是有限制的</p>
+					<p class="fragment">能夠不具大小限制的處理就稱為大數</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">2147483647.class</p>
+					<p class="fragment">9999略9999.class</p>
+					<p class="fragment">不要把「略」打上去啊...</p>
+				</section>
+				<section>
+					<h2>浮點數</h2>
+					<p class="fragment">Float</p>
+					<p class="fragment">浮點數可以近似表達小數</p>
+					<p class="fragment">整數和浮點數運算會變浮點數</p>
+					<p class="fragment">浮點數也有很多表達方法</p>
+				</section>
+				<section>
+					<h2>浮點數表達</h2>
+					<p class="fragment">科學記號:&nbsp;8722.78e6,9.109E-31</p>
+					<p class="fragment">小數點:&nbsp;-0.3010,866.6</p>
+					<p class="fragment">特殊的NaN,Infinity,-Infinity</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">看看以下結果</p>
+					<p class="fragment">1.0/0.0</p>
+					<p class="fragment">-1.0/0.0</p>
+					<p class="fragment">0.0/0.0</p>
+				</section>
+				<section>
+					<h2>真假值</h2>
+					<p class="fragment">true,false,nil可以表達真假值</p>
+					<p class="fragment">其中false和nil永遠代表為假</p>
+					<p class="fragment">其他的數值就算不是true也為真</p>
+					<p class="fragment">用來進行條件判斷</p>
+				</section>
+				<section>
+					<h2>真假值表示</h2>
+					<p class="fragment">true</p>
+					<p class="fragment">false</p>
+					<p class="fragment">nil</p>
+					<p class="fragment">以上都小寫或都大寫</p>
+				</section>
+				<section>
+					<h2>字串</h2>
+					<p class="fragment">String</p>
+					<p class="fragment">可以放入各種文字</p>
+					<p class="fragment">Ruby原生支援UTF-8編碼<del>畢竟要支援日文</del></p>
+					<p class="fragment">之後會有更詳細的介紹</p>
+				</section>
+				<section>
+					<h2>陣列</h2>
+					<p class="fragment">Array</p>
+					<p class="fragment">可以依照索引放入任何東西</p>
+					<p class="fragment">裏面也可以裝陣列</p>
+					<p class="fragment">今天還用不到</p>
+				</section>
+				<section>
+					<h2>雜湊</h2>
+					<p class="fragment">Hash</p>
+					<p class="fragment">有時候希望用不同的索引存取資料</p>
+					<p class="fragment">可以建立鍵值的配對</p>
+					<p class="fragment">也是很好用的類別</p>
+				</section>
+				<section>
+					<h2>當然還有</h2>
+					<p class="fragment">當然沒有</p>
+					<p class="fragment">其實Ruby提供的類別不只這些</p>
+					<p class="fragment">要介紹恐怕介紹不完</p>
+					<p class="fragment">常用的至少要先學會歐</p>
+				</section>
+			</section>
 			
+			<section>
+				<section>
+					<h1>四則運算</h1>
+				</section>
+			</section>
 			
 			<section>
 				<h2>感謝大家今日的聆聽</h2>
