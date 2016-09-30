@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>JS</title>
+		<title>Ruby</title>
 
 		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
 		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
@@ -43,16 +43,91 @@
 			<div class="slides">
 
 			<section>
-				<h1 style="margin-top:100px">物件和物件</h1>
+				<h1 style="margin-top:100px">程式設計基礎</h1>
 					<h4>林品儒</h4>
 					<h4>2016/09/30</h4>
 			</section>
 			
 			<section>
 				<h2>本日重點</h2>
-				<p class="fragment">Hello&nbsp;World</p>
+				<p class="fragment">基本概念</p>
+				<p class="fragment">hello, world</p>
 				<p class="fragment">基礎型別</p>
 				<p class="fragment">四則運算</p>
+			</section>
+			
+			<section>
+				<section>
+					<h1>基本概念</h1>
+				</section>
+				<section>
+					<h2>程式</h2>
+					<p class="fragment">以特定指令使電腦運行想要的動作</p>
+					<p class="fragment">可以以程式語言編寫</p>
+					<p class="fragment">用電腦可以解讀的語言命令之</p>
+				</section>
+				<section>
+					<h2>程式語言</h2>
+					<p class="fragment">利用標準化的指令定義電腦的行動</p>
+					<p class="fragment">但是比電腦更早被發明出來</p>
+					<p class="fragment">自動織布機、自動演奏鋼琴</p>
+				</section>
+				<section>
+					<h2>早期的語言</h2>
+					<p class="fragment">底下是x86格式的機械語言和組合語言</p>
+					<pre class="fragment" style="left:auto;right:auto;width:600px;"><code class="x86asm" style="font-family: 'consolas','Ubuntu Mono'">
+8d 74 26 00      lea  0x0(%esi,%eiz,1),%esi
+8b 54 24 28      mov  0x28(%esp),%edx
+89 44 24 04      mov  %eax,0x4(%esp)
+8b 44 24 20      mov  0x20(%esp),%eax
+89 54 24 08      mov  %edx,0x8(%esp)
+89 04 24         mov  %eax,(%esp)
+e8 38 06 00 00   call 6b902250 &lt;___mingw_TLScallback&gt;
+b8 01 00 00 00   mov  $0x1,%eax
+83 c4 1c         add  $0x1c,%esp
+c2 0c 00         ret  $0xc
+					</code></pre>
+					<p class="fragment">這堂課不會教這個<del>想學另洽</del></p>
+				</section>
+				<section>
+					<h2>程式執行</h2>
+					<p class="fragment">直譯式語言</p>
+					<p class="fragment">編譯式語言</p>
+					<p class="fragment">位元碼直譯</p>
+					<p class="fragment">即時編譯</p>
+				</section>
+				<section>
+					<h2>直譯式語言</h2>
+					<p class="fragment">邊解讀文字邊執行</p>
+					<p class="fragment">人類可以直接閱讀可執行的程式</p>
+					<p class="fragment">效能一般較差</p>
+				</section>
+				<section>
+					<h2>編譯式語言</h2>
+					<p class="fragment">寫好文字檔後轉換成原生機械碼</p>
+					<p class="fragment">電腦能直接執行但人類不容易看</p>
+					<p class="fragment">效能一般較佳</p>
+				</section>
+				<section>
+					<h2>位元碼直譯</h2>
+					<p class="fragment">先將文字檔轉換成特殊的位元碼</p>
+					<p class="fragment">再用程式直譯該編碼</p>
+					<p class="fragment">先編譯後直譯</p>
+					<p class="fragment">效能介於兩者之間</p>
+				</section>
+				<section>
+					<h2>即時編譯</h2>
+					<p class="fragment">JIT</p>
+					<p class="fragment">可以用位元碼產生原生的機械碼</p>
+					<p class="fragment">融合了各種特點</p>
+				</section>
+				<section>
+					<h2>Ruby</h2>
+					<p class="fragment">在1.9以前是完全直譯</p>
+					<p class="fragment">在1.9開始使用VM執行位元碼</p>
+					<p class="fragment">不過還是歸類為直譯</p>
+					<p class="fragment">未來會引入JIT技術</p>
+				</section>
 			</section>
 			
 			<section>
