@@ -62,7 +62,131 @@
         <!-- 有風險的方法 eval system-->
 			</section>
 			
-			
+			<section>
+        <section>
+          <h1>字串</h1>
+        </section>
+        <section>
+          <h2>字串</h2>
+          <p class="fragment">String</p>
+          <p class="fragment">可以放入任意的文字</p>
+          <p class="fragment">也可以放入顯示不出來的文字</p>
+          <p class="fragment">Ruby提供了很多處理字串的功能</p>
+        </section>
+        <section>
+          <h2>空字串</h2>
+          <p class="fragment">當字串中沒有任何字就是空字串</p>
+          <p class="fragment">雖然沒放東西但本身還是字串</p>
+          <p class="fragment">可以對它進行字串操作</p>
+        </section>
+        <section>
+          <h2>字串表達</h2>
+          <p class="fragment">字串有許多種表達方式</p>
+          <p class="fragment">這也是Ruby的一個特色</p>
+          <p class="fragment">上次的Hello&nbsp;World就有用到字串</p>
+        </section>
+        <section>
+          <h2>單引號表達</h2>
+          <p class="fragment">「'」號來夾住想要表達的文字</p>
+          <p class="fragment">最直接的字串表示</p>
+          <p class="fragment">'Hello,&nbsp;World'</p>
+        </section>
+        <section>
+          <h2>雙引號表達</h2>
+          <p class="fragment">「"」號夾住想要的字串</p>
+          <p class="fragment">比單引號的字串多了些功能</p>
+          <p class="fragment">要特別注意其使用</p>
+          <p class="fragment">"Hello,&nbsp;World"</p>
+        </section>
+        <section>
+          <h2>跳脫字元</h2>
+          <p class="fragment">字串中可能有單引號或雙引號</p>
+          <p class="fragment">或是需要其他特殊的功能</p>
+          <p class="fragment">使用跳脫字元顯示特殊的字</p>
+          <p class="fragment">單引號字串不能使用</p>
+        </section>
+        <section>
+          <h2>跳脫字元</h2>
+          <p class="fragment">\n:&nbsp;需要換行時就用</p>
+          <p class="fragment">\t:&nbsp;水平對齊的tab</p>
+          <p class="fragment">\a:&nbsp;蜂鳴器叫一聲(或許不會叫)</p>
+          <p class="fragment">\\:&nbsp;顯示反斜線本身</p>
+          <p class="fragment">\'&nbsp;\":&nbsp;在字串中跳脫中止字元</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">print "反斜線是\\&nbsp;雙引號是\""</p>
+          <p class="fragment">觀察&nbsp;'"'&nbsp;和&nbsp;"\""&nbsp;的結果</p>
+          <p class="fragment">print&nbsp;"1234567\t123456\t12345\t1234"</p>
+        </section>
+        <section>
+          <h2>竄寫</h2>
+          <p class="fragment">有時候想要在字串中放入運算結果</p>
+          <p class="fragment">把運算寫在字串裡是最快的方法</p>
+          <p class="fragment">"1+1=#{1+1}"</p>
+          <p class="fragment">使用#{}包住想要的運算</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">print&nbsp;"#{200+100}"</p>
+          <p class="fragment">print&nbsp;"200+100"</p>
+          <p class="fragment">print&nbsp;"#{"String!!"}"</p>
+          <p class="fragment">print&nbsp;"#{"#{"String!!"}"}"</p>
+        </section>
+        <section>
+          <h2>Here&nbsp;Document</h2>
+          <p class="fragment">有時候需要多行的字串</p>
+          <p class="fragment">使用跳脫換行很麻煩</p>
+          <p class="fragment">直接表達多行字串</p>
+        </section>
+        <section>
+          <h2>表示方法</h2>
+          <pre class="fragment" style="width:420px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">&lt;&lt;Nekomimi
+喵喵咪~~
+咪喵喵~~
+Nekomimi</code></pre>
+          <p class="fragment">開頭是兩個"&lt;"號</p>
+          <p class="fragment">中間就是想要的字串</p>
+          <p class="fragment">在頭尾使用一樣的關鍵字夾起來</p>
+        </section>
+        <section>
+          <h2>縮排關鍵字</h2>
+          <p class="fragment">利用辨識開頭的關鍵字來結束該字串</p>
+          <p class="fragment">該關鍵字不能縮排</p>
+          <p class="fragment">想要把關鍵字縮排就要加上"-"號</p>
+          <pre class="fragment" style="width:420px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">&lt;&lt;-Catear
+  貓貓咪~~
+  Catear</code></pre>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">用obov當關鍵字</p>
+          <p class="fragment">十萬青年十萬肝</p>
+        </section>
+        <section>
+          <h2>替代符號</h2>
+          <p class="fragment">可以使用"%"後面加上成對的括號或字元來表示字串</p>
+          <p class="fragment">%[這是字串]</p>
+          <p class="fragment">%%這也是字串%</p>
+          <p class="fragment">%#這還是字串#</p>
+        </section>
+        <section>
+          <h2>修飾字元</h2>
+          <p class="fragment">可以在"%"後指定一個字元</p>
+          <p class="fragment">可以當單引號雙引號表達的替代</p>
+          <p class="fragment">還可以表達其他非字串的值</p>
+        </section>
+        <section>
+          <h2>替代表達</h2>
+          <p class="fragment">%q{這是單引號字串}</p>
+          <p class="fragment">%Q^這是雙引號字串^</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">試試看使用百分號表達字串吧</p>
+          <p class="fragment">頭尾相同字元或成對字元</p>
+        </section>
+			</section>
 			
 			</div>
 		</div>
