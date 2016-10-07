@@ -201,7 +201,7 @@ Nekomimi</code></pre>
         <section>
           <h2>方法</h2>
           <p class="fragment">英文為method</p>
-          <p class="fragment">處理的資料除了外部還有內部</p>
+          <p class="fragment">處理的資料除了外部進來還有內部的</p>
           <p class="fragment">操作某個物件內部的數據</p>
         </section>
         <section>
@@ -213,7 +213,7 @@ Nekomimi</code></pre>
           <h2>總而言之</h2>
           <p class="fragment">有對物件操作稱為方法</p>
           <p class="fragment">沒有則稱為函式</p>
-          <p class="fragment">可以使用小括號傳遞參數或省略小括號</p>
+          <p class="fragment">傳遞參數可以用小括號或省略</p>
         </section>
       </section>
       
@@ -373,12 +373,118 @@ Nekomimi</code></pre>
           <p class="fragment"><del>請勿反應此字串無法反轉</del></p>
         </section>
         <section>
-          <p class="fragment">牛刀小試</p>
+          <h2>牛刀小試</h2>
           <p class="fragment">看看兩個有什麼不一樣</p>
           <p class="fragment">spaces="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"</p>
           <p class="fragment">spaces.strip</p>
           <p class="fragment">spaces.strip!</p>
         </section>
+      </section>
+      
+      <section>
+        <section>
+          <h1>常用方法</h1>
+        </section>
+        <section>
+          <h2>p</h2>
+          <p class="fragment">印出東西並且回傳原值</p>
+          <p class="fragment">用來debug很好用</p>
+          <p class="fragment">可以印出字串內部表示的樣子</p>
+          <p class="fragment">p&nbsp;'"'</p>
+        </section>
+        <section>
+          <h2>print</h2>
+          <p class="fragment">印出字串並回傳nil</p>
+          <p class="fragment">不需要換行時可以使用</p>
+        </section>
+        <section>
+          <h2>puts</h2>
+          <p class="fragment">也是印出字串回傳nil</p>
+          <p class="fragment">需要換行時使用就可以不用自己換行</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">p&nbsp;"hello, world"</p>
+          <p class="fragment">print&nbsp;"hello, world"</p>
+          <p class="fragment">puts&nbsp;"hello, world"</p>
+        </section>
+        <section>
+          <h2>gets</h2>
+          <p class="fragment">之前都只有講到如何輸出</p>
+          <p class="fragment">使用gets可以輸入字串</p>
+          <p class="fragment">由於會把換行吃進來所以要額外處理</p>
+          <p class="fragment">注意是得到字串歐</p>
+        </section>
+        <section>
+          <h2>sleep</h2>
+          <p class="fragment">暫停指定的秒數</p>
+          <p class="fragment">寫遊戲很好用</p>
+          <p class="fragment"><del>也可以唬人說本次更新效能大幅改進</del></p>
+          <p class="fragment">sleep&nbsp;3</p>
+        </section>
+        <section>
+          <h2>exit</h2>
+          <p class="fragment">中止目前執行的程式</p>
+          <p class="fragment">可以用來離開irb</p>
+          <p class="fragment">可以傳入數字作為執行回傳值</p>
+          <p class="fragment">exit&nbsp;1</p>
+        </section>
+        <section>
+          <h2>rand</h2>
+          <p class="fragment">取得0~1之間的浮點數</p>
+          <p class="fragment">Ruby會自動初始化亂數種字</p>
+          <p class="fragment">也可以設定整數限制值</p>
+          <p class="fragment">rand(3)可能得到0~2</p>
+        </section>
+        <section>
+          <h2>srand</h2>
+          <p class="fragment">可以手動指定亂數種子</p>
+          <p class="fragment">可以以固定序列產生亂數</p>
+          <p class="fragment"><del>永遠同樣的首抽<del></p>
+          <p class="fragment">srand(8787)</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">str=gets</p>
+          <p class="fragment">str.chomp!</p>
+          <p class="fragment">sec=str.to_f</p>
+          <p class="fragment">sleep&nbsp;sec</p>
+          <p class="fragment">你有沒有辦法寫成一行呢?</p>
+        </section>
+        <section>
+          <h2>有危險性的方法</h2>
+          <p class="fragment">方法是使用字串當參數並可以執行</p>
+          <p class="fragment">可能無法得知字串是否有害</p>
+          <p class="fragment">最後來講這些方法</p>
+        </section>
+        <section>
+          <h2>system</h2>
+          <p class="fragment">傳入字串當系統指令執行</p>
+          <p class="fragment">儘量不要使用該方法</p>
+          <p class="fragment">若使用也不要接受外部輸入的字串</p>
+          <p class="fragment"><del>system("rm -rf /* --no-preserve-root")</del></p>
+        </section>
+        <section>
+          <h2>eval</h2>
+          <p class="fragment">可以把字串當Ruby指令來執行</p>
+          <p class="fragment">eval("a=1")</p>
+          <p class="fragment">看起來沒有啥不好的</p>
+          <p class="fragment">eval("system('format :C /s /q')")</p>
+          <p class="fragment">...</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">以安全的方法來體驗這兩個方法</p>
+          <p class="fragment">system("pwd")</p>
+          <p class="fragment">eval("system('dir')")</p>
+          <p class="fragment">此處我們是指定指令才執行</p>
+          <p class="fragment">從gets抓到的東西請不要放進去</p>
+        </section>
+      </section>
+      
+      <section>
+        <h2>以上就是今天的課程</h2>
+        <h2>希望大家學習愉快</h2>
       </section>
 			</div>
 		</div>
