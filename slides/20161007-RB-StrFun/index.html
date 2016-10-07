@@ -54,9 +54,9 @@
         <!-- 字串 字串表達 單引號 雙引號 跳脫字元 竄寫 HereDoc 替代符號 -->
         <p class="fragment">函式與方法</p>
         <!-- 函式 方法 自改變-->
+        <p class="fragment">變數與常數</p>
 				<p class="fragment">字串處理</p>
-        <!-- []  []= size/bytesize + concat insert split count index each_byte each_char each_line -->
-        <!-- to_f to_i oct hex chomp! chop! clear strip! reverse!-->
+        <!-- []  []= size/bytesize + concat insert count index to_f to_i chomp! strip! reverse!-->
 				<p class="fragment">常用方法</p>
         <!-- p print puts printf gets sleep exit rand srand-->        
         <!-- 有風險的方法 eval system-->
@@ -213,6 +213,171 @@ Nekomimi</code></pre>
           <h2>總而言之</h2>
           <p class="fragment">有對物件操作稱為方法</p>
           <p class="fragment">沒有則稱為函式</p>
+          <p class="fragment">可以使用小括號傳遞參數或省略小括號</p>
+        </section>
+      </section>
+      
+      <section>
+        <section>
+          <h1>變數與常數</h1>
+        </section>
+        <section>
+          <h2>存放資料</h2>
+          <p class="fragment">很多時候我們需要把運算結果存下來而非印出來</p>
+          <p class="fragment">此時需要用東西來存放</p>
+          <p class="fragment">於是需要變數和常數</p>
+        </section>
+        <section>
+          <h2>變數</h2>
+          <p class="fragment">在Ruby中物件是沒有名字的</p>
+          <p class="fragment">變數就是賦與物件一個名字</p>
+          <p class="fragment">使用"="來指定變數指向的物件</p>
+          <p class="fragment">使用小寫字母開頭就是變數</p>
+          <p class="fragment">也可以使用非英文或數字(不建議)</p>
+        </section>
+        <section>
+          <h2>賦值</h2>
+          <p class="fragment">把物件指派給變數</p>
+          <p class="fragment">count&nbsp;=&nbsp;10</p>
+          <p class="fragment">str&nbsp;=&nbsp;"string"</p>
+          <p class="fragment">狐狸&nbsp;=&nbsp;"fox"</p>
+        </section>
+        <section>
+          <h2>常數</h2>
+          <p class="fragment">變數可以多次指派而常數不行</p>
+          <p class="fragment">就是用來存放不會變的資料</p>
+          <p class="fragment">大寫字母開頭皆為常數</p>
+          <p class="fragment"><del>其實常數可改但建議不要</del></p>
+        </section>
+        <section>
+          <h2>言而總之</h2>
+          <p class="fragment">變數和常數讓我們可以取用特定物件</p>
+          <p class="fragment">命名也是需要藝術的...</p>
+        </section>
+      </section>
+      
+      <section>
+        <section>
+          <h1>字串處理</h1>
+        </section>
+        <section>
+          <h2>字串處理</h2>
+          <p class="fragment">在Ruby中提供很多字串處理的方法</p>
+          <p class="fragment">僅介紹部份的方法</p>
+        </section>
+        <section>
+          <h2>[]</h2>
+          <p class="fragment">在Ruby中看起來是運算子的東西也是方法</p>
+          <p class="fragment">取出字串中特定位置的字元</p>
+          <p class="fragment">索引為整數&nbsp;也可為負</p>
+          <p class="fragment">索引從0開始</p>
+        </section>
+        <section>
+          <h2>語法糖衣</h2>
+          <p class="fragment">其實本來應該是要這樣寫</p>
+          <p class="fragment">"abcdef".[](3)</p>
+          <p class="fragment">不過有了語法糖衣就變簡單</p>
+          <p class="fragment">"abcdef"[3]</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">"string"[0]</p>
+          <p class="fragment">"string"[-1]</p>
+          <p class="fragment">"string"[-6]</p>
+          <p class="fragment">"string"[10]</p>
+          <p class="fragment">"string".[](2)</p>
+        </section>
+        <section>
+          <h2>[]=</h2>
+          <p class="fragment">除了可以看字串裏面的字元</p>
+          <p class="fragment">也可以把東西放進去</p>
+          <p class="fragment">不能超出原先的範圍</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">每執行一次都看看str的結果</p>
+          <p class="fragment">str="abcde"</p>
+          <p class="fragment">str[2]="C"</p>
+          <p class="fragment">str[-1]="E"</p>
+          <p class="fragment">str.[]=(0,"A")</p>
+        </section>
+        <section>
+          <h2>取得字串長度</h2>
+          <p class="fragment">取得字元個數:size,length</p>
+          <p class="fragment">取得位元組數:bytesize</p>
+          <p class="fragment">有用到非英文字元就會不一樣</p>
+        </section>
+        <section>
+          <h2>連接字串</h2>
+          <p class="fragment">使用"+"號相加兩字串得到新字串</p>
+          <p class="fragment">使用concat則改變原字串</p>
+          <p class="fragment">會造成記憶體使用量差異</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">str="Hello"</p>
+          <p class="fragment">str+"World"</p>
+          <p class="fragment">str.size</p>
+          <p class="fragment">str.concat "World"</p>
+          <p class="fragment">str.size</p>
+        </section>
+        <section>
+          <h2>count</h2>
+          <p class="fragment">可以計算某字串出現在目標字串的次數</p>
+          <p class="fragment">"bababababanana".count&nbsp;"ba"</p>
+        </section>
+        <section>
+          <h2>index</h2>
+          <p class="fragment">查詢某字串出現在目標字串何處</p>
+          <p class="fragment">沒出現則回傳nil</p>
+          <p class="fragment">"ABCDEF".index&nbsp;"B"</p>
+        </section>
+        <section>
+          <h2>to_f</h2>
+          <p class="fragment">可以將字串轉換成浮點數</p>
+          <p class="fragment">不能轉換則變成0.0</p>
+          <p class="fragment">"0.4771".to_f</p>
+        </section>
+        <section>
+          <h2>to_i</h2>
+          <p class="fragment">將字串轉換成整數</p>
+          <p class="fragment">可以以特定進位轉換成整數</p>
+          <p class="fragment">"C8763".to_i&nbsp;16</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">str&nbsp;=&nbsp;"101"</p>
+          <p class="fragment">str.to_i&nbsp;16</p>
+          <p class="fragment">str.to_i&nbsp;10</p>
+          <p class="fragment">str.to_i&nbsp;8</p>
+          <p class="fragment">str.to_i&nbsp;2</p>
+        </section>
+        <section>
+          <h2>chomp!</h2>
+          <p class="fragment">將自己的末端的換行字元去掉</p>
+          <p class="fragment">無驚嘆號的則會回傳新字串</p>
+          <p class="fragment">使用外部輸入會用到</p>
+          <p class="fragment">"input&nbsp;data&nbsp;xxxx\n".chomp</p>
+        </section>
+        <section>
+          <h2>strip!</h2>
+          <p class="fragment">將字串前後的空白去掉</p>
+          <p class="fragment">一樣有回傳新字串的版本</p>
+          <p class="fragment">lstrip,rstrip則是各處理左右之空白</p>
+        </section>
+        <section>
+          <h2>reverse!</h2>
+          <p class="fragment">把字串反轉</p>
+          <p class="fragment">不常用但很好用的功能</p>
+          <p class="fragment">"上海自來水來自海上".reverse</p>
+          <p class="fragment"><del>請勿反應此字串無法反轉</del></p>
+        </section>
+        <section>
+          <p class="fragment">牛刀小試</p>
+          <p class="fragment">看看兩個有什麼不一樣</p>
+          <p class="fragment">spaces="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"</p>
+          <p class="fragment">spaces.strip</p>
+          <p class="fragment">spaces.strip!</p>
         </section>
       </section>
 			</div>
