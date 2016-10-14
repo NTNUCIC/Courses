@@ -54,7 +54,6 @@
         <!-- 物件 參考 圖解參考 變數 -->
 				<p class="fragment">陣列</p>
         <!-- Array 用途 陣列表達 初始化 替代表達 內部設計 -->
-        <p class="fragment">陣列常用方法</p>
         <!-- [] []= size/length 
         當集合 +/&/-/| 
         當串列結構 first last push pop shift unshift
@@ -63,10 +62,44 @@
         <!-- Symbol 表達 內部設計 符號陣列-->
         <p class="fragment">雜湊</p>
         <!-- Hash 用途 表達 內部設計 和符號的搭配使用-->
-				<p class="fragment">雜湊常用方法</p>
         <!-- [] []= default delete keys values has_key? has_value? merge invert-->
 			</section>
 			
+      <section>
+        <section>
+          <h1>物件與參考</h1>
+        </section>
+        <section>
+          <h2>物件</h2>
+          <p class="fragment">Ruby的基本單位</p>
+          <p class="fragment">實際存在記憶體中的資料</p>
+          <p class="fragment">可以對其進行相對應的操作</p>
+        </section>
+        <section>
+          <h2>變數</h2>
+          <p class="fragment">使用參考來指定對應的物件</p>
+          <p class="fragment">有可能兩者指向同一個物件</p>
+          <p class="fragment">需要注意操作是否改變物件本身</p>
+        </section>
+        <section>
+          <h2>參考</h2>
+          <p class="fragment">英文為reference</p>
+          <p class="fragment">讓變數或其他物件可以連結到某物件</p>
+          <p class="fragment">"代表"某個存在的物件</p>
+        </section>
+        <section>
+          <h2>圖解</h2>
+          <p class="fragment">a=b=5566</p>
+          <p class="fragment">"Hello,World"</p>
+          <img class=" fragment" src="images/ref.png">
+        </section>
+        <section>
+          <h2>小結</h2>
+          <p class="fragment">小心兩個變數指向同一個物件的狀況</p>
+          <p class="fragment">一個變數只能參考到一個物件</p>
+          <p class="fragment">沒有被參考的物件又是另一個故事了</p>
+        </section>
+      </section>
 			
 			</div>
 		</div>
