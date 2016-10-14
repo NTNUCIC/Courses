@@ -312,6 +312,12 @@
           <p class="fragment">!!注意!!一樣的字串不一定是一樣的物件</p>
         </section>
         <section>
+          <h2>內部設計</h2>
+          <p class="fragment">輸入一個符號之後直譯器會尋找是否已經存在</p>
+          <p class="fragment">沒有的話就建立一個新的符號</p>
+          <p class="fragment">有的話就使用原來的符號</p>
+        </section>
+        <section>
           <h2>用途</h2>
           <p class="fragment">因為物件不存在其他與之相同的物件</p>
           <p class="fragment">用來做雜湊的查詢</p>
@@ -335,7 +341,123 @@
         </section>
       </section>
       
+      <section>
+        <section>
+          <h1>雜湊</h1>
+        </section>
+        <section>
+          <h2>雜湊</h2>
+          <p class="fragment">Hash</p>
+          <p class="fragment">用來存放鍵(key)值(value)配對的容器</p>
+          <p class="fragment">C++的Map,Java的Dictionary,JS的Object</p>
+          <p class="fragment">使用雜湊函數存取映射在表格中的數據</p>
+        </section>
+        <section>
+          <h2>用途</h2>
+          <p class="fragment">可以使用非整數的索引來查詢資料</p>
+          <p class="fragment">以類似於命名的方式來存放有相關的資料</p>
+        </section>
+        <section>
+          <h2>表達方式</h2>
+          <p class="fragment">使用"{}"大括號包住&nbsp;鍵"=>"值&nbsp;的配對</p>
+          <p class="fragment">{"name"=>"L5640","core"=>6,"thread"=>12}</p>
+          <p class="fragment">鍵和值可以為任意物件</p>
+          <p class="fragment">{nil=>8,0=>false,"true"=true}</p>
+        </section>
+        <section>
+          <h2>和符號搭配使用</h2>
+          <p class="fragment">雜湊是利用雜湊函式查詢鍵所對應的值</p>
+          <p class="fragment">使用字串當作鍵時需要"計算"雜湊值</p>
+          <p class="fragment">使用符號則不需要計算</p>
+          <p class="fragment">同時也可以漸少記憶體浪費</p>
+        </section>
+        <section>
+          <h2>符號作為鍵</h2>
+          <p class="fragment">原本的寫法一樣可行</p>
+          <p class="fragment">{:name=>"E5-2699v4",:core=>22,:thread=>44}</p>
+          <p class="fragment">可以將其縮寫</p>
+          <p class="fragment">{name:"E3-1231v3",core:4,thread:8}</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">出現了野生的CPU</p>
+          <p class="fragment">叫作&nbsp;I7-6950X</p>
+          <p class="fragment">有10顆核心(core)</p>
+          <p class="fragment">還有20個執行緒(thread)</p>
+          <p class="fragment">快裝進雜湊帶回家</p>
+        </section>
+        <section>
+          <h2>雜湊處理</h2>
+          <p class="fragment">雜湊的玩法變化就比陣列少很多了</p>
+          <p class="fragment">在此還是講解簡單的操作</p>
+        </section>
+        <section>
+          <h2>[]</h2>
+          <p class="fragment">以鍵來查詢雜湊中的值</p>
+          <p class="fragment">沒有該值則會回傳預設值</p>
+        </section>
+        <section>
+          <h2>預設值</h2>
+          <p class="fragment">雜湊的預設值是nil</p>
+          <p class="fragment">可以對雜湊使用default方法得知</p>
+          <p class="fragment">也可以用default=來設定預設值</p>
+        </section>
+        <section>
+          <h2>[]=</h2>
+          <p class="fragment">將鍵和值的配對存入雜湊</p>
+          <p class="fragment">可以把舊的值蓋掉</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">取出剛才CPU的核心數</p>
+          <p class="fragment">將CPU雜湊的預設值變成0</p>
+          <p class="fragment">以:price為鍵查詢該雜湊對應之值</p>
+        </section>
+        <section>
+          <h2>刪除配對</h2>
+          <p class="fragment">使用delete(x)來刪除鍵x與其值的配對</p>
+          <p class="fragment">將對應值設定成nil不會刪除配對</p>
+        </section>
+        <section>
+          <h2>取得所有的鍵和值</h2>
+          <p class="fragment">keys方法可以得到該陣列所有的鍵</p>
+          <p class="fragment">values方法可以得到該陣列所有的值</p>
+          <p class="fragment"><del>別問我如何取得所有的配對...</del></p>
+        </section>
+        <section>
+          <h2>檢查鍵或值是否存在</h2>
+          <p class="fragment">has_key?(k)可以看鍵k是否存在鍵中</p>
+          <p class="fragment">has_value?(v)可以看看值v是否存在值中</p>
+        </section>
+        <section>
+          <h2>merge!</h2>
+          <p class="fragment">可以將兩個雜湊合併</p>
+          <p class="fragment">一樣有安全版本的可以回傳新雜湊</p>
+          <p class="fragment">這次沒有"+"號可以用歐~~</p>
+        </section>
+        <section>
+          <h2>翻轉!!</h2>
+          <p class="fragment">有時候想要把雜湊的鍵和值反轉</p>
+          <p class="fragment">使用invert可以得到配對反轉的雜湊</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">hash={"a"=>1,"b"=>2,"c"=>3}</p>
+          <p class="fragment">hash["d"]=4</p>
+          <p class="fragment">hash.has_key?("d")</p>
+          <p class="fragment">hash=hash.invert</p>
+          <p class="fragment">hash.has_key?(4)</p>
+          <p class="fragment">hash.has_value?(4)</p>
+        </section>
+      </section>
       
+      <section>
+        <h2>以上為陣列和雜湊的介紹</h2>
+        <h2>有了容器數據的存放就更為方便了</h2>
+      </section>
+      <section>
+        <h1>感謝各位參與社課</h1>
+      </section>
 			</div>
 		</div>
 		<script src="../lib/js/head.min.js"></script>
