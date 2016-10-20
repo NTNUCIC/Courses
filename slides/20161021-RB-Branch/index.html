@@ -51,13 +51,110 @@
 			<section>
 				<h2>本日重點</h2>
 				<p class="fragment">比較運算</p>
-				<!--  -->
+				<!-- 比較運算 相等 比大小 -->
 				<p class="fragment">分支指令</p>
-				<!-- -->
+				<!-- if if/else if/elsif/else unless unless/else case -->
+				<!-- 三元運算子 後綴if 後綴unless -->
 				<p class="fragment">邏輯運算</p>
-				<!-- -->
+				<!-- 種類 and/&& or/|| not/! ^ 運算優先度-->
 				<p class="fragment">特殊用法</p>
-				<!-- -->
+				<!-- and or ||= &&= -->
+			</section>
+			
+			<section>
+				<section>
+					<h1>比較運算</h1>
+				</section>
+				<section>
+					<h2>比較運算</h2>
+					<p class="fragment">可以在不同物件之間比較</p>
+					<p class="fragment">可以有相等或是大小之分</p>
+				</section>
+				<section>
+					<h2>相等比較</h2>
+					<p class="fragment">在Ruby中有不同種類的相等比較</p>
+					<p class="fragment">最簡單的就是比較兩個物件的值</p>
+					<p class="fragment">也可以比較兩個物件是否為同個物件</p>
+					<p class="fragment">還有更廣的比較</p>
+				</section>
+				<section>
+					<h2>不相等</h2>
+					<p class="fragment">兩個物件值不一樣就是不相等</p>
+					<p class="fragment">!=</p>
+					<p class="fragment">反而相等的狀況更為複雜...</p>
+				</section>
+				<section>
+					<h2>相等</h2>
+					<p class="fragment">比較兩個物件的值是否相等</p>
+					<p class="fragment">==&nbsp;(注意不是賦值的單一"="號)</p>
+					<p class="fragment">比較兩個物件的值和類別是否相等</p>
+					<p class="fragment">eql?</p>
+					<p class="fragment">比較兩物件是否為同一物件</p>
+					<p class="fragment">equal?</p>
+				</section>
+				<section>
+					<h2>物件id</h2>
+					<p class="fragment">之前有提到物件其實就在記憶體某處</p>
+					<p class="fragment">物件的ID就代表了物件的位置(指標)</p>
+					<p class="fragment">藉由比較ID可以判斷兩物件是否為同一物件</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">1==1.0</p>
+					<p class="fragment">1.eql?&nbsp;1.0</p>
+					<p class="fragment">[].equal?&nbsp;[]</p>
+				</section>
+				<section>
+					<h2>物件id補充</h2>
+					<p class="fragment">Ruby有不佔用記憶體空間的立即值</p>
+					<p class="fragment">2.0以前：Fixnum,Symbol,true,false,nil</p>
+					<p class="fragment">2.0開始：多了部份Float</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">1.0.equal?&nbsp;1.0</p>
+					<p class="fragment">1.9656826079092814e-236.equal?&nbsp;1.9656826079092814e-236</p>
+				</section>
+				<section>
+					<h2>範圍運算子</h2>
+					<p class="fragment">可以表達一個整數的區間</p>
+					<p class="fragment">兩個數字中間放入".."或"..."</p>
+					<p class="fragment">1..5意為[1,5]</p>
+					<p class="fragment">1...5則意為[1,5)</p>
+				</section>
+				<section>
+					<h2>關聯運算子</h2>
+					<p class="fragment">其實就是&nbsp;===&nbsp;</p>
+					<p class="fragment">可以檢查兩物件間的多個條件是否有符合者</p>
+					<p class="fragment">不會直接拿出來用但是會用到</p>
+				</section>
+				<section>
+					<p class="fragment">牛刀小試</p>
+					<p class="fragment">(1...10)===9.5</p>
+					<p class="fragment">Integer===0xC8763</p>
+				</section>
+				<section>
+					<h2>比大小</h2>
+					<p class="fragment">數字之間能互相比大小</p>
+					<p class="fragment">字串之間也可以比大小</p>
+					<p class="fragment">但是數字和字串不能比大小</p>
+					<p class="fragment">小心兩個物件的類別</p>
+				</section>
+				<section>
+					<h2>種類</h2>
+					<p class="fragment">&lt;：小於</p>
+					<p class="fragment">&gt;：大於</p>
+					<p class="fragment">&lt;=：不大於</p>
+					<p class="fragment">&gt;=：不小於</p>
+					<p class="fragment">&lt;=&gt;：看前後的大小回傳1,0,-1</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">'Z'&gt;'B'</p>
+					<p class="fragment">'Z'&gt;'b'</p>
+					<p class="fragment">'100'&lt;=100</p>
+					<p class="fragment">11&lt;10.9</p>
+				</section>
 			</section>
 			
 			<section>
