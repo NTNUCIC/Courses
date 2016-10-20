@@ -298,10 +298,65 @@ end</code></pre>
 			
 			<section>
 				<section>
+					<h1>邏輯運算</h1>
+				</section>
+				<section>
+					<h2>邏輯運算</h2>
+					<p class="fragment">可以用來對真假值運算</p>
+					<p class="fragment">讓條件可以更為複雜</p>
+					<p class="fragment">簡化不必要的分支指令</p>
+				</section>
+				<section>
+					<h2>且</h2>
+					<p class="fragment">TT→T</p>
+					<p class="fragment">FT→F</p>
+					<p class="fragment">TF→F</p>
+					<p class="fragment">FF→F</p>
+					<p class="fragment">and&nbsp;和&nbsp;&amp;&amp;&nbsp;都可以做"且"的運算</p>
+				</section>
+				<section>
+					<h2>或</h2>
+					<p class="fragment">TT→T</p>
+					<p class="fragment">FT→T</p>
+					<p class="fragment">TF→T</p>
+					<p class="fragment">FF→F</p>
+					<p class="fragment">or&nbsp;和&nbsp;||&nbsp;都能做"或"的運算</p>
+				</section>
+				<section>
+					<h2>戶斥或</h2>
+					<p class="fragment">TT→F</p>
+					<p class="fragment">FT→T</p>
+					<p class="fragment">TF→T</p>
+					<p class="fragment">FF→F</p>
+					<p class="fragment">只有&nbsp;^&nbsp;可以做互斥"或"的運算</p>
+				</section>
+				<section>
+					<h2>反向</h2>
+					<p class="fragment">T→F</p>
+					<p class="fragment">F→T</p>
+					<p class="fragment">有not和&nbsp;!&nbsp;可以使用</p>
+					<p class="fragment">注意這個運算是要放在物件前面</p>
+				</section>
+				<section>
+					<h2>運算優先度</h2>
+					<p class="fragment">程式中對於各運算子的優先度是不太一樣的</p>
+					<p class="fragment">乘除&gt;加減&gt;比較&gt;^&gt;&amp;&amp;==||&gt;賦值&gt;not&gt;and==or</p>
+					<p class="fragment">不確定時可以使用小括號確保先行計算</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">觀察兩個指令執行後cond的值</p>
+					<p class="fragment">cond=true&nbsp;and&nbsp;false</p>
+					<p class="fragment">cond=true&nbsp;&amp;&amp;&nbsp;false</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
 					<h1>特殊用法</h1>
 				</section>
 				<section>
-					<h2>特殊用法</h2>
+					<h2>分支替代</h2>
 					<p class="fragment">and和or其實有神奇的妙用</p>
 					<p class="fragment">可以用來取代簡單的判斷</p>
 					<p class="fragment">部份狀況下比後綴的條件有可讀性</p>
@@ -321,12 +376,40 @@ end</code></pre>
 				<section>
 					<h2>牛刀小試</h2>
 					<p class="fragment">true&nbsp;and&nbsp;print("Sucess")</p>
-					<p class="fragment">false&nbsp;or&nbsp;print("Backup")</p>
+					<p class="fragment">false&nbsp;or&nbsp;print("Fail")</p>
 					<p class="fragment">true&nbsp;^&nbsp;p("whatever")</p>
 					<p class="fragment">false&nbsp;^&nbsp;p("whatever")</p>
 				</section>
+				<section>
+					<h2>狀況指派</h2>
+					<p class="fragment">不只and和or有特殊的功用</p>
+					<p class="fragment">他們的近親&amp;&amp;和||也有</p>
+				</section>
+				<section>
+					<h2>安全初始化</h2>
+					<p class="fragment">可以在變數沒有給予值時給予值</p>
+					<p class="fragment">但是變數已有值時不會更改</p>
+					<p class="fragment">data=data||init_data</p>
+					<p class="fragment">data||=init_data</p>
+				</section>
+				<section>
+					<h2>有東西才改</h2>
+					<p class="fragment">這個想不出好名字</p>
+					<p class="fragment">可以在變數已經有值時給予新值</p>
+					<p class="fragment">但是沒東西時就不會給</p>
+					<p class="fragment">data=data&amp;&amp;new_data</p>
+					<p class="fragment">data&amp;&amp;=new_data</p>
+				</section>
+				<section>
+					<h2>特殊用途其實不一定是最好的寫法</h2>
+					<h2>但是懂了之後需要時就能用上</h2>
+				</section>
 			</section>
 			
+			<section>
+				<h2>希望大家技術都更加提升了</h2>
+				<h2>感謝各位</h2>
+			</section>
 			</div>
 		</div>
 		<script src="../lib/js/head.min.js"></script>
