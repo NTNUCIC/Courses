@@ -129,7 +129,7 @@
 					<p class="fragment">不會直接拿出來用但是會用到</p>
 				</section>
 				<section>
-					<p class="fragment">牛刀小試</p>
+					<h2>牛刀小試</h2>
 					<p class="fragment">(1...10)===9.5</p>
 					<p class="fragment">Integer===0xC8763</p>
 				</section>
@@ -154,6 +154,145 @@
 					<p class="fragment">'Z'&gt;'b'</p>
 					<p class="fragment">'100'&lt;=100</p>
 					<p class="fragment">11&lt;10.9</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h1>分支指令</h1>
+				</section>
+				<section>
+					<h2>分支指令</h2>
+					<p class="fragment">在此堂課之前程式只能循序執行</p>
+					<p class="fragment">利用分支指令可以在不同條件下執行不同程式</p>
+				</section>
+				<section>
+					<h2>if</h2>
+					<p class="fragment">最簡單的分支指令</p>
+					<pre class="fragment" style="width:420px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">if(cond)[then]
+  do_something
+end</code></pre>
+					<p class="fragment">條件符合才做事</p>
+					<p class="fragment">then可省略且一定要加上end</p>
+				</section>
+				<section>
+					<h2>if/else</h2>
+					<p class="fragment">二選一</p>
+					<pre class="fragment" style="width:420px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">if(cond)[then]
+  do_something
+else
+  do_others
+end</code></pre>
+					<p class="fragment">再次提醒不要忘了end</p>
+				</section>
+				<section>
+					<h2>if/elsif/else</h2>
+					<p class="fragment">可以有很多種選擇</p>
+					<pre class="fragment" style="width:420px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">if(condA)[then]
+  do_things_A
+elsif(condB)[then]
+  do_things_B
+...
+[else
+  do_others]
+end</code></pre>
+					<p class="fragment">else不一定要出現且注意是elsif</p>
+				</section>
+				<section>
+					<h2>磨刀</h2>
+					<p class="fragment">之後的程式碼會超過1行以上</p>
+					<p class="fragment">單純使用irb無法修改也不方便使用</p>
+					<p class="fragment">先在編輯器上寫好再貼上irb吧</p>
+					<p class="fragment">直接執行外部檔案又是另外的故事了</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">讓輸入的不及格成績及格吧</p>
+					<p class="fragment"><strong>提示：變數,gets,to_i,if</strong></p>
+					<p class="fragment">血量100的始萊姆受到外在傷害使否斃命呢?</p>
+					<p class="fragment"><strong>提示：減法,if/else</strong></p>
+					<p class="fragment">聽說大家手上拿的刀子數目不太一樣</p>
+					<p class="fragment">拿了1,2,3,9,54把刀的各是什麼來頭</p>
+					<p class="fragment"><strong>提示：if/elsif/else</strong></p>
+				</section>
+				<section>
+					<h2>unless</h2>
+					<p class="fragment">可以在條件不符時做事</p>
+					<pre class="fragment" style="width:420px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">unless(fail)[then]
+  do_something
+end</code></pre>
+					<p class="fragment">可以用來確保失敗時做些處理</p>
+				</section>
+				<section>
+					<h2>unless/else</h2>
+					<p class="fragment">也是二選一</p>
+					<pre class="fragment" style="width:420px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">unless(fail)[then]
+  do_something
+else
+  do_others
+end</code></pre>
+					<p class="fragment">就是個反向的if/else</p>
+					<p class="fragment"><del>沒有多重條件不符合時的判斷歐</del></p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">紅茶已經40元是否該漲價?</p>
+					<p class="fragment"><strong>提示：unless,10&lt;40</strong></p>
+					<p class="fragment">大人快鍘他!!</p>
+					<p class="fragment"><strong>提示：unless/end,"Y"/"N"</strong></p>
+				</section>
+				<section>
+					<h2>多重條件比對</h2>
+					<p class="fragment">有時候elsif寫起來實在不明確</p>
+					<p class="fragment">比對列舉的條件</p>
+					<p class="fragment">該是關聯運算子出場的時候了</p>
+				</section>
+				<section>
+					<h2>case/when/else/end</h2>
+					<p class="fragment">可以和if/elsif/else視情況選用</p>
+					<pre class="fragment" style="width:420px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">case(obj)
+when&nbsp;val_A&nbsp;[then]
+  do_things_A
+...
+else
+  do_others
+end</code></pre>
+					<p class="fragment">一樣then可以省略且記得要加上end</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">來把成績轉換成等第</p>
+					<p class="fragment">0~59為F</p>
+					<p class="fragment">60~69為D</p>
+					<p class="fragment">70~79為C</p>
+					<p class="fragment">80~89為B</p>
+					<p class="fragment">90~99為A</p>
+					<p class="fragment">100為A+</p>
+					<p class="fragment">試想用if/elsif/else怎麼寫</p>
+				</section>
+				<section>
+					<h2>三元運算子</h2>
+					<p class="fragment">極度省略的if/else替代方案</p>
+					<p class="fragment">(cond)?&nbsp;correct&nbsp;:&nbsp;fail</p>
+					<p class="fragment">注意其中的":"前後最好都留空格</p>
+					<p class="fragment">不要濫用影響可讀性</p>
+				</section>
+				<section>
+					<h2>後綴if</h2>
+					<p class="fragment">只想在某些狀況下執行單行指令</p>
+					<p class="fragment">在指令後面加上if和條件就可以了</p>
+					<p class="fragment">do_something&nbsp;if&nbsp;cond</p>
+				</section>
+				<section>
+					<h2>後綴unless</h2>
+					<p class="fragment">否定版的後綴if</p>
+					<p class="fragment">do_somthing&nbsp;unless&nbsp;fail</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">輸入的數字是否為非負整數</p>
+					<p class="fragment"><strong>提示：gets,to_i,三元運算子</strong></p>
+					<p class="fragment">exit&nbsp;if&nbsp;Math.is_a?(Class)</p>
 				</section>
 			</section>
 			
