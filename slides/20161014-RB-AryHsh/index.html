@@ -1,0 +1,497 @@
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Ruby</title>
+
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+		<meta name="og:title" content="Ruby">
+		<meta name="og:url" content="http://ntnucic.github.io/Courses/slides/20161014-RB-AryHsh/index.html">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社Ruby課程投影片">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+			<section>
+				<h1 style="margin-top:100px">陣列與雜湊</h1>
+					<h4>林品儒</h4>
+					<h4>2016/10/14</h4>
+			</section>
+			
+			<section>
+				<h2>本日重點</h2>
+        <p class="fragment">物件與參考</p>
+        <!-- 物件 參考 圖解參考 變數 -->
+				<p class="fragment">陣列</p>
+        <!-- Array 用途 陣列表達 初始化 替代表達 內部設計 -->
+        <!-- [] []= size/length 
+        當集合 &/-/| 
+        當串列結構 first last push pop shift unshift
+        陣列 +/concat count include? empty? index delete take reverse! shuffle! sample sort!-->
+        <p class="fragment">符號</p>
+        <!-- Symbol 表達 內部設計 符號陣列-->
+        <p class="fragment">雜湊</p>
+        <!-- Hash 用途 表達 內部設計 和符號的搭配使用-->
+        <!-- [] []= default delete keys values has_key? has_value? merge invert-->
+			</section>
+			
+      <section>
+        <section>
+          <h1>物件與參考</h1>
+        </section>
+        <section>
+          <h2>物件</h2>
+          <p class="fragment">Ruby的基本單位</p>
+          <p class="fragment">實際存在記憶體中的資料</p>
+          <p class="fragment">可以對其進行相對應的操作</p>
+        </section>
+        <section>
+          <h2>變數</h2>
+          <p class="fragment">使用參考來指定對應的物件</p>
+          <p class="fragment">有可能兩者指向同一個物件</p>
+          <p class="fragment">需要注意操作是否改變物件本身</p>
+        </section>
+        <section>
+          <h2>參考</h2>
+          <p class="fragment">英文為reference</p>
+          <p class="fragment">讓變數或其他物件可以連結到某物件</p>
+          <p class="fragment">"代表"某個存在的物件</p>
+        </section>
+        <section>
+          <h2>圖解</h2>
+          <p class="fragment">a=b=5566</p>
+          <p class="fragment">"Hello,World"</p>
+          <img class=" fragment" src="images/ref.png">
+        </section>
+        <section>
+          <h2>小結</h2>
+          <p class="fragment">小心兩個變數指向同一個物件的狀況</p>
+          <p class="fragment">一個變數只能參考到一個物件</p>
+          <p class="fragment">沒有被參考的物件又是另一個故事了</p>
+        </section>
+      </section>
+			
+      <section>
+        <section>
+          <h1>陣列</h1>
+        </section>
+        <section>
+          <h2>陣列</h2>
+          <p class="fragment">Array</p>
+          <p class="fragment">注意是陣列不是矩陣(Matrix)</p>
+          <p class="fragment">裏面可以裝入任意物件</p>
+        </section>
+        <section>
+          <h2>用途</h2>
+          <p class="fragment">用來放有順序相關的資料</p>
+          <p class="fragment">或是當一個集合來使用</p>
+          <p class="fragment">也可以當作有秩序的序列容器</p>
+        </section>
+        <section>
+          <h2>陣列表達</h2>
+          <p class="fragment">使用中括號可以表達一個陣列</p>
+          <p class="fragment">["a","b",nil,3,[true,false]]</p>
+          <p class="fragment">記得元素中間要使用逗號隔開</p>
+        </section>
+        <section>
+          <h2>字串陣列</h2>
+          <p class="fragment">大家應該還記得神奇的"%"號表達法</p>
+          <p class="fragment">可以用來表達裝了字串的陣列</p>
+          <p class="fragment">使用%W(有竄寫)和%w(無竄寫)</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">在陣列裡放入1~10的數字</p>
+          <p class="fragment">%W[x#{1+1} y3 z4]</p>
+          <p class="fragment">%w[x#{1+1} y3 z4]</p>
+        </section>
+        <section>
+          <h2>陣列的內部設計</h2>
+          <p class="fragment">ary=[100,"cat",nil,"cat",true]</p>
+          <img src="images/ary.png" class="fragment">
+          <p class="fragment">注意裏面的兩隻貓是不同隻貓</p>
+        </section>
+        <section>
+          <h2>陣列處理</h2>
+          <p class="fragment">把陣列當不同用途有不同的操作方法</p>
+          <p class="fragment">意義上不要把陣列的操作混用</p>
+          <p class="fragment">例如說集合就不需要將元素洗牌</p>
+        </section>
+        <section>
+          <h2>[]</h2>
+          <p class="fragment">又是這個中括號了</p>
+          <p class="fragment">一樣可以取用索引值的資料</p>
+          <p class="fragment">其實還有更深的用法請自行查閱</p>
+        </section>
+        <section>
+          <h2>[]=</h2>
+          <p class="fragment">用來指派陣列某索引位置的元素</p>
+          <p class="fragment">可以超出陣列原先的範圍</p>
+          <p class="fragment">!!注意!!注意陣列的索引數值大小</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">來看看物件的參考會有什麼影響</p>
+          <p class="fragment">a=[1,2,3,4]</p>
+          <p class="fragment">b=a</p>
+          <p class="fragment">b[1]=100</p>
+          <p class="fragment">結果a也被影響了</p>
+        </section>
+        <section>
+          <h2>陣列長度</h2>
+          <p class="fragment">Ruby的陣列是知道自己長度的</p>
+          <p class="fragment">使用size或length取得長度</p>
+        </section>
+        <section>
+          <h2>殺雞</h2>
+          <p class="fragment">體驗記憶體爆炸的快感</p>
+          <p class="fragment">ary=[]</p>
+          <p class="fragment">ary[100_000_000]=0xC8763</p>
+          <p class="fragment">ary[100_000_000]</p>
+          <p class="fragment">ary.size</p>
+          <p class="fragment">ary[1e12]=8787</p>
+        </section>
+        <section>
+          <h2>集合操作</h2>
+        </section>
+        <section>
+          <h2>集合處理</h2>
+          <p class="fragment">可以將陣列當作數學上的集合</p>
+          <p class="fragment">內部順序不重要</p>
+          <p class="fragment">多個相同元素視為一個</p>
+          <p class="fragment">可以有兩集合間的操作</p>
+        </section>
+        <section>
+          <h2>集合運算</h2>
+          <p class="fragment">"&amp;"號可以對兩陣列取交集</p>
+          <p class="fragment">"|"號可以對兩陣列取聯集</p>
+          <p class="fragment">"-"號對兩陣列取差集</p>
+          <p class="fragment">注意取聯集和兩陣列相加是不完全相同的</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">set&nbsp;=&nbsp;[1,2,3,4,5]</p>
+          <p class="fragment">set&nbsp;&amp;&nbsp;[3,5,8]</p>
+          <p class="fragment">set&nbsp;|&nbsp;[5,6,7]</p>
+          <p class="fragment">set&nbsp;-&nbsp;[1,2,4,9]</p>
+          <p class="fragment">最後發現set不會被改變</p>
+        </section>
+        <section>
+          <h2>想要存下結果?</h2>
+          <p class="fragment">要記得把運算結果指派給變數</p>
+          <p class="fragment">也可以指派回原本的變數</p>
+          <p class="fragment">set=set&nbsp;|&nbsp;[0,2,7]</p>
+          <p class="fragment">或是對於指派自身用符號的都可以縮寫</p>
+          <p class="fragment">set&nbsp;&amp;=&nbsp;[1,4]</p>
+        </section>
+        <section>
+          <h2>串列結構</h2>
+        </section>
+        <section>
+          <p class="fragment">只能用特定方式取得或存入數據的資料結構</p>
+          <p class="fragment">可以使用陣列來表示這種結構</p>
+          <p class="fragment">堆疊,佇列,雙向佇列</p>
+          <p class="fragment">本課不是資料結構所以只講操作</p>
+        </section>
+        <section>
+          <h2>串列操作</h2>
+          <p class="fragment">pop:取得並刪除陣列末端的元素</p>
+          <p class="fragment">push:將指定的元素放入陣列末端</p>
+          <p class="fragment">shift:取得並去除陣列開頭的元素</p>
+          <p class="fragment">unshif:將指定元素放入陣列開頭</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">list=[1,2,3,4]</p>
+          <p class="fragment">list.pop</p>
+          <p class="fragment">list.push&nbsp;5</p>
+          <p class="fragment">list.shift</p>
+          <p class="fragment">list.unshift&nbsp;0</p>
+        </section>
+        <section>
+          <h2>一般用途</h2>
+        </section>
+        <section>
+          <h2>陣列相加</h2>
+          <p class="fragment">使用"+"號得到兩者元素串接的新陣列</p>
+          <p class="fragment">使用concat(x)則會把自身和陣列x串接</p>
+          <p class="fragment">就算陣列裏面有重複的元素也不管</p>
+        </section>
+        <section>
+          <h2>檢測元素</h2>
+          <p class="fragment">count(x)可以計算陣列內部某元素x出現的次數</p>
+          <p class="fragment">include?(x)能看某元素x是否包含在陣列中</p>
+          <p class="fragment">empty?看是否為空陣列</p>
+          <p class="fragment">index(x)可以看傳入的物件x在哪個位置</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">ary=[1,2,3,4,4]</p>
+          <p class="fragment">ary.count&nbsp;4</p>
+          <p class="fragment">ary.include?&nbsp;5</p>
+          <p class="fragment">ary.empty?</p>
+          <p class="fragment">ary.index(4)</p>
+        </section>
+        <section>
+          <h2>刪除元素</h2>
+          <p class="fragment">注意有"!"的方法就有相對安全的方法</p>
+          <p class="fragment">uniq!可以去除陣列中重複的元素</p>
+          <p class="fragment">compact!可以刪除陣列中的nil</p>
+          <p class="fragment">delete(x)可以去除陣列中指定的元素x</p>
+          <p class="fragment">delete_at(n)刪除索引n所在的元素</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">觀察每一個步驟的ary</p>
+          <p class="fragment">ary=[5,6,7,nil,nil,8]</p>
+          <p class="fragment">ary.uniq!</p>
+          <p class="fragment">ary.delete&nbsp;7</p>
+          <p class="fragment">ary.delete_at&nbsp;1</p>
+          <p class="fragment">ary.compact!</p>
+        </section>
+        <section>
+          <h2>順序相關操作</h2>
+          <p class="fragment">reverse!可以反轉陣列</p>
+          <p class="fragment">shuffle!可以將陣列元素洗牌</p>
+          <p class="fragment">sort!可以排序內部元素</p>
+        </section>
+        <section>
+          <h2>陣列取樣</h2>
+          <p class="fragment">take(n)可以得知陣列開頭的n個元素</p>
+          <p class="fragment">sample(n)可以隨機挑選n個元素組成新陣列</p>
+          <p class="fragment">sample省略參數則隨便取一</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">ary=[0,2,7,7,3,4,6,6,5,9]</p>
+          <p class="fragment">ary.sort!</p>
+          <p class="fragment">ary.reverse!</p>
+          <p class="fragment">ary.sample(4)</p>
+          <p class="fragment">ary.shuffle!</p>
+          <p class="fragment">ary.take(4)</p>
+        </section>
+        <section>
+          <h2>陣列小結</h2>
+          <p class="fragment">以上方法可以達到大部份之處理</p>
+          <p class="fragment">其實還有針對各個元素處理的方法</p>
+          <p class="fragment">此類方法眾多待日後課程說明</p>
+        </section>
+      </section>
+      
+      <section>
+        <section>
+          <h1>符號</h1>
+        </section>
+        <section>
+          <h2>符號</h2>
+          <p class="fragment">Symbol</p>
+          <p class="fragment">Ruby中特殊的物件</p>
+          <p class="fragment">同樣的符號在記憶體中是指同一個物件</p>
+          <p class="fragment">!!注意!!一樣的字串不一定是一樣的物件</p>
+        </section>
+        <section>
+          <h2>內部設計</h2>
+          <p class="fragment">輸入一個符號之後直譯器會尋找是否已經存在</p>
+          <p class="fragment">沒有的話就建立一個新的符號</p>
+          <p class="fragment">有的話就使用原來的符號</p>
+        </section>
+        <section>
+          <h2>用途</h2>
+          <p class="fragment">因為物件不存在其他與之相同的物件</p>
+          <p class="fragment">用來做雜湊的查詢</p>
+          <p class="fragment">直譯器內部運作</p>
+        </section>
+        <section>
+          <h2>符號表達</h2>
+          <p class="fragment">使用":"加在字串前</p>
+          <p class="fragment">:"Only One"</p>
+          <p class="fragment">使用":"後接符合變數或常數命名法的文字</p>
+          <p class="fragment">:NTNUCIC,:bad_apple</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">"Hello, World"</p>
+          <p class="fragment">Symbol.all_symbols</p>
+          <p class="fragment">:"Hello, World"</p>
+          <p class="fragment">:C8763</p>
+          <p class="fragment">Symbol.all_symbols</p>
+          <p class="fragment">注意字串和符號是不一樣的歐</p>
+        </section>
+      </section>
+      
+      <section>
+        <section>
+          <h1>雜湊</h1>
+        </section>
+        <section>
+          <h2>雜湊</h2>
+          <p class="fragment">Hash</p>
+          <p class="fragment">用來存放鍵(key)值(value)配對的容器</p>
+          <p class="fragment">C++的Map,Java的Dictionary,JS的Object</p>
+          <p class="fragment">使用雜湊函數存取映射在表格中的數據</p>
+        </section>
+        <section>
+          <h2>用途</h2>
+          <p class="fragment">可以使用非整數的索引來查詢資料</p>
+          <p class="fragment">以類似於命名的方式來存放有相關的資料</p>
+        </section>
+        <section>
+          <h2>表達方式</h2>
+          <p class="fragment">使用"{}"大括號包住&nbsp;鍵"=>"值&nbsp;的配對</p>
+          <p class="fragment">{"name"=>"L5640","core"=>6,"thread"=>12}</p>
+          <p class="fragment">鍵和值可以為任意物件</p>
+          <p class="fragment">{nil=>8,0=>false,"true"=true}</p>
+        </section>
+        <section>
+          <h2>和符號搭配使用</h2>
+          <p class="fragment">雜湊是利用雜湊函式查詢鍵所對應的值</p>
+          <p class="fragment">使用字串當作鍵時需要"計算"雜湊值</p>
+          <p class="fragment">使用符號則不需要計算</p>
+          <p class="fragment">同時也可以漸少記憶體浪費</p>
+        </section>
+        <section>
+          <h2>符號作為鍵</h2>
+          <p class="fragment">原本的寫法一樣可行</p>
+          <p class="fragment">{:name=>"E5-2699v4",:core=>22,:thread=>44}</p>
+          <p class="fragment">可以將其縮寫</p>
+          <p class="fragment">{name:"E3-1231v3",core:4,thread:8}</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">出現了野生的CPU</p>
+          <p class="fragment">叫作&nbsp;I7-6950X</p>
+          <p class="fragment">有10顆核心(core)</p>
+          <p class="fragment">還有20個執行緒(thread)</p>
+          <p class="fragment">快裝進雜湊帶回家</p>
+        </section>
+        <section>
+          <h2>雜湊處理</h2>
+          <p class="fragment">雜湊的玩法變化就比陣列少很多了</p>
+          <p class="fragment">在此還是講解簡單的操作</p>
+        </section>
+        <section>
+          <h2>[]</h2>
+          <p class="fragment">以鍵來查詢雜湊中的值</p>
+          <p class="fragment">沒有該值則會回傳預設值</p>
+        </section>
+        <section>
+          <h2>預設值</h2>
+          <p class="fragment">雜湊的預設值是nil</p>
+          <p class="fragment">可以對雜湊使用default方法得知</p>
+          <p class="fragment">也可以用default=來設定預設值</p>
+        </section>
+        <section>
+          <h2>[]=</h2>
+          <p class="fragment">將鍵和值的配對存入雜湊</p>
+          <p class="fragment">可以把舊的值蓋掉</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">取出剛才CPU的核心數</p>
+          <p class="fragment">將CPU雜湊的預設值變成0</p>
+          <p class="fragment">以:price為鍵查詢該雜湊對應之值</p>
+        </section>
+        <section>
+          <h2>刪除配對</h2>
+          <p class="fragment">使用delete(x)來刪除鍵x與其值的配對</p>
+          <p class="fragment">將對應值設定成nil不會刪除配對</p>
+        </section>
+        <section>
+          <h2>取得所有的鍵和值</h2>
+          <p class="fragment">keys方法可以得到該陣列所有的鍵</p>
+          <p class="fragment">values方法可以得到該陣列所有的值</p>
+          <p class="fragment"><del>別問我如何取得所有的配對...</del></p>
+        </section>
+        <section>
+          <h2>檢查鍵或值是否存在</h2>
+          <p class="fragment">has_key?(k)可以看鍵k是否存在鍵中</p>
+          <p class="fragment">has_value?(v)可以看看值v是否存在值中</p>
+        </section>
+        <section>
+          <h2>merge!</h2>
+          <p class="fragment">可以將兩個雜湊合併</p>
+          <p class="fragment">一樣有安全版本的可以回傳新雜湊</p>
+          <p class="fragment">這次沒有"+"號可以用歐~~</p>
+        </section>
+        <section>
+          <h2>翻轉!!</h2>
+          <p class="fragment">有時候想要把雜湊的鍵和值反轉</p>
+          <p class="fragment">使用invert可以得到配對反轉的雜湊</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">hash={"a"=>1,"b"=>2,"c"=>3}</p>
+          <p class="fragment">hash["d"]=4</p>
+          <p class="fragment">hash.has_key?("d")</p>
+          <p class="fragment">hash=hash.invert</p>
+          <p class="fragment">hash.has_key?(4)</p>
+          <p class="fragment">hash.has_value?(4)</p>
+        </section>
+      </section>
+      
+      <section>
+        <h2>以上為陣列和雜湊的介紹</h2>
+        <h2>有了容器數據的存放就更為方便了</h2>
+      </section>
+      <section>
+        <h1>感謝各位參與社課</h1>
+      </section>
+			</div>
+		</div>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true },
+				{ src: '../plugin/notes/notes.js', async: true }
+			]
+		});
+		</script>
+	</body>
+</html>

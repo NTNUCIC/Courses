@@ -1,0 +1,473 @@
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Ruby</title>
+
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+		<meta name="og:title" content="Ruby">
+		<meta name="og:url" content="http://ntnucic.github.io/Courses/slides/20160930-RB-BASE/index.html">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社Ruby課程投影片">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+			<section>
+				<h1 style="margin-top:100px">程式設計基礎</h1>
+					<h4>林品儒</h4>
+					<h4>2016/09/30</h4>
+			</section>
+			
+			<section>
+				<h2>本日重點</h2>
+				<p class="fragment">基本概念</p>
+				<p class="fragment">hello, world</p>
+				<p class="fragment">基礎型別</p>
+				<p class="fragment">四則運算</p>
+			</section>
+			
+			<section>
+				<section>
+					<h1>基本概念</h1>
+				</section>
+				<section>
+					<h2>程式</h2>
+					<p class="fragment">以特定指令使電腦運行想要的動作</p>
+					<p class="fragment">可以以程式語言編寫</p>
+					<p class="fragment">用電腦可以解讀的語言命令之</p>
+				</section>
+				<section>
+					<h2>程式語言</h2>
+					<p class="fragment">利用標準化的指令定義電腦的行動</p>
+					<p class="fragment">但是比電腦更早被發明出來</p>
+					<p class="fragment">自動織布機、自動演奏鋼琴</p>
+				</section>
+				<section>
+					<h2>早期的語言</h2>
+					<p class="fragment">底下是x86格式的機械語言和組合語言</p>
+					<pre class="fragment" style="left:auto;right:auto;width:600px;"><code class="x86asm" style="font-family: 'consolas','Ubuntu Mono'">
+8d 74 26 00      lea  0x0(%esi,%eiz,1),%esi
+8b 54 24 28      mov  0x28(%esp),%edx
+89 44 24 04      mov  %eax,0x4(%esp)
+8b 44 24 20      mov  0x20(%esp),%eax
+89 54 24 08      mov  %edx,0x8(%esp)
+89 04 24         mov  %eax,(%esp)
+e8 38 06 00 00   call 6b902250 &lt;___mingw_TLScallback&gt;
+b8 01 00 00 00   mov  $0x1,%eax
+83 c4 1c         add  $0x1c,%esp
+c2 0c 00         ret  $0xc
+					</code></pre>
+					<p class="fragment">這堂課不會教這個<del>想學另洽</del></p>
+				</section>
+				<section>
+					<h2>程式執行</h2>
+					<p class="fragment">直譯式語言</p>
+					<p class="fragment">編譯式語言</p>
+					<p class="fragment">位元碼直譯</p>
+					<p class="fragment">即時編譯</p>
+				</section>
+				<section>
+					<h2>直譯式語言</h2>
+					<p class="fragment">邊解讀文字邊執行</p>
+					<p class="fragment">人類可以直接閱讀可執行的程式</p>
+					<p class="fragment">效能一般較差</p>
+				</section>
+				<section>
+					<h2>編譯式語言</h2>
+					<p class="fragment">寫好文字檔後轉換成原生機械碼</p>
+					<p class="fragment">電腦能直接執行但人類不容易看</p>
+					<p class="fragment">效能一般較佳</p>
+				</section>
+				<section>
+					<h2>位元碼直譯</h2>
+					<p class="fragment">先將文字檔轉換成特殊的位元碼</p>
+					<p class="fragment">再用程式直譯該編碼</p>
+					<p class="fragment">先編譯後直譯</p>
+					<p class="fragment">效能介於兩者之間</p>
+				</section>
+				<section>
+					<h2>即時編譯</h2>
+					<p class="fragment">JIT</p>
+					<p class="fragment">可以用位元碼產生原生的機械碼</p>
+					<p class="fragment">融合了各種特點</p>
+				</section>
+				<section>
+					<h2>Ruby</h2>
+					<p class="fragment">在1.9以前是完全直譯</p>
+					<p class="fragment">在1.9開始使用VM執行位元碼</p>
+					<p class="fragment">不過還是歸類為直譯</p>
+					<p class="fragment">未來會引入JIT技術</p>
+				</section>
+				<section>
+					<h2>Ruby</h2>
+					<p class="fragment">由日本人所開發</p>
+					<p class="fragment">哲學是條條道路通羅馬</p>
+					<p class="fragment">開發的目的就是要快樂地寫程式</p>
+					<p class="fragment"><del>信徒會和Python對嗆</del></p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h1>hello, world</h1>
+				</section>
+				<section>
+					<h2>直譯器</h2>
+					<p class="fragment">為了執行Ruby的程式我們需要直譯器</p>
+					<p class="fragment">Windows:&nbsp;<a href="http://rubyinstaller.org/downloads/">RubyInstaller</a></p>
+					<p class="fragment">Mac:$&nbsp;brew&nbsp;install&nbsp;ruby</p>
+					<p class="fragment">Linux:各家安裝ruby套件即可</p>
+				</section>
+				<section>
+					<h2>版本選擇</h2>
+					<p class="fragment">推薦使用2.0以上的版本</p>
+					<p class="fragment">有一定的了解再使用x64版本</p>
+					<p class="fragment">就用<a href="http://dl.bintray.com/oneclick/rubyinstaller/rubyinstaller-2.2.5.exe">Ruby2.2.5</a>吧</p>
+				</section>
+				<section>
+					<h2>安裝說明</h2>
+					<p class="fragment">為防止有個萬一還是說明安裝流程</p>
+					<p class="fragment">其實就是Enter大法</p>
+				</section>
+				<section>
+					<h2>選擇安裝語言</h2>
+					<img src="images/lang.png">
+					<p class="fragment">只有英文和日文可以選</p>
+					<p class="fragment">就選英文吧</p>
+				</section>
+				<section>
+					<h2>同意許可證</h2>
+					<img src="images/license.png">
+					<p class="fragment">Ruby為自由軟體就安心同意吧</p>
+				</section>
+				<section>
+					<h2>額外選項</h2>
+					<img src="images/dest.png">
+					<p class="fragment">第一個可以不用</p>
+					<p class="fragment">但是PATH和檔案關聯建議打開</p>
+				</section>
+				<section>
+					<h2>等它安裝</h2>
+					<img src="images/wait.png">
+				</section>
+				<section>
+					<h2>安裝完成</h2>
+					<img src="images/finish.png">
+					<p class="fragment">接下來就可以使用了</p>
+				</section>
+				<section>
+					<h2>使用Ruby</h2>
+					<p class="fragment">Start&nbsp;Command&nbsp;Prompt&nbsp;with&nbsp;Ruby</p>
+					<p class="fragment">Interactive&nbsp;Ruby</p>
+				</section>
+				<section>
+					<h2>執行檔案</h2>
+					<p class="fragment">要對電腦路徑稍微熟悉</p>
+					<p class="fragment">基本的CMD/TTY操作要會</p>
+					<p class="fragment">先不要用這個</p>
+				</section>
+				<section>
+					<h2>互動模式</h2>
+					<p class="fragment">使用irb為工具</p>
+					<p class="fragment">輸入程式後就會產生結果</p>
+					<p class="fragment">可以專心在語言的熟悉上</p>
+				</section>
+				<section>
+					<h2>hello, world</h2>
+					<p class="fragment">先進入irb後輸入以下指令</p>
+					<pre class="fragment" style="width:420px;"><code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">print "hello, world"</code></pre>
+					<p class="fragment">就得到一行輸出結果</p>
+					<pre class="fragment" style="width:420px;"><code class="js" style="font-size:32px;font-family:'consolas','ubuntu mono'">hello, world=> nil</code></pre>
+				</section>
+				<section>
+					<h2>踏出第一步</h2>
+					<p class="fragment">上面就是一個簡單的程式了</p>
+					<p class="fragment">就是叫直譯器印出hello,&nbsp;world這幾個字</p>
+					<p class="fragment">至於nil我們之後會再討論</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h1>基礎型別</h1>
+				</section>
+				<section>
+					<h2>類別</h2>
+					<p class="fragment">Ruby是基於物件導向的語言</p>
+					<p class="fragment">在此先不管物件導向</p>
+					<p class="fragment">只要知道物件有其屬於的類別</p>
+				</section>
+				<section>
+					<h2>基礎類別</h2>
+					<p class="fragment">Ruby提供了基本的類別讓使用者使用</p>
+					<p class="fragment">使用這些類別就能做到很多事</p>
+				</section>
+				<section>
+					<h2>列表</h2>
+					<ul>
+						<li>Numeric</li>
+						<li style="list-style-type: square;">&nbsp;&nbsp;&nbsp;&nbsp;Integer</li>
+						<li style="list-style-type: square;">&nbsp;&nbsp;&nbsp;&nbsp;Float</li>
+						<li>TrueClass/FalseClass/NilClass</li>
+						<li>String</li>
+						<li>Array</li>
+						<li>Hash</li>
+						<li>...</li>
+					</ul>
+				</section>
+				<section>
+					<h2>基本類別</h2>
+					<p class="fragment">Object類別</p>
+					<p class="fragment">沒有寫出來但是提供很多基本功能</p>
+					<p class="fragment">所有類別都是其子類別</p>
+					<p class="fragment">不會知道其存在</p>
+				</section>
+				<section>
+					<h2>數字相關</h2>
+					<p class="fragment">數字有整數和浮點數</p>
+					<p class="fragment">Interger</p>
+					<p class="fragment">Float</p>
+					<p class="fragment">其實還有實數和複數<del>誰用得到呢?</del></p>
+				</section>
+				<section>
+					<h2>整數</h2>
+					<p class="fragment">Integer</p>
+					<p class="fragment">在Ruby2.4整合了Fixnum和Bignum</p>
+					<p class="fragment">可以處理非常大的數字</p>
+					<p class="fragment">有很多種方法表達整數</p>
+				</section>
+				<section>
+					<h2>整數表達</h2>
+					<p class="fragment">十進位:&nbsp;5566,22_000</p>
+					<p class="fragment">八進位:&nbsp;0755,0422</p>
+					<p class="fragment">二進位:&nbsp;0b11001101</p>
+					<p class="fragment">十六進位:&nbsp;0xC8763,0xdeadface</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">到底0xC8763在10進位下是多少</p>
+					<p class="fragment">0b100,0100,100,0x100</p>
+					<p class="fragment">16進位大小寫有沒有關係呢?</p>
+				</section>
+				<section>
+					<h2>大數</h2>
+					<p class="fragment">大家可能對這個詞比較不熟悉</p>
+					<p class="fragment">電腦一般儲存數字大小是有限制的</p>
+					<p class="fragment">能夠不具大小限制的處理就稱為大數</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">2147483647.class</p>
+					<p class="fragment">9999略9999.class</p>
+					<p class="fragment">不要把「略」打上去啊...</p>
+				</section>
+				<section>
+					<h2>浮點數</h2>
+					<p class="fragment">Float</p>
+					<p class="fragment">浮點數可以近似表達小數</p>
+					<p class="fragment">整數和浮點數運算會變浮點數</p>
+					<p class="fragment">浮點數也有很多表達方法</p>
+				</section>
+				<section>
+					<h2>浮點數表達</h2>
+					<p class="fragment">科學記號:&nbsp;8722.78e6,9.109E-31</p>
+					<p class="fragment">小數點:&nbsp;-0.3010,866.6</p>
+					<p class="fragment">特殊的NaN,Infinity,-Infinity</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">看看以下結果</p>
+					<p class="fragment">1.0/0.0</p>
+					<p class="fragment">-1.0/0.0</p>
+					<p class="fragment">0.0/0.0</p>
+				</section>
+				<section>
+					<h2>真假值</h2>
+					<p class="fragment">true,false,nil可以表達真假值</p>
+					<p class="fragment">其中false和nil永遠代表為假</p>
+					<p class="fragment">其他的數值就算不是true也為真</p>
+					<p class="fragment">用來進行條件判斷</p>
+				</section>
+				<section>
+					<h2>真假值表示</h2>
+					<p class="fragment">true,TRUE</p>
+					<p class="fragment">false,FALSE</p>
+					<p class="fragment">nil,NIL</p>
+					<p class="fragment">以上都小寫或都大寫</p>
+				</section>
+				<section>
+					<h2>字串</h2>
+					<p class="fragment">String</p>
+					<p class="fragment">可以放入各種文字</p>
+					<p class="fragment">Ruby原生支援UTF-8編碼<del>畢竟要支援日文</del></p>
+					<p class="fragment">之後會有更詳細的介紹</p>
+				</section>
+				<section>
+					<h2>陣列</h2>
+					<p class="fragment">Array</p>
+					<p class="fragment">可以依照索引放入任何東西</p>
+					<p class="fragment">裏面也可以裝陣列</p>
+					<p class="fragment">今天還用不到</p>
+				</section>
+				<section>
+					<h2>雜湊</h2>
+					<p class="fragment">Hash</p>
+					<p class="fragment">有時候希望用不同的索引存取資料</p>
+					<p class="fragment">可以建立鍵值的配對</p>
+					<p class="fragment">也是很好用的類別</p>
+				</section>
+				<section>
+					<h2>當然還有</h2>
+					<p class="fragment">當然沒有</p>
+					<p class="fragment">其實Ruby提供的類別不只這些</p>
+					<p class="fragment">要介紹恐怕介紹不完</p>
+					<p class="fragment">常用的至少要先學會歐</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h1>四則運算</h1>
+				</section>
+				<section>
+					<h2>數字當然是可以互相運算的</h2>
+					<p class="fragment">以下就來介紹各種運算</p>
+				</section>
+				<section>
+					<h2>加法</h2>
+					<p class="fragment">"+"號</p>
+					<p class="fragment">浮點數和整數可以混合運算</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">10000000.0+20000000+0.00000001</p>
+					<p class="fragment">10000000.0+0.00000001+20000000</p>
+				</section>
+				<section>
+					<h2>減法</h2>
+					<p class="fragment">"-"號</p>
+					<p class="fragment">一樣可以混合運算</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">0x1000-0b100-10-0b1</p>
+				</section>
+				<section>
+					<h2>乘法</h2>
+					<p class="fragment">"*"號</p>
+					<p class="fragment">注意不是使用英文子母"x"</p>
+				</section>
+				<section>
+					<h2>千萬別這樣</h2>
+					<p class="fragment">0x0</p>
+					<p class="fragment">你看結果明明就是0啊</p>
+					<p class="fragment">0x16</p>
+					<p class="fragment">欸欸欸欸欸欸欸欸欸</p>
+				</section>
+				<section>
+					<h2>除法</h2>
+					<p class="fragment">"/"號</p>
+					<p class="fragment">注意"\"不是除法</p>
+					<p class="fragment">整數除以整數恆為整數</p>
+				</section>
+				<section>
+					<h2>除法特例</h2>
+					<p class="fragment">100/0</p>
+					<p class="fragment">1.0/0</p>
+					<p class="fragment">0.0/0</p>
+				</section>
+				<section>
+					<h2>取餘數</h2>
+					<p class="fragment">"%"號</p>
+					<p class="fragment">雖然號稱四則運算實則不只</p>
+					<p class="fragment">也要小心整數對0取餘數</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">-5&nbsp;%&nbsp;3</p>
+					<p class="fragment">5&nbsp;%&nbsp;-3</p>
+					<p class="fragment">6.3&nbsp;%&nbsp;6</p>
+					<p class="fragment">6.3&nbsp;%&nbsp;2.1</p>
+					<p class="fragment">777&nbsp;%&nbsp;0</p>
+				</section>
+				<section>
+					<h2>指數</h2>
+					<p class="fragment">"**"&nbsp;2個"*"號</p>
+					<p class="fragment">最刺激的運算</p>
+					<p class="fragment">可以開根號或求倒數</p>
+				</section>
+				<section>
+					<h2>宰牛了</h2>
+					<p class="fragment">9999**9999</p>
+					<p class="fragment">2**-1+3**-1</p>
+					<p class="fragment">2**0.5</p>
+					<p class="fragment">2**-0.5</p>
+				</section>
+				<section>
+					<h2>以上為Ruby中簡單的數字操作</h2>
+				</section>
+			</section>
+			
+			<section>
+				<h2>感謝大家今日的聆聽</h2>
+			</section>
+			
+			</div>
+		</div>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true },
+				{ src: '../plugin/notes/notes.js', async: true }
+			]
+		});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,441 @@
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Ruby</title>
+
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+		<meta name="og:title" content="Ruby">
+		<meta name="og:url" content="http://ntnucic.github.io/Courses/slides/20161021-RB-Branch/index.html">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社Ruby課程投影片">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+			<section>
+				<h1 style="margin-top:100px">分支指令及邏輯運算</h1>
+					<h4>林品儒</h4>
+					<h4>2016/10/21</h4>
+			</section>
+			
+			<section>
+				<h2>本日重點</h2>
+				<p class="fragment">比較運算</p>
+				<!-- 比較運算 相等 比大小 -->
+				<p class="fragment">分支指令</p>
+				<!-- if if/else if/elsif/else unless unless/else case -->
+				<!-- 三元運算子 後綴if 後綴unless -->
+				<p class="fragment">邏輯運算</p>
+				<!-- 種類 and/&& or/|| not/! ^ 運算優先度-->
+				<p class="fragment">特殊用法</p>
+				<!-- and or ||= &&= -->
+			</section>
+			
+			<section>
+				<section>
+					<h1>比較運算</h1>
+				</section>
+				<section>
+					<h2>比較運算</h2>
+					<p class="fragment">可以在不同物件之間比較</p>
+					<p class="fragment">可以有相等或是大小之分</p>
+				</section>
+				<section>
+					<h2>相等比較</h2>
+					<p class="fragment">在Ruby中有不同種類的相等比較</p>
+					<p class="fragment">最簡單的就是比較兩個物件的值</p>
+					<p class="fragment">也可以比較兩個物件是否為同個物件</p>
+					<p class="fragment">還有更廣的比較</p>
+				</section>
+				<section>
+					<h2>不相等</h2>
+					<p class="fragment">兩個物件值不一樣就是不相等</p>
+					<p class="fragment">!=</p>
+					<p class="fragment">反而相等的狀況更為複雜...</p>
+				</section>
+				<section>
+					<h2>相等</h2>
+					<p class="fragment">比較兩個物件的值是否相等</p>
+					<p class="fragment">==&nbsp;(注意不是賦值的單一"="號)</p>
+					<p class="fragment">比較兩個物件的值和類別是否相等</p>
+					<p class="fragment">eql?</p>
+					<p class="fragment">比較兩物件是否為同一物件</p>
+					<p class="fragment">equal?</p>
+				</section>
+				<section>
+					<h2>物件id</h2>
+					<p class="fragment">之前有提到物件其實就在記憶體某處</p>
+					<p class="fragment">物件的ID就代表了物件的位置(指標)</p>
+					<p class="fragment">藉由比較ID可以判斷兩物件是否為同一物件</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">1==1.0</p>
+					<p class="fragment">1.eql?&nbsp;1.0</p>
+					<p class="fragment">[].equal?&nbsp;[]</p>
+				</section>
+				<section>
+					<h2>物件id補充</h2>
+					<p class="fragment">Ruby有不佔用記憶體空間的立即值</p>
+					<p class="fragment">2.0以前：Fixnum,Symbol,true,false,nil</p>
+					<p class="fragment">2.0開始：多了部份Float</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">1.0.equal?&nbsp;1.0</p>
+					<p class="fragment">1.9656826079092814e-236.equal?&nbsp;1.9656826079092814e-236</p>
+				</section>
+				<section>
+					<h2>範圍運算子</h2>
+					<p class="fragment">可以表達一個整數的區間</p>
+					<p class="fragment">兩個數字中間放入".."或"..."</p>
+					<p class="fragment">1..5意為[1,5]</p>
+					<p class="fragment">1...5則意為[1,5)</p>
+				</section>
+				<section>
+					<h2>關聯運算子</h2>
+					<p class="fragment">其實就是&nbsp;===&nbsp;</p>
+					<p class="fragment">可以檢查兩物件間的多個條件是否有符合者</p>
+					<p class="fragment">不會直接拿出來用但是會用到</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">(1...10)===9.5</p>
+					<p class="fragment">Integer===0xC8763</p>
+				</section>
+				<section>
+					<h2>比大小</h2>
+					<p class="fragment">數字之間能互相比大小</p>
+					<p class="fragment">字串之間也可以比大小</p>
+					<p class="fragment">但是數字和字串不能比大小</p>
+					<p class="fragment">小心兩個物件的類別</p>
+				</section>
+				<section>
+					<h2>種類</h2>
+					<p class="fragment">&lt;：小於</p>
+					<p class="fragment">&gt;：大於</p>
+					<p class="fragment">&lt;=：不大於</p>
+					<p class="fragment">&gt;=：不小於</p>
+					<p class="fragment">&lt;=&gt;：看前後的大小回傳1,0,-1</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">'Z'&gt;'B'</p>
+					<p class="fragment">'Z'&gt;'b'</p>
+					<p class="fragment">'100'&lt;=100</p>
+					<p class="fragment">11&lt;10.9</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h1>分支指令</h1>
+				</section>
+				<section>
+					<h2>分支指令</h2>
+					<p class="fragment">在此堂課之前程式只能循序執行</p>
+					<p class="fragment">利用分支指令可以在不同條件下執行不同程式</p>
+				</section>
+				<section>
+					<h2>if</h2>
+					<p class="fragment">最簡單的分支指令</p>
+					<pre class="fragment" style="width:420px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">if(cond)[then]
+  do_something
+end</code></pre>
+					<p class="fragment">條件符合才做事</p>
+					<p class="fragment">then可省略且一定要加上end</p>
+				</section>
+				<section>
+					<h2>if/else</h2>
+					<p class="fragment">二選一</p>
+					<pre class="fragment" style="width:420px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">if(cond)[then]
+  do_something
+else
+  do_others
+end</code></pre>
+					<p class="fragment">再次提醒不要忘了end</p>
+				</section>
+				<section>
+					<h2>if/elsif/else</h2>
+					<p class="fragment">可以有很多種選擇</p>
+					<pre class="fragment" style="width:420px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">if(condA)[then]
+  do_things_A
+elsif(condB)[then]
+  do_things_B
+...
+[else
+  do_others]
+end</code></pre>
+					<p class="fragment">else不一定要出現且注意是elsif</p>
+				</section>
+				<section>
+					<h2>磨刀</h2>
+					<p class="fragment">之後的程式碼會超過1行以上</p>
+					<p class="fragment">單純使用irb無法修改也不方便使用</p>
+					<p class="fragment">先在編輯器上寫好再貼上irb吧</p>
+					<p class="fragment">直接執行外部檔案又是另外的故事了</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">讓輸入的不及格成績及格吧</p>
+					<p class="fragment"><strong>提示：變數,gets,to_i,if</strong></p>
+					<p class="fragment">血量100的始萊姆受到外在傷害使否斃命呢?</p>
+					<p class="fragment"><strong>提示：減法,if/else</strong></p>
+					<p class="fragment">聽說大家手上拿的刀子數目不太一樣</p>
+					<p class="fragment">拿了1,2,3,9,54把刀的各是什麼來頭</p>
+					<p class="fragment"><strong>提示：if/elsif/else</strong></p>
+				</section>
+				<section>
+					<h2>unless</h2>
+					<p class="fragment">可以在條件不符時做事</p>
+					<pre class="fragment" style="width:420px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">unless(fail)[then]
+  do_something
+end</code></pre>
+					<p class="fragment">可以用來確保失敗時做些處理</p>
+				</section>
+				<section>
+					<h2>unless/else</h2>
+					<p class="fragment">也是二選一</p>
+					<pre class="fragment" style="width:420px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">unless(fail)[then]
+  do_something
+else
+  do_others
+end</code></pre>
+					<p class="fragment">就是個反向的if/else</p>
+					<p class="fragment"><del>沒有多重條件不符合時的判斷歐</del></p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">紅茶已經40元是否該漲價?</p>
+					<p class="fragment"><strong>提示：unless,10&lt;40</strong></p>
+					<p class="fragment">大人快鍘他!!</p>
+					<p class="fragment"><strong>提示：unless/end,"Y"/"N"</strong></p>
+				</section>
+				<section>
+					<h2>多重條件比對</h2>
+					<p class="fragment">有時候elsif寫起來實在不明確</p>
+					<p class="fragment">比對列舉的條件</p>
+					<p class="fragment">該是關聯運算子出場的時候了</p>
+				</section>
+				<section>
+					<h2>case/when/else/end</h2>
+					<p class="fragment">可以和if/elsif/else視情況選用</p>
+					<pre class="fragment" style="width:420px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">case(obj)
+when&nbsp;val_A&nbsp;[then]
+  do_things_A
+...
+else
+  do_others
+end</code></pre>
+					<p class="fragment">一樣then可以省略且記得要加上end</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">來把成績轉換成等第</p>
+					<p class="fragment">0~59為F</p>
+					<p class="fragment">60~69為D</p>
+					<p class="fragment">70~79為C</p>
+					<p class="fragment">80~89為B</p>
+					<p class="fragment">90~99為A</p>
+					<p class="fragment">100為A+</p>
+					<p class="fragment">試想用if/elsif/else怎麼寫</p>
+				</section>
+				<section>
+					<h2>三元運算子</h2>
+					<p class="fragment">極度省略的if/else替代方案</p>
+					<p class="fragment">(cond)?&nbsp;correct&nbsp;:&nbsp;fail</p>
+					<p class="fragment">注意其中的":"前後最好都留空格</p>
+					<p class="fragment">不要濫用影響可讀性</p>
+				</section>
+				<section>
+					<h2>後綴if</h2>
+					<p class="fragment">只想在某些狀況下執行單行指令</p>
+					<p class="fragment">在指令後面加上if和條件就可以了</p>
+					<p class="fragment">do_something&nbsp;if&nbsp;cond</p>
+				</section>
+				<section>
+					<h2>後綴unless</h2>
+					<p class="fragment">否定版的後綴if</p>
+					<p class="fragment">do_somthing&nbsp;unless&nbsp;fail</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">輸入的數字是否為非負整數</p>
+					<p class="fragment"><strong>提示：gets,to_i,三元運算子</strong></p>
+					<p class="fragment">exit&nbsp;if&nbsp;Math.is_a?(Class)</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h1>邏輯運算</h1>
+				</section>
+				<section>
+					<h2>邏輯運算</h2>
+					<p class="fragment">可以用來對真假值運算</p>
+					<p class="fragment">讓條件可以更為複雜</p>
+					<p class="fragment">簡化不必要的分支指令</p>
+				</section>
+				<section>
+					<h2>且</h2>
+					<p class="fragment">TT→T</p>
+					<p class="fragment">FT→F</p>
+					<p class="fragment">TF→F</p>
+					<p class="fragment">FF→F</p>
+					<p class="fragment">and&nbsp;和&nbsp;&amp;&amp;&nbsp;都可以做"且"的運算</p>
+				</section>
+				<section>
+					<h2>或</h2>
+					<p class="fragment">TT→T</p>
+					<p class="fragment">FT→T</p>
+					<p class="fragment">TF→T</p>
+					<p class="fragment">FF→F</p>
+					<p class="fragment">or&nbsp;和&nbsp;||&nbsp;都能做"或"的運算</p>
+				</section>
+				<section>
+					<h2>戶斥或</h2>
+					<p class="fragment">TT→F</p>
+					<p class="fragment">FT→T</p>
+					<p class="fragment">TF→T</p>
+					<p class="fragment">FF→F</p>
+					<p class="fragment">只有&nbsp;^&nbsp;可以做互斥"或"的運算</p>
+				</section>
+				<section>
+					<h2>反向</h2>
+					<p class="fragment">T→F</p>
+					<p class="fragment">F→T</p>
+					<p class="fragment">有not和&nbsp;!&nbsp;可以使用</p>
+					<p class="fragment">注意這個運算是要放在物件前面</p>
+				</section>
+				<section>
+					<h2>運算優先度</h2>
+					<p class="fragment">程式中對於各運算子的優先度是不太一樣的</p>
+					<p class="fragment">乘除&gt;加減&gt;比較&gt;^&gt;&amp;&amp;==||&gt;賦值&gt;not&gt;and==or</p>
+					<p class="fragment">不確定時可以使用小括號確保先行計算</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">觀察兩個指令執行後cond的值</p>
+					<p class="fragment">cond=true&nbsp;and&nbsp;false</p>
+					<p class="fragment">cond=true&nbsp;&amp;&amp;&nbsp;false</p>
+				</section>
+			</section>
+			
+			<section>
+				<section>
+					<h1>特殊用法</h1>
+				</section>
+				<section>
+					<h2>分支替代</h2>
+					<p class="fragment">and和or其實有神奇的妙用</p>
+					<p class="fragment">可以用來取代簡單的判斷</p>
+					<p class="fragment">部份狀況下比後綴的條件有可讀性</p>
+				</section>
+				<section>
+					<h2>and</h2>
+					<p class="fragment">若是條件符合則做後面的事</p>
+					<p class="fragment">用來取代if</p>
+					<p class="fragment">data&nbsp;and&nbsp;porcess(data)</p>
+				</section>
+				<section>
+					<h2>or</h2>
+					<p class="fragment">條件不符合則做後面的事</p>
+					<p class="fragment">用來取代unless</p>
+					<p class="fragment">data&nbsp;or&nbsp;initialize(data)</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">true&nbsp;and&nbsp;print("Sucess")</p>
+					<p class="fragment">false&nbsp;or&nbsp;print("Fail")</p>
+					<p class="fragment">true&nbsp;^&nbsp;p("whatever")</p>
+					<p class="fragment">false&nbsp;^&nbsp;p("whatever")</p>
+				</section>
+				<section>
+					<h2>狀況指派</h2>
+					<p class="fragment">不只and和or有特殊的功用</p>
+					<p class="fragment">他們的近親&amp;&amp;和||也有</p>
+				</section>
+				<section>
+					<h2>安全初始化</h2>
+					<p class="fragment">可以在變數沒有給予值時給予值</p>
+					<p class="fragment">但是變數已有值時不會更改</p>
+					<p class="fragment">data=data||init_data</p>
+					<p class="fragment">data||=init_data</p>
+				</section>
+				<section>
+					<h2>有東西才改</h2>
+					<p class="fragment">這個想不出好名字</p>
+					<p class="fragment">可以在變數已經有值時給予新值</p>
+					<p class="fragment">但是沒東西時就不會給</p>
+					<p class="fragment">data=data&amp;&amp;new_data</p>
+					<p class="fragment">data&amp;&amp;=new_data</p>
+				</section>
+				<section>
+					<h2>特殊用途其實不一定是最好的寫法</h2>
+					<h2>但是懂了之後需要時就能用上</h2>
+				</section>
+			</section>
+			
+			<section>
+				<h2>希望大家技術都更加提升了</h2>
+				<h2>感謝各位</h2>
+			</section>
+			</div>
+		</div>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true },
+				{ src: '../plugin/notes/notes.js', async: true }
+			]
+		});
+		</script>
+	</body>
+</html>

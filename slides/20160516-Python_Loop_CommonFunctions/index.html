@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Python 迴圈與常用函式</title>
+
+    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+    <meta name="og:title" content="Python_intro">
+    <meta name="og:url" content="http://ntnucic.github.io/104/slides/20151001-Git/index.html">
+    <meta name="og:description" content="國立臺灣師範大學資訊研究社Python課程-Python入門">
+    <meta name="og:image" content="../../images/cic.jpg">
+    <meta name="og:site_name" content="NTNUCIC">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../lib/css/zenburn.css">
+    <!-- Display line number in code blocks-->
+    <link rel="stylesheet" href="../lib/css/line-number.css">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+    </script>
+    <style>
+        /* {
+            letter-spacing: 5px !important;
+        }*/
+        pre code, code{
+            font: consolas !important;
+            font-weight: 900;
+        }
+    </style>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Python</h1>
+                <h2>Loop & Common Functions</h2>
+                <h3>廖惠平</h3>
+                <h3>2016/5/16</h3>
+            </section>
+            <section>
+            	<section>
+            		<h1>Loop</h1>
+            	</section>
+            	<section>
+            		<h2>迴圈</h2>
+            		<ul>
+            			<li>重複做同樣的事情</li>
+            			<li>直到設定的條件不符合為止</li>
+            			<li>while迴圈</li>
+            			<li>for迴圈</li>
+            		</ul>
+            	</section>
+            	<section>
+            		<h2>在Scratch的拼圖</h2>
+            		<img src="01.png">
+            		<img src="02.png">
+            		<img src="03.png">
+            	</section>
+            	<section>
+            		<h2>想想看</h2>
+            		<p class="fragment">如果你今天要寫「跳跳繩」...</p>
+            		<ol>
+            			<li class="fragment">拿起跳繩</li>
+            			<li class="fragment">甩繩子</li>
+            			<li class="fragment">跳起來</li>
+            			<li class="fragment">停止</li>
+            		</ol>
+            	</section>
+            	<section>
+            		<h2>一直跳一直跳</h2>
+            		<img src="01.png" class="fragment">
+            		<pre class="fragment">
+拿起跳繩
+重複
+	甩繩子
+	跳起來
+停止
+            		</pre>
+            	</section>
+            	<section>
+            		<h2>一直跳到累了</h2>
+            		<img src="02.png" class="fragment">
+            		<pre class="fragment">
+拿起跳繩
+重複直到 累了
+	甩繩子
+	跳起來
+停止
+            		</pre>
+            	</section>
+            	<section>
+            		<h2>跳十下</h2>
+            		<img src="03.png" class="fragment">
+            		<pre class="fragment">
+拿起跳繩
+重複 十次
+	甩繩子
+	跳起來
+停止
+            		</pre>
+            	</section>
+            </section>
+            <section>
+            	<section>
+            		<h1>While Loop</h1>
+            	</section>
+            	<section>
+            		<h2>while迴圈</h2>
+            		<img src="02.png" class="fragment">
+            		<ol>
+            			<li class="fragment">檢查條件</li>
+            			<li class="fragment">如果條件為真(True)</li>
+            			<li class="fragment">執行scope內的指令</li>
+            			<li class="fragment">重複上述步驟直到條件為False</li>
+            		</ol>
+            	</section>
+            	<section>
+            		<h2>while迴圈</h2>
+            		<pre class="fragment"><code data-trim>
+while 條件:
+	重複執行的指令
+其他指令
+            		</code></pre>
+            		<ul>
+            			<li class="fragment">條件為布林值</li>
+            			<li class="fragment">記得冒號</li>
+            			<li class="fragment">記得縮排</li>
+            		</ul>
+            	</section>
+            	<section>
+            		<h2>while迴圈──範例1</h2>
+            		<pre class="fragment"><code data-trim>
+isTired = False
+while isTired == False:
+	print('Jump!')
+	isTired = True
+print('End')
+            		</code></pre>
+            		<pre class="fragment"><samp data-trim>
+Jump!
+End
+            		</samp></pre>
+            		<p class="fragment"><a href="while_loop_1.py" download>Demo</a></p>
+            	</section>
+            	<section>
+            		<h2>while迴圈──範例2</h2>
+            		<pre class="fragment"><code data-trim>
+limit = 3
+counts = 0
+while counts < limit:
+	print('Jump!')
+	counts += 1
+print('End')
+            		</code></pre>
+            		<pre class="fragment"><samp data-trim>
+Jump!
+Jump!
+Jump!
+End
+            		</samp></pre>
+            		<p class="fragment"><a href="while_loop_2.py" download>Demo</a></p>
+            	</section>
+            	<section>
+            		<h2>無窮迴圈</h2>
+            		<img src="01.png" class="fragment">
+            		<ul>
+            			<li class="fragment">一直重複</li>
+            			<li class="fragment">不會停止</li>
+            			<li class="fragment">耗資源</li>
+            		</ul>
+            	</section>
+            	<section>
+            		<h2>無窮迴圈</h2>
+            		<pre class="fragment"><code data-trim>
+while True:
+	print('hi~')
+print('End')
+            		</code></pre>
+            		<pre class="fragment"><samp>
+hi~
+hi~
+hi~
+hi~
+hi~
+hi~
+hi~
+            		</samp></pre>
+            		<p class="fragment"><a href="while_loop_3.py" download>Demo</a></p>
+            	</section>
+            	<section>
+            		<h2>注意事項</h2>
+            		<ul>
+            			<li class="fragment">重複執行某些動作</li>
+            			<li class="fragment">小心無窮迴圈的出現</li>
+            			<li class="fragment">注意執行條件有沒有更動</li>
+            		</ul>
+            	</section>
+            </section>
+            <section>
+            	<section>
+            		<h1>For Loop</h1>
+            	</section>
+            	<section>
+            		<h2>For迴圈</h2>
+            		<img src="03.png" class="fragment">
+            		<ol>
+            			<li class="fragment">如果從序列(Sequence)中有取得物件</li>
+            			<li class="fragment">執行scope內的指令</li>
+            			<li class="fragment">取得序列的下一項</li>
+            			<li class="fragment">重複上述步驟直到序列取不到物件</li>
+            		</ol>
+            	</section>
+            	<section>
+            		<h2>For迴圈</h2>
+            		<pre class="fragment"><code data-trim>
+for 變數 in 序列:
+	重複執行的指令
+其他指令
+            		</code></pre>
+            		<ul>
+            			<li class="fragment">變數為該次取得的物件</li>
+            			<li class="fragment">記得in</li>
+            			<li class="fragment">記得冒號</li>
+            			<li class="fragment">記得縮排</li>
+            		</ul>
+            	</section>
+            	<section>
+            		<h2>for迴圈──範例1</h2>
+            		<pre class="fragment"><code data-trim>
+scores = [60,70,100]
+for x in scores:
+	print(x)
+print('End')
+            		</code></pre>
+            		<pre class="fragment"><samp data-trim>
+60
+70
+100
+End
+            		</samp></pre>
+            		<p class="fragment"><a href="for_loop_1.py" download>Demo</a></p>
+            	</section>
+            	<section>
+            		<h2>for迴圈──範例2</h2>
+            		<pre class="fragment"><code data-trim>
+str = 'Hello'
+for x in str:
+	print(x)
+print('End')
+            		</code></pre>
+            		<pre class="fragment"><samp data-trim>
+H
+e
+l
+l
+o
+End
+            		</samp></pre>
+            		<p class="fragment"><a href="for_loop_2.py" download>Demo</a></p>
+            	</section>
+            	<section>
+            		<h2>for迴圈──範例3</h2>
+            		<pre class="fragment"><code data-trim>
+names_scores = (('Amy',82,90),('John',33,64),('Zoe',91,94))
+for x,y,z in names_scores:
+	print(x)
+	print(y,z)
+print('End')
+            		</code></pre>
+            		<pre class="fragment"><samp data-trim>
+Amy
+82 90
+John
+33 64
+Zoe
+91 94
+End
+            		</samp></pre>
+            		<p class="fragment"><a href="for_loop_3.py" download>Demo</a></p>
+            	</section>
+                <section>
+                    <h2>練習</h2>
+                    <p class="fragment">請用迴圈計算此班的各科平均與個人總平均</p>
+                    <table class="fragment">
+                        <tr>
+                            <th>姓名</th>
+                            <th>C</th>
+                            <th>Python</th>
+                            <th>Java</th>
+                        </tr>
+                        <tr>
+                            <td>習西西</td>
+                            <td>80</td>
+                            <td>74</td>
+                            <td>29</td>
+                        </tr>
+                        <tr>
+                            <td>王蟒蛇</td>
+                            <td>38</td>
+                            <td>84</td>
+                            <td>59</td>
+                        </tr>
+                        <tr>
+                            <td>林嘉娃</td>
+                            <td>49</td>
+                            <td>43</td>
+                            <td>78</td>
+                        </tr>
+                    </table>
+                </section>
+            </section>
+            <!--
+            <section>
+            	<section>
+            		<h1>Pass, Break, <br>and Continue</h1>
+            	</section>
+            </section>
+            -->
+            <section>
+            	<section>
+            		<h1>Function</h1>
+            	</section>
+            	<section>
+            		<h2>函式</h2>
+            		<ul>
+            			<li class="fragment">可重複使用的功能</li>
+            			<li class="fragment">避免複製貼上</li>
+            			<li class="fragment">傳入參數可微調結果</li>
+            			<li class="fragment">可能有回傳值</li>
+            			<li class="fragment">內建函式</li>
+            			<li class="fragment">自行撰寫函式</li>
+            		</ul>
+            	</section>
+            	<section>
+            		<h2>參數</h2>
+            		<ul>
+            			<li class="fragment">parameter</li>
+            			<li class="fragment">類似指派</li>
+            			<li class="fragment">用來調整函式執行時的結果</li>
+            			<li class="fragment">可變變數可在函式中被改動！</li>
+            		</ul>
+            	</section>
+            	<section>
+            		<h2>範例</h2>
+            		<p class="fragment">假設我想要一杯紅茶微糖去冰...</p>
+            		<ul>
+            			<li class="fragment">函式：生產手搖紅茶</li>
+            			<li class="fragment">參數：微糖、去冰</li>
+            			<li class="fragment">回傳：一杯微糖去冰的手搖紅茶</li>
+            		</ul>
+            	</section>
+            	<section>
+            		<h2>呼叫函式</h2>
+            		<pre class="fragment"><code data-trim>
+函式名稱(參數)
+print('Hi~')		#Hi~
+print('1','2','3')	#1 2 3
+a = [1,2,3,4,5]
+b = len(a)		#b = 5
+            		</code></pre>
+            		<ul>
+            			<li class="fragment">以函式名稱+小括號呼叫(call)函式</li>
+            			<li class="fragment">可以有多個參數</li>
+            			<li class="fragment">可用變數接回傳值</li>
+            		</ul>
+            	</section>
+            </section>
+            <section>
+            	<section>
+            		<h1>Built-in Functions</h1>
+            	</section>
+            	<section>
+            		<h2>內建函式</h2>
+            		<ul>
+            			<li class="fragment">內建的</li>
+            			<li class="fragment">可直接使用</li>
+            			<li class="fragment"><a href="https://docs.python.org/3.5/library/functions.html" target="_blank">官方文件</a></li>
+            		</ul>
+            	</section>
+				<section>
+					<h2>輸入輸出</h2>
+					<ul class="fragment">
+						<li>print()：顯示</li>
+						<li>format()：設定格式</li>
+						<li>input()：輸入</li>
+						<li>open()：開啟檔案</li>
+						<!--close是method-->
+					</ul>
+				</section>
+				<section>
+					<h2>型別</h2>
+					<ul class="fragment">
+						<li>int()：轉為整數</li>
+						<li>float()：轉為浮點數</li>
+						<li>complex()：轉為複數</li>
+						<li>bool()：轉為布林值</li>
+						<li>bin()：轉為二進位</li>
+						<li>hex()：轉為十六進位</li>
+						<li>oct()：轉為八進位</li>
+						<li>chr()：回傳該Unicode編碼的字元</li>
+						<li>ord()：回傳該字元的Unicode編碼</li>
+					</ul>
+				</section>
+				<section>
+					<h2>練習1</h2>
+					<p class="fragment">請問下列程式碼執行結果為何?</p>
+					<pre class="fragment"><code data-trim>
+a='15'
+print(a)
+print(int(a))
+print(float(a))
+print(complex(a))
+print(bool(a))
+b=15
+print(bin(b))
+print(hex(b))
+print(oct(b))
+c=97
+print(chr(c))
+d='a'
+print(ord(d))
+					</code></pre>
+					<p class="fragment"><a href="built-in_functions_1.py" download>Demo</a></p>
+				</section>
+				<section>
+					<h2>數學運算</h2>
+					<ul class="fragment">
+						<li>abs()：取絕對值</li>
+						<li>max()：取最大值</li>
+						<li>min()：取最小值</li>
+						<li>pow(a,b)：a的b次方</li>
+						<li>round()：取近似值</li>
+						<li>sum()：加總序列中的數值</li>
+					</ul>
+				</section>
+                <section>
+                    <h2>練習2</h2>
+                    <p class="fragment">請問下列程式碼執行結果為何?</p>
+                    <pre class="fragment"><code data-trim>
+a = 3
+b = -3
+c = 0
+d = -0
+print(abs(a))
+print(abs(b))
+print(abs(c))
+print(abs(d))
+print(max(a,b,c,d))
+print(min(a,b,c,d))
+                    </code></pre>
+                </section>
+                <section>
+                    <h2>練習2</h2>
+                    <pre class="fragment"><code data-trim>
+e = 2
+f = 3
+g = 9
+h = 0.5
+print(pow(e,f))
+print(pow(f,e))
+print(pow(g,h))
+i = 1.4
+j = 1.5
+k = -0.5
+print(round(i))
+print(round(j))
+print(round(k))
+x = [1,2,3,4,5]
+total = sum(x)
+print(total)
+                    </code></pre>
+                    <p class="fragment"><a href="built-in_functions_2.py" download>Demo</a></p>
+                </section>
+				<section>
+					<h2>序列</h2>
+					<ul class="fragment">
+						<li>len()：回傳序列長度</li>
+						<li>sorted()：排序序列中的物件</li>
+						<li>reversed()：反轉序列中物件被取用的順序</li>
+						<li>range(a,b)：從a起到b止的序列</li>
+						<li>zip()：配對兩序列</li>
+					</ul>
+				</section>
+                <section>
+                    <h2>練習3</h2>
+                    <p class="fragment">請問下列程式碼執行結果為何?</p>
+                    <pre class="fragment"><code data-trim>
+a = [4,2,1,-3,5]
+b = [1,2,3,4,5]
+print(len(a))
+sorted(a)
+print(a)
+for x in reversed(a):
+    print(x,end=' ')
+print('\n====================')
+for x in range(1,5):
+    print(x,end=' ')
+print('\n====================')
+print(list(zip(a,b)))
+                    </code></pre>
+                    <p class="fragment"><a href="built-in_functions.py" download>Demo</a></p>
+                </section>
+            </section>
+        </div>
+    </div>
+
+    <script src="../lib/js/head.min.js"></script>
+    <script src="../js/reveal.js"></script>
+
+    <script>
+
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+            // Optional reveal.js plugins
+            dependencies: [
+                { src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                { src: '../plugin/zoom-js/zoom.js', async: true },
+                { src: '../plugin/notes/notes.js', async: true },
+                { src: '../lib/js/line-numbers.js'}
+            ]
+        });
+
+    
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <title>Python 函式</title>
+
+    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+    <meta name="og:title" content="Python_intro">
+    <meta name="og:url" content="http://ntnucic.github.io/104/slides/20151001-Git/index.html">
+    <meta name="og:description" content="國立臺灣師範大學資訊研究社Python課程-Python入門">
+    <meta name="og:image" content="../../images/cic.jpg">
+    <meta name="og:site_name" content="NTNUCIC">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="../lib/css/zenburn.css">
+    <!-- Display line number in code blocks-->
+    <link rel="stylesheet" href="../lib/css/line-number.css">
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+    </script>
+    <style>
+        /* {
+            letter-spacing: 5px !important;
+        }*/
+        pre code, code{
+            font: consolas !important;
+            font-weight: 900;
+        }
+    </style>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Python Function</h1>
+                <h3>廖惠平</h3>
+                <h3>2016/5/23</h3>
+            </section>
+            <section>
+            	<section>
+            		<h1>Function</h1>
+            	</section>
+            	<section>
+            		<h2>函式</h2>
+            		<ul>
+            			<li class="fragment">可重複使用的功能</li>
+            			<li class="fragment">避免複製貼上</li>
+            			<li class="fragment">傳入參數可微調結果</li>
+            			<li class="fragment">可能有回傳值</li>
+            			<li class="fragment">內建函式</li>
+            			<li class="fragment">自行撰寫函式</li>
+            		</ul>
+            	</section>
+            	<section>
+            		<h2>參數</h2>
+            		<ul>
+            			<li class="fragment">parameter</li>
+            			<li class="fragment">類似指派</li>
+            			<li class="fragment">用來調整函式執行時的結果</li>
+            			<li class="fragment">可變變數可在函式中被改動！</li>
+            		</ul>
+            	</section>
+            	<section>
+            		<h2>範例</h2>
+            		<p class="fragment">假設我想要一杯紅茶微糖去冰...</p>
+            		<ul>
+            			<li class="fragment">函式：生產手搖紅茶</li>
+            			<li class="fragment">參數：微糖、去冰</li>
+            			<li class="fragment">回傳：一杯微糖去冰的手搖紅茶</li>
+            		</ul>
+            	</section>
+            	<section>
+            		<h2>定義函式</h2>
+            		<pre class="fragment"><code data-trim>
+def 函式名稱(參數):
+	函式要做的事情
+	return 回傳值
+
+def say_hi_to(name):
+	print('Hi, '+name+'!')
+	return True;
+            		</code></pre>
+            		<ul>
+            			<li class="fragment">def開頭</li>
+            			<li class="fragment">有意義的命名</li>
+            			<li class="fragment">記得冒號</li>
+            			<li class="fragment">記得縮排</li>
+            		</ul>
+            	</section>
+            	<section>
+            		<h2>呼叫函式</h2>
+            		<pre class="fragment"><code data-trim>
+函式名稱(參數)
+greet = False
+greet = say_hi_to('Peter')
+#'Hi, Peter!'
+#greet = True
+            		</code></pre>
+            		<ul>
+            			<li class="fragment">以函式名稱+小括號呼叫(call)函式</li>
+            			<li class="fragment">可以有多個參數</li>
+            			<li class="fragment">可用變數接回傳值</li>
+            			<li class="fragment">先定義再呼叫</li>
+            		</ul>
+            	</section>
+            </section>
+            <section>
+            	<section>
+            		<h1>Parameter</h1>
+            	</section>
+            	<section>
+            		<h2>參數與函式</h2>
+            		<pre class="fragment"><code data-trim>
+def say_hi():
+	print('Hi~')
+def say_hi_to(name):
+	print('Hi, ' + name + '!')
+def say_sth_to(name, greet):
+	print(greet + ', ' + name + '!')
+            		</code></pre>
+            		<pre class="fragment"><code data-trim>
+say_hi()	#Hi~
+
+my_name = 'Python'
+say_hi_to(my_name)	#Hi, Python!
+
+my_name = 'World'
+say_sth_to(my_name, 'Hello')	#Hello, World!
+            		</code></pre>
+            		<p class="fragment"><a href="demo1.py" download>Demo</a></p>
+            	</section>
+            	<section>
+            		<h2>參數與函式</h2>
+            		<ul>
+            			<li class="fragment">參數可有可無</li>
+            			<li class="fragment">可以有兩個以上的參數</li>
+            			<li class="fragment">可傳入常數或變數</li>
+            			<li class="fragment">傳入參數時要照順序或使用keyword</li>
+            		</ul>
+            	</section>
+            	<section>
+            		<h2>可變與不可變參數</h2>
+            		<pre class="fragment"><code data-trim>
+def mutable_or_immutable(para):
+	para += '1'
+
+a = 'a'
+b = ['b']
+mutable_or_immutable(a)
+print(a)	#a
+mutable_or_immutable(b)
+print(b)	#['b','1']
+            		</code></pre>
+            		<p class="fragment"><a href="demo2.py" download>Demo</a></p>
+            	</section>
+            	<section>
+            		<h2>可變與不可變參數</h2>
+            		<p class="fragment">在函式中對參數做更動時：</p>
+            		<ul>
+            			<li class="fragment">不可變資料型態不會被改動</li>
+            			<li class="fragment">可變資料型態會被改動</li>
+            		</ul>
+            		<p class="fragment">使用時務必謹慎！</p>
+            	</section>
+            	<section>
+            		<h2>練習：成績轉換</h2>
+            		<img src="p1.png" class="fragment">
+            	</section>
+            	<section>
+            		<h2>練習：成績轉換</h2>
+            		<ul>
+            			<li class="fragment">輸入成績</li>
+            			<li class="fragment">將分數字串轉為整數</li>
+            			<li class="fragment">以函式判斷並顯示分數等第</li>
+            			<li class="fragment">輸入成績為-1時結束程式</li>
+            		</ul>
+            		<p class="fragment"><a href="practice1.py" download>Demo</a></p>
+            	</section>
+            </section>
+            <section>
+            	<section>
+            		<h1>Return</h1>
+            	</section>
+            	<section>
+            		<h2>回傳值</h2>
+            		<pre class="fragment"><code data-trim>
+def function1():
+	print('no return')
+def function2():
+	print('no return')
+	return
+
+def function3():
+	print('return bool')
+	return True;
+
+def function4():
+	print('return tuple')
+	return (1,2)
+def function5():
+	print('return tuple')
+	return 1,2
+            		</code></pre>
+            	</section>
+            	<section>
+            		<h2>回傳值</h2>
+            		<ul>
+            			<li class="fragment">沒有回傳值(回傳None)</li>
+            			<li class="fragment">一個回傳值</li>
+            			<li class="fragment"><del>多個回傳值</del></li>
+            			<li class="fragment">回傳tuple</li>
+            		</ul>
+            	</section>
+            	<section>
+            		<h2>練習：溫度單位轉換</h2>
+            		<img src="p2-1.png" class="fragment">
+            		<p class="fragment">華氏 = 攝氏*(9/5)+32</p>
+				</section>
+            	<section>
+            		<h2>練習：溫度單位轉換</h2>
+            		<img src="p2-2.png" class="fragment">
+            		<p class="fragment">攝氏 = (華氏-32)*5/9</p>
+				</section>
+            	<section>
+            		<h2>練習：溫度單位轉換</h2>
+            		<img src="p2-3.png" class="fragment">
+            		<p class="fragment">輸入C結束程式</p>
+				</section>
+            	<section>
+            		<h2>練習：溫度單位轉換</h2>
+            		<ul>
+            			<li class="fragment">輸入A為華式轉攝氏</li>
+            			<li class="fragment">輸入B為攝氏轉華氏</li>
+            			<li class="fragment">輸入C結束程式</li>
+            			<li class="fragment">輸入溫度</li>
+            			<li class="fragment">將溫度字串轉為數字</li>
+            			<li class="fragment">以函式實做單位轉換</li>
+            			<li class="fragment">回傳轉換後的數字</li>
+            			<li class="fragment">顯示結果</li>
+            		</ul>
+            		<p class="fragment"><a href="practice2.py" download>Demo</a></p>
+            	</section>
+            </section>
+        </div>
+    </div>
+
+    <script src="../lib/js/head.min.js"></script>
+    <script src="../js/reveal.js"></script>
+
+    <script>
+
+        // Full list of configuration options available at:
+        // https://github.com/hakimel/reveal.js#configuration
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+            // Optional reveal.js plugins
+            dependencies: [
+                { src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                { src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                { src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                { src: '../plugin/zoom-js/zoom.js', async: true },
+                { src: '../plugin/notes/notes.js', async: true },
+                { src: '../lib/js/line-numbers.js'}
+            ]
+        });
+
+    
+    </script>
+
+</body>
+</html>

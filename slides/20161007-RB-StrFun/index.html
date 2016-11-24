@@ -1,0 +1,517 @@
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Ruby</title>
+
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+		<meta name="og:title" content="Ruby">
+		<meta name="og:url" content="http://ntnucic.github.io/Courses/slides/20161007-RB-StrFun/index.html">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社Ruby課程投影片">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+			<section>
+				<h1 style="margin-top:100px">字串處理及常用方法</h1>
+					<h4>林品儒</h4>
+					<h4>2016/10/07</h4>
+			</section>
+			
+			<section>
+				<h2>本日重點</h2>
+				<p class="fragment">字串</p>
+        <!-- 字串 字串表達 單引號 雙引號 跳脫字元 竄寫 HereDoc 替代符號 -->
+        <p class="fragment">函式與方法</p>
+        <!-- 函式 方法 自改變-->
+        <p class="fragment">變數與常數</p>
+				<p class="fragment">字串處理</p>
+        <!-- []  []= size/bytesize + concat insert count index to_f to_i chomp! strip! reverse!-->
+				<p class="fragment">常用方法</p>
+        <!-- p print puts printf gets sleep exit rand srand-->        
+        <!-- 有風險的方法 eval system-->
+			</section>
+			
+			<section>
+        <section>
+          <h1>字串</h1>
+        </section>
+        <section>
+          <h2>字串</h2>
+          <p class="fragment">String</p>
+          <p class="fragment">可以放入任意的文字</p>
+          <p class="fragment">也可以放入顯示不出來的文字</p>
+          <p class="fragment">Ruby提供了很多處理字串的功能</p>
+        </section>
+        <section>
+          <h2>空字串</h2>
+          <p class="fragment">當字串中沒有任何字就是空字串</p>
+          <p class="fragment">雖然沒放東西但本身還是字串</p>
+          <p class="fragment">可以對它進行字串操作</p>
+        </section>
+        <section>
+          <h2>字串表達</h2>
+          <p class="fragment">字串有許多種表達方式</p>
+          <p class="fragment">這也是Ruby的一個特色</p>
+          <p class="fragment">上次的Hello&nbsp;World就有用到字串</p>
+        </section>
+        <section>
+          <h2>單引號表達</h2>
+          <p class="fragment">「'」號來夾住想要表達的文字</p>
+          <p class="fragment">最直接的字串表示</p>
+          <p class="fragment">'Hello,&nbsp;World'</p>
+        </section>
+        <section>
+          <h2>雙引號表達</h2>
+          <p class="fragment">「"」號夾住想要的字串</p>
+          <p class="fragment">比單引號的字串多了些功能</p>
+          <p class="fragment">要特別注意其使用</p>
+          <p class="fragment">"Hello,&nbsp;World"</p>
+        </section>
+        <section>
+          <h2>跳脫字元</h2>
+          <p class="fragment">字串中可能有單引號或雙引號</p>
+          <p class="fragment">或是需要其他特殊的功能</p>
+          <p class="fragment">使用跳脫字元顯示特殊的字</p>
+          <p class="fragment">單引號字串不能使用</p>
+        </section>
+        <section>
+          <h2>跳脫字元</h2>
+          <p class="fragment">\n:&nbsp;需要換行時就用</p>
+          <p class="fragment">\t:&nbsp;水平對齊的tab</p>
+          <p class="fragment">\a:&nbsp;蜂鳴器叫一聲(或許不會叫)</p>
+          <p class="fragment">\\:&nbsp;顯示反斜線本身</p>
+          <p class="fragment">\'&nbsp;\":&nbsp;在字串中跳脫中止字元</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">print "反斜線是\\&nbsp;雙引號是\""</p>
+          <p class="fragment">觀察&nbsp;'"'&nbsp;和&nbsp;"\""&nbsp;的結果</p>
+          <p class="fragment">print&nbsp;"1234567\t123456\t12345\t1234"</p>
+        </section>
+        <section>
+          <h2>竄寫</h2>
+          <p class="fragment">有時候想要在字串中放入運算結果</p>
+          <p class="fragment">把運算寫在字串裡是最快的方法</p>
+          <p class="fragment">"1+1=#{1+1}"</p>
+          <p class="fragment">使用#{}包住想要的運算</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">print&nbsp;"#{200+100}"</p>
+          <p class="fragment">print&nbsp;"200+100"</p>
+          <p class="fragment">print&nbsp;"#{"String!!"}"</p>
+          <p class="fragment">print&nbsp;"#{"#{"String!!"}"}"</p>
+        </section>
+        <section>
+          <h2>Here&nbsp;Document</h2>
+          <p class="fragment">有時候需要多行的字串</p>
+          <p class="fragment">使用跳脫換行很麻煩</p>
+          <p class="fragment">直接表達多行字串</p>
+        </section>
+        <section>
+          <h2>表示方法</h2>
+          <pre class="fragment" style="width:420px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">&lt;&lt;Nekomimi
+喵喵咪~~
+咪喵喵~~
+Nekomimi</code></pre>
+          <p class="fragment">開頭是兩個"&lt;"號</p>
+          <p class="fragment">中間就是想要的字串</p>
+          <p class="fragment">在頭尾使用一樣的關鍵字夾起來</p>
+        </section>
+        <section>
+          <h2>縮排關鍵字</h2>
+          <p class="fragment">利用辨識開頭的關鍵字來結束該字串</p>
+          <p class="fragment">該關鍵字不能縮排</p>
+          <p class="fragment">想要把關鍵字縮排就要加上"-"號</p>
+          <pre class="fragment" style="width:420px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">&lt;&lt;-Catear
+  貓貓咪~~
+  Catear</code></pre>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">用obov當關鍵字</p>
+          <p class="fragment">十萬青年十萬肝</p>
+        </section>
+        <section>
+          <h2>替代符號</h2>
+          <p class="fragment">可以使用"%"後面加上成對的括號或字元來表示字串</p>
+          <p class="fragment">%[這是字串]</p>
+          <p class="fragment">%%這也是字串%</p>
+          <p class="fragment">%#這還是字串#</p>
+        </section>
+        <section>
+          <h2>修飾字元</h2>
+          <p class="fragment">可以在"%"後指定一個字元</p>
+          <p class="fragment">可以當單引號雙引號表達的替代</p>
+          <p class="fragment">還可以表達其他非字串的值</p>
+        </section>
+        <section>
+          <h2>替代表達</h2>
+          <p class="fragment">%q{這是單引號字串}</p>
+          <p class="fragment">%Q^這是雙引號字串^</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">試試看使用百分號表達字串吧</p>
+          <p class="fragment">頭尾相同字元或成對字元</p>
+        </section>
+			</section>
+			
+      <section>
+        <section>
+          <h1>函式與方法</h1>
+        </section>
+        <section>
+          <h2>函式</h2>
+          <p class="fragment">英文為function</p>
+          <p class="fragment">從外部輸入資料後進行處理</p>
+          <p class="fragment">不一定回傳運算結果</p>
+        </section>
+        <section>
+          <h2>方法</h2>
+          <p class="fragment">英文為method</p>
+          <p class="fragment">處理的資料除了外部進來還有內部的</p>
+          <p class="fragment">操作某個物件內部的數據</p>
+        </section>
+        <section>
+          <h2>自改變</h2>
+          <p class="fragment">因為對物件操作有可能影響內部數據</p>
+          <p class="fragment">有些方法會使用"!"的符號來提醒</p>
+        </section>
+        <section>
+          <h2>總而言之</h2>
+          <p class="fragment">有對物件操作稱為方法</p>
+          <p class="fragment">沒有則稱為函式</p>
+          <p class="fragment">傳遞參數可以用小括號或省略</p>
+        </section>
+      </section>
+      
+      <section>
+        <section>
+          <h1>變數與常數</h1>
+        </section>
+        <section>
+          <h2>存放資料</h2>
+          <p class="fragment">很多時候我們需要把運算結果存下來而非印出來</p>
+          <p class="fragment">此時需要用東西來存放</p>
+          <p class="fragment">於是需要變數和常數</p>
+        </section>
+        <section>
+          <h2>變數</h2>
+          <p class="fragment">在Ruby中物件是沒有名字的</p>
+          <p class="fragment">變數就是賦與物件一個名字</p>
+          <p class="fragment">使用"="來指定變數指向的物件</p>
+          <p class="fragment">使用小寫字母開頭就是變數</p>
+          <p class="fragment">也可以使用非英文或數字(不建議)</p>
+        </section>
+        <section>
+          <h2>賦值</h2>
+          <p class="fragment">把物件指派給變數</p>
+          <p class="fragment">count&nbsp;=&nbsp;10</p>
+          <p class="fragment">str&nbsp;=&nbsp;"string"</p>
+          <p class="fragment">狐狸&nbsp;=&nbsp;"fox"</p>
+        </section>
+        <section>
+          <h2>常數</h2>
+          <p class="fragment">變數可以多次指派而常數不行</p>
+          <p class="fragment">就是用來存放不會變的資料</p>
+          <p class="fragment">大寫字母開頭皆為常數</p>
+          <p class="fragment"><del>其實常數可改但建議不要</del></p>
+        </section>
+        <section>
+          <h2>言而總之</h2>
+          <p class="fragment">變數和常數讓我們可以取用特定物件</p>
+          <p class="fragment">命名也是需要藝術的...</p>
+        </section>
+      </section>
+      
+      <section>
+        <section>
+          <h1>字串處理</h1>
+        </section>
+        <section>
+          <h2>字串處理</h2>
+          <p class="fragment">在Ruby中提供很多字串處理的方法</p>
+          <p class="fragment">僅介紹部份的方法</p>
+        </section>
+        <section>
+          <h2>[]</h2>
+          <p class="fragment">在Ruby中看起來是運算子的東西也是方法</p>
+          <p class="fragment">取出字串中特定位置的字元</p>
+          <p class="fragment">索引為整數&nbsp;也可為負</p>
+          <p class="fragment">索引從0開始</p>
+        </section>
+        <section>
+          <h2>語法糖衣</h2>
+          <p class="fragment">其實本來應該是要這樣寫</p>
+          <p class="fragment">"abcdef".[](3)</p>
+          <p class="fragment">不過有了語法糖衣就變簡單</p>
+          <p class="fragment">"abcdef"[3]</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">"string"[0]</p>
+          <p class="fragment">"string"[-1]</p>
+          <p class="fragment">"string"[-6]</p>
+          <p class="fragment">"string"[10]</p>
+          <p class="fragment">"string".[](2)</p>
+        </section>
+        <section>
+          <h2>[]=</h2>
+          <p class="fragment">除了可以看字串裏面的字元</p>
+          <p class="fragment">也可以把東西放進去</p>
+          <p class="fragment">不能超出原先的範圍</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">每執行一次都看看str的結果</p>
+          <p class="fragment">str="abcde"</p>
+          <p class="fragment">str[2]="C"</p>
+          <p class="fragment">str[-1]="E"</p>
+          <p class="fragment">str.[]=(0,"A")</p>
+        </section>
+        <section>
+          <h2>取得字串長度</h2>
+          <p class="fragment">取得字元個數:size,length</p>
+          <p class="fragment">取得位元組數:bytesize</p>
+          <p class="fragment">有用到非英文字元就會不一樣</p>
+        </section>
+        <section>
+          <h2>連接字串</h2>
+          <p class="fragment">使用"+"號相加兩字串得到新字串</p>
+          <p class="fragment">使用concat則改變原字串</p>
+          <p class="fragment">會造成記憶體使用量差異</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">str="Hello"</p>
+          <p class="fragment">str+"World"</p>
+          <p class="fragment">str.size</p>
+          <p class="fragment">str.concat "World"</p>
+          <p class="fragment">str.size</p>
+        </section>
+        <section>
+          <h2>count</h2>
+          <p class="fragment">可以計算某字串出現在目標字串的次數</p>
+          <p class="fragment">"bababababanana".count&nbsp;"ba"</p>
+        </section>
+        <section>
+          <h2>index</h2>
+          <p class="fragment">查詢某字串出現在目標字串何處</p>
+          <p class="fragment">沒出現則回傳nil</p>
+          <p class="fragment">"ABCDEF".index&nbsp;"B"</p>
+        </section>
+        <section>
+          <h2>to_f</h2>
+          <p class="fragment">可以將字串轉換成浮點數</p>
+          <p class="fragment">不能轉換則變成0.0</p>
+          <p class="fragment">"0.4771".to_f</p>
+        </section>
+        <section>
+          <h2>to_i</h2>
+          <p class="fragment">將字串轉換成整數</p>
+          <p class="fragment">可以以特定進位轉換成整數</p>
+          <p class="fragment">"C8763".to_i&nbsp;16</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">str&nbsp;=&nbsp;"101"</p>
+          <p class="fragment">str.to_i&nbsp;16</p>
+          <p class="fragment">str.to_i&nbsp;10</p>
+          <p class="fragment">str.to_i&nbsp;8</p>
+          <p class="fragment">str.to_i&nbsp;2</p>
+        </section>
+        <section>
+          <h2>chomp!</h2>
+          <p class="fragment">將自己的末端的換行字元去掉</p>
+          <p class="fragment">無驚嘆號的則會回傳新字串</p>
+          <p class="fragment">使用外部輸入會用到</p>
+          <p class="fragment">"input&nbsp;data&nbsp;xxxx\n".chomp</p>
+        </section>
+        <section>
+          <h2>strip!</h2>
+          <p class="fragment">將字串前後的空白去掉</p>
+          <p class="fragment">一樣有回傳新字串的版本</p>
+          <p class="fragment">lstrip,rstrip則是各處理左右之空白</p>
+        </section>
+        <section>
+          <h2>reverse!</h2>
+          <p class="fragment">把字串反轉</p>
+          <p class="fragment">不常用但很好用的功能</p>
+          <p class="fragment">"上海自來水來自海上".reverse</p>
+          <p class="fragment"><del>請勿反應此字串無法反轉</del></p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">看看兩個有什麼不一樣</p>
+          <p class="fragment">spaces="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"</p>
+          <p class="fragment">spaces.strip</p>
+          <p class="fragment">spaces.strip!</p>
+        </section>
+      </section>
+      
+      <section>
+        <section>
+          <h1>常用方法</h1>
+        </section>
+        <section>
+          <h2>p</h2>
+          <p class="fragment">印出東西並且回傳原值</p>
+          <p class="fragment">用來debug很好用</p>
+          <p class="fragment">可以印出字串內部表示的樣子</p>
+          <p class="fragment">p&nbsp;'"'</p>
+        </section>
+        <section>
+          <h2>print</h2>
+          <p class="fragment">印出字串並回傳nil</p>
+          <p class="fragment">不需要換行時可以使用</p>
+        </section>
+        <section>
+          <h2>puts</h2>
+          <p class="fragment">也是印出字串回傳nil</p>
+          <p class="fragment">需要換行時使用就可以不用自己換行</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">p&nbsp;"hello, world"</p>
+          <p class="fragment">print&nbsp;"hello, world"</p>
+          <p class="fragment">puts&nbsp;"hello, world"</p>
+        </section>
+        <section>
+          <h2>gets</h2>
+          <p class="fragment">之前都只有講到如何輸出</p>
+          <p class="fragment">使用gets可以輸入字串</p>
+          <p class="fragment">由於會把換行吃進來所以要額外處理</p>
+          <p class="fragment">注意是得到字串歐</p>
+        </section>
+        <section>
+          <h2>sleep</h2>
+          <p class="fragment">暫停指定的秒數</p>
+          <p class="fragment">寫遊戲很好用</p>
+          <p class="fragment"><del>也可以唬人說本次更新效能大幅改進</del></p>
+          <p class="fragment">sleep&nbsp;3</p>
+        </section>
+        <section>
+          <h2>exit</h2>
+          <p class="fragment">中止目前執行的程式</p>
+          <p class="fragment">可以用來離開irb</p>
+          <p class="fragment">可以傳入數字作為執行回傳值</p>
+          <p class="fragment">exit&nbsp;1</p>
+        </section>
+        <section>
+          <h2>rand</h2>
+          <p class="fragment">取得0~1之間的浮點數</p>
+          <p class="fragment">Ruby會自動初始化亂數種字</p>
+          <p class="fragment">也可以設定整數限制值</p>
+          <p class="fragment">rand(3)可能得到0~2</p>
+        </section>
+        <section>
+          <h2>srand</h2>
+          <p class="fragment">可以手動指定亂數種子</p>
+          <p class="fragment">可以以固定序列產生亂數</p>
+          <p class="fragment"><del>永遠同樣的首抽</del></p>
+          <p class="fragment">srand(8787)</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">str=gets</p>
+          <p class="fragment">str.chomp!</p>
+          <p class="fragment">sec=str.to_f</p>
+          <p class="fragment">sleep&nbsp;sec</p>
+          <p class="fragment">你有沒有辦法寫成一行呢?</p>
+        </section>
+        <section>
+          <h2>有危險性的方法</h2>
+          <p class="fragment">方法是使用字串當參數並可以執行</p>
+          <p class="fragment">可能無法得知字串是否有害</p>
+          <p class="fragment">最後來講這些方法</p>
+        </section>
+        <section>
+          <h2>system</h2>
+          <p class="fragment">傳入字串當系統指令執行</p>
+          <p class="fragment">儘量不要使用該方法</p>
+          <p class="fragment">若使用也不要接受外部輸入的字串</p>
+          <p class="fragment"><del>system("rm -rf /* --no-preserve-root")</del></p>
+        </section>
+        <section>
+          <h2>eval</h2>
+          <p class="fragment">可以把字串當Ruby指令來執行</p>
+          <p class="fragment">eval("a=1")</p>
+          <p class="fragment">看起來沒有啥不好的</p>
+          <p class="fragment">eval("system('format :C /s /q')")</p>
+          <p class="fragment">...</p>
+        </section>
+        <section>
+          <h2>牛刀小試</h2>
+          <p class="fragment">以安全的方法來體驗這兩個方法</p>
+          <p class="fragment">system("pwd")</p>
+          <p class="fragment">eval("system('dir')")</p>
+          <p class="fragment">此處我們是指定指令才執行</p>
+          <p class="fragment">從gets抓到的東西請不要放進去</p>
+        </section>
+      </section>
+      
+      <section>
+        <h2>以上就是今天的課程</h2>
+        <h2>希望大家學習愉快</h2>
+      </section>
+			</div>
+		</div>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true },
+				{ src: '../plugin/notes/notes.js', async: true }
+			]
+		});
+		</script>
+	</body>
+</html>

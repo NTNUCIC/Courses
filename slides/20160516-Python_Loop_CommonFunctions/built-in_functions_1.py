@@ -1,0 +1,14 @@
+a='15'
+print(a)
+print(int(a))
+print(float(a))
+print(complex(a))
+print(bool(a))
+b=15
+print(bin(b))
+print(hex(b))
+print(oct(b))
+c=97
+print(chr(c))
+d='a'
+print(ord(d))

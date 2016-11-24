@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Python 入門</title>
+
+        <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+        <link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+        <meta name="og:title" content="Python_intro">
+        <meta name="og:url" content="http://ntnucic.github.io/104/slides/20151001-Git/index.html">
+        <meta name="og:description" content="國立臺灣師範大學資訊研究社Python課程-Python入門">
+        <meta name="og:image" content="../../images/cic.jpg">
+        <meta name="og:site_name" content="NTNUCIC">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+        <link rel="stylesheet" href="../css/reveal.css">
+        <link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+        <!-- Code syntax highlighting -->
+        <link rel="stylesheet" href="../lib/css/zenburn.css">
+
+        <!-- Printing and PDF exports -->
+        <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+        </script>
+        <style>
+            code{
+                font-family: consolas !important;
+                font-weight: 900;
+            }
+        </style>
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                <section>
+                    <h1 style="margin-top:100px">Python 入門</h1>
+                    <h4>陳哲雋</h4>
+                    <h4>2016/5/2</h4>
+                </section>
+
+                <section>
+                    <h3 style="text-align:left;margin-left:80px">Who am I:</h3>
+                    <h1>陳哲雋(阿哲)</h1>
+                    <p>師大資工 105級</p>
+                    <p>第一屆師大資研社社長</p>
+                    <p><a href="https://fb.me/one5809">fb.me/one5809</a></p>
+                </section>
+
+                <section>
+                    <h2>萬事平地起</h2>
+                    <div>
+                        <p class="fragment">請注意！我們的課程以Python3為主</p>
+                        <ul>
+                        <li class="fragment">Windows/Mac：<a href="http://conda.pydata.org/miniconda.html" target="_blank">Miniconda</a>下載安裝</li> 
+                            <li class="fragment">
+                                Linux：terminal輸入指令"python3"<br>
+                                若無則建議使用預設方式(apt、yum......)安裝
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <p style="font-size: 4rem">Python</p>
+                    <ul>
+                        <li class="fragment">直譯式語言</li>
+                        <li class="fragment">
+                            使用"縮排"判定範圍<br>
+                            <span class="fragment">=>不要亂縮排</span><br>
+                            <span class="fragment">=>縮排方式要固定</span>
+                        </li>
+                    </ul>
+                </section>
+                
+                <section>
+                    <h2>所有程式都是這樣開始的……</h2>
+                    <pre class="fragment" style="font-size: 2rem"><code data-trim>
+"Hello World"
+                    </code></pre>
+                    <pre class="fragment" style="font-size: 2rem"><code data-trim>
+print("Hello World")
+                    </code></pre>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>縮排</h2>
+                    </section>
+                    <section>
+                        <img src="Hello_World.png" alt="Hello World" style="height: 15rem">
+                    </section>
+                    <section>
+                        <pre style="font-size: 2rem"><code data-trim>
+"Hello World"
+        "Hello World"
+    "Hello World"
+      "Hello World"
+                        </code></pre>
+                    </section>
+                    <section>
+                        <span style="font-size: 5rem;font-weight: 900">tab == space*n ?</span>
+                    </section>
+                    <section>
+                        <pre style="font-size: 2rem"><code data-trim>
+"Hello World"
+    "Hello  World"
+    "Hello      World"
+                        </code></pre>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h1>基礎型別與運算</h1>
+                    </section>
+                    <section>
+                        <h2>整數與浮點數</h2>
+                        <ul>
+                            <li>整數(integer)：不含小數點的數</li>
+                            <li>浮點數(float)：含小數點的數</li>
+                            <li>皆有正負值</li>
+                            <li>皆能使用加(+)、減(-)、乘(*)、除(/或//)、指數(**)和mod(%)</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>試試看</h2>
+                        <pre style="font-size: 1.7rem;width: 50%;"><code data-trim>
+3+2
+3 + 2.5
+3 / 2
+3 // 2 #整數除法=>取商
+4 / 2
+3 * 2
+3 * 2.0
+3 ** 2
+2 ** 0.5
+3 % 2
+3.3 % 2
+3 % 2.1
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>精度損失</h2>
+                        <p>0.1 + 0.2 是多少？</p>
+                        <p>0.1 * 0.2 是多少？</p>
+                        <img src="precision.png" alt="float precision" class="fragment" style="height: 10rem">
+                    </section>
+                    <section>
+                        <h2>字串</h2>
+                        <ul>
+                            <li>單引號或雙引號包圍住的字元</li>
+                        </ul>
+                        <br>
+                        <img src="string.png" alt="string" style="height: 17rem">
+                    </section>
+                    <section>
+                        <p>
+                            如果要一個「"Hello '卍 "XDD" 卍' World"」怎麼辦？
+                        </p>
+                        <p class="fragment">
+                            使用<span style="font-size: 4rem">跳脫字元</span>來表示
+                        </p>
+                    </section>
+                    <section>
+                        <h2>跳脫字元</h2>
+                        <p>
+                            指特定字元已經被程式語言用來作為語法的一部份或無法用鍵盤打出，需要跳脫(escape)處理之字元
+                        </p>
+                    </section>
+                    <section>
+                        <h2>常見跳脫字元</h2>
+                        <ul>
+                            <li>換行："\n"</li>
+                            <li>定位(tab)："\t"</li>
+                            <li>反斜線："\\"</li>
+                            <li>單引號："\'"</li>
+                            <li>雙引號："\"</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>試試看</h2>
+                        <pre style="font-size: 2rem"><code data-trim>
+print("Hello \n World")
+print("Hello \t World")
+print("Hellow \t World")
+print("Hello \\World")
+print("Hello \World")
+print("Hello \' World")
+print("Hello \" World")
+print("Hello '卍 "XDD" 卍' World")
+print("Hello '卍 \"XDD\" 卍' World")
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>字串的特殊運算</h2>
+                        <ul>
+                            <li>
+                                字串相加："str" + "str"
+                            </li>
+                            <img src="stradd.png" alt="string add string" style="height: 5rem">
+                            <li>
+                                字串乘法："str" * n
+                            </li>
+                            <img src="strmulti.png" alt="string multiplication" style="height: 5rem">
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>兩個事實…</h2>
+                        <ol>
+                            <li>Python沒有「字元型別(character)」</li>
+                            <li>Python是強型別</li>
+                        </ol>
+                        <img src="type_error.png" alt="type error" style="height: 15rem" class="fragment">
+                    </section>
+                    <section>
+                        <h2>轉型</h2>
+                        <ul>
+                            <li>str()</li>
+                            <li>int()</li>
+                            <li>float()</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>試試看</h2>
+                        <pre style="font-size: 2rem"><code data-trim>
+str(24)   
+str(56.1)
+int(56.1)
+int(56)
+float(56)
+int("123 Hello World")
+int("123.1")
+int("123 Hello World")
+float("123.1")
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>布林型別(boolean)</h2>
+                        <ul>
+                            <li>只有 True 和 False</li>
+                            <li>用於「判斷」</li>
+                            <li>注意！首字為大寫</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <img src="bool.png" alt="bool" style="height: 20rem">
+                        <img src="3b2.png" alt="3>2 v.s 3<2" style="height: 10rem">
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>變數宣告</h2>
+                        <img src="variable.png" alt="variable" style="height: 17rem">
+                    </section>
+                    <section>
+                        <h2>變數指派</h2>
+                        <ul>
+                            <li>指派：a = b</li>
+                            <li>平行指派：a,b,c = x,y,z → a=x,b=y,c=z</li>
+                            <li>相加指派：a += b → a=a+b</li>
+                            <li>相減指派：a -= b → a=a-b</li>
+                            <li>相乘指派：a *= b → a=a*b</li>
+                            <li>
+                                相除指派：a /= b → a=a/b<br>
+                                　　　　　a //= b → a=a//b
+                            </li>
+                            <li>mod指派：a %= b → a=a%b</li>
+                            <li>指數指派：a **= b → a=a**b</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>python 腳本</h2>
+                        <a href="test.py" download>範例一</a>&nbsp;
+                        <a href="error.py" download>範例二</a>
+                    </section>
+                    <section>
+                        <h2>編輯器</h2>
+                        <ol>
+                            <li class="fragment"><del>notepad</del>：拜託不要</li>
+                            <li class="fragment">IDLE：Python.org官方編輯器，提供簡單語法提示及上色</li>
+                            <li class="fragment">notepad++：臺灣之光，提供查看特殊字符功能，能使用模組擴充</li>
+                            <li class="fragment">sublime text：Python編寫，可直接執行Python，較多樣化的擴充套件</li>
+                            <li class="fragment">PyCharm：較完善功能之IDE，完善的語法提示，有學生專案</li>
+                        </ol>
+                    </section>
+                </section>
+            </div>
+        </div>
+
+        <script src="../lib/js/head.min.js"></script>
+        <script src="../js/reveal.js"></script>
+
+        <script>
+
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+                // Optional reveal.js plugins
+                dependencies: [
+                    { src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: '../plugin/zoom-js/zoom.js', async: true },
+                    { src: '../plugin/notes/notes.js', async: true }
+                ]
+            });
+
+        
+        </script>
+
+    </body>
+</html>
