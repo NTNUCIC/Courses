@@ -11,20 +11,48 @@ header h1{
 	letter-spacing: 1vw;
 	line-height: 19vw;
 }
-.nav ul{
-	margin-left: 10vw;
-	margin-right: 10vw;
-	text-align: center;
+.nav{
+	position: fixed;
+	border-left: 2vmin solid #FE9A1E;
+	border-radius: 2vmin 0 0 2vmin;
+	right: 0;
+	height: 60vh;
+	top: 20vh;
+	z-index: 2;
+}
+.nav:not(.open){
+	width: 0;
+}
+.nav.open{
 	line-height: 3vw;
+	padding: 2vmin;
+	background: #FFFFFF;
+	border-top: 1vmin solid #FE9A1E;
+	border-bottom: 1vmin solid #FE9A1E;
+}
+.nav:hover{
+	border-left-color: #B9EC2D;
+}
+#nav-ctrl{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: -2vmin;
+	display: block;
+	content: "";
+	width: 2vmin;
+	background-image: url("../images/right-arrow.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	cursor: pointer;
+}
+.nav:not(.open) #nav-ctrl{
+	transform: rotate(180deg);
 }
 .nav li{
-	display: inline-block;
+	display: block;
 	font-size: 2vw;
-	margin-left: 1vw;
-	margin-right: 1vw;
-}
-.nav li:hover{
-	border-bottom: 0.2vh solid #FE9A1E;
 }
 section{
 	margin: 5%;
