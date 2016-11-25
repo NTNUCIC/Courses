@@ -39,7 +39,6 @@ header h1{
 	bottom: 0;
 	left: -2vmin;
 	display: block;
-	content: "";
 	width: 2vmin;
 	background-image: url("../images/right-arrow.png");
 	background-size: contain;
