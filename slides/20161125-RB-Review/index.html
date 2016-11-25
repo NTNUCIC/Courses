@@ -187,6 +187,58 @@
 					</ul>
 				</section>
 			</section>
+			
+			<section>
+				<section>
+					<h1>物件與參考</h1>
+				</section>
+				<section>
+					<h2>物件</h2>
+					<p class="fragment">Ruby的基本單位</p>
+					<p class="fragment">實際存在記憶體中的資料</p>
+					<p class="fragment">可以對其進行相對應的操作</p>
+				</section>
+				<section>
+					<h2>變數</h2>
+					<p class="fragment">在Ruby中物件是沒有名字的</p>
+					<p class="fragment">變數就是賦與物件一個名字</p>
+					<p class="fragment">使用"="來指定變數指向的物件</p>
+					<p class="fragment">使用小寫字母開頭就是變數</p>
+					<p class="fragment">也可以使用非英文或數字(不建議)</p>
+				</section>
+				<section>
+					<h2>參考</h2>
+					<p class="fragment">英文為reference</p>
+					<p class="fragment">讓變數或其他物件可以連結到某物件</p>
+					<p class="fragment">"代表"某個存在的物件</p>
+				</section>
+				<section>
+					<h2>賦值</h2>
+					<p class="fragment">讓變數參考到物件</p>
+					<p class="fragment">count&nbsp;=&nbsp;10</p>
+					<p class="fragment">str&nbsp;=&nbsp;"string"</p>
+					<p class="fragment">狐狸&nbsp;=&nbsp;"fox"</p>
+				</section>
+				<section>
+					<h2>圖解</h2>
+					<p class="fragment">a=b=5566</p>
+					<p class="fragment">"Hello,World"</p>
+					<img class=" fragment" src="images/ref.png">
+				</section>
+				<section>
+					<h2>常數</h2>
+					<p class="fragment">變數可以多次指派而常數不行</p>
+					<p class="fragment">就是用來存放不會變的資料</p>
+					<p class="fragment">大寫字母開頭皆為常數</p>
+				</section>
+				<section>
+					<h2>小結</h2>
+					<p class="fragment">小心兩個變數指向同一個物件的狀況</p>
+					<p class="fragment">一個變數只能參考到一個物件</p>
+					<p class="fragment">沒有被參考的物件又是另一個故事了</p>
+				</section>
+			</section>
+			
 			<!-- 數字相關 -->
 			<section>
 				<section>
@@ -326,6 +378,60 @@
 					<p class="fragment">可以放入各種文字</p>
 					<p class="fragment">Ruby原生支援UTF-8編碼<del>畢竟要支援日文</del></p>
 					<p class="fragment">之後會有更詳細的介紹</p>
+				</section>
+				<section>
+					<h2>空字串</h2>
+					<p class="fragment">當字串中沒有任何字就是空字串</p>
+					<p class="fragment">雖然沒放東西但本身還是字串</p>
+					<p class="fragment">可以對它進行字串操作</p>
+				</section>
+				<section>
+					<h2>字串表達</h2>
+					<p class="fragment">字串有許多種表達方式</p>
+					<p class="fragment">這也是Ruby的一個特色</p>
+					<p class="fragment">上次的Hello&nbsp;World就有用到字串</p>
+				</section>
+				<section>
+					<h2>單引號表達</h2>
+					<p class="fragment">「'」號來夾住想要表達的文字</p>
+					<p class="fragment">最直接的字串表示</p>
+					<p class="fragment">'Hello,&nbsp;World'</p>
+				</section>
+				<section>
+					<h2>雙引號表達</h2>
+					<p class="fragment">「"」號夾住想要的字串</p>
+					<p class="fragment">比單引號的字串多了些功能</p>
+					<p class="fragment">要特別注意其使用</p>
+					<p class="fragment">"Hello,&nbsp;World"</p>
+				</section>
+				<section>
+					<h2>跳脫字元</h2>
+					<p class="fragment">字串中可能有單引號或雙引號</p>
+					<p class="fragment">或是需要其他特殊的功能</p>
+					<p class="fragment">使用跳脫字元顯示特殊的字</p>
+					<p class="fragment">單引號字串不能使用</p>
+				</section>
+				<section>
+					<h2>跳脫字元</h2>
+					<p class="fragment">\n:&nbsp;需要換行時就用</p>
+					<p class="fragment">\t:&nbsp;水平對齊的tab</p>
+					<p class="fragment">\a:&nbsp;蜂鳴器叫一聲(或許不會叫)</p>
+					<p class="fragment">\\:&nbsp;顯示反斜線本身</p>
+					<p class="fragment">\'&nbsp;\":&nbsp;在字串中跳脫中止字元</p>
+				</section>
+				<section>
+					<h2>竄寫</h2>
+					<p class="fragment">有時候想要在字串中放入運算結果</p>
+					<p class="fragment">把運算寫在字串裡是最快的方法</p>
+					<p class="fragment">"1+1=#{1+1}"</p>
+					<p class="fragment">使用#{}包住想要的運算</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">print&nbsp;"#{200+100}"</p>
+					<p class="fragment">print&nbsp;"200+100"</p>
+					<p class="fragment">print&nbsp;'#{"String!!"}'</p>
+					<p class="fragment">print&nbsp;"#{"String!!"}"</p>
 				</section>
 			</section>
 			<!--陣列-->
