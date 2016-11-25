@@ -405,21 +405,6 @@
 					<p class="fragment">"Hello,&nbsp;World"</p>
 				</section>
 				<section>
-					<h2>跳脫字元</h2>
-					<p class="fragment">字串中可能有單引號或雙引號</p>
-					<p class="fragment">或是需要其他特殊的功能</p>
-					<p class="fragment">使用跳脫字元顯示特殊的字</p>
-					<p class="fragment">單引號字串不能使用</p>
-				</section>
-				<section>
-					<h2>跳脫字元</h2>
-					<p class="fragment">\n:&nbsp;需要換行時就用</p>
-					<p class="fragment">\t:&nbsp;水平對齊的tab</p>
-					<p class="fragment">\a:&nbsp;蜂鳴器叫一聲(或許不會叫)</p>
-					<p class="fragment">\\:&nbsp;顯示反斜線本身</p>
-					<p class="fragment">\'&nbsp;\":&nbsp;在字串中跳脫中止字元</p>
-				</section>
-				<section>
 					<h2>竄寫</h2>
 					<p class="fragment">有時候想要在字串中放入運算結果</p>
 					<p class="fragment">把運算寫在字串裡是最快的方法</p>
@@ -433,25 +418,201 @@
 					<p class="fragment">print&nbsp;'#{"String!!"}'</p>
 					<p class="fragment">print&nbsp;"#{"String!!"}"</p>
 				</section>
+				<section>
+					<h2>[]</h2>
+					<p class="fragment">在Ruby中看起來是運算子的東西也是方法</p>
+					<p class="fragment">取出字串中特定位置的字元</p>
+					<p class="fragment">索引為整數&nbsp;也可為負</p>
+					<p class="fragment">索引從0開始</p>
+					<p class="fragment">"Hello,world"[1]</p>
+				</section>
+				<section>
+					<h2>[]=</h2>
+					<p class="fragment">可以把字串放進去字串的操作</p>
+					<p class="fragment">不能超出原先的範圍</p>
+					<p class="fragment">"Hello,world"[-1]="D"</p>
+				</section>
+				<section>
+					<h2>取得字串長度</h2>
+					<p class="fragment">取得字元個數:size,length</p>
+					<p class="fragment">取得位元組數:bytesize</p>
+					<p class="fragment">有用到非英文字元就會不一樣</p>
+				</section>
 			</section>
+			<!-- 常用方法 -->
+			<section>
+				<section>
+					<h1>常用方法</h1>
+				</section>
+				<section>
+					<h2>p</h2>
+					<p class="fragment">印出東西並且回傳原值</p>
+					<p class="fragment">用來debug很好用</p>
+					<p class="fragment">可以印出字串內部表示的樣子</p>
+					<p class="fragment">p&nbsp;'"'</p>
+				</section>
+				<section>
+					<h2>print</h2>
+					<p class="fragment">印出字串並回傳nil</p>
+					<p class="fragment">不需要換行時可以使用</p>
+				</section>
+				<section>
+					<h2>puts</h2>
+					<p class="fragment">也是印出字串回傳nil</p>
+					<p class="fragment">需要換行時使用就可以不用自己換行</p>
+				</section>
+				<section>
+					<h2>gets</h2>
+					<p class="fragment">使用gets可以輸入字串</p>
+					<p class="fragment">由於會把換行吃進來所以要額外處理</p>
+					<p class="fragment">注意是得到字串歐</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">p&nbsp;gets</p>
+					<p class="fragment">p&nbsp;"hello, world"</p>
+					<p class="fragment">print&nbsp;"hello, world"</p>
+					<p class="fragment">puts&nbsp;"hello, world"</p>
+				</section>
+			</section>
+			
 			<!--陣列-->
 			<section>
 				<section>
 					<h2>陣列</h2>
 					<p class="fragment">Array</p>
+					<p class="fragment">注意是陣列不是矩陣(Matrix)</p>
 					<p class="fragment">可以依照索引放入任何東西</p>
 					<p class="fragment">裏面也可以裝陣列</p>
-					<p class="fragment">今天還用不到</p>
+				</section>
+				<section>
+					<h2>用途</h2>
+					<p class="fragment">用來放有順序相關的資料</p>
+					<p class="fragment">或是當一個集合來使用</p>
+					<p class="fragment">也可以當作有秩序的序列容器</p>
+				</section>
+				<section>
+					<h2>陣列表達</h2>
+					<p class="fragment">使用中括號可以表達一個陣列</p>
+					<p class="fragment">["a","b",nil,3,[true,false]]</p>
+					<p class="fragment">記得元素中間要使用逗號隔開</p>
+				</section>
+				<section>
+					<h2>陣列的內部設計</h2>
+					<p class="fragment">ary=[100,"cat",nil,"cat",true]</p>
+					<img src="images/ary.png" class="fragment">
+					<p class="fragment">注意裏面的兩隻貓是不同隻貓</p>
+				</section>
+				<section>
+					<h2>[]</h2>
+					<p class="fragment">又是這個中括號了</p>
+					<p class="fragment">一樣可以取用索引值的資料</p>
+					<p class="fragment">其實還有更深的用法請自行查閱</p>
+				</section>
+				<section>
+					<h2>[]=</h2>
+					<p class="fragment">用來指派陣列某索引位置的元素</p>
+					<p class="fragment">可以超出陣列原先的範圍</p>
+					<p class="fragment">!!注意!!注意陣列的索引數值大小</p>
+				</section>
+				<section>
+					<h2>陣列長度</h2>
+					<p class="fragment">Ruby的陣列是知道自己長度的</p>
+					<p class="fragment">使用size或length取得長度</p>
+				</section>
+				<section>
+					<h2>磨刀霍霍</h2>
+					<p class="fragment">體驗記憶體爆炸的快感</p>
+					<p class="fragment">ary=[]</p>
+					<p class="fragment">ary[100_000_000]=0xC8763</p>
+					<p class="fragment">ary[100_000_000]</p>
+					<p class="fragment">ary.size</p>
+					<p class="fragment">ary[1e12]=8787</p>
 				</section>
 			</section>
+			<!-- 符號 -->
+			<section>
+				<section>
+					<h1>符號</h1>
+				</section>
+				<section>
+					<h2>符號</h2>
+					<p class="fragment">Symbol</p>
+					<p class="fragment">Ruby中特殊的物件</p>
+					<p class="fragment">同樣的符號在記憶體中是指同一個物件</p>
+					<p class="fragment">!!注意!!一樣的字串不一定是一樣的物件</p>
+				</section>
+				<section>
+					<h2>內部設計</h2>
+					<p class="fragment">輸入一個符號之後直譯器會尋找是否已經存在</p>
+					<p class="fragment">沒有的話就建立一個新的符號</p>
+					<p class="fragment">有的話就使用原來的符號</p>
+				</section>
+				<section>
+					<h2>用途</h2>
+					<p class="fragment">因為物件不存在其他與之相同的物件</p>
+					<p class="fragment">用來做雜湊的查詢</p>
+					<p class="fragment">直譯器內部運作</p>
+				</section>
+				<section>
+					<h2>符號表達</h2>
+					<p class="fragment">使用":"加在字串前</p>
+					<p class="fragment">:"Only One"</p>
+					<p class="fragment">使用":"後接符合變數或常數命名法的文字</p>
+					<p class="fragment">:NTNUCIC,:bad_apple</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">p "Hello, World".class</p>
+					<p class="fragment">p :"Hello, World".class</p>
+					<p class="fragment">注意字串和符號是不一樣的歐</p>
+				</section>
+			</section>
+			
 			<!--雜湊-->
 			<section>
 				<section>
 					<h2>雜湊</h2>
 					<p class="fragment">Hash</p>
-					<p class="fragment">有時候希望用不同的索引存取資料</p>
-					<p class="fragment">可以建立鍵值的配對</p>
-					<p class="fragment">也是很好用的類別</p>
+					<p class="fragment">用來存放鍵(key)值(value)配對的容器</p>
+					<p class="fragment">C++的Map,Java的Dictionary,JS的Object</p>
+					<p class="fragment">使用雜湊函數存取映射在表格中的數據</p>
+				</section>
+				<section>
+					<h2>用途</h2>
+					<p class="fragment">可以使用非整數的索引來查詢資料</p>
+					<p class="fragment">以類似於命名的方式來存放有相關的資料</p>
+				</section>
+				<section>
+					<h2>表達方式</h2>
+					<p class="fragment">使用"{}"大括號包住&nbsp;鍵"=>"值&nbsp;的配對</p>
+					<p class="fragment">{"name"=>"L5640","core"=>6,"thread"=>12}</p>
+					<p class="fragment">鍵和值可以為任意物件</p>
+					<p class="fragment">{nil=>8,0=>false,"true"=true}</p>
+				</section>
+				<section>
+					<h2>和符號搭配使用</h2>
+					<p class="fragment">雜湊是利用雜湊函式查詢鍵所對應的值</p>
+					<p class="fragment">使用字串當作鍵時需要"計算"雜湊值</p>
+					<p class="fragment">使用符號則不需要計算</p>
+					<p class="fragment">同時也可以漸少記憶體浪費</p>
+				</section>
+				<section>
+					<h2>符號作為鍵</h2>
+					<p class="fragment">原本的寫法一樣可行</p>
+					<p class="fragment">{:name=>"E5-2699v4",:core=>22,:thread=>44}</p>
+					<p class="fragment">可以將其縮寫</p>
+					<p class="fragment">{name:"E3-1231v3",core:4,thread:8}</p>
+				</section>
+				<section>
+					<h2>[]</h2>
+					<p class="fragment">以鍵來查詢雜湊中的值</p>
+					<p class="fragment">沒有該值則會回傳預設值</p>
+				</section>
+				<section>
+					<h2>[]=</h2>
+					<p class="fragment">將鍵和值的配對存入雜湊</p>
+					<p class="fragment">可以把舊的值蓋掉</p>
 				</section>
 			</section>
 			
