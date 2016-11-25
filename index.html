@@ -602,6 +602,15 @@
 				e.preventDefault();
 				document.getElementById("nav").classList.toggle("open");
 			});
+			var list=document.getElementById("nav").getElementsByTagName("a");
+			list=Array.prototype.slice.call(list);
+			for(var i in list){
+				if(list[i].id!="nav-ctrl"){
+					list[i].addEventListener("click",function(e){
+						document.getElementById("nav").classList.remove("open");
+					});
+				}
+			}
 		</script>
 	</body>
 </html>
