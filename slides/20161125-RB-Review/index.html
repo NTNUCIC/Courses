@@ -187,7 +187,7 @@
 					</ul>
 				</section>
 			</section>
-			
+			<!-- 物件與參考-->
 			<section>
 				<section>
 					<h1>物件與參考</h1>
@@ -241,6 +241,9 @@
 			
 			<!-- 數字相關 -->
 			<section>
+				<section>
+					<h1>數字相關</h1>
+				</section>
 				<section>
 					<h2>數字相關</h2>
 					<p class="fragment">數字有整數和浮點數</p>
@@ -353,25 +356,11 @@
 				</section>
 			</section>
 			
-			<!-- 真假值-->
-			<section>
-				<section>
-					<h2>真假值</h2>
-					<p class="fragment">true,false,nil可以表達真假值</p>
-					<p class="fragment">其中false和nil永遠代表為假</p>
-					<p class="fragment">其他的數值就算不是true也為真</p>
-					<p class="fragment">用來進行條件判斷</p>
-				</section>
-				<section>
-					<h2>真假值表示</h2>
-					<p class="fragment">true,TRUE</p>
-					<p class="fragment">false,FALSE</p>
-					<p class="fragment">nil,NIL</p>
-					<p class="fragment">以上都小寫或都大寫</p>
-				</section>
-			</section>
 			<!-- 字串 -->
 			<section>
+				<section>
+					<h1>字串</h1>
+				</section>
 				<section>
 					<h2>字串</h2>
 					<p class="fragment">String</p>
@@ -445,6 +434,18 @@
 					<h1>常用方法</h1>
 				</section>
 				<section>
+					<h2>函式</h2>
+					<p class="fragment">英文為function</p>
+					<p class="fragment">從外部輸入資料後進行處理</p>
+					<p class="fragment">不一定回傳運算結果</p>
+				</section>
+				<section>
+					<h2>方法</h2>
+					<p class="fragment">英文為method</p>
+					<p class="fragment">處理的資料除了外部進來還有內部的</p>
+					<p class="fragment">操作某個物件內部的數據</p>
+				</section>
+				<section>
 					<h2>p</h2>
 					<p class="fragment">印出東西並且回傳原值</p>
 					<p class="fragment">用來debug很好用</p>
@@ -478,6 +479,9 @@
 			
 			<!--陣列-->
 			<section>
+				<section>
+					<h1>陣列</h1>
+				</section>
 				<section>
 					<h2>陣列</h2>
 					<p class="fragment">Array</p>
@@ -572,10 +576,13 @@
 			<!--雜湊-->
 			<section>
 				<section>
+					<h1>雜湊</h1>
+				</section>
+				<section>
 					<h2>雜湊</h2>
 					<p class="fragment">Hash</p>
 					<p class="fragment">用來存放鍵(key)值(value)配對的容器</p>
-					<p class="fragment">C++的Map,Java的Dictionary,JS的Object</p>
+					<p class="fragment">C++的Map,Java的Hashtable,JS的Object</p>
 					<p class="fragment">使用雜湊函數存取映射在表格中的數據</p>
 				</section>
 				<section>
@@ -615,6 +622,266 @@
 					<p class="fragment">可以把舊的值蓋掉</p>
 				</section>
 			</section>
+			
+			<!-- 比較運算 -->
+			<section>
+				<section>
+					<h1>比較運算</h1>
+				</section>
+				<section>
+					<h2>比較運算</h2>
+					<p class="fragment">可以在不同物件之間比較</p>
+					<p class="fragment">可以有相等或是大小之分</p>
+					<p class="fragment">會回傳真假值作為結果</p>
+				</section>
+				<section>
+					<h2>真假值</h2>
+					<p class="fragment">true,false,nil可以表達真假值</p>
+					<p class="fragment">其中false和nil永遠代表為假</p>
+					<p class="fragment">其他的數值就算不是true也為真</p>
+					<p class="fragment">用來進行條件判斷</p>
+				</section>
+				<section>
+					<h2>真假值表示</h2>
+					<p class="fragment">true,TRUE</p>
+					<p class="fragment">false,FALSE</p>
+					<p class="fragment">nil,NIL</p>
+					<p class="fragment">以上都小寫或都大寫</p>
+				</section>
+				<section>
+					<h2>相等比較</h2>
+					<p class="fragment">在Ruby中有不同種類的相等比較</p>
+					<p class="fragment">最簡單的就是比較兩個物件的值</p>
+					<p class="fragment">也可以比較兩個物件是否為同個物件</p>
+					<p class="fragment">還有更廣的比較</p>
+				</section>
+				<section>
+					<h2>不相等</h2>
+					<p class="fragment">兩個物件值不一樣就是不相等</p>
+					<p class="fragment">!=</p>
+					<p class="fragment">反而相等的狀況更為複雜...</p>
+				</section>
+				<section>
+					<h2>相等</h2>
+					<p class="fragment">比較兩個物件的值是否相等</p>
+					<p class="fragment">==&nbsp;(注意不是賦值的單一"="號)</p>
+					<p class="fragment">比較兩個物件的值和類別是否相等</p>
+					<p class="fragment">eql?</p>
+					<p class="fragment">比較兩物件是否為同一物件</p>
+					<p class="fragment">equal?</p>
+				</section>
+				<section>
+					<h2>物件id</h2>
+					<p class="fragment">之前有提到物件其實就在記憶體某處</p>
+					<p class="fragment">物件的ID就代表了物件的位置(指標)</p>
+					<p class="fragment">藉由比較ID可以判斷兩物件是否為同一物件</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">1==1.0</p>
+					<p class="fragment">1.eql?&nbsp;1.0</p>
+					<p class="fragment">[].equal?&nbsp;[]</p>
+				</section>
+				<section>
+					<h2>比大小</h2>
+					<p class="fragment">數字之間能互相比大小</p>
+					<p class="fragment">字串之間也可以比大小</p>
+					<p class="fragment">但是數字和字串不能比大小</p>
+					<p class="fragment">小心兩個物件的類別</p>
+				</section>
+				<section>
+					<h2>種類</h2>
+					<p class="fragment">&lt;：小於</p>
+					<p class="fragment">&gt;：大於</p>
+					<p class="fragment">&lt;=：不大於</p>
+					<p class="fragment">&gt;=：不小於</p>
+					<p class="fragment">&lt;=&gt;：看前後的大小回傳1,0,-1</p>
+				</section>
+				<section>
+					<h2>牛刀小試</h2>
+					<p class="fragment">'Z'&gt;'B'</p>
+					<p class="fragment">'Z'&gt;'b'</p>
+					<p class="fragment">'100'&lt;=100</p>
+					<p class="fragment">11&lt;10.9</p>
+				</section>
+			</section>
+			<!-- 分支指令-->
+			<section>
+				<section>
+					<h1>分支指令</h1>
+				</section>
+				<section>
+					<h2>分支指令</h2>
+					<p class="fragment">利用條件判斷在不同狀況下執行不同程式</p>
+					<p class="fragment">可以設計出原先循序做不到的程式</p>
+				</section>
+				<section>
+					<h2>if</h2>
+					<p class="fragment">最簡單的分支指令</p>
+					<pre class="fragment" style="width:420px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">if(cond)[then]
+  do_something
+end</code></pre>
+					<p class="fragment">條件符合才做事</p>
+					<p class="fragment">then可省略且一定要加上end</p>
+				</section>
+				<section>
+					<h2>if/else</h2>
+					<p class="fragment">二選一</p>
+					<pre class="fragment" style="width:420px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">if(cond)[then]
+  do_something
+else
+  do_others
+end</code></pre>
+					<p class="fragment">再次提醒不要忘了end</p>
+				</section>
+				<section>
+					<h2>if/elsif/else</h2>
+					<p class="fragment">可以有很多種選擇</p>
+					<pre class="fragment" style="width:420px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">if(condA)[then]
+  do_things_A
+elsif(condB)[then]
+  do_things_B
+...
+[else
+  do_others]
+end</code></pre>
+					<p class="fragment">else不一定要出現且注意是elsif</p>
+				</section>
+				
+				<section>
+					<h2>多重條件比對</h2>
+					<p class="fragment">有時候elsif寫起來實在不明確</p>
+					<p class="fragment">比對列舉的條件</p>
+					<p class="fragment">該是關聯運算子出場的時候了</p>
+				</section>
+				<section>
+					<h2>case/when/else/end</h2>
+					<p class="fragment">可以和if/elsif/else視情況選用</p>
+					<pre class="fragment" style="width:420px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">case(obj)
+when&nbsp;val_A&nbsp;[then]
+  do_things_A
+...
+else
+  do_others
+end</code></pre>
+					<p class="fragment">一樣then可以省略且記得要加上end</p>
+				</section>
+			</section>
+			<!-- 迴圈與迭代-->
+			<section>
+				<section>
+					<h1>迴圈與迭代</h1>
+				</section>
+				<section>
+					<h2>迴圈</h2>
+					<p class="fragment">重複執行相同或是類似的動作</p>
+					<p class="fragment">程式除了往下跑還可以往回跑</p>
+				</section>
+				<section>
+					<h2>範圍運算子</h2>
+					<p class="fragment">可以表達兩個數字的區間</p>
+					<p class="fragment">a..b代表[a,b]</p>
+					<p class="fragment">a...b代表[a,b)</p>
+					<p class="fragment">會得到一個Range物件</p>
+				</section>
+				<section>
+					<h2>for敘述</h2>
+					<p class="fragment">可以迭代目標中的每一個元素</p>
+					<p class="fragment">在範圍運算子上使用就是數字迴圈</p>
+					<pre class="fragment" style="width:420px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">for i in 0..10
+  print i
+end</code></pre>
+					<p class="fragment">上面就是一個從0代入到10的for迴圈</p>
+				</section>
+				<section>
+					<h2>while敘述</h2>
+					<p class="fragment">可以設定中指條件的迴圈</p>
+					<p class="fragment">用在不知道需要執行幾次的時候</p>
+					<pre class="fragment" style="width:420px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">while(cond)[do]
+  do_something
+end</code></pre>
+					<p class="fragment">do和小括號都可以省略</p>
+				</section>
+				<section>
+					<h2>區塊</h2>
+					<p class="fragment">英文為block</p>
+					<p class="fragment">一個可以將周圍環境傳入的特殊物件</p>
+					<p class="fragment">呼叫方法有可能需要傳入區塊</p>
+				</section>
+				<section>
+					<h2>loop方法</h2>
+					<p class="fragment">單純的無限迴圈</p>
+					<pre class="fragment" style="width:420px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">loop {
+  do_something
+}</code></pre>
+<pre class="fragment" style="width:420px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">loop do
+  do_something
+end</code></pre>
+				</section>
+				<section>
+					<h2>times方法</h2>
+					<p class="fragment">可以指定要重複多少次</p>
+					<p class="fragment">5.times{ p :dimand }</p>
+					<p class="fragment">也可以得知目前的數字</p>
+					<p class="fragment">6.times{|i| p i }</p>
+					<p class="fragment">注意數字是從0開始</p>
+				</section>
+				<section>
+					<h2>each方法</h2>
+					<p class="fragment">其實for敘述就是使用這個方法</p>
+					<p class="fragment">可以從物件的集合逐項取出資料</p>
+					<p class="fragment">陣列、雜湊和範圍物件都可以使用</p>
+					<pre class="fragment" style="width:600px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">[:cat,:fox,:dog,:wolf].each{|ear|
+  puts ear
+}</code></pre>
+				</section>
+				<section>
+					<h2>各式物件迭代</h2>
+					<p class="fragment">有很多物件具有可以逐項處理的功能</p>
+					<p class="fragment">Range&nbsp;取出範圍內整數</p>
+					<p class="fragment">Array&nbsp;對所有元素進行不同操作</p>
+					<p class="fragment">String&nbsp;以字元或位元進行操作</p>
+					<p class="fragment">Hash&nbsp;對鍵值逐項操作</p>
+				</section>
+				<section>
+					<h2>介紹迭代功能</h2>
+					<p class="fragment">因為此類功能眾多在此只舉一些例子</p>
+					<p class="fragment">陣列的each_with_index方法</p>
+					<p class="fragment">陣列的map,map!方法</p>
+					<p class="fragment">陣列的sort_by!方法</p>
+				</section>
+				<section>
+					<h2>each_with_index</h2>
+					<p class="fragment">和each方法很像但是會額外告知已迭代次數</p>
+					<pre class="fragment" style="width:600px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">list.each_with_index{|e,i|
+  puts "element %d is at %d"%[e,i]
+}</code></pre>
+				</section>
+				<section>
+					<h2>map</h2>
+					<p class="fragment">此方法有會改變自己的map!方法</p>
+					<p class="fragment">也有回傳新陣列的map方法</p>
+					<pre class="fragment" style="width:240px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">[1,2,3,4].map{|n|
+  n**2
+}</code></pre>
+					<p class="fragment">會收集區塊每次的運算結果</p>
+				</section>
+				<section>
+					<h2>sort_by!</h2>
+					<p class="fragment">會先計算區塊中的值再以該值來排序陣列</p>
+					<p class="fragment">注意有驚嘆號結尾會改變自身</p>
+					<pre class="fragment" style="width:600px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">["a","ab","cdf","emmc"].sort_by!{|v|
+  v.length
+}</code></pre>
+					<p class="fragment">上面的例子就是依照長度排序</p>
+				</section>
+			</section>
+			
+			<section>
+				<h2>今天複習只有講到各次部份的內容</h2>
+				<h2>希望大家對Ruby有基本的認識</h2>
+			</section>
+			
 			
 			</div>
 		</div>
