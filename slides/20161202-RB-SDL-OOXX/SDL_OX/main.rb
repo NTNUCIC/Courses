@@ -89,8 +89,8 @@ until(winner)
   case event=SDL.PollEvent
   when SDL::KeyboardEvent
     #按下了ESC就直接結束
-    case event.sym
-    when SDL::Key::ESCAPE
+    case event.keysym.sym
+    when SDL::K_ESCAPE
       exit
     end
   when SDL::MouseButtonEvent
