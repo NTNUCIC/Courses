@@ -141,7 +141,7 @@ class Bullet
   end
   #檢查是否超出螢幕
   def over?
-    @y+@/2 < 0
+    @y+@h/2 < 0
   end
   #用矩形繪製於給予的screen上
   def draw(screen)
