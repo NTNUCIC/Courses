@@ -1,0 +1,222 @@
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Ruby</title>
+
+    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+    <meta name="og:title" content="Ruby">
+    <meta name="og:url" content="http://ntnucic.github.io/Courses/slides/20161209-RB-SDL-SG/index.html">
+    <meta name="og:description" content="國立臺灣師範大學資訊研究社Ruby課程投影片">
+    <meta name="og:image" content="../../images/cic.jpg">
+    <meta name="og:site_name" content="NTNUCIC">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+    <link rel="stylesheet" href="../lib/css/zenburn.css">
+
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+      <section>
+        <h1 style="margin-top:100px">SDL射擊遊戲講解</h1>
+          <h4>林品儒</h4>
+          <h4>2016/12/7</h4>
+      </section>
+      
+      <section>
+        <section>
+          <h1>物件導向</h1>
+        </section>
+        <section>
+          <h2>物件導向</h2>
+          <p class="fragment">將程式的資料和操作分別封裝到所屬類別</p>
+          <p class="fragment">類別可以產生能操作的物件</p>
+          <p class="fragment">物件不只有專屬的資料型態還有專屬的方法</p>
+        </section>
+        <section>
+          <h2>類別</h2>
+          <p class="fragment">英文為class</p>
+          <p class="fragment">描述資料的形式以及對資料的操作</p>
+          <p class="fragment">還需要實體化成物件才能操作</p>
+        </section>
+        <section>
+          <h2>物件/實例</h2>
+          <p class="fragment">物件英文為object,實例為instance</p>
+          <p class="fragment">能實際使用資料和對資料操作的單位</p>
+          <p class="fragment">由類別實體化而來</p>
+          <p class="fragment">所以我們要操作的是物件而不是類別</p>
+          <p class="fragment"><del>你不會拿電腦說明書上網的...</del></p>
+        </section>
+        <section>
+          <h2>Ruby的物件導向</h2>
+          <p class="fragment">Ruby為完全物件導向</p>
+          <p class="fragment">除了各種物件有所屬的類別</p>
+          <p class="fragment">Ruby的各種類別其實是Class這個類的實體</p>
+          <p class="fragment">類別的類別就是類別(!!)</p>
+        </section>
+        <section>
+          <h2>使用類別</h2>
+          <p class="fragment">最簡單的方法就是使用class關鍵字</p><pre class="fragment" style="width:560px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">class Klass
+  #這裏面的不能看到外面的變數歐
+end</code></pre>
+          <p class="fragment">不過其實就只是在Klass這個常數裏面放入類別的實體</p>
+          <p class="fragment">Klass=Class.new</p>
+        </section>
+        <section>
+          <h2>實體變數</h2>
+          <p class="fragment">每個物件有自己專屬的資料</p>
+          <p class="fragment">實體變數就可以用來存放這些資料</p>
+          <p class="fragment">使用"@"開頭的變數就是實體變數</p>
+        </section>
+        <section>
+          <h2>類別變數</h2>
+          <p class="fragment">用來存放這個類別共通可以操作的資料</p>
+          <p class="fragment">目前暫且還用不到</p>
+          <p class="fragment">可以用來存放所有物件共用的資料</p>
+          <p class="fragment">使用"@@"開頭</p>
+        </section>
+        <section>
+          <h2>實體方法</h2>
+          <p class="fragment">在class和end中間可以宣告實體的方法</p>
+          <p class="fragment">一樣是使用def關鍵字</p>
+          <p class="fragment">方法中可以操作自己的類別變數或類別的類別變數</p>
+        </section>
+        <section></section>
+        <section>
+          <h2>實際範例</h2>
+          <pre class="fragment" style="width:600px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">class C
+  @class_inst_var = "C類別的實體變數"
+  @@class_var = "C的類別變數"
+  def 我是C的實體方法
+    @inst_var = "我是C的實體變數"
+  end
+end</code></pre>
+          <p class="fragment">請注意C類別的實體變數只有C類別能用</p>
+        </section>
+        <section>
+          <h2>建構子</h2>
+          <p class="fragment">在Ruby中實體產生可以設定初始化的方法</p>
+          <pre class="fragment" style="width:600px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">class C
+  def initialize
+    @inst_var = 100
+  end
+end</code></pre>
+        </section>
+        <section>
+          <h2>鴨子型別</h2>
+          <p class="fragment">英文為duck&nbsp;typing</p>
+          <p class="fragment">"當看到一隻鳥走起來像鴨子、游泳起來像鴨子、叫起來也像鴨子，那麼這隻鳥就可以被稱為鴨子。"</p>
+          <p class="fragment">在Ruby中只要能呼叫到有該名稱的方法</p>
+          <p class="fragment">就能夠依照該方法來運作</p>
+          <p class="fragment"><del>你不會想讓呱呱叫的噴火龍進入池塘</del></p>
+        </section>
+        <section>
+          <h2>產生物件</h2>
+          <p class="fragment">需要先宣告該類別的存在</p>
+          <p class="fragment">使用類別的new方法產生物件</p>
+          <pre class="fragment" style="width:600px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">obj=Klass.new</code></pre>
+          <p class="fragment">這樣就會呼叫該類別的建構子進行初始化</p>
+        </section>
+      </section>
+      
+      <section>
+        <section>
+          <h2>射擊遊戲架構</h2>
+        </section>
+        <section>
+          <h2>基本架構</h2>
+          <p class="fragment">遊戲初始化</p>
+          <p class="fragment">外部輸入←┐</p>
+          <p class="fragment">進行計算　│</p>
+          <p class="fragment">輸出畫面→┘</p>
+          <p class="fragment">遊戲結束</p>
+        </section>
+        <section>
+          <h2>遊戲情境</h2>
+          <p class="fragment">玩家要逃出充滿了小行星和起司的小行星帶</p>
+          <p class="fragment">到底能在火力不足以及機體強度限制下逃多遠呢?</p>
+        </section>
+        <section>
+          <h2>主要類別設計</h2>
+          <p class="fragment">基本上遊戲會有一個主要類別來控制遊戲機制</p>
+          <p class="fragment">這次的程式中就是Game類別</p>
+          <p class="fragment">該類別要整合所有物件的運作</p>
+        </section>
+        <section>
+          <h2>玩家</h2>
+          <p class="fragment">會有玩家的類別用來處理玩家的操作</p>
+          <p class="fragment">在這次遊戲中為Ship類別</p>
+          <p class="fragment">這個類別只產生一個物件</p>
+        </section>
+        <section>
+          <h2>敵人</h2>
+          <p class="fragment">敵人也需要用類別來包裝其資料和操作</p>
+          <p class="fragment">這次的敵人是不會主動攻擊的Rock</p>
+          <p class="fragment">但是概念上還是屬於有害於玩家</p>
+        </section>
+        <section>
+          <h2>子彈</h2>
+          <p class="fragment">射擊遊戲不可少的投射物</p>
+          <p class="fragment">獨立出來為一個類別</p>
+          <p class="fragment">這次只玩家會攻擊因此只有Bullet類別</p>
+        </section>
+        <section>
+          <h2>來看看這個遊戲該如何運行吧~</h2>
+        </section>
+      </section>
+      
+      
+      </div>
+    </div>
+    <script src="../lib/js/head.min.js"></script>
+    <script src="../js/reveal.js"></script>
+
+    <script>
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+      // Optional reveal.js plugins
+      dependencies: [
+        { src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: '../plugin/zoom-js/zoom.js', async: true },
+        { src: '../plugin/notes/notes.js', async: true }
+      ]
+    });
+    </script>
+  </body>
+</html>
