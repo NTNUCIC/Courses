@@ -89,6 +89,44 @@ end</code></pre>
         </section>
       </section>
       
+      <section>
+        <section>
+          <h1>單一實體類別</h1>
+        </section>
+        <section>
+          <h2>實體化?</h2>
+          <p class="fragment">有些類別只產生一個物件</p>
+          <p class="fragment">真的有需要產生物件嗎?</p>
+        </section>
+        <section>
+          <h2>單一實體類別</h2>
+          <p class="fragment">英文為Singleton</p>
+          <p class="fragment">在Ruby中可以直接把類別當實體用</p>
+          <p class="fragment">所以就不需要實體化了</p>
+        </section>
+        <section>
+          <h2>類別實體變數</h2>
+          <p class="fragment">類別也是物件所以也有實體變數</p>
+          <p class="fragment">但是類別的實體變數不是物件的實體變數</p>
+        </section>
+        <section>
+          <h2>實體例子</h2>
+          <pre class="fragment" style="width:600px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">class C
+  @class_inst_var = "No instance"
+  def output
+    p @class_inst_var
+  end
+  def self.output
+    p @class_inst_var
+  end
+end</code></pre>
+        </section>
+        <section>
+          <h2>特殊效果</h2>
+          <p class="fragment">利用類別的實體變數就可以把類別當實體用</p>
+          <p class="fragment">只要另外初始化就可以不用建構子</p>
+        </section>
+      </section>
       
       </div>
     </div>
