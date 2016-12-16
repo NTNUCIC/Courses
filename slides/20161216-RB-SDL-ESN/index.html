@@ -48,6 +48,48 @@
           <h4>2016/12/16</h4>
       </section>
       
+      <section>
+        <h2>今日重點</h2>
+        <p class="fragment">類別使用</p>
+        <p class="fragment">單一實體類別</p>
+        <p class="fragment">SDL簡單功能介紹</p>
+      </section>
+      
+      <section>
+        <section>
+          <h1>類別使用</h1>
+        </section>
+        <section>
+          <h2>類別</h2>
+          <p class="fragment">除了實體可以有方法</p>
+          <p class="fragment">也可以定義類別方法</p>
+          <p class="fragment">類別也有自己的實體變數和類別變數</p>
+        </section>
+        <section>
+          <h2>類別方法</h2>
+          <p class="fragment">一樣是使用關鍵字def</p>
+          <p class="fragment">但是方法名稱要加上self.</p>
+          <pre class="fragment" style="width:600px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">def self.singleton_method
+end</code></pre>
+          <p class="fragment">使用時對該類別呼叫該方法</p>
+        </section>
+        <section>
+          <h2>文件表示</h2>
+          <p class="fragment">在文件中可以看到兩種方法的表示</p>
+          <p class="fragment">以Symbol類別為例</p>
+          <p class="fragment">::all_symbols的"::"代表為類別方法</p>
+          <p class="fragment">#to_s的"#"代表是實體方法</p>
+          <p class="fragment">類別方法也有可能寫成"."開頭</p>
+        </section>
+        <section>
+          <h2>類別變數</h2>
+          <p class="fragment">再次複習一下</p>
+          <p class="fragment">類別變數是"@@"開頭</p>
+          <p class="fragment">所有實體或是在類別內都可以操作類別變數</p>
+        </section>
+      </section>
+      
+      
       </div>
     </div>
     <script src="../lib/js/head.min.js"></script>
