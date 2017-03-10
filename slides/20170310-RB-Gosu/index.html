@@ -1,0 +1,341 @@
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Ruby</title>
+
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+		<meta name="og:title" content="Ruby">
+		<meta name="og:url" content="http://ntnucic.github.io/Courses/slides/20170310-RB-Gosu/index.html">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社Ruby課程投影片">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+			<section>
+				<h1 style="margin-top:100px">圖形函式庫</h1>
+					<h4>林品儒</h4>
+					<h4>2017/03/10</h4>
+			</section>
+			<section>
+				<section>
+					<h2>圖形函式庫</h2>
+					<p class="fragment">包裝了用來繪圖的函式</p>
+					<p class="fragment">可以從硬體或軟體方面繪圖</p>
+				</section>
+				<section>
+					<h2>圖形顯示</h2>
+					<p class="fragment">顯示記憶體存放圖像資料</p>
+					<p class="fragment">更動記憶體可以改變要顯示的圖形</p>
+					<p class="fragment">可以由CPU或GPU負責</p>
+				</section>
+				<section>
+					<h2>系統支援</h2>
+					<p class="fragment">要使用繪圖功能需要作業系統提供</p>
+					<p class="fragment">分成軟體和硬體部份</p>
+				</section>
+				<section>
+					<h2>軟體介面</h2>
+					<p class="fragment">使用CPU處理在記憶體中的繪圖資料</p>
+					<p class="fragment">Windows使用GDI</p>
+					<p class="fragment">Linux使用Xlib</p>
+				</section>
+				<section>
+					<h2>硬體介面</h2>
+					<p class="fragment">使用GPU處理顯示記憶體的繪圖資料</p>
+					<p class="fragment">效能較高且可以有更多功能</p>
+					<p class="fragment">Windows使用DirectX,OpenGL</p>
+					<p class="fragment">Linux使用OpenGL</p>
+					<p class="fragment">未來還有Vulkan</p>
+				</section>
+				<section>
+					<h2>繪圖函式庫</h2>
+					<p class="fragment">作業系統的功能太低階</p>
+					<p class="fragment">於是把功能包裝後形成函式庫</p>
+					<p class="fragment">除了繪圖可能還有視窗和事件的管理</p>
+					<p class="fragment">遊戲開發需求可能還有音效功能</p>
+					<p class="fragment">接著介紹幾款函式庫</p>
+				</section>
+				<section>
+					<h2>SDL</h2>
+					<p class="fragment">Simple DirectMedia Layer</p>
+					<p class="fragment">第1代的SDL只能用CPU畫圖效能差</p>
+					<p class="fragment">可以把圖放在顯示卡記憶體但反而變慢</p>
+					<p class="fragment">Windows下可以用DirectX或GDI當底層</p>
+					<p class="fragment">Linux下使用Xlib</p>
+					<p class="fragment">還有視窗和音效的功能</p>
+				</section>
+				<section>
+					<h2>SFML</h2>
+					<p class="fragment">Simple and Fast Multimedia Library</p>
+					<p class="fragment">跨平台還有多語言支援</p>
+					<p class="fragment">比SDL高階但個人沒用過</p>
+					<p class="fragment">想玩的可以玩玩看</p>
+				</section>
+				<section>
+					<h2>SDL2</h2>
+					<p class="fragment">第2代的SDL</p>
+					<p class="fragment">支援硬體2D繪圖</p>
+					<p class="fragment">功能比第一代強但是比較複雜</p>
+					<p class="fragment">想玩SDL建議從第1代玩起</p>
+				</section>
+				<section>
+					<h2>OpenGL</h2>
+					<p class="fragment">硬體層面的3D繪圖函式庫</p>
+					<p class="fragment">可以和很多函式庫合作</p>
+					<p class="fragment">功能強但是複雜</p>
+					<p class="fragment">除非必要不然別碰</p>
+				</section>
+				<section>
+					<h2>DirectX</h2>
+					<p class="fragment">玩遊戲的一定都聽過</p>
+					<p class="fragment">功能包山包海</p>
+					<p class="fragment">部份遊戲可以用OpenGL取代其功能</p>
+				</section>
+				<section>
+					<h2>Gosu</h2>
+					<p class="fragment">今天要來介紹的2D繪圖函式庫</p>
+					<p class="fragment">不過其實算是遊戲開發函式庫</p>
+					<p class="fragment">高階好寫容易入門</p>
+					<p class="fragment">底層採用GPU繪圖效能高</p>
+				</section>
+			</section>
+			<section>
+				<section>
+					<h1>Gosu</h1>
+				</section>
+				<section>
+					<h2>Gosu</h2>
+					<p class="fragment">2D遊戲開發函式庫</p>
+					<p class="fragment">跨平台且支援Ruby和C++</p>
+					<p class="fragment">繪圖部份底層為OpenGL</p>
+					<p class="fragment">開源碼MIT授權</p>
+				</section>
+				<section>
+					<h2>視窗</h2>
+					<p class="fragment">Gosu::Window</p>
+					<p class="fragment">用來繼承自己的遊戲視窗</p>
+					<p class="fragment">包含了繪圖以及事件的管理</p>
+				</section>
+				<section>
+					<h2>基本迴圈</h2>
+					<p class="fragment">在遊戲中會有一個主要的迴圈</p>
+					<p class="fragment">先進行輸入</p>
+					<p class="fragment">再來對輸入做運算</p>
+					<p class="fragment">然後繪圖輸出</p>
+				</section>
+				<section>
+					<h2>Window類別</h2>
+					<p class="fragment">#initialize建構視窗</p>
+					<p class="fragment">#update會在需要更新時呼叫</p>
+					<p class="fragment">#draw會在需要繪圖時呼叫</p>
+					<p class="fragment">#show呼叫後自動控管迴圈</p>
+				</section>
+				<section>
+					<pre><code>#coding: utf-8
+require "gosu"
+class GameWindow < Gosu::Window
+  def initialize
+    super(800,600)
+  end
+  def update
+  end
+  def draw
+  end
+end
+game = GameWindow.new
+game.show</code></pre>
+				</section>
+				<section>
+					<h2>更改標題</h2>
+					<p class="fragment">#caption="新標題"</p>
+					<p class="fragment">#caption可以取得標題</p>
+				</section>
+				<section>
+					<pre><code>def initialize
+  ...
+  self.caption = "GameWindow"
+end</code></pre>
+				</section>
+				<section>
+					<h2>圖層概念</h2>
+					<p class="fragment">Gosu是利用各個圖層分開繪圖後進行合成</p>
+					<p class="fragment">因此可以不用顧慮繪圖順序</p>
+					<p class="fragment">只要指定愈大的Z軸就會在愈上方</p>
+				</section>
+				<section>
+					<pre><code>def initialize
+  ...
+  @Zorder = {Sky: 0, Sun: 1, Mountain: 2, Ground: 3,UI: 4}
+end</code></pre>
+				</section>
+				<section>
+					<h2>繪製4邊形</h2>
+					<p class="fragment">由於Gosu是用3D功能來進行2D繪圖</p>
+					<p class="fragment">因此可以有些特別的功能</p>
+					<p class="fragment">可以給4個點畫出任意的4邊形</p>
+					<p class="fragment">要順時針或逆時針繞圈</p>
+				</section>
+				<section>
+					<pre><code>def draw
+  draw_quad(  0,400,0xFF44BB22,800,400,0xFF117711,
+            800,600,0xFF44BB33,  0,600,0xFF88BB33, @Zorder[:Ground])
+  draw_quad(  0,  0,0xFF00FFFF,800,  0,0xFF00FFFF,
+            800,400,0xFF00FFFF,  0,400,0xFF00FFFF, @Zorder[:Sky])
+end</code></pre>
+				</section>
+				<section>
+					<h2>繪製三角形</h2>
+					<p class="fragment">四邊形實際是用兩個三角形相加而成</p>
+					<p class="fragment">最基本的功能其實是畫三角形</p>
+					<p class="fragment">當然還是要各點座標和顏色囉</p>
+				</section>
+				<section>
+					<pre><code>def draw
+  ...
+  draw_triangle(  0,400,0xFF008000,
+                150,400,0xFF338033,
+                 75,300,0xFF508011, @Zorder[:Mountain])
+end</code></pre>
+				</section>
+				<section>
+					<h2>圖形載入</h2>
+					<p class="fragment">Gosu支援多種類型圖檔</p>
+					<p class="fragment">假如是BMP會將粉紅色#FF00FF當作透明色</p>
+					<p class="fragment">建議還是用PNG自己指定透明吧</p>
+				</section>
+				
+				<section>
+					<pre><code>def initialize
+  ...
+  @sun = Gosu::Image.new(self,"./images/sun.png")
+end</code></pre>
+				</section>
+				<section>
+					<h2>圖形顯示</h2>
+					<p class="fragment">圖像其實也可以畫成四邊形</p>
+					<p class="fragment">不過當然是矩形比較順眼</p>
+					<p class="fragment">還附上旋轉圖片的功能</p>
+				</section>
+				<section>
+					<pre><code>def initialize
+  ...
+  @r = 200
+  @angle = 0
+  @v = 0.1
+end
+def draw
+  ...
+  @sun.draw_rot(400 + @r * Math.cos(@angle.degrees_to_radians),
+                400 + @r * Math.sin(@angle.degrees_to_radians), @Zorder[:Sun],@angle)
+end</code></pre>
+				</section>
+				<section>
+					<h2>更新方法</h2>
+					<p class="fragment">視窗中有個#update的方法</p>
+					<p class="fragment">每個畫格都會被呼叫</p>
+					<p class="fragment">所以要需要將輸入和處理寫在裡面</p>
+				</section>
+								<section>
+					<pre><code>def update
+  @angle -= @v
+  @angle = @angle % 360
+end</code></pre>
+				</section>
+				<section>
+					<h2>鍵盤處理</h2>
+					<p class="fragment">一般的函式庫要抓取事件然後判斷種類</p>
+					<p class="fragment">Gosu可以直接看某顆鍵是否被按下</p>
+					<p class="fragment">#button_down?(btn)就可以檢查</p>
+				</section>
+				<section>
+					<pre><code>def update
+  button_down?(Gosu::KbUp) and @r+=1
+  button_down?(Gosu::KbDown) and @r-=1
+  button_down?(Gosu::KbLeft) and @v+=0.01
+  button_down?(Gosu::KbRight) and @v-=0.01
+  button_down?(Gosu::KbEscape) and exit
+  ...
+end</code></pre>
+				</section>
+				<section>
+					<h2>字型繪製</h2>
+					<p class="fragment">可以將UTF-8的字串直接畫出來</p>
+					<p class="fragment">也不用管字型檔的路徑在哪裡</p>
+					<p class="fragment">預設是畫白色的字</p>
+				</section>
+				<section>
+					<pre><code>def initialize
+  ...
+  @font = Gosu::Font.new(24)
+end
+def draw
+  ...
+  @font.draw("角度:%6.2f 半徑:%5d 速度:%.2f"%[@angle,@r,@v],10,10,@Zorder[:UI])
+end</code></pre>
+				</section>
+				<section>
+					<h2>程式完成</h2>
+					<p class="fragment">利用以上的功能就可以做出小遊戲了</p>
+					<p class="fragment">還有更多功能可以從官方網站取得歐</p>
+				</section>
+			</section>
+			</div>
+		</div>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true },
+				{ src: '../plugin/notes/notes.js', async: true }
+			]
+		});
+		</script>
+	</body>
+</html>
