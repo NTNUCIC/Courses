@@ -1,7 +1,7 @@
 # Courses
 資訊研究社課程投影片[http://ntnucic.github.io/Courses/](http://ntnucic.github.io/Courses/)
 
-##Slide's Name
+## Slide's Name
 使用西元日期命名資料夾，e.g.
 ```
 slides/20121221/
@@ -16,7 +16,7 @@ slides/20121221-Doom/index.html
 ```
 其餘範例檔案、附件檔案與圖片、影片等多媒體資料也放置於同一資料夾中。
 
-##Deploy
+## Deploy
 若本地端gh-pages不存在則先建立：
 ```
 git branch gh-pages
@@ -28,7 +28,7 @@ git merge master
 git push <remote> gh-pages
 ```
 
-##reveal.js
+## reveal.js
 Use reveal.js 3.1.0.
 
 * [reveal.js](https://github.com/hakimel/reveal.js)
