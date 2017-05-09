@@ -36,8 +36,19 @@
 				<li><a href="#p105-1">105學年 第1學期</a></li>
 				<li><a href="#p105-2">105學年 第2學期</a></li>
 			</ul>
+			<form id="search-box">
+				<input id="key-word" type="text" placeholder="Search">
+				<button id="go-search" type="submit">
+					<img src="images/search.png" alt="GoSearch">
+				</button>
+			</form>
 		</nav>
 		<main>
+			<div id="search-result" class="pages">
+				<section>
+					<h1>搜尋結果：</h1>
+				</section>
+			</div>
 			<div id="pparty" class="pages">
 				<section>
 					<h1>聚會與講座</h1>
@@ -1015,6 +1026,7 @@
 		<a href="#" id="go-down">
 			<img src="images/down-arrow.png" alt="GoDown">
 		</a>
+		<a href="#search-result" id="go-search-page"></a>
 		<script>
 			document.getElementById("go-down").addEventListener("click",function(e){
 				e.preventDefault();
@@ -1033,6 +1045,50 @@
 					});
 				}
 			}
+			document.getElementById("search-box").addEventListener("submit",function(e){
+				e.preventDefault();
+				var keyWord=document.getElementById("key-word").value;
+				if(keyWord.length==0){
+					return;
+				}
+				//reset
+				var result=document.getElementById("search-result");
+				reset(result,keyWord);
+				//search
+				var pageList=document.getElementsByClassName("pages");
+				for(var i=0;i<pageList.length;i++){
+					if(pageList[i].id!="search-result"){
+						var courseList=pageList[i].getElementsByTagName("section");
+						for(var j=0;j<courseList.length;j++){
+							var h2=courseList[j].getElementsByTagName("h2");
+							if(h2.length>0&&h2[0].innerHTML.indexOf(keyWord)!=-1){
+								addResult(result,courseList[j]);
+							}
+							else{
+								var p=courseList[j].getElementsByTagName("p");
+								if(p.length>0&&p[0].innerHTML.indexOf(keyWord)!=-1){
+									addResult(result,courseList[j]);
+								}
+							}
+						}
+					}
+				}
+				document.getElementById("go-search-page").click();
+
+				function reset(result,keyWord){
+					result.innerHTML="";
+					var section=document.createElement("section");
+					var h1=document.createElement("h1");
+					h1.innerHTML="搜尋結果："+keyWord;
+					section.appendChild(h1);
+					result.appendChild(section);
+				}
+				function addResult(page,result){
+					var section=document.createElement("section");
+					section.innerHTML=result.innerHTML;
+					page.appendChild(section);
+				}
+			});
 		</script>
 	</body>
 </html>

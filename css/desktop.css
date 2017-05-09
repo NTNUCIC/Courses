@@ -13,8 +13,8 @@ header h1{
 }
 .nav{
 	position: fixed;
-	border-left: 2vmin solid #FE9A1E;
-	border-radius: 2vmin 0 0 2vmin;
+	border-left: 3vmin solid #FE9A1E;
+	border-radius: 3vmin 0 0 4vmin;
 	right: 0;
 	height: 60vh;
 	top: 20vh;
@@ -37,9 +37,9 @@ header h1{
 	position: absolute;
 	top: 0;
 	bottom: 0;
-	left: -2vmin;
+	left: -3vmin;
 	display: block;
-	width: 2vmin;
+	width: 3vmin;
 	background-image: url("../images/right-arrow.png");
 	background-size: contain;
 	background-repeat: no-repeat;
@@ -106,4 +106,31 @@ footer{
 }
 #go-down img{
 	width: 10vmin;
+}
+//#search-box{
+	height: 2vw;
+}
+#key-word{
+	position: absolute;
+	display: block;
+	bottom: 0;
+	left: 0;
+	border: 0.2vw solid #7DACFC;
+	height: 2vw;
+	font-size: 2vw;
+}
+#go-search{
+	display: block;
+	position: absolute;
+	background: none;
+	border: none;
+	right: 0;
+	bottom: 0;
+}
+.nav:not(.open) #go-search{
+	display: none;
+}
+#search-box img{
+	height: 2vw;
+	cursor: pointer;
 }
