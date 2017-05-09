@@ -1047,13 +1047,14 @@
 			}
 			document.getElementById("search-box").addEventListener("submit",function(e){
 				e.preventDefault();
-				var keyWord=document.getElementById("key-word").value;
+				var keyWord=document.getElementById("key-word").value.trim();
 				if(keyWord.length==0){
 					return;
 				}
 				//reset
 				var result=document.getElementById("search-result");
 				reset(result,keyWord);
+				keyWord=keyWord.toUpperCase();
 				//search
 				var pageList=document.getElementsByClassName("pages");
 				for(var i=0;i<pageList.length;i++){
@@ -1061,12 +1062,14 @@
 						var courseList=pageList[i].getElementsByTagName("section");
 						for(var j=0;j<courseList.length;j++){
 							var h2=courseList[j].getElementsByTagName("h2");
-							if(h2.length>0&&h2[0].innerHTML.indexOf(keyWord)!=-1){
+							if(h2.length>0&&
+								h2[0].innerHTML.toUpperCase().indexOf(keyWord)!=-1){
 								addResult(result,courseList[j]);
 							}
 							else{
 								var p=courseList[j].getElementsByTagName("p");
-								if(p.length>0&&p[0].innerHTML.indexOf(keyWord)!=-1){
+								if(p.length>0&&
+									p[0].innerHTML.toUpperCase().indexOf(keyWord)!=-1){
 									addResult(result,courseList[j]);
 								}
 							}
