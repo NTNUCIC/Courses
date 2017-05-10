@@ -114,6 +114,32 @@ footer{
 #go-down img{
 	width: 15vmin;
 }
+#search-box{
+	background: #FFFFFF;
+	padding-bottom: 5vmin;
+	position: relative;
+}
+.nav:not(.open) #search-box{
+	display: none;
+}
+#key-word{
+	display: block;
+	font-size: 8vmin;
+	border: 1vmin solid #7DACFC;
+	width: 100vw;
+}
+#go-search{
+	position: absolute;
+	display: block;
+	background: none;
+	border: none;
+	right: 1vmin;
+	top: 1vmin;
+}
+#search-box img{
+	height: 9vmin;
+	cursor: pointer;
+}
 
 @media only screen and (orientation: landscape){
 	/*mobile and tablets on horizontal*/
