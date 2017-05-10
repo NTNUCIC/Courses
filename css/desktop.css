@@ -114,6 +114,7 @@ footer{
 	left: 0;
 	border: 0.2vw solid #7DACFC;
 	height: 2vw;
+	width: 100%;
 	font-size: 2vw;
 }
 #go-search{
@@ -121,13 +122,13 @@ footer{
 	position: absolute;
 	background: none;
 	border: none;
-	right: 0;
-	bottom: 0;
+	right: 0.2vw;
+	bottom: 0.2vw;
 }
 .nav:not(.open) #go-search{
 	display: none;
 }
 #search-box img{
-	height: 2vw;
+	height: 1.6vw;
 	cursor: pointer;
 }
