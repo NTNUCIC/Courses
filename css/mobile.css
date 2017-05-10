@@ -121,6 +121,8 @@ footer{
 	background: #FFFFFF;
 	padding-bottom: 5vmin;
 	position: relative;
+	padding-left: 5vmin;
+	padding-right: 5vmin;
 }
 .nav:not(.open) #search-box{
 	display: none;
@@ -129,14 +131,16 @@ footer{
 	display: block;
 	font-size: 8vmin;
 	border: 1vmin solid #7DACFC;
-	width: 100vw;
+	width: 100%;
+	text-align: center;
+	border-radius: 1em;
 }
 #go-search{
 	position: absolute;
 	display: block;
 	background: none;
 	border: none;
-	right: 1vmin;
+	right: 6vmin;
 	top: 1vmin;
 }
 #search-box img{
