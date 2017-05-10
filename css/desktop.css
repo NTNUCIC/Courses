@@ -132,3 +132,15 @@ footer{
 	height: 1.6vw;
 	cursor: pointer;
 }
+.tags a{
+	display: inline-block;
+	border-radius: 0.3em;
+	background: #7DACFC;
+	color: #FFFFFF;
+	font-size: 0.8em;
+	padding: 0.2em;
+	margin-right: 0.5em;
+}
+.tags a:hover{
+	background: #B9EC2D;
+}

@@ -154,6 +154,7 @@
 							<h2>網頁美學講座</h2>
 							<h4>(<time datetime="2016-03-07 20:00">2016/03/07</time>)</h4>
 						</summary>
+						<p class="tags"><a href="#">HTML</a><a href="#">CSS</a></p>
 						<p>HTML/CSS 網頁美學</p>
 						<nav>
 							<ul>
@@ -265,6 +266,7 @@
 							<h2>HTML簡介</h2>
 							<h4>(<time datetime="2015-09-30 19:00">2015/09/30</time>)</h4>
 						</summary>
+						<p class="tags"><a href="#">HTML</a></p>
 						<p>構成網頁的HTML、常用的標籤、特殊字元、清單、標格等</p>
 						<nav>
 							<ul>
@@ -282,6 +284,7 @@
 							<h2>Git版本控制</h2>
 							<h4>(<time datetime="2015-10-01 19:00">2015/10/01</time>)</h4>
 						</summary>
+						<p class="tags"><a href="#">GIT</a></p>
 						<p>使用Git進行原始碼版本控制，使開發可以更有效率的管理</p>
 						<nav>
 							<ul>
@@ -1052,7 +1055,24 @@
 					doSearch(keyWord);
 				}
 			});
+			var pageList=document.getElementsByClassName("pages");
+			for(var i=0;i<pageList.length;i++){
+				setTag(pageList[i]);
+			}
+			function setTag(page){
+				var tagp=page.getElementsByClassName("tags");
+				for(var i=0;i<tagp.length;i++){
+					var taga=tagp[i].getElementsByTagName("a");
+					for(var j=0;j<taga.length;j++){
+						taga[j].addEventListener("click",function(e){
+							e.preventDefault();
+							doSearch(e.target.innerHTML.trim());
+						});
+					}
+				}
+			}
 			function doSearch(keyWord){
+				console.log("search:"+keyWord);
 				//reset
 				var result=document.getElementById("search-result");
 				reset(result,keyWord);
@@ -1086,9 +1106,11 @@
 					section.appendChild(h1);
 					result.appendChild(section);
 				}
+				//done
+				setTag(result);
 				document.getElementById("go-search-page").click();
 				document.getElementById("nav").classList.remove("open");
-
+				//private function
 				function reset(result,keyWord){
 					result.innerHTML="";
 					var section=document.createElement("section");
