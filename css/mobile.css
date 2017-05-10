@@ -21,6 +21,9 @@ header h1{
 	z-index: 2;
 	min-height: 10vh;
 }
+.nav li{
+	display: block;
+}
 .nav.open{
 	padding-top: 15vmin;
 	bottom: 0;
