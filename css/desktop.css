@@ -115,7 +115,8 @@ footer{
 	border: 0.2vw solid #7DACFC;
 	height: 2vw;
 	width: 100%;
-	font-size: 2vw;
+	font-size: 1.6vw;
+	line-height: 2vw;
 }
 #go-search{
 	display: block;
