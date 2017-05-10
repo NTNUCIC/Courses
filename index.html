@@ -1048,9 +1048,11 @@
 			document.getElementById("search-box").addEventListener("submit",function(e){
 				e.preventDefault();
 				var keyWord=document.getElementById("key-word").value.trim();
-				if(keyWord.length==0){
-					return;
+				if(keyWord.length>0){
+					doSearch(keyWord);
 				}
+			});
+			function doSearch(keyWord){
 				//reset
 				var result=document.getElementById("search-result");
 				reset(result,keyWord);
@@ -1076,7 +1078,16 @@
 						}
 					}
 				}
+				//no result
+				if(result.getElementsByTagName("section").length<=1){
+					var section=document.createElement("section");
+					var h1=document.createElement("h1");
+					h1.innerHTML="沒有結果!";
+					section.appendChild(h1);
+					result.appendChild(section);
+				}
 				document.getElementById("go-search-page").click();
+				document.getElementById("nav").classList.remove("open");
 
 				function reset(result,keyWord){
 					result.innerHTML="";
@@ -1091,7 +1102,7 @@
 					section.innerHTML=result.innerHTML;
 					page.appendChild(section);
 				}
-			});
+			}
 		</script>
 	</body>
 </html>
