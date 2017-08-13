@@ -1,0 +1,280 @@
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Ruby</title>
+
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+		<meta name="og:title" content="Ruby">
+		<meta name="og:url" content="http://ntnucic.github.io/Courses/slides/20170310-RB-Gosu/index.html">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社Ruby課程投影片">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+			<section>
+				<h1 style="margin-top:100px">圖形函式庫</h1>
+				<h4>林品儒</h4>
+				<h4>2017/03/17</h4>
+			</section>
+			<section>
+				<section>
+					<h1>Gosu</h1>
+				</section>
+				<section>
+					<h2>前情提要</h2>
+					<p class="fragment">上次已經講過畫圖和貼圖</p>
+					<p class="fragment">這次會用到滑鼠和畫線</p>
+				</section>
+				<section>
+					<h2>今天目標</h2>
+					<p class="fragment">使用鍵盤輸入圖檔檔名</p>
+					<p class="fragment">避免載入錯誤</p>
+					<p class="fragment">滑鼠拖曳圖片端點</p>
+				</section>
+				<section>
+					<h2>基本框架</h2>
+					<pre><code lang="Ruby">#coding: utf-8
+require 'gosu'
+class GameWindow < Gosu::Window
+  def initialize
+    super(800,600)
+  end
+  def update
+  end
+  def draw
+  end
+end
+game = GameWindow.new
+game.show</code></pre>
+				</section>
+				<section>
+					<h2>顯示滑鼠</h2>
+					<p class="fragment">Gosu預設隱藏滑鼠</p>
+					<p class="fragment">需要重定義方法來設定顯示滑鼠</p>
+					<pre class="fragment"><code lang="Ruby">class GameWindow < Gosu::Window
+..
+def needs_cursor?
+  return true
+end</code></pre>
+				</section>
+				<section>
+					<h2>文字輸入</h2>
+					<p class="fragment">Gosu::TextInput</p>
+					<p class="fragment">直接鍵盤輸入的文字輸入</p>
+					<p class="fragment">這算是基本架構不會直接拿來用</p>
+				</section>
+				<section>
+					<pre><code lang="Ruby">def initialize
+  ...
+  self.caption = "請直接輸入圖檔檔名"
+  self.text_input = Gosu::TextInput.new
+end
+def update
+  text_input and 
+  if button_down?(Gosu::KbReturn)
+    @path = text_input.text
+    self.text_input = nil
+    @text = nil
+  else        
+    @text = text_input.text
+  end
+end</code></pre>
+				</section>
+				<section>
+					<h2>顯示文字</h2>
+					<p class="fragment">文字輸入只是輸入不提供繪圖</p>
+					<p class="fragment">保留了操作上的彈性</p>
+					<p class="fragment">可是顯示就要自己想辦法了</p>
+				</section>
+				<section>
+					<pre><code lang="Ruby">def initialize
+  ...
+  @font = Gosu::Font.new(24)
+  @Zorder = { Pic: 0,Point: 1, Font: 2}
+end
+def draw
+  @font.draw(@text, 10, 10, @Zorder[:Font])
+end
+</code></pre>
+				</section>
+				<section>
+					<h2>載入圖檔</h2>
+					<p class="fragment">這次是使用外部輸入當作路徑</p>
+					<p class="fragment">而不是使用指定的路徑</p>
+				</section>
+				<section>
+					<h2>特別提醒</h2>
+					<p class="fragment">載入部份是新增在結束文字輸入後</p>
+					<pre class="fragment"><code lang="Ruby">def update
+  ...
+  @text = nil
+  if File.exists?(@path)
+    @pic = Gosu::Image.new(self, @path)
+    @text = "你是擅長載入圖片的朋友呢:#{@path}"
+  else
+    @text = "你是擅長錯誤處理的朋友呢"
+  end
+else        
+  @text = text_input.text
+end</code></pre>
+				</section>
+				<section>
+					<h2>建立點的類別</h2>
+					<p class="fragment">因為希望可以用滑鼠拖曳圖形的4個角</p>
+					<p class="fragment">需要新增一個符合該功能的類別</p>
+				</section>
+				<section>
+					<pre><code lang="Ruby">...
+require 'gosu'
+class Point
+  attr_reader :x,:y
+  def initialize(x,y)
+    @x,@y = x,y
+  end
+  def update(x,y)
+    @x,@y = x,y
+  end
+end
+class GameWindow < Gosu::Window...</code></pre>
+				</section>
+				<section>
+					<h2>實體化各點</h2>
+					<p class="fragment">建立類別後還要產生實體才有效果</p>
+					<pre class="fragment"><code lang="Ruby">class GameWindow < Gosu::Window
+  def initialize
+    ..
+    @points = [
+      Point.new(200, 200), Point.new(600, 200),
+      Point.new(600, 400), Point.new(200, 400)
+    ]
+  end
+end</code></pre>
+				</section>
+				<section>
+					<h2>點類別顯示</h2>
+					<p class="fragment">建立了實體但是還需要實際畫出來才能被看到</p>
+					<p class="fragment">繪圖需要額外把window自己傳進去</p>
+				</section>
+				<section>
+					<pre><code lang="Ruby">class Point
+  ...
+  def draw(window,z)
+    window.draw_line(@x-5,@y-5,Gosu::Color::RED,@x+5,@y+5,Gosu::Color::RED,z)
+    window.draw_line(@x-5,@y+5,Gosu::Color::RED,@x+5,@y-5,Gosu::Color::RED,z)
+  end
+end
+class GameWindow < Gosu::Window
+  def draw
+    @points.each{|point| point.draw(self,@Zorder[:Point])}
+    ...
+  end
+end</code></pre>
+				</section>
+				<section>
+					<h2>顯示圖片</h2>
+					<p class="fragment">這次我們要使用畫4邊形的方法來貼圖</p>
+					<p class="fragment">假如沒有圖片就自動不畫</p>
+					<pre class="fragment"><code lang="Ruby">class GameWindow < Gosu::Window
+  def draw
+    ...
+    @pic&.draw_as_quad(@points[0].x, @points[0].y, 0xFFFFFFFF,
+                       @points[1].x, @points[1].y, 0xFFFFFFFF,
+                       @points[2].x, @points[2].y, 0xFFFFFFFF,
+                       @points[3].x, @points[3].y, 0xFFFFFFFF, 
+                       @Zorder[:Pic])
+  end
+end</code></pre>
+				</section>
+				<section>
+					<h2>滑鼠拖曳功能</h2>
+					<p class="fragment">先講解原理</p>
+					<p class="fragment">有拖曳物更新拖曳物座標</p>
+					<p class="fragment">有拖曳物且滑鼠左鍵沒有按下則取消拖曳</p>
+					<p class="fragment">沒有拖曳物且滑鼠左鍵按著時尋找拖曳物</p>
+					<p class="fragment">大家可以想想其他狀況會如何?</p>
+				</section>
+				<section>
+					<h2>未初始化實體變數</h2>
+					<p class="fragment">未初始化的實體變數可以取用</p>
+					<p class="fragment">預設會為nil</p>
+					<pre class="fragment"><code lang="Ruby">class GameWindow < Gosu::Window
+  def update
+    ...
+    if @drag
+      @drag.update(mouse_x, mouse_y)
+      button_down?(Gosu::MsLeft) or @drag = nil
+    else
+      button_down?(Gosu::MsLeft) and @drag = @points.select{|point| 
+        (point.x - mouse_x)**2 + (point.y - mouse_y)**2 < 100
+      }.first
+    end
+  end
+end</code></pre>
+				</section>
+				<section>
+					<h2>程式完成</h2>
+					<p class="fragment">大家來觀察點的拖曳會有什麼效果吧</p>
+					<p class="fragment">感謝大家參與社課</p>
+				</section>
+			</section>
+			<!-- <pre><code lang="Ruby"></code></pre> -->
+			</div>
+		</div>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true },
+				{ src: '../plugin/notes/notes.js', async: true }
+			]
+		});
+		</script>
+	</body>
+</html>

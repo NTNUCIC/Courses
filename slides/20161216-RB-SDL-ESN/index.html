@@ -1,0 +1,314 @@
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Ruby</title>
+
+    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+    <meta name="og:title" content="Ruby">
+    <meta name="og:url" content="http://ntnucic.github.io/Courses/slides/20161216-RB-SDL-ESN/index.html">
+    <meta name="og:description" content="國立臺灣師範大學資訊研究社Ruby課程投影片">
+    <meta name="og:image" content="../../images/cic.jpg">
+    <meta name="og:site_name" content="NTNUCIC">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+    <link rel="stylesheet" href="../lib/css/zenburn.css">
+
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+      <section>
+        <h1 style="margin-top:100px">SDL愛因斯坦棋</h1>
+          <h4>林品儒</h4>
+          <h4>2016/12/16</h4>
+      </section>
+      
+      <section>
+        <h2>今日重點</h2>
+        <p class="fragment">類別使用</p>
+        <p class="fragment">單一實體類別</p>
+        <p class="fragment">SDL簡單功能介紹</p>
+      </section>
+      
+      <section>
+        <section>
+          <h1>類別使用</h1>
+        </section>
+        <section>
+          <h2>類別</h2>
+          <p class="fragment">除了實體可以有方法</p>
+          <p class="fragment">也可以定義類別方法</p>
+          <p class="fragment">類別也有自己的實體變數和類別變數</p>
+        </section>
+        <section>
+          <h2>類別方法</h2>
+          <p class="fragment">一樣是使用關鍵字def</p>
+          <p class="fragment">但是方法名稱要加上self.</p>
+          <pre class="fragment" style="width:600px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">def self.singleton_method
+end</code></pre>
+          <p class="fragment">使用時對該類別呼叫該方法</p>
+        </section>
+        <section>
+          <h2>文件表示</h2>
+          <p class="fragment">在文件中可以看到兩種方法的表示</p>
+          <p class="fragment">以Symbol類別為例</p>
+          <p class="fragment">::all_symbols的"::"代表為類別方法</p>
+          <p class="fragment">#to_s的"#"代表是實體方法</p>
+          <p class="fragment">類別方法也有可能寫成"."開頭</p>
+        </section>
+        <section>
+          <h2>類別變數</h2>
+          <p class="fragment">再次複習一下</p>
+          <p class="fragment">類別變數是"@@"開頭</p>
+          <p class="fragment">所有實體或是在類別內都可以操作類別變數</p>
+        </section>
+      </section>
+      
+      <section>
+        <section>
+          <h1>單一實體類別</h1>
+        </section>
+        <section>
+          <h2>實體化?</h2>
+          <p class="fragment">有些類別只產生一個物件</p>
+          <p class="fragment">真的有需要產生物件嗎?</p>
+        </section>
+        <section>
+          <h2>單一實體類別</h2>
+          <p class="fragment">英文為Singleton</p>
+          <p class="fragment">在Ruby中可以直接把類別當實體用</p>
+          <p class="fragment">所以就不需要實體化了</p>
+        </section>
+        <section>
+          <h2>類別實體變數</h2>
+          <p class="fragment">類別也是物件所以也有實體變數</p>
+          <p class="fragment">但是類別的實體變數不是物件的實體變數</p>
+        </section>
+        <section>
+          <h2>實體例子</h2>
+          <pre class="fragment" style="width:600px;"><code class="ruby" style="font-size:32px;font-family:'consolas','ubuntu mono'">class C
+  @class_inst_var = "No instance"
+  def output
+    p @class_inst_var
+  end
+  def self.output
+    p @class_inst_var
+  end
+end</code></pre>
+        </section>
+        <section>
+          <h2>特殊效果</h2>
+          <p class="fragment">利用類別的實體變數就可以把類別當實體用</p>
+          <p class="fragment">只要另外初始化就可以不用建構子</p>
+        </section>
+      </section>
+      
+      <section>
+        <section>
+          <h1>模組</h1>
+        </section>
+        <section>
+          <h2>模組</h2>
+          <p class="fragment">模組類似於類別但是沒有實體</p>
+          <p class="fragment">用來將相關的函式包裝起來</p>
+          <p class="fragment">可以呼叫模組函式來使用者各種功能</p>
+        </section>
+        <section>
+          <h2>模組函式</h2>
+          <p class="fragment">呼叫方法和類別方法很像</p>
+          <p class="fragment">對模組呼叫指定名稱的函式即可</p>
+        </section>
+        <section>
+          <h2>模組常數</h2>
+          <p class="fragment">在模組中可能會有一些預定義的變數</p>
+          <p class="fragment">使用"::"來取得該變數</p>
+        </section>
+        <section>
+          <h2>要學習SDL一定要會模組的使用歐</h2>
+        </section>
+      </section>
+      
+      <section>
+        <section> 
+          <h1>SDL功能簡介</h1>
+        </section>
+        <section>
+          <h2>SDL</h2>
+          <p class="fragment">Simple&nbsp;DirectMedia&nbsp;Layer</p>
+          <p class="fragment">提供繪圖音訊輸出入等各項基本功能</p>
+          <p class="fragment">Ruby中的套件經過額外包裝</p>
+        </section>
+        <section>
+          <h2>SDL相關函式庫</h2>
+          <p class="fragment">SDL&nbsp;image：增加圖檔支援種類</p>
+          <p class="fragment">SDL&nbsp;ttf：提供字體繪圖支援</p>
+          <p class="fragment">SDL&nbsp;mixer：提供音訊效果支援</p>
+          <p class="fragment">SDL&nbsp;gfx：各種額外功能(我沒用過...)</p>
+        </section>
+        <section>
+          <h2>SDL功能</h2>
+          <p class="fragment">初始化</p>
+          <p class="fragment">視窗</p>
+          <p class="fragment">繪圖</p>
+          <p class="fragment">事件</p>
+          <p class="fragment">鍵盤、滑鼠</p>
+        </section>
+        <section>
+          <h2>初始化</h2>
+          <p class="fragment">SDL.Init(flag)</p>
+          <p class="fragment">flag是一個常數</p>
+          <p class="fragment">SDL::INIT_VIDEO初始化繪圖</p>
+          <p class="fragment">SDL::INIT_EVERYTHING初始化所有功能</p>
+        </section>
+        <section>
+          <h2>建立視窗</h2>
+          <p class="fragment">SDL.SetVideoMode(w,h,bpp,flag)</p>
+          <p class="fragment">bpp為色彩深度通常使用32</p>
+          <p class="fragment">flag一般為SDL::SWSURFACE</p>
+          <p class="fragment">flag可以額外加入全螢幕、無邊框或可縮放之類功能</p>
+          <p class="fragment">要記得把得到的視窗物件賦值給變數</p>
+        </section>
+        <section>
+          <h2>改變視窗標題</h2>
+          <p class="fragment">SDL.WM_SetCaption(title,icon)</p>
+          <p class="fragment">title為標題用字串</p>
+          <p class="fragment">icon直接用空字串就好</p>
+        </section>
+        <section>
+          <h2>繪圖</h2>
+          <p class="fragment">其實功能還可以再區分</p>
+          <p class="fragment">圖檔載入</p>
+          <p class="fragment">圖檔繪製</p>
+          <p class="fragment">畫矩形</p>
+        </section>
+        <section>
+          <h2>圖檔載入</h2>
+          <p class="fragment">圖檔預設支援只有BMP</p>
+          <p class="fragment">需要其他檔案要使用SDL::Image的功能</p>
+          <p class="fragment">SDL.LoadBMP(path)</p>
+          <p class="fragment">給予檔名載入後會給予一個圖片物件</p>
+        </section>
+        <section>
+          <h2>設定背景色</h2>
+          <p class="fragment">SDL.SetColorKey(pic,flag,color)</p>
+          <p class="fragment">一般flag都用SDL::SRCCOLORKEY</p>
+          <p class="fragment">而color則為整數(小心RGB或BGR!!)</p>
+          <p class="fragment">這樣在把圖片貼到另一張圖片上color就會被忽略</p>
+        </section>
+        <section>
+          <h2>圖檔繪製</h2>
+          <p class="fragment">螢幕和圖片其實可以視為一樣的東西</p>
+          <p class="fragment">只是要畫在螢幕才能顯示</p>
+          <p class="fragment">SDL.BlitSurface(src,sRect,dst,dRect)</p>
+          <p class="fragment">需要用SDL::Rect給予[x,y,w,h]指定繪圖範圍</p>
+        </section>
+        <section>
+          <h2>螢幕翻轉(?)</h2>
+          <p class="fragment">除了把圖片畫上螢幕之外</p>
+          <p class="fragment">還要把螢幕翻轉才能把螢幕顯示出來</p>
+          <p class="fragment">畫好圖要記得SDL.Flip(screen)給大家看</p>
+        </section>
+        <section>
+          <h2>填滿矩形</h2>
+          <p class="fragment">SDL.FillRect(pic,rect,color)</p>
+          <p class="fragment">一樣記得要用SDL::Rect指定[x,y,w,h]</p>
+          <p class="fragment">顏色color還是一樣是整數</p>
+          <p class="fragment">這次還有當成畫直線來用...</p>
+        </section>
+        <section>
+          <h2>事件處理</h2>
+          <p class="fragment">SDL.PollEvent可以取得一個發生的事件</p>
+          <p class="fragment">事件包含鍵盤滑鼠關閉視窗各式動作</p>
+          <p class="fragment">要對各種狀況進行比對</p>
+        </section>
+        <section>
+          <h2>事件種類</h2>
+          <p class="fragment">列出一些常用的事件</p>
+          <p class="fragment">SDL::MouseMotionEvent：滑鼠移動</p>
+          <p class="fragment">SDL::MouseButtonEvent：滑鼠按鍵起落</p>
+          <p class="fragment">SDL::KeyboardEvent：鍵盤按鍵起落</p>
+          <p class="fragment">SDL::QuitEvent：關閉視窗</p>
+        </section>
+        <section>
+          <h2>滑鼠事件</h2>
+          <p class="fragment">#state可以取得狀態</p>
+          <p class="fragment">#x,#y取得座標</p>
+          <p class="fragment">#button可以取得按鍵</p>
+        </section>
+        <section>
+          <h2>滑鼠移動</h2>
+          <p class="fragment">和滑鼠事件類似但是沒有按鍵</p>
+          <p class="fragment">額外有移動距離的差值</p>
+          <p class="fragment">#xrel,#yrel取得相對移動距離</p>
+        </section>
+        <section>
+          <h2>鍵盤起落</h2>
+          <p class="fragment">#type可以得到SDL::KEYDOWN或SDL::KEYUP</p>
+          <p class="fragment">#keysym可以取得鍵盤按鍵</p>
+          <p class="fragment">鍵盤按鍵需要另外參考按鍵編碼</p>
+        </section>
+        <section>
+          <h2>視窗關閉</h2>
+          <p class="fragment">關閉視窗會觸發此事件</p>
+          <p class="fragment">一定要攔截才能正常關閉視窗</p>
+        </section>
+        <section>
+          <h2>這次有講解到很多新功能</h2>
+          <h2>除了投影片也可以參考官方網站歐</h2>
+        </section>
+      </section>
+      
+      </div>
+    </div>
+    <script src="../lib/js/head.min.js"></script>
+    <script src="../js/reveal.js"></script>
+
+    <script>
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+      // Optional reveal.js plugins
+      dependencies: [
+        { src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: '../plugin/zoom-js/zoom.js', async: true },
+        { src: '../plugin/notes/notes.js', async: true }
+      ]
+    });
+    </script>
+  </body>
+</html>

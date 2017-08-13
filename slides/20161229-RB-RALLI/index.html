@@ -1,0 +1,188 @@
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Ruby</title>
+
+    <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+    <meta name="og:title" content="Ruby">
+    <meta name="og:url" content="http://ntnucic.github.io/Courses/slides/20161229-RB-RALLI/index.html">
+    <meta name="og:description" content="國立臺灣師範大學資訊研究社Ruby課程投影片">
+    <meta name="og:image" content="../../images/cic.jpg">
+    <meta name="og:site_name" content="NTNUCIC">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="../css/reveal.css">
+    <link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+    <link rel="stylesheet" href="../lib/css/zenburn.css">
+
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+      <section>
+        <h1 style="margin-top:100px">RALLI</h1>
+        <h4>林品儒</h4>
+        <h4>2016/12/29</h4>
+      </section>
+      
+      <section>
+        <section>
+          <h2>RALLI</h2>
+          <p class="fragment">其實只是自己取的名字</p>
+          <p class="fragment">用來執行一個自制的特殊語言的直譯器</p>
+          <p class="fragment">能做到Ruby部份能做的事</p>
+        </section>
+        <section>
+          <h2>直譯器</h2>
+          <p class="fragment">在講解這個直譯器之前</p>
+          <p class="fragment">要先講解一下這個特殊語言的語法</p>
+        </section>
+        <section>
+          <h2>語法</h2>
+          <p class="fragment">#標籤 指令 運算元1,運算元2,...</p>
+          <p class="fragment">標籤可有可無</p>
+          <p class="fragment">運算元用逗號分開</p>
+        </section>
+        <section>
+          <h2>運算元種類</h2>
+          <p class="fragment">整數,浮點數</p>
+          <p class="fragment">"$"開頭的是變數名稱</p>
+          <p class="fragment">":"開頭的是Ruby符號</p>
+          <p class="fragment">"#"開頭是標籤</p>
+          <p class="fragment">最後還有用雙引號的字串可以用</p>
+        </section>
+        <section>
+          <h2>直譯器原理</h2>
+          <p class="fragment">先把程式碼讀進來</p>
+          <p class="fragment">分析語法並且存成內部表示</p>
+          <p class="fragment">執行時依照指令執行對應的動作</p>
+        </section>
+        <section>
+          <h2>使用到的新東西</h2>
+          <p class="fragment">常規表達式 Regexp</p>
+          <p class="fragment">匿名函式 Proc</p>
+        </section>
+      </section>
+      
+      <section>
+        <section>
+          <h2>常規表達式</h2>
+        </section>
+        <section>
+          <h2>常規表達式</h2>
+          <p class="fragment">Regexp</p>
+          <p class="fragment">英文為Regular&nbsp;Expression</p>
+          <p class="fragment">實際上這個東西博大精深</p>
+          <p class="fragment">只要知道可以用來表達文字出現的一個規則</p>
+          <p class="fragment">可以用來比對字串</p>
+        </section>
+        <section>
+          <h2>語法</h2>
+          <p class="fragment">使用&nbsp;//&nbsp;夾住一個Regexp</p>
+          <p class="fragment">?代表出現0,1次&nbsp;+是1次以上&nbsp;*是0次以上</p>
+          <p class="fragment">[]代表一個字的可能&nbsp;()是分組</p>
+          <p class="fragment">\d是[0-9]&nbsp;\w是[A-Za-z0-9_]</p>
+          <p class="fragment">\s是空白&nbsp;\S是非空白&nbsp;還有萬用字元.</p>
+        </section>
+        <section>
+          <h2>實際範例</h2>
+          <p class="fragment">整數最前面可以有正負號</p>
+          <p class="fragment">數字部份可能是0</p>
+          <p class="fragment">或者是非0的開頭後面加上任意數字</p>
+          <p class="fragment">/[-+]?(0|([1-9]\d*))/</p>
+        </section>
+        <section>
+          <h2>實際範例</h2>
+          <p class="fragment">浮點數和整數很像但是後面還有數字</p>
+          <p class="fragment">/[-+]?(0|([1-9]\d*))\.\d+/</p>
+          <p class="fragment">因為小數點是萬用字元所以要跳脫</p>
+        </section>
+        <section>
+          <h2>我們來實際看看程式是麼運作吧</h2>
+        </section>
+      </section>
+      
+      <section>
+        <section>
+          <h2>匿名函式</h2>
+        </section>
+        <section>
+          <h2>匿名函式</h2>
+          <p class="fragment">Proc</p>
+          <p class="fragment">這是一個可執行的特殊物件</p>
+          <p class="fragment">可以被呼叫</p>
+        </section>
+        <section>
+          <h2>類似的東西</h2>
+          <p class="fragment">其實Proc還有類似的東西</p>
+          <p class="fragment">但是比較進階在此不談</p>
+          <p class="fragment">block,lambda,proc...</p>
+        </section>
+        <section>
+          <h2>語法</h2>
+          <p class="fragment">->(arg1,arg2,...){ do_sonthing }</p>
+          <p class="fragment">要給予參數以及可執行的內容</p>
+        </section>
+        <section>
+          <h2>用法</h2>
+          <p class="fragment">因為是物件所以可以在方法中間傳來傳去</p>
+          <p class="fragment">所以一個物件裏面可能是不同的Proc</p>
+          <p class="fragment">個人是寫遊戲時想到可以用來當技能基底用...</p>
+        </section>
+        <section>
+          <h2>來看看直譯器執行的部份吧</h2>
+        </section>
+      </section>
+      
+      </div>
+    </div>
+    <script src="../lib/js/head.min.js"></script>
+    <script src="../js/reveal.js"></script>
+
+    <script>
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      history: true,
+      center: true,
+
+      transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+      // Optional reveal.js plugins
+      dependencies: [
+        { src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+        { src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+        { src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+        { src: '../plugin/zoom-js/zoom.js', async: true },
+        { src: '../plugin/notes/notes.js', async: true }
+      ]
+    });
+    </script>
+  </body>
+</html>

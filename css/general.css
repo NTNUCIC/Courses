@@ -21,6 +21,14 @@ main::after{
 	display: block;
 	clear: both;
 }
+.pages,
+.pages:target~.pages:last-of-type{
+	display: none;
+}
+.pages:target,
+.pages:last-of-type{
+	display: block;
+}
 #go-down{
 	position: fixed;
 }
