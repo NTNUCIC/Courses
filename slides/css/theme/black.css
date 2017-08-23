@@ -166,13 +166,16 @@ body {
   border-spacing: 0; }
 
 .reveal table th {
-  font-weight: bold; }
+  font-weight: bold;
+  color: #fff; }
 
 .reveal table th,
 .reveal table td {
   text-align: left;
+  color: #fff;
   padding: 0.2em 0.5em 0.2em 0.5em;
-  border-bottom: 1px solid; }
+  border-bottom: 1px solid;
+  border-color: #fff; }
 
 .reveal table th[align="center"],
 .reveal table td[align="center"] {

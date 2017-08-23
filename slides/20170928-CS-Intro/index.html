@@ -47,13 +47,14 @@
 2017/09/28 廖惠平
 			</section>
 			<section data-markdown>
-#Out Lines
+##Out Lines
 
 - 程式
 - C# 和 .Net
 - Visual Studio
 - Console
 - Hello World!
+- 跳脫字元
 			</section>
 			<section>
 				<section data-markdown>
@@ -68,12 +69,34 @@
 				</section>
 				<section data-markdown>
 ##什麼是程式
+
+- 1與0
+- 遵循規則(邏輯)
+- 快速
+- 大量
 				</section>
 				<section data-markdown>
 ##程式語言
+
+- 特定語法
+- 給電腦執行的規則
+- 給人看得懂又好寫的規則
 				</section>
 				<section data-markdown>
 ##程式語言
+
+- 直譯 V.S. 編譯
+- 低階 V.S. 高階
+- 指令 V.S. 邏輯
+- 物件導向 V.S. 函式導向
+				</section>
+				<section data-markdown>
+##所以C#是?!
+
+- 編譯
+- 高階
+- 指令
+- 物件導向
 				</section>
 			</section>
 			<section>
@@ -85,15 +108,28 @@
 
 - \#唸做Sharp
 - 或者你也可以稱為「C井」
-- 高階語言
+- 傳說是這樣演化而來的
+  - C
+  - C++
+  - C++++ → C# 噔愣~
 - 物件導向
 - 跨平台
 				</section>
 				<section data-markdown>
 ##.Net Framwork
+
+- 跨平台、跨語言
+- 微軟
+- CLR
+- IL
+- JIT
 				</section>
 				<section data-markdown>
-##關係圖
+##C# V.S. .Net
+![C# 與 .Net Framwork關係圖](netarchitecture.PNG)
+
+[釐清關係 (Will保哥)](https://blog.miniasp.com/post/2015/07/28/Clarify-the-versions-between-CLR-NET-CSharp-Visual-Studio-and-ASPNET.aspx)
+
 				</section>
 			</section>
 			<section>
@@ -101,7 +137,7 @@
 #Visual Studio
 				</section>
 				<section data-markdown>
-#Visual Studio
+##Visual Studio
 
 - 很肥
 - 很強大
@@ -111,9 +147,13 @@
 				</section>
 				<section data-markdown>
 ##什麼是IDE
-				</section>
-				<section data-markdown>
-##功能簡介
+
+- Integrated Development Environment
+- 整合開發環境
+- 文字編輯
+- 建置工具
+- 除錯工具
+- 讓人越來越懶的工具
 				</section>
 			</section>
 			<section>
@@ -121,9 +161,20 @@
 #Console
 				</section>
 				<section data-markdown>
-#Console應用程式
+##Console Application
 
+- 控制台應用程式
 - 小黑窗
+- 純文字
+- 讓人覺得你好厲害
+				</section>
+				<section data-markdown>
+##Why Console?
+
+- 環境單純
+- 不容易出錯
+- 降低入門門檻
+- 讓人覺得你好厲害
 				</section>
 			</section>
 			<section>
@@ -131,7 +182,7 @@
 #Hello World!
 				</section>
 				<section data-markdown>
-#Hello World!
+##Hello World!
 
 - 所有語言的起始點
 - 實作
@@ -139,12 +190,188 @@
 				</section>
 				<section data-markdown>
 ##建立專案
+![建立專案](CreateProject.PNG)
+- 檔案 → 新增 → 專案
+- Visual C# → Windows → 主控台應用程式
+				</section>
+				<section data-markdown>
+##建置、執行與偵錯
+
+- 建置(Build)：把程式碼輸出執行檔
+- 執行(Run)
+- 偵錯(Debug)：隨時喊卡
+				</section>
+				<section data-markdown>
+##建置、執行與偵錯
+![Build and Run UI](BuildRunButton.PNG)
+![中斷點](Breakpoint.PNG)
+- 快捷鍵：F5 及 Ctrl+F5
+- 中斷點
 				</section>
 				<section data-markdown>
 ##程式撰寫
+![方案總管](Project.PNG)
+- Program.cs
+				</section>
+				<section>
+<h2>程式撰寫</h2>
+<p>程式進入點：Main</p>
+<pre><code class="hljs cs">
+namespace HelloWorld
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        	//這裡是你要寫程式碼的地方
+        }
+    }
+}
+</code></pre>
 				</section>
 				<section data-markdown>
-##執行與偵錯
+##程式撰寫
+顯示文字：Console.Write("文字內容");
+```cs
+namespace HelloWorld
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        	Console.Write("Hello World!");
+        	Console.Write("Hello C#!");
+        }
+    }
+}
+```
+				</section>
+				<section data-markdown>
+##程式撰寫
+顯示文字後換行：Console.WriteLine("文字內容");
+```cs
+namespace HelloWorld
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        	Console.WriteLine("Hello World!");
+        	Console.WriteLine("Hello C#!");
+        }
+    }
+}
+```
+				</section>
+				<section data-markdown>
+##程式撰寫
+接收一個輸入字元：Console.Read();
+```cs
+namespace HelloWorld
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        	Console.WriteLine("Hello World!");
+        	Console.WriteLine("Hello C#!");
+
+        	Console.Read();
+        }
+    }
+}
+```
+				</section>
+				<section data-markdown>
+##程式撰寫
+接收一行輸入：Console.ReadLine();
+```cs
+namespace HelloWorld
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        	Console.WriteLine("Hello World!");
+        	Console.WriteLine("Hello C#!");
+
+        	Console.ReadLine();
+        }
+    }
+}
+```
+				</section>
+				<section data-markdown>
+##程式撰寫
+清空輸出：Console.Clear();
+```cs
+namespace HelloWorld
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        	Console.WriteLine("Hello World!");
+        	Console.ReadLine();
+        	Console.Clear();
+
+        	Console.WriteLine("Hello C#!");
+        	Console.ReadLine();
+        }
+    }
+}
+```
+				</section>
+			</section>
+			<section>
+				<section data-markdown>
+#跳脫字元
+				</section>
+				<section data-markdown>
+##跳脫字元
+- 避開保留字
+- 特殊顯示
+- 換行
+- Tab
+				</section>
+				<section data-markdown>
+##跳脫字元
+|顯示|字元|
+|:---:|:---:|
+|換行|\n|
+|Tab|\t|
+|\|\\|
+|'|\'|
+|"|\"|
+				</section>
+				<section data-markdown>
+##程式撰寫
+```cs
+namespace HelloWorld
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+        	Console.WriteLine("Hello World!\nHello C#!");
+        	Console.ReadLine();
+        	Console.Clear();
+        	
+        	Console.WriteLine("Hello World!\tHello C#!");
+        	Console.ReadLine();
+        	Console.Clear();
+
+        	Console.WriteLine("\\Hello World/\\Hello C#/");
+        	Console.ReadLine();
+        	Console.Clear();
+
+        	Console.WriteLine("\"Hello World! Hello C#!\"");
+        	Console.ReadLine();
+        	Console.Clear();
+        }
+    }
+}
+```
 				</section>
 			</section>
 			</div>
