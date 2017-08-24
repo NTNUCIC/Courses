@@ -13,25 +13,28 @@ namespace HelloWorld
             Console.Write("Hello World!");
             Console.Write("Hello C#!");
             Console.ReadLine();
-            Console.Clear();
 
             Console.WriteLine("Hello World!");
             Console.WriteLine("Hello C#!");
             Console.ReadLine();
-            Console.Clear();
 
-            Console.Write("Hello World!\n");
-            Console.Write("Hello C#!\n");
+            Console.WriteLine("Hello World!");
+            Console.WriteLine("Hello C#!");
+            Console.ReadLine();
+
+            Console.WriteLine("Hello World!\nHello C#!");
             Console.ReadLine();
             Console.Clear();
 
-            Console.Write("Hello World!\t");
-            Console.Write("Hello C#!\t");
+            Console.WriteLine("Hello World!\tHello C#!");
             Console.ReadLine();
             Console.Clear();
 
-            Console.Write("\\Hello World!/\n");
-            Console.Write("\\Hello C#!/\n");
+            Console.WriteLine("\\Hello World/\\Hello C#/");
+            Console.ReadLine();
+            Console.Clear();
+
+            Console.WriteLine("\"Hello World! Hello C#!\"");
             Console.ReadLine();
             Console.Clear();
         }
