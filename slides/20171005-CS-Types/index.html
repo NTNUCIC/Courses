@@ -1,0 +1,238 @@
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>操縱數字與文字</title>
+
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+		<meta name="og:title" content="CSharp">
+		<meta name="og:url" content="http://ntnucic.github.io/Courses/slides/20171005-CS-Types/index.html">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社C#課程投影片">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+			<section data-markdown>
+#操縱數字與文字
+
+2017/10/05 廖惠平
+			</section>
+			<section data-markdown>
+##Out Lines
+
+- 快速複習
+- 型別
+- 常數與變數
+- 四則運算
+- string.Format
+- 實作練習
+			</section>
+			<section>
+				<section data-markdown>
+#快速複習
+				</section>
+				<section data-markdown>
+##Hello World! Hello C#!
+
+- 程式
+- C# 和 .NET
+- Visual Studio
+- Console
+- 專案與環境建置
+- Hello World!
+- 跳脫字元 
+				</section>
+				<section data-markdown>
+##課後練習：倖存者日記
+				</section>
+				<section data-markdown>
+##課後練習：顏文字清單
+				</section>
+			</section>
+			<section>
+				<section data-markdown>
+#型別
+				</section>
+				<section data-markdown>
+##布林
+
+- bool: Boolean
+				</section>
+				<section data-markdown>
+## 數字
+
+- 整數
+  - int: Integer
+  - uint: Unsign Interger
+  - long: Long Integer
+  - ulong: Unsign Long Interger
+  - short: Short Integer
+  - ushort: Unsign Short Integer
+- 浮點數
+  - float
+  - double
+  - decimal
+				</section>
+				<section data-markdown>
+##文字
+
+- char
+- string
+				</section>
+				<section data-markdown>
+##其他
+
+- byte
+- sbyte
+- enum
+				</section>
+				<section data-markdown>
+##型別的真實樣貌
+
+- 說好的1與0
+- 2進位制
+- 精度
+				</section>
+				<section data-markdown>
+##參考型別與實值型別
+
+- 參考型別
+- 實質型別
+- 物件導向
+				</section>
+			</section>
+			<section>
+				<section data-markdown>
+#常數與變數
+				</section>
+				<section data-markdown>
+##不會改變的常數
+
+- 不會變
+- 不可以改動
+- Pi
+				</section>
+				<section data-markdown>
+##改來改去的變數
+
+- 可以改動
+- 拿來做各式各樣的運算
+				</section>
+				<section data-markdown>
+##列舉
+
+- 常數
+- 有意義的名字
+- 取代各式各樣的Magic Number
+				</section>
+			</section>
+			<section>
+				<section data-markdown>
+#四則運算
+				</section>
+				<section data-markdown>
+##四則運算
+
+- 加
+- 減
+- 乘
+- 除
+- 取餘數
+				</section>
+				<section data-markdown>
+##偷懶的四則運算
+
+- 加等於
+- 減等於
+
+- 加加
+- 減減
+				</section>
+			</section>
+			<section>
+				<section data-markdown>
+#string.Format
+				</section>
+				<section data-markdown>
+##串接文字
+				</section>
+				<section data-markdown>
+##設計顯示的格式
+				</section>
+			</section>
+			<section>
+				<section data-markdown>
+#實作練習
+				</section>
+				<section data-markdown>
+##情書
+
+- 開始時，顯示收件者
+- 每按一次Enter顯示一段內容
+- 再按一次Enter顯示署名
+- 最後按Enter結束程式
+				</section>
+			</section>
+			<section>
+				<section data-markdown>
+#課後練習
+				</section>
+			</section>
+			</div>
+		</div>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true },
+				{ src: '../plugin/notes/notes.js', async: true }
+			]
+		});
+		</script>
+	</body>
+</html>
