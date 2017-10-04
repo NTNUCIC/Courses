@@ -123,9 +123,9 @@ uint age = 24;
 long pixel = ;
 short studentCount = 155;
 
-float height = 155.4;
+float height = 155.4F;
 double bill = 699.14389713214938513;
-decimal cash = 13.138471983741983477466371738123;
+decimal cash = 13.138471983741983477466371738123D;
 					</code></pre>
 				</section>
 				<section data-markdown>
@@ -154,7 +154,7 @@ Console.ReadLine();
 				</section>
 				<section>
 					<h2>其他</h2>
-					<p>寫Main的下面</p>
+					<p>寫Main{}的下面</p>
 					<pre><code class="hljs cs">
 enum grade
 {
@@ -170,9 +170,9 @@ enum grade
 				<section>
 					<h2>其他</h2>
 					<pre><code class="hljs cs">
-grade myGrade = Acceptable;
-grade kerwinGrade = Outstanding;
-grade ryanGrade = Terrible;
+grade myGrade = Program.grade.Acceptable;
+grade kerwinGrade = Program.grade.Outstanding;
+grade ryanGrade = Program.grade.Terrible;
 
 Console.WriteLine("Mine: {0}", myGrade);
 Console.WriteLine("Kerwin's: {0}", kerwinGrade);
@@ -236,37 +236,29 @@ AGE = 40;
 				<section data-markdown>
 ##讀取資料
 
-- Console.Read(變數名稱);
-- Console.ReadLine(變數名稱);
+- 變數 = Console.Read();
+- 變數 = Console.ReadLine();
 - 讀進來的東西一定是字元或字串
 				</section>
 				<section>
 					<h2>讀取資料</h2>
+					<p>可是這樣會出錯!</p>
 					<pre><code class="hljs cs">
-char gender;
+string gender;
 string name;
+int age;
 
 Console.Write("請輸入你的性別(M/F): ");
-Console.Read();
+gender = Console.ReadLine();
 
 Console.Write("請輸入你的姓名: ");
-Console.ReadLine(name);
+name = Console.ReadLine();
+
+Console.Write("請輸入你的年齡：");
+age = Console.Read();
 
 Console.WriteLine("姓名：{0}", name);
 Console.WriteLine("性別：{0}", gender);
-
-Console.ReadLine();
-					</code></pre>
-				</section>
-				<section>
-					<h2>讀取資料</h2>
-					<p>可是這樣會出錯！</p>
-					<pre><code class="hljs cs">
-int age;
-
-Console.Write("請輸入你的年齡：");
-Console.Read(age);
-
 Console.WriteLine("年齡：{0}", age);
 
 Console.ReadLine();
@@ -275,7 +267,7 @@ Console.ReadLine();
 				<section data-markdown>
 ##Parse
 
-- 變數 = int.Parse(字串);
+- 變數 = 型別.Parse(字串);
 - 把字串轉成指定的型別
 - 字串需要符合格式
 				</section>
@@ -286,7 +278,7 @@ string ageString;
 int age;
 
 Console.Write("請輸入你的年齡：");
-Console.Read(ageString);
+ageString = Console.ReadLine();
 
 age = int.Parse(ageString);
 Console.WriteLine("年齡：{0}", age);
@@ -309,7 +301,7 @@ string ageString;
 int age;
 
 Console.Write("請輸入你的年齡：");
-Console.Read(ageString);
+ageString = Console.Read();
 
 int.TryParse(ageString, out age);
 Console.WriteLine("年齡：{0}", age);
@@ -339,7 +331,7 @@ int cake = 3;
 Console.WriteLine("我做了{0}個蛋糕", cake);
 Console.WriteLine("每個蛋糕切八片後得到{0}片", cake*8);
 Console.WriteLine("但是運送過程中晃壞了3片剩下{0}片", cake*8-3);
-Console.WriteLine("剩的蛋糕分給5個人，每個人拿到{0}片，剩下{1}", (cake*8-3)/5, (cake*8-3)%5);
+Console.WriteLine("剩的蛋糕分給5個人，每個人拿到{0}片，剩下{1}片", (cake*8-3)/5, (cake*8-3)%5);
 Console.ReadLine();
 					</code></pre>
 				</section>
@@ -373,7 +365,7 @@ cake *= 8;
 cake -= 3;
 
 int eachPerson = cake/5;
-int left - cake%5;
+int left = cake%5;
 					</code></pre>
 				</section>
 			</section>
@@ -393,15 +385,16 @@ int left - cake%5;
 					<pre><code class="hljs cs">
 strin name = "Kei";
 int age = 24;
-float height = 155.4;
-float weight = flaot.Max;
+float height = 155.4F;
+float weight = flaot.MaxValue;
 
 string intro = string.Format("大家好，\n我是{0}，\n今年歲{1}，\n身高{2}，\n體重{3}，\n請多多指教！",
 							  name,
 							  age,
 							  height,
 							  weight);
-Console.ReadLine("");
+Console.Write(intro);
+Console.ReadLine();
 					</code></pre>
 				</section>
 				<section data-markdown>
@@ -415,15 +408,16 @@ Console.ReadLine("");
 					<pre><code class="hljs cs">
 strin name = "Kei";
 int age = 24;
-float height = 155.4;
-float weight = flaot.Max;
+float height = 155.4F;
+float weight = flaot.MaxValue;
 
 string intro = string.Format("大家好，\n我是{0}，\n今年歲{1}，\n身高{2:F2}，\n體重{3:F4}，\n請多多指教！",
 							  name,
 							  age,
 							  height,
 							  weight);
-Console.ReadLine("");
+Console.Write(intro);
+Console.ReadLine();
 					</code></pre>
 				</section>
 			</section>
@@ -432,11 +426,10 @@ Console.ReadLine("");
 #實作練習
 				</section>
 				<section data-markdown>
-##新。情書
+##無聊的RPG
 
-- 開始時，顯示收件者
+- 開始時，請使用者輸入姓名
 - 每按一次Enter顯示一段內容
-- 再按一次Enter顯示署名
 - 最後按Enter結束程式
 				</section>
 				<section data-markdown>
@@ -454,8 +447,8 @@ Console.ReadLine("");
 				<section data-markdown>
 #課後練習
 
-- 山寨版卡米狗
 - 正妹三寶聊天室
+- 色碼轉換器
 				</section>
 			</section>
 			</div>

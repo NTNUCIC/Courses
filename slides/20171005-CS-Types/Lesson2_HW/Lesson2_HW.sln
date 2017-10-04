@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChatRoom", "ChatRoom\ChatRoom.csproj", "{71A996D8-6D0D-47CC-9D01-552E63759AEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ColorTrans", "ColorTrans\ColorTrans.csproj", "{4948FBB1-4D64-48AC-AE31-D2E9F76F53CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{71A996D8-6D0D-47CC-9D01-552E63759AEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71A996D8-6D0D-47CC-9D01-552E63759AEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71A996D8-6D0D-47CC-9D01-552E63759AEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71A996D8-6D0D-47CC-9D01-552E63759AEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4948FBB1-4D64-48AC-AE31-D2E9F76F53CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4948FBB1-4D64-48AC-AE31-D2E9F76F53CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4948FBB1-4D64-48AC-AE31-D2E9F76F53CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4948FBB1-4D64-48AC-AE31-D2E9F76F53CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5607795E-1F23-473E-8239-1D54F2500BFE}
+	EndGlobalSection
+EndGlobal
