@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BMICalculator
 {
@@ -11,6 +7,7 @@ namespace BMICalculator
         static void Main(string[] args)
         {
             //定義變數
+            string name;
             string heightInput;
             string weightInput;
             float height;
@@ -18,9 +15,11 @@ namespace BMICalculator
 
             //顯示畫面&讀取使用者輸入
             Console.WriteLine("===========BMI計算器===========");
-            Console.WriteLine("請輸入身高(cm)：");
+            Console.Write("請輸入姓名:");
+            name = Console.ReadLine();
+            Console.Write("請輸入身高(cm)：");
             heightInput = Console.ReadLine();
-            Console.WriteLine("請輸入體重(kg)：");
+            Console.Write("請輸入體重(kg)：");
             weightInput = Console.ReadLine();
 
             //計算
@@ -33,7 +32,7 @@ namespace BMICalculator
             float bmi = weight / (height*height);
 
             //顯示結果
-            Console.WriteLine("你的BMI是：{0}", bmi);
+            Console.WriteLine("{0}的BMI是：{1}", name, bmi);
 
             //保持畫面暫停
             Console.Read();
