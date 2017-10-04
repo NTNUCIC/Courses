@@ -52,6 +52,7 @@
 - 快速複習
 - 型別
 - 常數與變數
+- 讀取資料 與 Parsing
 - 四則運算
 - string.Format
 - 實作練習
@@ -87,6 +88,17 @@
 
 - bool: Boolean
 				</section>
+				<section>
+					<h2>布林</h2>
+					<pre><code class="hljs cs">
+bool isAmyGirl = true;
+bool isAndyGirl = false;
+
+Console.WriteLine("Is Amy a Girl? {0}", isAmyGirl);
+Console.WriteLine("Is Andy a Girl? {0}", isAndyGirl);
+Console.ReadLine();
+					</code></pre>
+				</section>
 				<section data-markdown>
 ## 數字
 
@@ -102,11 +114,36 @@
   - double
   - decimal
 				</section>
+				<section>
+					<h2>數字</h2>
+					<pre><code class="hljs cs">
+int deposit = -200;
+int score = 100;
+uint age = 24;
+long pixel = ;
+short studentCount = 155;
+
+float height = 155.4F;
+double bill = 699.14389713214938513;
+decimal cash = 13.138471983741983477466371738123D;
+					</code></pre>
+				</section>
 				<section data-markdown>
 ##文字
 
 - char
 - string
+				</section>
+				<section>
+					<h2>文字</h2>
+					<pre><code class="hljs cs">
+char grade = 'F';
+string name = "Kei";
+
+Console.WriteLine("Student Name: {0}.", name);
+Console.WriteLine("Grade: {0}", grade);
+Console.ReadLine();
+					</code></pre>
 				</section>
 				<section data-markdown>
 ##其他
@@ -115,11 +152,40 @@
 - sbyte
 - enum
 				</section>
+				<section>
+					<h2>其他</h2>
+					<p>寫Main{}的下面</p>
+					<pre><code class="hljs cs">
+enum grade
+{
+	Outstanding,
+	ExceedsExpectations,
+	Acceptable,
+	Poor,
+	Dreadful,
+	Terrible
+};
+					</code></pre>
+				</section>
+				<section>
+					<h2>其他</h2>
+					<pre><code class="hljs cs">
+grade myGrade = Program.grade.Acceptable;
+grade kerwinGrade = Program.grade.Outstanding;
+grade ryanGrade = Program.grade.Terrible;
+
+Console.WriteLine("Mine: {0}", myGrade);
+Console.WriteLine("Kerwin's: {0}", kerwinGrade);
+Console.WriteLine("Ryan's: {0}", ryanGrade);
+Console.ReadLine();
+					</code></pre>
+				</section>
 				<section data-markdown>
 ##型別的真實樣貌
 
 - 說好的1與0
 - 2進位制
+- 溢位
 - 精度
 				</section>
 				<section data-markdown>
@@ -141,6 +207,14 @@
 - 不可以改動
 - Pi
 				</section>
+				<section>
+					<h2>不會改變的常數</h2>
+					<p>出現錯誤訊息！</p>
+					<pre><code class="hljs cs">
+const int AGE = 28;
+AGE = 40;
+					</code></pre>
+				</section>
 				<section data-markdown>
 ##改來改去的變數
 
@@ -151,8 +225,89 @@
 ##列舉
 
 - 常數
-- 有意義的名字
+- 有意義的常數
 - 取代各式各樣的Magic Number
+				</section>
+			</section>
+			<section>
+				<section data-markdown>
+##讀取資料 與 Parsing
+				</section>
+				<section data-markdown>
+##讀取資料
+
+- 變數 = Console.Read();
+- 變數 = Console.ReadLine();
+- 讀進來的東西一定是字元或字串
+				</section>
+				<section>
+					<h2>讀取資料</h2>
+					<p>可是這樣會出錯!</p>
+					<pre><code class="hljs cs">
+string gender;
+string name;
+int age;
+
+Console.Write("請輸入你的性別(M/F): ");
+gender = Console.ReadLine();
+
+Console.Write("請輸入你的姓名: ");
+name = Console.ReadLine();
+
+Console.Write("請輸入你的年齡：");
+age = Console.Read();
+
+Console.WriteLine("姓名：{0}", name);
+Console.WriteLine("性別：{0}", gender);
+Console.WriteLine("年齡：{0}", age);
+
+Console.ReadLine();
+					</code></pre>
+				</section>
+				<section data-markdown>
+##Parse
+
+- 變數 = 型別.Parse(字串);
+- 把字串轉成指定的型別
+- 字串需要符合格式
+				</section>
+				<section>
+					<h2>Parse</h2>
+					<pre><code class="hljs cs">
+string ageString;
+int age;
+
+Console.Write("請輸入你的年齡：");
+ageString = Console.ReadLine();
+
+age = int.Parse(ageString);
+Console.WriteLine("年齡：{0}", age);
+
+Console.ReadLine();
+					</code></pre>
+				</section>
+				<section data-markdown>
+##TryParse
+
+- int.TryParse(字串, out 變數);
+- 把字串轉成指定的型別
+- 字串需要符合格式
+- 轉換失敗的時候程式不會死掉
+				</section>
+				<section>
+					<h2>TryParse</h2>
+					<pre><code class="hljs cs">
+string ageString;
+int age;
+
+Console.Write("請輸入你的年齡：");
+ageString = Console.Read();
+
+int.TryParse(ageString, out age);
+Console.WriteLine("年齡：{0}", age);
+
+Console.ReadLine();
+					</code></pre>
 				</section>
 			</section>
 			<section>
@@ -168,14 +323,50 @@
 - 除
 - 取餘數
 				</section>
+				<section>
+					<h2>四則運算</h2>
+					<pre><code class="hljs cs">
+int cake = 3;
+
+Console.WriteLine("我做了{0}個蛋糕", cake);
+Console.WriteLine("每個蛋糕切八片後得到{0}片", cake*8);
+Console.WriteLine("但是運送過程中晃壞了3片剩下{0}片", cake*8-3);
+Console.WriteLine("剩的蛋糕分給5個人，每個人拿到{0}片，剩下{1}片", (cake*8-3)/5, (cake*8-3)%5);
+Console.ReadLine();
+					</code></pre>
+				</section>
 				<section data-markdown>
 ##偷懶的四則運算
 
 - 加等於
 - 減等於
+- 乘等於
+- 除等於
 
 - 加加
 - 減減
+				</section>
+				<section>
+					<h2>偷懶的四則運算</h2>
+					<pre><code class="hljs cs">
+int cake = 3;
+cake = cake*8;
+cake = cake-3;
+
+int eachPerson = cake/5;
+int left = cake%5;
+					</code></pre>
+				</section>
+				<section>
+					<h2>偷懶的四則運算</h2>
+					<pre><code class="hljs cs">
+int cake = 3;
+cake *= 8;
+cake -= 3;
+
+int eachPerson = cake/5;
+int left = cake%5;
+					</code></pre>
 				</section>
 			</section>
 			<section>
@@ -184,9 +375,50 @@
 				</section>
 				<section data-markdown>
 ##串接文字
+
+- string.Format("字串", 參數0, 參數1...);
+- 把參數依序填入字串挖空處
+- 從0開始
+				</section>
+				<section>
+					<h2>串接文字</h2>
+					<pre><code class="hljs cs">
+strin name = "Kei";
+int age = 24;
+float height = 155.4F;
+float weight = flaot.MaxValue;
+
+string intro = string.Format("大家好，\n我是{0}，\n今年歲{1}，\n身高{2}，\n體重{3}，\n請多多指教！",
+							  name,
+							  age,
+							  height,
+							  weight);
+Console.Write(intro);
+Console.ReadLine();
+					</code></pre>
 				</section>
 				<section data-markdown>
 ##設計顯示的格式
+
+- 依據型別指定不同的顯示方式
+- 詳見 [標準數值格式字串](https://msdn.microsoft.com/zh-tw/library/dwhawy9k.aspx)
+				</section>
+				<section>
+					<h2>設計顯示的格式</h2>
+					<pre><code class="hljs cs">
+strin name = "Kei";
+int age = 24;
+float height = 155.4F;
+float weight = flaot.MaxValue;
+
+string intro = string.Format("大家好，\n我是{0}，\n今年歲{1}，\n身高{2:F2}，\n體重{3:F4}，\n請多多指教！",
+							  name,
+							  age,
+							  height,
+							  weight);
+Console.Write(intro);
+Console.ReadLine();
+					</code></pre>
 				</section>
 			</section>
 			<section>
@@ -194,17 +426,29 @@
 #實作練習
 				</section>
 				<section data-markdown>
-##情書
+##無聊的RPG
 
-- 開始時，顯示收件者
+- 開始時，請使用者輸入姓名
 - 每按一次Enter顯示一段內容
-- 再按一次Enter顯示署名
 - 最後按Enter結束程式
+				</section>
+				<section data-markdown>
+##BMI計算器
+
+- 開始時，顯示「請輸入姓名：」
+- 輸入完姓名後，顯示「請輸入身高：」
+- 輸入完身高後，顯示「請輸入體重：」
+- 計算BMI
+- 顯示結果
+- 按一次Enter結束程式
 				</section>
 			</section>
 			<section>
 				<section data-markdown>
 #課後練習
+
+- 正妹三寶聊天室
+- 色碼轉換器
 				</section>
 			</section>
 			</div>
