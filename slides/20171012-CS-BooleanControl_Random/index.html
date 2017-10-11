@@ -59,6 +59,15 @@
 				<section data-markdown>
 #快速複習
 				</section>
+				<section data-markdown>
+##快速複習
+
+- 型別
+- 常數與變數
+- 讀取資料 與 Parsing
+- 四則運算
+- string.Format
+				</section>
 			</section>
 			<section>
 				<section data-markdown>
@@ -111,6 +120,11 @@
 				</section>
 				<section data-markdown>
 ##練習
+
+- A=true, B=false, C=true
+- A And B And C
+- (A Or B) Xor (B Or C)
+- (B Xor C) Or (B Xor A)
 				</section>
 			</section>
 			<section>
@@ -130,22 +144,68 @@
 - Not: !
 - Equal: ==
 - Not Equal: !=
-- Is Greater Than: >=
-- Is Less Than: <=
 - And: &&
 - Or: ||
 - Xor: ^
 				</section>
 				<section>
-<h2>if</h2>
-<p>如果</p>
-<pre><code class="hljs cs">
+					<h2>邏輯運算子</h2>
+					<pre><code class="hljs cs">
+Console.WriteLine("{0}", true);
+Console.WriteLine("{0}", !true);
+Console.WriteLine("{0}", true == true);
+Console.WriteLine("{0}", true == flase);
+Console.WriteLine("{0}", true != false);
+Console.WriteLine("{0}", true && false);
+Console.WriteLine("{0}", true || false);
+Console.WriteLine("{0}", true ^ false);
+Console.WriteLine("{0}", false ^ false);
+					</code></pre>
+				</section>
+				<section data-markdown>
+##邏輯運算子
+
+- 大於: >
+- 大於等於: >=
+- 小於: <
+- 小於等於: <=
+- 等於: ==
+				</section>
+				<section>
+					<h2>邏輯運算子</h2>
+					<pre><code class="hljs cs">
+Console.WriteLine("{0}", 1 == 1);
+Console.WriteLine("{0}", 1 != 2);
+Console.WriteLine("{0}", 1 < 2);
+Console.WriteLine("{0}", 1 <= 1);
+Console.WriteLine("{0}", 1 > 2);
+Console.WriteLine("{0}", 1 >= 2);
+Console.WriteLine("{0}", 1+1 == 2);
+Console.WriteLine("{0}", 1+1 > 2);
+					</code></pre>
+				</section>
+				<section>
+					<h2>if</h2>
+					<p>如果</p>
+					<pre><code class="hljs cs">
 if(條件)
 {
 	//條件為真則會做
 }
 
-</code></pre>
+					</code></pre>
+				</section>
+				<section>
+					<h2>if</h2>
+					<pre><code class="hljs cs">
+bool isGirl = true;
+Console.WriteLine("Line1");
+if(isGirl)
+{
+	Console.WriteLine("She is a girl: {0}", isGirl);
+}
+Console.WriteLine("Line2 or line3?");
+					</code></pre>
 				</section>
 				<section>
 <h2>if、else</h2>
@@ -161,6 +221,22 @@ else
 }
 
 </code></pre>
+				</section>
+				<section>
+					<h2>if、else</h2>
+					<pre><code class="hljs cs">
+bool isGirl = false;
+Console.WriteLine("Line1");
+if(isGirl)
+{
+	Console.WriteLine("She is a girl: {0}", isGirl);
+}
+else
+{
+	Console.WriteLine("She isn't a girl: {0}", isGirl);
+}
+Console.WriteLine("Line2, line3 or line4?");
+					</code></pre>
 				</section>
 				<section>
 <h2>if、else if、else</h2>
@@ -182,8 +258,63 @@ else
 
 </code></pre>
 				</section>
-				<section data-markdown>
-##練習
+				<section>
+					<h2>if、else if、else</h2>
+					<pre><code class="hljs cs">
+int score = 83;
+Console.WriteLine("Line1");
+if(score == 100)
+{
+	Console.WriteLine("Excellent!");
+}
+else if(score >= 90)
+{
+	Console.WriteLine("Great!");
+}
+else if(score >= 70)
+{
+	Console.WriteLine("Not bad!");
+}
+else if(score >= 60)
+{
+	Console.WriteLine("Fine");
+}
+else
+{
+	Console.WriteLine("Bad...");
+}
+Console.WriteLine("The score: {0}", score);
+					</code></pre>
+				</section>
+				<section>
+					<h2>練習</h2>
+					<p>執行結果？</p>
+					<pre><code class="hljs cs">
+bool isBoy = true;
+bool isCute = true;
+if(isBoy)
+{
+	if(isCute)
+	{
+		Console.Write("這麼可愛一定是男孩子！");
+	}
+	else
+	{
+		Console.WriteLine("唉呀，是個小正太~");
+	}
+}
+else
+{
+	if(isCute)
+	{
+		Console.WriteLine("是ㄌㄌ！");
+	}
+	else
+	{
+		Console.WriteLine("成熟性感美麗的大姊姊>/////<");
+	}
+}
+					</code></pre>
 				</section>
 			</section>
 			<section>
@@ -197,6 +328,16 @@ else
 - 沒有規則
 - 真的是這樣嗎？
 				</section>
+				<section>
+					<h2>亂數</h2>
+					<pre><code class="hljs cs">
+Random rd1 = new Random();
+Random rd2 = new Random();
+
+Console.WriteLine("First: {0}, {1}, {2}, {3}", rd1.Next(), rd1.Next(), rd1.Next(), rd1.Next());
+Console.WriteLine("Second: {0}, {1}, {2}, {3}", rd2.Next(), rd2.Next(), rd2.Next(), rd2.Next());
+					</code></pre>
+				</section>
 				<section data-markdown>
 ##亂數
 
@@ -204,17 +345,44 @@ else
 - 亂數種子
 - 我的選項沒有這麼多呀！
 - 使用%運算
+- 使用Next()方法多載
+				</section>
+				<section>
+					<h2>亂數</h2>
+					<pre><code class="hljs cs">
+Random rd1 = new Random(Guid.NewGuid().GetHashCode());
+Random rd2 = new Random(Guid.NewGuid().GetHashCode());
 
+Console.WriteLine("First: {0}, {1}, {2}, {3}", rd1.Next(), rd1.Next(), rd1.Next(), rd1.Next());
+Console.WriteLine("Second: {0}, {1}, {2}, {3}", rd2.Next(), rd2.Next(), rd2.Next(), rd2.Next());
+
+Console.WriteLine("First: {0}, {1}, {2}, {3}", rd1.Next(3), rd1.Next(3), rd1.Next(3), rd1.Next(3));
+Console.WriteLine("Second: {0}, {1}, {2}, {3}", rd2.Next(4, 6), rd2.Next(4, 6), rd2.Next(4, 6), rd2.Next(4, 6));
+					</code></pre>
 				</section>
 			</section>
 			<section>
 				<section data-markdown>
 #實作練習
 				</section>
+				<section data-markdown>
+##猜拳
+
+- 使用者輸入1, 2, 3代表剪刀、石頭或布
+- 電腦隨機出拳
+- 顯示電腦出的拳
+- 判斷勝負並顯示
+				</section>
 			</section>
 			<section>
 				<section data-markdown>
 #課後練習
+				</section>
+				<section data-markdown>
+##課後練習
+
+- 樂透
+- 擲筊
 				</section>
 			</section>
 			</div>
