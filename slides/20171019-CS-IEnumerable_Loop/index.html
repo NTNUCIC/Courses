@@ -1,0 +1,296 @@
+﻿<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>集合，Looooooop！</title>
+
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+		<meta name="og:title" content="CSharp">
+		<meta name="og:url" content="http://ntnucic.github.io/Courses/slides/20171019-CS-IEnumerable_Loop/index.html">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社C#課程投影片">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+			<section data-markdown>
+#集合 
+#Looooooop！
+
+2017/10/19 廖惠平
+			</section>
+			<section data-markdown>
+##Out Lines
+
+- 快速複習
+- 集合型別
+- 迴圈
+- 流程控制
+- 實作練習
+			</section>
+			<section>
+				<section data-markdown>
+#快速複習
+				</section>
+				<section data-markdown>
+##快速複習
+
+- 真值表
+- 邏輯判斷與流程控制
+- 亂數
+- 課後練習
+				</section>
+			</section>
+			<section>
+				<section data-markdown>
+#集合型別
+				</section>
+				<section data-markdown>
+##集合
+
+- 一堆東西
+- 一群東西
+- 範圍內的東西
+				</section>
+				<section data-markdown>
+##集合型別
+
+- List
+- Dictionary
+- Queue
+- SortedList
+- Stack
+- 還有很多很多
+				</section>
+				<section data-markdown>
+##List
+
+- 表示可以依照索引存取的強類型物件清單。
+- 提供搜尋、排序和管理清單的方法。
+- 實作ICollection、IEnumerable及IList等介面
+- [MSDN List](https://msdn.microsoft.com/zh-tw/library/6sh2ey19.aspx)
+				</section>
+				<section data-markdown>
+##List屬性
+
+- List變數名稱.屬性名稱
+- Capacity: 可存放的數量
+- Count: 目前的數量
+- Item[Index]: 指定位置上的物件
+				</section>
+				<section data-markdown>
+##List常用方法
+
+- List變數名稱.方法名稱(參數1, 參數2, 參數3, ...);
+- Add(object): 將物件放入List中
+- Clear(): 將所有物件從List中清除
+- Sort(): 使用預設排序
+- ToArray(): 複製成新的陣列
+				</section>
+				<section>
+					<h2>List屬性</h2>
+					<pre><code class="hljs cs">
+List<int> myList = new List<int>();
+
+myList.Add(0);
+myList.Add(2);
+myList.Add(1);
+Console.WriteLine("數量: {0},容量: {1}", myList.Count, myList.Capacity);
+Console.WriteLine("1: {0}, 2: {1}, 3: {2}", myList[0], myList[1], myList[2]);
+
+myList.Sort();
+Console.WriteLine("1: {0}, 2: {1}, 3: {2}", myList[0], myList[1], myList[2]);
+
+myList.Clear();
+Console.WriteLine("數量: {0},容量: {1}", myList.Count, myList.Capacity);
+					</code></pre>
+				</section>
+			</section>
+			<section>
+				<section data-markdown>
+#迴圈
+				</section>
+				<section data-markdown>
+##迴圈
+
+- 重複
+- 重複
+- 重複
+- 重複
+- 直到是芥末日
+				</section>
+				<section data-markdown>
+##迴圈
+
+- 不要複製貼上
+- 指定繼續執行的條件
+- while, for, foreach
+				</section>
+				<section>
+					<h2>While</h2>
+					<pre><code class="hljs cs">
+while(條件)
+{
+	//會重複執行的部分
+}
+//重複完後執行的部分
+					</code></pre>
+				</section>
+				<section data-markdown>
+##While 
+```
+List<int> myList = new List<int>() {2,3,4,2,4};
+int currentIndex = 0;
+while(currentIndex != 3)
+{
+	Console.WriteLine(myList[currentIndex]);
+	currentIndex += 1;
+}
+Console.WriteLine("做完三個了！");
+```
+				</section>
+				<section>
+					<h2>For</h2>
+					<pre><code class="hljs cs">
+for(迴圈之前; 條件; 重複執行的最後一個動作)
+{
+	//重複執行的動作
+}
+//重複完後執行的部分
+					</code></pre>
+					<p>相當於...</p>
+					<pre><code class="hljs cs">
+//迴圈之前
+while(條件)
+{
+	//重複執行的動作
+	//重複執行的最後一個動作
+}
+//重複完後執行的部分
+					</code></pre>
+				</section>
+				<section data-markdown>
+##For
+```
+List<int> myList = new List<int>() {2,3,4,2,4};
+for(int i = 0; i != 3; i += 1)
+{
+	Console.WriteLine(myList[i]);
+}
+Console.WriteLine("做完三個了！");
+```
+				</section>
+				<section>
+					<h2>Foreach</h2>
+					<pre><code class="hljs">
+foreach(var 變數名稱 in 集合變數名稱)
+{
+	//重複執行的動作
+}
+					</code></pre>
+					<p>相當於...</p>
+					<pre><code class="hljs">
+while(還沒窮舉完集合)
+{
+	var 變數名稱 = 集合變數名稱[目前的index];
+	//重複執行的動作
+}
+					</code></pre>
+				</section>
+				<section data-markdown>
+##Foreach
+```
+List<int> myList = new List<int>() {2,3,4,2,4};
+foreach(var number in myList)
+{
+	Console.WriteLine(number);
+}
+Console.WriteLine("全部顯示完了！");
+```
+				</section>
+			</section>
+			<section>
+				<section data-markdown>
+#流程控制
+				</section>
+				<section data-markdown>
+##流程控制
+
+- 開始寫之前先規劃好
+- 確認邏輯
+- 善用條件判斷
+- 小心巢狀結構
+				</section>
+			</section>
+			<section>
+				<section data-markdown>
+#實作練習
+				</section>
+				<section data-markdown>
+##打怪獸
+
+- 每隻怪獸有10滴血
+- 總共有5隻怪獸
+- 玩家每次可選擇2隻攻擊
+- 每次攻擊怪獸減少1滴血
+- 擊敗所有怪獸後結束遊戲
+- 所有輸入要做防呆
+				</section>
+			</section>
+			</div>
+		</div>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true },
+				{ src: '../plugin/notes/notes.js', async: true }
+			]
+		});
+		</script>
+	</body>
+</html>
