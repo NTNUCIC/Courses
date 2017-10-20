@@ -118,7 +118,7 @@
 				<section>
 					<h2>List屬性</h2>
 					<pre><code class="hljs cs">
-List<int> myList = new List<int>();
+List&lt;int&gt; myList = new List&lt;int&gt;();
 
 myList.Add(0);
 myList.Add(2);
@@ -167,7 +167,7 @@ while(條件)
 				<section data-markdown>
 ##While 
 ```
-List<int> myList = new List<int>() {2,3,4,2,4};
+List&lt;int&gt; myList = new List&lt;int&gt;() {2,3,4,2,4};
 int currentIndex = 0;
 while(currentIndex != 3)
 {
@@ -200,7 +200,7 @@ while(條件)
 				<section data-markdown>
 ##For
 ```
-List<int> myList = new List<int>() {2,3,4,2,4};
+List&lt;int&gt; myList = new List&lt;int&gt;() {2,3,4,2,4};
 for(int i = 0; i != 3; i += 1)
 {
 	Console.WriteLine(myList[i]);
@@ -228,7 +228,7 @@ while(還沒窮舉完集合)
 				<section data-markdown>
 ##Foreach
 ```
-List<int> myList = new List<int>() {2,3,4,2,4};
+List&lt;int&gt; myList = new List&lt;int&gt;() {2,3,4,2,4};
 foreach(var number in myList)
 {
 	Console.WriteLine(number);
