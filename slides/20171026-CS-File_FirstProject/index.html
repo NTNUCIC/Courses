@@ -1,0 +1,489 @@
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>專案：農夫渡河</title>
+
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+		<meta name="og:title" content="CSharp">
+		<meta name="og:url" content="http://ntnucic.github.io/Courses/slides/20171019-CS-File_FirstProject/index.html">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社C#課程投影片">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+			<section data-markdown>
+#專案：農夫渡河
+
+2017/10/21 廖惠平
+			</section>
+			<section data-markdown>
+##Out Lines
+
+- 快速複習
+- 讀寫檔案
+- 專案：農夫渡河
+			</section>
+			<section>
+				<section data-markdown>
+#快速複習
+				</section>
+				<section data-markdown>
+##快速複習
+
+- 集合型別
+- 迴圈
+- 流程控制
+- 實作練習
+				</section>
+			</section>
+			<section>
+				<section data-markdown>
+#讀寫檔案
+				</section>
+				<section data-markdown>
+##讀寫檔案
+
+- 檔案格式
+- 讀檔
+- 寫檔
+				</section>
+				<section data-markdown>
+##檔案格式
+
+- 不同格式、不同規則
+- 副檔名
+- 爽就好
+				</section>
+				<section data-markdown>
+##讀檔
+
+- 回傳string： 
+System.IO.File.ReadAllText(@"檔案路徑和名稱");
+- 回傳string[]： 
+System.IO.File.ReadAllLines(@"檔案路徑和名稱");
+- 一次一行：使用StreamReader
+- 使用StreamReader後記得Close
+- 注意路徑與檔案是否存在
+				</section>
+				<section>
+					<h2>讀檔</h2>
+					<pre><code class="hljs cs">
+//ReadAllText
+string text = System.IO.File.ReadAllText(@"C:\Users\Test\Sample.txt");
+Console.Write(text);
+
+//ReadAllLines
+string[] lines = System.IO.File.ReadAllLines(@"C:\Users\Test\Sample.txt");
+foreach (string line in lines)
+{
+	Console.WriteLine(line);
+}
+					</code></pre>
+				</section>
+				<section>
+					<h2>讀檔：StreamReader</h2>
+					<pre><code class="hljs cs">
+System.IO.StreamReader file =   
+    new System.IO.StreamReader(@"C:\Users\Test\Sample.txt");  
+while((line = file.ReadLine()) != null)  
+{  
+    System.Console.WriteLine (line);
+}  
+
+file.Close(); 
+					</code></pre>
+				</section>
+				<section data-markdown>
+##寫檔
+
+- System.IO.File.WriteAllLines(@"檔案路徑和名稱", 字串陣列);
+- System.IO.File.WriteAllText(@"檔案路徑和名稱", 字串);
+- 一次一行：使用StreamWriter
+- 注意覆蓋檔案的問題
+				</section>
+				<section>
+					<h2>寫檔</h2>
+					<pre><code class="hljs cs">
+//WriteAllLines
+string[] lines = { "First line", "Second line", "Third line"};
+System.IO.File.WriteAllLines(@"C:\Users\Test\Sample2.txt", lines);
+
+//WriteAllText
+string text = "OwO";
+System.IO.File.WriteAllText(@"C:\Users\Test\Sample3.txt", text);
+					</code></pre>
+				</section>
+				<section>
+					<h2>寫檔：StreamWriter</h2>
+					<pre><code class="hljs cs">
+string[] lines = {"First line", "Second line", "Third line"};
+
+using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\Test\Sample4.txt"))
+{
+	foreach (string line in lines)
+	{
+		file.WriteLine(line);
+	}
+}
+
+//接在原檔內容下面的寫檔
+using (System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\Users\Test\Sample5.txt", true))
+{
+	file.WriteLine("OwO");
+}
+					</code></pre>
+				</section>
+			</section>
+			<section>
+				<section data-markdown>
+#專案：農夫渡河
+				</section>
+				<section data-markdown>
+##農夫渡河
+
+- 角色：農夫、狼、羊、菜
+- 目標：農夫要帶著所有動物及菜渡河
+- 船一次只能載兩個人，只有農夫會划船
+- 農夫不在時，狼會吃羊、羊會吃菜
+				</section>
+				<section data-markdown>
+##農夫渡河
+
+- 顯示目前正在左岸、右岸、船上的角色及船停靠的位置
+- 給使用者輸入要帶的角色或開船
+- 如果狼吃羊或羊吃菜則遊戲結束（失敗）
+- 船上沒有農夫無法開船
+- 成功將所有人渡到對岸後則遊戲結束（勝利）
+- 防呆
+				</section>
+				<section data-markdown>
+##程式規劃
+
+- 如何代表角色？
+- 如何表示左岸、右岸及船上？
+- 如何判斷遊戲結束？
+- 如何判斷是否能開船？
+- 流程？
+				</section>
+				<section>
+					<h2>如何代表角色？</h2>
+					<ul>
+						<li>使用數字</li>
+						<li>使用列舉</li>
+					</ul>
+					<pre><code class="hljs cs">
+public enum Character
+{
+	Farmer = 1,
+	Wolf = 2,
+	Sheep = 3,
+	Vegetable = 4
+}
+					</code></pre>
+				</section>
+				<section>
+					<h2>如何表示左岸、右岸及船上？</h2>
+					<ul>
+						<li>使用List</li>
+						<li>List有Add、Remove、Count及Contains可以利用</li>
+					</ul>
+					<pre><code class="hljs cs">
+List&lt;Character&gt; leftSide = new List&lt;Character&gt;();
+List&lt;Character&gt; rightSide = new List&lt;Character&gt;();
+List&lt;Character&gt; onBoat = new List&lt;Character&gt;();
+					</code></pre>
+				</section>
+				<section>
+					<h2>如何判斷遊戲結束</h2>
+					<ul>
+						<li>檢查農夫、狼、羊和菜的位置</li>
+						<li>使用if判斷搭配Contains()</li>
+					</ul>
+					<pre><code class="hljs cs">
+//檢查
+if(leftSide.Contains(角色) && leftSide.Contains(不能在一起的角色))
+{
+	//遊戲結束
+}
+					</code></pre>
+				</section>
+				<section>
+					<h2>如何判斷是否能開船？</h2>
+					<ul>
+						<li>檢查農夫是否在船上</li>
+						<li>檢查船上角色數量</li>
+					</ul>
+					<pre><code class="hljs cs">
+if(!onBoat.Contains(Farmer) || onBoat.Count != 2)
+{
+	//不可以開船
+}
+					</code></pre>
+				</section>
+				<section>
+					<h2>流程？</h2>
+					<pre><code class="hljs cs">
+宣告＆初始化變數
+while(!遊戲結束)
+{
+	顯示目前狀態
+	使用者輸入
+	防呆
+	移動
+	檢查移動結果
+	清空畫面
+}
+顯示遊戲結果
+					</code></pre>
+				</section>
+				<section>
+					<h2>宣告＆初始化變數</h2>
+					<pre><code class="hljs cs">
+List&lt;Character&gt; leftSide = new List&lt;Character&gt;()
+{
+	Farmer, Wolf, Sheep, Vegetable
+};
+List&lt;Character&gt; rightSide = new List&lt;Character&gt;();
+List&lt;Character&gt; onBoat = new List&lt;Character&gt;();
+bool isGameOver = false;
+bool isWin;
+bool isBoatLeft = true;
+
+int userInput;
+					</code></pre>
+				</section>
+				<section>
+					<h2>顯示目前狀態</h2>
+					<pre><code class="hljs cs">
+Console.Write("河岸左側：");
+foreach(var character in leftSide)
+{
+	Console.Write("{0} ", character);
+}
+Console.Write("\n河岸右側：");
+foreach(var character in rightSide)
+{
+	Console.Write("{0} ", character);
+}
+Console.Write("\n船上：");
+foreach(var character in onBoat)
+{
+	Console.Write("{0} ", character);
+}
+
+if(isBoatLeft)
+{
+	Console.WriteLine("船目前停在：左岸");
+}
+else
+{
+	Console.WriteLine("船目前停在：右岸");
+}
+					</code></pre>
+				</section>
+				<section>
+					<h2>使用者輸入</h2>
+					<pre><code class="hljs cs">
+Console.WriteLine("\n請輸入要移動的對象：");
+Console.WriteLine("1. Farmer\n2. Wolf\n3. Sheep\n4. Vegetable.\n5. 開船");
+int.TryParse(Console.ReadLine(), userInput);
+					</code></pre>
+				</section>
+				<section>
+					<h2>防呆</h2>
+					<pre><code class="hljs cs">
+while(userInput&lt;1 || userInput&gt;4)
+{
+	Console.Write("錯誤，請重新輸入：");
+	int.TryParse(Console.ReadLine(), userInput);
+}
+					</code></pre>
+				</section>
+				<section>
+					<h2>移動</h2>
+					<pre><code class="hljs cs">
+//開船
+if(userInput == 5)
+{
+	//農夫在船上才能開船
+	if(onBoat.Contains(Farmer))
+	{
+		isBoatLeft = !isBoatLeft;
+	}
+	else
+	{
+		Console.WriteLine("農夫不在船上，無法開船！");
+	}
+}
+					</code></pre>
+				</section>
+				<section>
+					<h2>移動</h2>
+					<pre><code class="hljs cs">
+//移動角色
+else
+{
+	//角色在船上 => 移下船
+	if(onBoat.Contains(userInput))
+	{
+		onBoat.Remove(userInput);
+		if(isBoatLeft)
+		{
+			leftSide.Add(userInput);
+		}
+		else
+		{
+			rightSide.Add(userInput);
+		}
+	}
+	//船和角色都在左邊 => 上船
+	else if(isBoatLeft && leftSide.Contains(userInput))
+	{
+		leftSide.Remove(userInput);
+		onBoat.Add(userInput);
+	}
+	//船和角色都在右邊 => 上船
+	else if(!isBoatLeft && rightSide.Contains(userInput))
+	{
+		rightSide.Remove(userInput);
+		onBoat.Add(userInput);
+	}
+	//船在對面，不能上船
+	else
+	{
+		Console.WriteLine("船在對面，不能上船哦！");
+	}
+}
+					</code></pre>
+				</section>
+				<section>
+					<h2>檢查移動結果</h2>
+					<pre><code class="hljs cs">
+//開船就檢查兩岸
+if(userInput == 5)
+{
+	//狼吃羊
+	if(leftSide.Contains(Wolf) && leftSide.Contains(Sheep))
+	{
+		isGameOver = true;
+		isWin = false;
+		Console.WriteLine("糟糕，同在左岸的狼把羊吃掉了！");
+	}
+	if(rightSide.Contains(Wolf) && rightSide.Contains(Sheep))
+	{
+		isGameOver = true;
+		isWin = false;
+		Console.WriteLine("糟糕，同在右岸的狼把羊吃掉了！");
+	}
+
+	//羊吃菜
+	if(leftSide.Contains(Sheep) && leftSide.Contains(Vegetable))
+	{
+		isGameOver = true;
+		isWin = false;
+		Console.WriteLine("糟糕，同在左岸的羊把菜吃掉了！");
+	}
+	if(rightSide.Contains(Sheep) && rightSide.Contains(Vegetable))
+	{
+		isGameOver = true;
+		isWin = false;
+		Console.WriteLine("糟糕，同在右岸的羊把菜吃掉了！");
+	}
+}
+					</code></pre>
+				</section>
+				<section>
+					<h2>檢查移動結果</h2>
+					<pre><code class="hljs cs">
+
+//檢查是否全到對岸
+if(rightSide.Count == 4)
+{
+	isGameOver = true;
+	isWin = true;
+}
+					</code></pre>
+				</section>
+				<section>
+					<h2>顯示遊戲結果</h2>
+					<pre><code class="hljs cs">
+if(isWin)
+{
+	Console.WriteLine("You Win!");
+}
+else
+{
+	Console.WriteLine("You Lose!");
+}
+					</code></pre>
+				</section>
+				<section data-markdown>
+##進階功能
+
+- 減少重複的程式碼
+- 儲存遊戲進度
+- 紀錄步數
+- 步數排行榜
+- 還原操作
+- 程式尋找最佳解
+				</section>
+			</section>
+			</div>
+		</div>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true },
+				{ src: '../plugin/notes/notes.js', async: true }
+			]
+		});
+		</script>
+	</body>
+</html>
