@@ -244,7 +244,7 @@ if(leftSide.Contains(角色) && leftSide.Contains(不能在一起的角色))
 						<li>檢查船上角色數量</li>
 					</ul>
 					<pre><code class="hljs cs">
-if(!onBoat.Contains(Farmer) || onBoat.Count != 2)
+if(!onBoat.Contains(Farmer) || onBoat.Count > 2)
 {
 	//不可以開船
 }
