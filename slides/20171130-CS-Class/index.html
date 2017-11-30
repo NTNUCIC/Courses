@@ -1,0 +1,207 @@
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>初探物件導向</title>
+
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+		<meta name="og:title" content="CSharp">
+		<meta name="og:url" content="http://ntnucic.github.io/Courses/slides/20171019-CS-File_FirstProject/index.html">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社C#課程投影片">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+			<section data-markdown>
+#初探物件導向
+
+2017/11/30 廖惠平
+			</section>
+			<section data-markdown>
+##Out Lines
+
+- 物件導向
+- 類別
+- 封裝
+- 方法
+- 練習
+			</section>
+			<section>
+				<section data-markdown>
+#物件導向
+				</section>
+				<section data-markdown>
+##物件導向
+
+- 所有的資料都是一個個物件
+- 打包
+
+				</section>
+				<section data-markdown>
+##三大特性
+
+- 封裝
+- 繼承
+- 多型
+				</section>
+				<section data-markdown>
+##五大原則 SOLID
+
+- 單一職責: Single Responsibility Principle(SRP) 
+- 開放/封閉原則: Open/close principle(OCP) 
+- Liskov替換: Liskov substitution principle(LSP) 
+- 介面隔離: Interface Segregation Principle(ISP) 
+- 依賴反轉: Dependency Inversion Principle(DIP) 
+				</section>
+			</section>
+			<section>
+				<section data-markdown>
+#類別
+				</section>
+				<section data-markdown>
+##類別
+
+- 自訂義的型別
+- 物件的設計圖
+				</section>
+				<section data-markdown>
+##宣告類別
+
+```
+class MyClass
+{
+	//屬於這個類別的內容
+}
+```
+				</section>
+				<section data-markdown>
+##欄位 Field
+
+- 屬於這個類別的一項資料
+- 通常是private
+- 對外透過屬性存取
+				</section>
+				<section data-markdown>
+##屬性 Property
+
+- 屬於這個類別的一項資料
+- 通常是public
+- 擁有存取子(getter/setter)
+				</section>
+			</section>
+			<section>
+				<section data-markdown>
+#封裝
+				</section>
+				<section data-markdown>
+##封裝
+
+- 核心概念：干我屁事
+- 可以給別人看到/使用的
+- 不可以給別人看到/使用的
+				</section>
+				<section data-markdown>
+##存取修飾詞
+
+- 宣告這個資料的存取權限
+- public
+- private
+- protected
+- internal
+- protected internal
+				</section>
+			</section>
+			<section>
+				<section data-markdown>
+#方法
+				</section>
+				<section data-markdown>
+##方法
+
+- 重新使用的程式碼片段
+- 依附在類別中
+- 對物件內容進行操作
+				</section>
+				<section data-markdown>
+##宣告方法
+
+- 方法名稱
+- 參數
+- 回傳值
+- 要做的內容
+				</section>
+				<section data-markdown>
+##呼叫方法
+
+- 物件實體.方法名稱(參數);
+- 接收回傳物件 = 物件實體.方法名稱(參數);
+				</section>
+			</section>
+			<section>
+				<section data-markdown>
+#練習
+				</section>
+				<section data-markdown>
+##練習
+
+請以物件導向的方式重構「農夫渡河」
+				</section>
+			</section>
+			</div>
+		</div>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true },
+				{ src: '../plugin/notes/notes.js', async: true }
+			]
+		});
+		</script>
+	</body>
+</html>
