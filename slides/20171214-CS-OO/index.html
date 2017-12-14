@@ -317,6 +317,35 @@ static void Main(string[] args)
             </section>
             <section>
                 <section data-markdown>
+##繼承--base
+
+- base關鍵字
+- 代表當前物件的父類別成員
+- 不能多重使用(base.base.Prop)
+                </section>
+                <section data-markdown>
+##繼承--base
+
+```
+public class Foo
+{
+    protected virtual int I { get => 2; }
+    public virtual int GetFoo() { return 3; }
+}
+public class Bar : Foo
+{
+    protected override int I { get => 5; }
+    public override int GetFoo() { return base.I * base.GetFoo() * I; }
+}
+static void Main(string[] args)
+{
+    Bar b = new Bar();
+    Console.WriteLine(b.GetFoo());  //30
+```
+                </section>
+            </section>
+            <section>
+                <section data-markdown>
 #多型
                 </section>
                 <section data-markdown>
@@ -382,6 +411,19 @@ static void Main(string[] args)
 - 在Character類別建立GetAttack(Character, Weapon)方法
 - 在winform建立PlayerAttack(Weapon)方法
 - 在winform設定三種攻擊方式
+                </section>
+            </section>
+            <section>
+                <section data-markdown>
+#回家練習
+                </section>
+                <section data-markdown>
+##回家練習
+
+- 建立抽象類別Armor(屬性：DefensePoint)
+- 建立LeatherArmor, SteelArmor, MysteriousSteelArmor繼承自Armor
+- 在Player類別加入EquipArmor屬性儲存Armor
+- 改寫GetAttack方法，承受傷害時扣除Armor.DefensePoint
                 </section>
             </section>
             </div>
