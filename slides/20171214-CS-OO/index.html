@@ -71,6 +71,12 @@
                 <section data-markdown>
 ##繼承
 
+- Inheritance
+- 在一個類別的基礎上建構另一個類別
+                </section>
+                <section data-markdown>
+##繼承
+
 - B類別繼承A類別
 - 父類別A，子類別B
 - B類別為A類別的擴充改裝
@@ -212,14 +218,22 @@ static void Main(string[] args)
 
 - 建立Character類別(HP, IsAlive, GetAttack)
 - 建立Player和Dragon類別繼承自Character
-- 建立方法RefreshHP()以更新頁面HP顯示
+- 在winform建立RefreshHP()方法以更新頁面HP顯示
                 </section>
             </section>
             <section>
                 <section data-markdown>
 ##繼承修飾詞--abstract
 
+- 武器
+- 一種用於攻擊的裝備
+- 沒有一種武器真的叫做"武器"
+                </section>
+                <section data-markdown>
+##繼承修飾詞--abstract
+
 - 抽像的，沒有實體
+- 一種概念
 - 用於父類別
 - 用於類別本身或類別成員
                 </section>
@@ -299,6 +313,75 @@ static void Main(string[] args)
 ##練習
 
 - 將類別Excalibur設定為封印
+                </section>
+            </section>
+            <section>
+                <section data-markdown>
+#多型
+                </section>
+                <section data-markdown>
+##多型
+
+- 武器可以攻擊
+- 劍.攻擊
+- 大劍.攻擊
+- 短劍.攻擊
+- 紅色的大劍.攻擊
+                </section>
+                <section data-markdown>
+##多型
+
+- Polymorphism
+- 子類別的物件以父類別的功能執行，表現出的行為是子類別自身實作的行為
+                </section>
+                <section data-markdown>
+##多型
+
+```
+class Foo
+{
+    public virtual string GetFoo() { return "FOO"; }
+}
+class Bar : Foo
+{
+    public override string GetFoo() { return "BAR!"; }
+}
+static void Main(string[] args)
+{
+    Foo f = new Foo();
+    Bar b = new Bar();
+    Foo o = new Bar();
+    Console.WriteLine(f.GetFoo());  //"FOO"
+    Console.WriteLine(b.GetFoo());  //"BAR!"
+    Console.WriteLine(o.GetFoo());  //"BAR!"
+```
+                </section>
+                <section data-markdown>
+##多型
+
+```
+public class OutPut
+{
+    public void OutPutFoo(Foo f)
+    {
+        Console.WriteLine(f.GetFoo());
+    }
+}
+static void Main(string[] args)
+{
+    Foo f = new Foo();
+    Bar b = new Bar();
+    OutPut o = new OutPut();
+    o.OutPutFoo(f); //"FOO"
+    o.OutPutFoo(b); //"BAR!"
+```
+                </section>
+                <section data-markdown>
+##練習
+
+- 在Character類別建立GetAttack(Character, Weapon)方法
+- 在winform建立PlayerAttack(Weapon)方法
+- 在winform設定三種攻擊方式
                 </section>
             </section>
             </div>
