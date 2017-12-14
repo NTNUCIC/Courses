@@ -26,41 +26,23 @@ namespace Lesson8_Demo
 
         public abstract int BaseHP { get; }
 
-        public int HP
-        {
-            get { return _HP; }
-        }
+        public int HP { get => _HP; }
 
-        public bool IsAlive
-        {
-            get { return HP > 0; }
-        }
+        public bool IsAlive { get => HP > 0; }
     }
 
     public class Player : Character
     {
-        public override string Name
-        {
-            get { return "Player"; }
-        }
+        public override string Name { get => "Player"; }
 
-        public override int BaseHP
-        {
-            get { return 30; }
-        }
+        public override int BaseHP { get => 30; }
     }
 
     public class Dragon : Character
     {
-        public override string Name
-        {
-            get { return "龍"; }
-        }
+        public override string Name { get => "龍"; }
 
-        public override int BaseHP
-        {
-            get { return 500; }
-        }
+        public override int BaseHP { get => 500; }
 
         public DragonBreath DragonBreath = new DragonBreath();
     }

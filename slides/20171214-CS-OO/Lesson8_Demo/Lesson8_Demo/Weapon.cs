@@ -30,58 +30,31 @@ namespace Lesson8_Demo
 
     public class LittleKnife : Weapon
     {
-        public override string Name
-        {
-            get { return "小刀"; }
-        }
+        public override string Name { get => "小刀"; }
 
         //1d2+1
-        protected override int BaseDamage
-        {
-            get { return 1; }
-        }
+        protected override int BaseDamage { get => 1; }
 
-        protected override int DiceNumber
-        {
-            get { return 1; }
-        }
+        protected override int DiceNumber { get => 1; }
 
-        protected override int DiceSide
-        {
-            get { return 2; }
-        }
+        protected override int DiceSide { get => 2; }
     }
 
     public class Sword : Weapon
     {
-        public override string Name
-        {
-            get { return "普通的劍"; }
-        }
+        public override string Name { get => "普通的劍"; }
 
         //2d3+3
-        protected override int BaseDamage
-        {
-            get { return 3; }
-        }
+        protected override int BaseDamage { get => 3; }
 
-        protected override int DiceNumber
-        {
-            get { return 2; }
-        }
+        protected override int DiceNumber { get => 2; }
 
-        protected override int DiceSide
-        {
-            get { return 3; }
-        }
+        protected override int DiceSide { get => 3; }
     }
 
     public class Excalibur : Sword
     {
-        public override string Name
-        {
-            get { return "聖劍！EX．咖哩棒"; }
-        }
+        public override string Name { get => "聖劍！EX．咖哩棒"; }
 
         //(5d6+7)*3
         public override int GetDamage()
@@ -89,43 +62,22 @@ namespace Lesson8_Demo
             return base.GetDamage() * 3;
         }
 
-        protected override int BaseDamage
-        {
-            get { return 7; }
-        }
+        protected override int BaseDamage { get => 7; }
 
-        protected override int DiceNumber
-        {
-            get { return 5; }
-        }
+        protected override int DiceNumber { get => 5; }
 
-        protected override int DiceSide
-        {
-            get { return 6; }
-        }
+        protected override int DiceSide { get => 6; }
     }
 
     public class DragonBreath : Weapon
     {
-        public override string Name
-        {
-            get { return "龍之吐息"; }
-        }
+        public override string Name { get => "龍之吐息"; }
 
         //3d5+10
-        protected override int BaseDamage
-        {
-            get { return 10; }
-        }
+        protected override int BaseDamage { get => 10; }
 
-        protected override int DiceNumber
-        {
-            get { return 3; }
-        }
+        protected override int DiceNumber { get => 3; }
 
-        protected override int DiceSide
-        {
-            get { return 5; }
-        }
+        protected override int DiceSide { get => 5; }
     }
 }
