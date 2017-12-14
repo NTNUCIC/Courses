@@ -468,6 +468,7 @@ static void Main(string[] args)
 public class Foo&lt;T&gt;
 {
     public T Prop { get; set; }
+    public T Bar&lt;R1, R2&gt;(R1 r, T t) { return default(T); }
 }
 static void Main(string[] args)
 {
