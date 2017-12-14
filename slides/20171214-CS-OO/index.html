@@ -212,6 +212,7 @@ static void Main(string[] args)
 
 - 建立Character類別(HP, IsAlive, GetAttack)
 - 建立Player和Dragon類別繼承自Character
+- 建立方法RefreshHP()以更新頁面HP顯示
                 </section>
             </section>
             <section>
@@ -265,6 +266,39 @@ static void Main(string[] args)
 - 將Character類別修改為抽象類別
 - 加入抽象屬性(Name, BaseHP)
 - 在Player和Dragon類別實作繼承的抽象屬性
+                </section>
+                <section data-markdown>
+##練習
+
+- 建立抽象類別Weapon(Name, BaseDamage, DiceNumber, DiceSide, GetDamage())
+- 建立類別LittleKnife, Sword, Excalibur繼承自Weapon
+                </section>
+            </section>
+            <section>
+                <section data-markdown>
+##繼承修飾詞--sealed
+
+- 封印的
+- 用於類別本身或類別成員
+                </section>
+                <section data-markdown>
+##繼承修飾詞--sealed
+
+- sealed class
+- 封印類別
+- 此類別不可被繼承
+                </section>
+                <section data-markdown>
+##繼承修飾詞--sealed
+
+- sealed method, sealed property
+- 封印方法，封印屬性
+- 子類別不可覆寫此成員
+                </section>
+                <section data-markdown>
+##練習
+
+- 將類別Excalibur設定為封印
                 </section>
             </section>
             </div>
