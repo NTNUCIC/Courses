@@ -81,7 +81,9 @@
 
 ```
 class B : A
-{}
+{
+    //類別B的成員內容
+}
 ```
                 </section>
                 <section data-markdown>
@@ -146,8 +148,11 @@ o.Equals(o);
 - override
 - virtual
 - abstract
-- new
+- new //略過
+- sealed
                 </section>
+            </section>
+            <section>
                 <section data-markdown>
 ##繼承修飾詞--override
 
@@ -202,15 +207,64 @@ static void Main(string[] args)
     Console.WriteLine(b.GetFoo(5)); //15
 ```
                 </section>
+                <section data-markdown>
+##練習
+
+- 建立Character類別(HP, IsAlive, GetAttack)
+- 建立Player和Dragon類別繼承自Character
+                </section>
             </section>
             <section>
                 <section data-markdown>
-#練習
+##繼承修飾詞--abstract
+
+- 抽像的，沒有實體
+- 用於父類別
+- 用於類別本身或類別成員
+                </section>
+                <section data-markdown>
+##繼承修飾詞--abstract
+
+- abstract class
+- 抽像類別
+- 不可被實體化
+                </section>
+                <section data-markdown>
+##繼承修飾詞--abstract
+
+- abstract method, abstract property
+- 抽像方法，抽像屬性
+- 父類別指出結構
+- 繼承的子類別必須要實作
+                </section>
+                <section data-markdown>
+##繼承修飾詞--abstract
+
+```
+abstract class Foo
+{
+    protected abstract int FF { get; }
+    public abstract int GetFoo(int i);
+}
+class Bar : Foo
+{
+    protected override int FF { get => 3; }
+    public override int GetFoo(int i) { return i * FF; }
+}
+static void Main(string[] args)
+{
+    //抽象類別不可被實體化
+    //Foo f = new Foo();
+    Bar b = new Bar();
+    Console.WriteLine(b.GetFoo(5)); //15
+```
                 </section>
                 <section data-markdown>
 ##練習
 
-請以物件導向的方式重構「農夫渡河」
+- 將Character類別修改為抽象類別
+- 加入抽象屬性(Name, BaseHP)
+- 在Player和Dragon類別實作繼承的抽象屬性
                 </section>
             </section>
             </div>
