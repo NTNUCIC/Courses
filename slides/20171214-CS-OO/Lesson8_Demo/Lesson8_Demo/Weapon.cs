@@ -52,7 +52,7 @@ namespace Lesson8_Demo
         protected override int DiceSide { get => 3; }
     }
 
-    public class Excalibur : Sword
+    public sealed class Excalibur : Sword
     {
         public override string Name { get => "聖劍！EX．咖哩棒"; }
 
