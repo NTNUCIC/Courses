@@ -1,0 +1,249 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>tupleanddictionary</title>
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+		<meta name="og:title" content="python3">
+		<meta name="og:url" content="http://ntnucic.github.io/Courses/slides/20181019-py3-tupleanddictionary/index.html">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社python3課程投影片">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<section>
+						<h1>python</h1>
+						<h2>tupleanddictionary</h2>
+						<h6>2018/10/19 陳惴棋</h6>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>目錄</h1>
+						<ul style="list-style-type:disc;">
+							<li>複習</li>
+							<li>上周練習解答</li>
+							<li>tuple</li>
+							<li>dictionary</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>複習</h1>
+					</section>
+					<section>
+						<h2>for</h2>
+					</section>
+					<section>
+						<h2>while</h2>
+					</section>
+					<section>
+						<h2>list</h2>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>上周練習解答</h1>
+					</section>
+					<section>
+						<h2>上周練習解答</h2>
+						<p>輸入非0整數(輸入0結束)</p>
+						<p>輸出正數(依輸入順序)</p>
+						<pre><code class=hljs>
+list1=[]
+while True:
+    try:
+        i=int(input())
+        if i==0:
+            break
+        elif i>0:
+            list1.append(i)
+    except:
+        print('INPUT ERROR!')
+for i in range(len(list1)):
+    print(list1[i])
+						</code></pre>
+					</section>
+					<section>
+						<h2>上周練習解答</h2>
+						<p>輸入5整數，輸出排序後的數列</p>
+						<p>輸入1整數(輸入X離開)</p>
+						<p>輸出最後5個輸入的整數排序後的數列</p>
+						<pre><code class=hljs>
+list1=[int(i) for i in input().split()]
+list2=sorted(list1)
+for i in range(5):
+    print(list2[i])
+n=input()
+while n!='X':
+    n=int(n)
+    del list1[0]
+    list1.append(n)
+    list2=sorted(list1)
+    for i in range(5):
+        print(list2[i])
+    n=input()
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>tuple</h1>
+					</section>
+					<section>
+						<h2>tuple</h2>
+						<ul style="list-style-type:disc;">
+							<li>執行速度比list更快</li>
+							<li>安全</li>
+						</ul>
+					</section>
+					<section>
+						<h2>tuple</h2>
+						<p>元組名稱=(元素1,元素2,...)</p>
+						<pre><code class=hljs>
+tuple1=(1,2,3,4,5)
+						</code></pre>
+					</section>
+					<section>
+						<h2>tuple</h2>
+						<ul style="list-style-type:disc;">
+							<li>沒有append,insert,extend等更改內容的函數</li>
+							<li>其餘使用方式與list相同</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>dictionary</h1>
+					</section>
+					<section>
+						<h2>dictionary</h2>
+						<p>字典名稱={鍵1:值1,鍵2:值2,...}</p>
+						<p>鍵不可重複(前項被覆蓋)</p>
+						<pre><code class=hljs>
+dict1={'數學':98,'國文':75,'英文':30}
+print(dict1['數學'])
+						</code></pre>
+					</section>
+					<section>
+						<h2>dictionary進階操作</h2>
+						<pre><code class=hljs>
+dict1={'數學':98,'國文':75,'英文':30}
+len(dict1)
+dict1.clear()
+dict1.copy()
+dict1.get(鍵,值)
+鍵 in dict1
+dict1.items()
+dict1.keys()
+dict1.setdefault(鍵,值)
+dict1.values()
+						</code></pre>
+					</section>
+					<section>
+						<h2>dictionary進階操作</h2>
+						<ul style="list-style-type:disc;">
+							<li>keys()</li>
+							<li>values()</li>
+						</ul>
+						<pre><code class=hljs>
+dict1={'數學':98,'國文':75,'英文':30}
+listkey=list(dict1.keys())
+listvalue=list(dict1.values())
+for i in range(len(listkey)):
+    print('%s的成績為%d分'%(listkey[i],listvalue[i]))
+						</code></pre>
+					</section>
+					<section>
+						<h2>dictionary進階操作</h2>
+						<ul style="list-style-type:disc;">
+							<li>items()</li>
+						</ul>
+						<pre><code class=hljs>
+dict1={'數學':98,'國文':75,'英文':30}
+listitem=dict1.items()
+for name,score in listitem:
+    print('%s的成績為%d分'%(name,score))
+						</code></pre>
+					</section>
+					<section>
+						<h2>dictionary進階操作</h2>
+						<ul style="list-style-type:disc;">
+							<li>get()</li>
+							<li>setdefault()</li>
+						</ul>
+						<p></p>
+						<p></p>
+						<pre><code class=hljs>
+dict1={'數學':98,'國文':75,'英文':30}
+print('數學:',dict1.get('數學',0))
+print('程式:',dict1.setdefault('程式',100))
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>練習</h1>
+					</section>
+					<section>
+						<h2>專案:農夫渡河</h2>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>END</h1>
+					</section>
+				</section>
+			</div>
+		</div>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true },
+				{ src: '../plugin/notes/notes.js', async: true }
+			]
+		});
+		</script>
+	</body>
+</html>

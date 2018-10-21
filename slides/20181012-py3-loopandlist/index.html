@@ -1,0 +1,339 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>loop</title>
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+		<meta name="og:title" content="python3">
+		<meta name="og:url" content="http://ntnucic.github.io/Courses/slides/20181012-py3-loop/index.html">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社python3課程投影片">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<section>
+						<h1>python</h1>
+						<h2>loop</h2>
+						<h6>2018/10/12 陳惴棋</h6>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>目錄</h1>
+						<ul style="list-style-type:disc;">
+							<li>複習</li>
+							<li>上周練習解答</li>
+							<li>for</li>
+							<li>while</li>
+							<li>list</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>複習</h1>
+					</section>
+					<section>
+						<h2>格式化列印</h2>
+						<ul style="list-style-type:disc;">
+						<li>整數：d</li>
+						<li>浮點：f</li>
+						<li>字串：s</li>
+						</ul>
+					</section>
+					<section>
+						<h2>格式化列印</h2>
+						<pre><code class=hljs>
+a=1
+b=2.3
+c='9487-XD'
+print('整數:%5d'%a)    #固定列印5字元
+print('小數:%6.2f'%b)  #固定列印6字元,小數後2位
+print('車號:%4s'%c)    #固定列印4字元
+						</code></pre>
+					</section>
+					<section>
+						<h2>格式化列印</h2>
+						<pre><code class=hljs>
+a=1
+b=2.3
+c='9487-XD'
+print('整數:{:5d}'.format(a))
+print('小數:{:6.2f}'.format(b))
+print('車號:{:4s}'.format(c))
+						</code></pre>
+					</section>
+					<section>
+						<h2>邏輯運算</h2>
+						<ul style="list-style-type:disc;">
+							<li>and</li>
+							<li>or</li>
+							<li>not</li>
+						</ul>
+					</section>
+					<section>
+						<h2>list</h2>
+						<p>串列名稱=[元素1,元素2,元素3, ... ...]</p>
+						<pre><code class=hljs>
+list1=[1,2,3]
+list2=['QAQ','OWO','>.<']
+list3=[1,'NTNUCIC',True]
+						</code></pre>
+					</section>
+					<section>
+						<h2>range函式</h2>
+						<p>串列變數=range(整數1)</p>
+						<p>串列變數=range(整數1,整數2)</p>
+						<p>串列變數=range(整數1,整數2,整數3)</p>
+						<pre><code class=hljs>
+list1=range(5)     #[0,1,2,3,4],0~n1-1,間隔1
+list2=range(2,7)   #[2,3,4,5,6,7],n1~n2-1,間隔1
+list3=range(2,7,2) #[2,4,6]
+#n1&lt;n2,n3>0 : n1~n2-1,間隔n3
+#n1>n2,n3<0 : n1~n2+1,間隔n3
+						</code></pre>
+					</section>
+					<section>
+						<h2>for</h2>
+						<pre><code class=hljs>
+for i in range(5):
+    #重複執行
+    #注意縮排
+						</code></pre>
+					</section>
+					<section>
+						<h2>while</h2>
+						<pre><code class=hljs>
+while(True):
+    #重複執行
+    #注意縮排
+    #小心無窮迴圈
+						</code></pre>
+					</section>
+					<section>
+						<h2>break</h2>
+						<pre><code class=hljs>
+for i in range(5):
+    break
+    #break離開
+    #注意縮排
+						</code></pre>
+					</section>
+					<section>
+						<h2>continue</h2>
+						<pre><code class=hljs>
+for i in range(5):
+    continue
+    #continue下面都不會執行
+    #從下一次繼續執行
+    #注意縮排
+						</code></pre>
+					</section>
+					<section>
+						<h2>while迴圈-防呆</h2>
+						<p>輸入整數</p>
+						<pre><code class=hljs>
+while True:
+    try:
+        a=int(input())
+        break
+    except:
+        print('NOT INT TYPE')
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>上周練習解答</h1>
+						<p>輸入整數N</p>
+						<p>輸出N的質因數</p>
+						<pre><code class=hljs>
+n=int(input())
+for i in range(2,n+1):
+    if(n%i==0):
+        c=0
+        for j in range(2,i):
+            if(i%j==0):
+                c+=1
+        if(c==0):
+            print(i)
+						</code></pre>
+					</section>
+					<section>
+						<h1>上周練習解答</h1>
+						<p>輸入姓名學號及數個成績(直到輸入-1結束)</p>
+						<p>輸出姓名學號、成績數量、平均成績</p>
+						<pre><code class=hljs>
+str1=input('輸入姓名:')
+str2=input('輸入學號:')
+print('輸入成績(輸入-1結束)')
+sum=0
+num=0
+a=int(input())
+while (a!=-1):
+    sum+=a
+    num+=1
+    a=int(input())
+print('姓名:{}'.format(str1))
+print('學號:{}'.format(str2))
+print('成績數量:{}'.format(num))
+if(num):
+    print('平均成績:{:6.2f}'.format(sum/num))
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>for</h1>
+					</section>
+					<section>
+						<h2>for</h2>
+						<p>輸入一正整數N</p>
+						<p>輸出N的標準分解式</p>
+					</section>
+					<section>
+						<h2>for</h2>
+						<p>輸入一個正整數N</p>
+						<p>輸出N!</p>
+					</section>
+					<section>
+						<h2>for</h2>
+						<p>輸入兩正整數M,N</p>
+						<p>輸出最大公因數</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>while</h1>
+					</section>
+					<section>
+						<h2>while</h2>
+						<p>輸入一正整數N</p>
+						<p>輸出小於N的所有質數</p>
+					</section>
+					<section>
+						<h2>while</h2>
+						<p>輸入一個正整數N</p>
+						<p>輸出f(N)</p>
+						<br>
+						<p>費氏數列f(N)定義如下</p>
+						<p>f(0)=0, f(1)=1, f(n)=f(n-1)+f(n-2)</p>
+					</section>
+					<section>
+						<h2>while</h2>
+						<p>輸入一整數N</p>
+						<p>輸出比N小的正數且是(2的倍數或3的倍數)</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>list</h1>
+						<h2>進階操作</h2>
+					</section>
+					<section>
+						<h2>list</h2>
+						<pre><code class=hljs>
+list1[n1]           #取出第n1個元素
+list1[n1:n2]        #取出n1~n2-1
+list1[n1:n2:n3]     #取出n1~n2-1,間隔n3
+del list1[n1:n2]    #刪除n1~n2-1
+del list1[n1:n2:n3] #刪除n1~n2-1,間隔n3
+len(list1)          #取得串列元素數
+min(list1)          #取得最小值
+max(list1)          #取得最大值
+
+						</code></pre>
+					</section>
+					<section>
+						<h2>list</h2>
+						<pre><code class=hljs>
+list1.index(n1)         #第一次出現n1的index值
+list1.count(n1)         #元素n1出現次數
+list1.append(n1)        #將n1做為元素加入list1最後
+list1.extend(x)         #將x中的元素逐一加入list1最後
+list1.insert(index1,n1) #在位置index1加入n1元素
+list1.pop()             #取出最後一個元素並從串列中移除
+list1.remove(n1)        #移除第一個n1元素
+list1.reverse()         #反轉串列順序
+list1.sort()            #由小到大排序
+
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>練習</h1>
+					</section>
+					<section>
+						<h2>練習</h2>
+						<p>輸入非0整數(輸入0結束)</p>
+						<p>輸出正數(依輸入順序)</p>
+						<br>
+						<p>輸入防呆</p>
+					</section>
+					<section>
+						<h2>練習</h2>
+						<p>輸入5整數</p>
+						<p>輸出排序後的數列</p>
+						<p>輸入1整數(輸入X離開)</p>
+						<p>輸出最後5個輸入的整數排序後的數列</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>END</h1>
+					</section>
+				</section>
+			</div>
+		</div>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true },
+				{ src: '../plugin/notes/notes.js', async: true }
+			]
+		});
+		</script>
+	</body>
+</html>

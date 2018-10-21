@@ -1,0 +1,412 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>list</title>
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+		<meta name="og:title" content="python3">
+		<meta name="og:url" content="http://ntnucic.github.io/Courses/slides/20181005-py3-list/index.html">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社python3課程投影片">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<section>
+						<h1>python</h1>
+						<h2>list</h2>
+						<h6>2018/10/05 陳惴棋</h6>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>目錄</h1>
+						<ul style="list-style-type:disc;">
+							<li>複習</li>
+							<li>複合指定運算子</li>
+							<li>格式化列印</li>
+							<li>邏輯運算</li>
+							<li>list</li>
+							<li>for迴圈</li>
+							<li>迴圈終止</li>
+							<li>while迴圈</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>複習</h1>
+					</section>
+					<section>
+						<h2>基本輸入輸出</h2>
+						<ul style="list-style-type:disc;">
+							<li class="fragment">print()</li>
+							<li class="fragment">input()</li>
+						</ul>
+					</section>
+					<section>
+						<h2>變數與資料型態</h2>
+						<ul style="list-style-type:disc;">
+							<li class="fragment">int</li>
+							<li class="fragment">float</li>
+							<li class="fragment">str</li>
+							<li class="fragment">bool</li>
+						</ul>
+					</section>
+					<section>
+						<h2>運算、判斷</h2>
+						<ul style="list-style-type:disc;">
+							<li class="fragment">if</li>
+							<li class="fragment">if...else...</li>
+							<li class="fragment">if...elif...else...</li>
+						</ul>
+					</section>
+					<section>
+						<h2>跳脫字元</h2>
+						<ul>
+							<li>顯示&nbsp;字元</li>
+							<li>換行&nbsp;\n</li>
+							<li>Tab&nbsp;&nbsp;\t</li>
+							<li>\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\</li>
+							<li>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\'</li>
+							<li>"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"</li>
+						</ul>
+					</section>
+					<section>
+						<h2>除錯練習</h2>
+						<p>輸入3整數(1行,以空白隔開)</p>
+						<p>輸出平均</p>
+						<pre><code class=hljs>
+a,b,c=input().split()
+d=(a+b+c)/3
+print(d)
+						</code></pre>
+					</section>
+					<section>
+						<h2>除錯練習</h2>
+						<p>輸入1個整數</p>
+						<p>輸出是否為0</p>
+						<pre><code class=hljs>
+a=int(input())
+if(a=0):
+    print('輸入為0')
+else:
+    print('輸入不為0')
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>複合指定運算子</h1>
+					</section>
+					<section>
+						<h2>複合指定運算子</h2>
+						<ul style="list-style-type:disc;">
+							<li>+=</li>
+							<li>-=</li>
+							<li>*=</li>
+							<li>/=</li>
+							<li>//=</li>
+							<li>%=</li>
+							<li>**=</li>
+						</ul>
+					</section>
+					<section>
+						<h2>複合指定運算子</h2>
+						<pre><code class=hljs>
+a=1
+b=2
+a=a+b
+						</code></pre>
+						<pre><code class=hljs>
+a=1
+b=2
+a+=b
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>格式化列印</h1>
+					</section>
+					<section>
+						<h2>格式化列印</h2>
+						<p>print(項目%(參數列))</p>
+					</section>
+					<section>
+						<h2>格式化列印</h2>
+						<ul style="list-style-type:disc;">
+						<li>整數：%d</li>
+						<li>浮點：%f</li>
+						<li>字串：%s</li>
+						</ul>
+						<pre><code class=hljs>
+a=1
+b=2.3
+c='9487-XD'
+print('整數:%5d'%a)    #固定列印5字元
+print('小數:%6.2f'%b)  #固定列印6字元,小數後2位
+print('車號:%4s'%c)    #固定列印4字元
+						</code></pre>
+					</section>
+					<section>
+						<h2>格式化列印</h2>
+						<p>print(字串.format(參數列))</p>
+					</section>
+					<section>
+						<h2>格式化列印</h2>
+						<pre><code class=hljs>
+a=1
+b=2.3
+c='9487-XD'
+print('整數:{}'.format(a))
+print('小數:{}'.format(b))
+print('車號:{}'.format(c))
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>邏輯運算</h1>
+					</section>
+					<section>
+						<h2>邏輯運算</h2>
+						<ul style="list-style-type:disc;">
+							<li>and</li>
+							<li>or</li>
+							<li>not</li>
+						</ul>
+					</section>
+					<section>
+						<h2>邏輯運算</h2>
+						<pre><code class=hljs>
+print(True and False)
+print(True or False)
+print(not False)
+						</code></pre>
+					</section>
+					<section>
+						<h2>邏輯運算</h2>
+						<pre><code class=hljs>
+if(True and False):
+    print('True1')
+if(True or False):
+    print('True2')
+if(not True):
+    print('True3')
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>list</h1>
+					</section>
+					<section>
+						<h2>list</h2>
+						<p>串列名稱=[元素1,元素2,元素3, ... ...]</p>
+						<pre><code class=hljs>
+list1=[1,2,3]
+list2=['QAQ','OWO','>.<']
+list3=[1,'NTNUCIC',True]
+						</code></pre>
+					</section>
+					<section>
+						<h2>range函式</h2>
+						<p>串列變數=range(整數1)</p>
+						<p>串列變數=range(整數1,整數2)</p>
+						<p>串列變數=range(整數1,整數2,整數3)</p>
+						<pre><code class=hljs>
+list1=range(5)     #[0,1,2,3,4]
+list2=range(2,7)   #[2,3,4,5,6]
+list3=range(2,7,2) #[2,4,6]
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>for迴圈</h1>
+					</section>
+					<section>
+						<h2>for迴圈</h2>
+						<p>for 變數 in 序列:</p>
+						<p>程式區塊</p>
+						<pre><code class=hljs>
+for i in range(5):
+    print(i)
+						</code></pre>
+					</section>
+					<section>
+						<h2>for迴圈</h2>
+						<pre><code class=hljs>
+list1=['A1','B2','C3']
+for i in list1:
+    print(i)
+						</code></pre>
+					</section>
+					<section>
+						<h2>for迴圈-整數總和</h2>
+					</section>
+					<section>
+						<h2>for迴圈-九九乘法表</h2>
+						<p>使用格式化列印</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>迴圈終止</h1>
+					</section>
+					<section>
+						<h2>break-迴圈終止</h2>
+						<pre><code class=hljs>
+break
+						</code></pre>
+					</section>
+					<section>
+						<h2>break-迴圈終止</h2>
+						<pre><code class=hljs>
+for i in range(5):
+    if(i==3):
+        break
+    print(i)
+						</code></pre>
+					</section>
+					<section>
+						<h2>for...else...迴圈</h2>
+						<p>for 變數 in 序列:</p>
+						<p>程式區塊</p>
+						<pre><code class=hljs>
+for i in range(5):
+    print('%d'%(i+1))
+    if(i>5):
+        break
+else:
+    print('NO break')
+						</code></pre>
+					</section>
+					<section>
+						<h2>for...else...迴圈-檢查質數</h2>
+					</section>
+					<section>
+						<h2>continue-迴圈中止</h2>
+						<pre><code class=hljs>
+continue
+						</code></pre>
+					</section>
+					<section>
+						<h2>continue-迴圈中止</h2>
+						<pre><code class=hljs>
+for i in range(5):
+    if(i==3):
+        continue
+    print(i)
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>while迴圈</h1>
+					</section>
+					<section>
+						<h2>while迴圈</h2>
+						<p>while(條件式):</p>
+						<pre><code class=hljs>
+while True:
+    print('XD\n')
+						</code></pre>
+					</section>
+					<section>
+						<h2>while迴圈</h2>
+						<pre><code class=hljs>
+n=0
+while(n<10):
+    print(n)
+    n+=1
+						</code></pre>
+					</section>
+					<section>
+						<h2>while迴圈-防呆</h2>
+						<p>輸入整數</p>
+						<pre><code class=hljs>
+while True:
+    try:
+        a=int(input())
+        break
+    except:
+        print('NOT INT TYPE')
+        continue
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>練習</h1>
+						<p>輸入整數N</p>
+						<p>輸出N的質因數</p>
+						<p></p>
+					</section>
+					<section>
+						<h1>練習</h1>
+						<p>輸入姓名學號及數個成績(直到輸入-1結束)</p>
+						<p>輸出姓名學號、成績數量、平均成績</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>END</h1>
+					</section>
+				</section>
+			</div>
+		</div>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true },
+				{ src: '../plugin/notes/notes.js', async: true }
+			]
+		});
+		</script>
+	</body>
+</html>

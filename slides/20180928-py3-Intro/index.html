@@ -1,0 +1,339 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Hello World!</title>
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+		<meta name="og:title" content="python3">
+		<meta name="og:url" content="http://ntnucic.github.io/Courses/slides/20180928-py3-Intro/index.html">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社python3課程投影片">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<section>
+						<h1>python</h1>
+						<h2>Hello World!</h2>
+						<h6>2018/09/28 陳惴棋</h6>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>目錄</h1>
+						<ul style="list-style-type:disc;">
+							<li>程式</li>
+							<li>基本輸入輸出</li>
+							<li>變數與資料型態</li>
+							<li>運算</li>
+							<li>判斷</li>
+							<li>跳脫字元</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>程式</h1>
+					</section>
+					<section>
+						<h2>什麼是程式</h2>
+						<ul style="list-style-type:disc;">
+							<li class="fragment">電腦做的事情</li>
+							<li class="fragment">1與0</li>
+							<li class="fragment">很厲害⁽⁽ ◟(∗ ˊωˋ ∗)◞ ⁾⁾ </li>
+						</ul>
+					</section>
+					<section>
+						<h2>什麼是程式</h2>
+						<ul style="list-style-type:disc;">
+							<li class="fragment">遵循規則(邏輯)</li>
+							<li class="fragment">快速</li>
+							<li class="fragment">大量</li>
+						</ul>
+					</section>
+					<section>
+						<h2>程式語言</h2>
+						<ul style="list-style-type:disc;">
+							<li class="fragment">特定語法</li>
+							<li class="fragment">給電腦執行的規則</li>
+							<li class="fragment">給人看得懂又好寫的規則</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>基本輸入輸出</h1>
+					</section>
+					<section>
+						<h2>Hello World!</h2>
+						<ul style="list-style-type:disc;">
+							<li class="fragment">所有語言的起始點</li>
+							<li class="fragment">其實程式很簡單</li>
+						</ul>
+					</section>
+					<section>
+						<h2>基本輸出</h2>
+						<p>顯示文字後換行：print("文字內容")</p>
+						<pre><code class=hljs>
+print("Hello World!")
+						</code></pre>
+					</section>
+					<section>
+						<h2>基本輸出</h2>
+						<p>顯示文字：print("文字內容",end='')</p>
+						<pre><code class=hljs>
+print("Hello World!",end='')
+						</code></pre>
+					</section>
+					<section>
+						<h2>基本輸出</h2>
+						<p>顯示變數：print(變數1,變數2,sep=' ',end=' ')</p>
+						<pre><code class=hljs>
+a=1
+b=2
+print(a,b,sep='3',end='4')
+						</code></pre>
+					</section>
+					<section>
+						<h2>基本輸入</h2>
+						<p>接收一列輸入：input()</p>
+						<pre><code class=hljs>
+input()
+						</code></pre>
+					</section>
+					<section>
+						<h2>基本輸入</h2>
+						<p>接收一列輸入並顯示文字：input("要顯示的文字")</p>
+						<pre><code class=hljs>
+input("輸入一行")
+						</code></pre>
+					</section>
+					<section>
+						<h2>基本輸入</h2>
+						<p>輸入給變數：變數=input("要顯示的文字")</p>
+						<pre><code class=hljs>
+a=input("輸入變數a")
+						</code></pre>
+					</section>
+					<section>
+						<h2>基本輸入</h2>
+						<p>一列輸入多個變數：變數1,變數2=input().split()</p>
+						<pre><code class=hljs>
+a,b=input("輸入2個變數").split()
+c,d=input("輸入2個變數").split('.')
+						</code></pre>
+					</section>
+					<section>
+						<h2>清空輸出：clear</h2>
+						<p></p>
+						<pre><code class=hljs>
+clear
+clear()
+%clear
+						</code></pre>
+						<pre><code class=hljs>
+import os
+os.system('clear')
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>變數與資料型態</h1>
+					</section>
+					<section>
+						<h2>變數宣告</h2>
+						<ul style="list-style-type:disc;">
+							<li class="fragment">不用指定型態</li>
+							<li class="fragment">用英文開頭</li>
+							<li class="fragment"><del>也可以用中文開頭</del></li>
+						</ul>
+					</section>
+					<section>
+						<h2>資料型態</h2>
+						<ul style="list-style-type:disc;">
+						<li>整數：int</li>
+						<li>浮點：float</li>
+						<li>字串：str</li>
+						<li>布林：bool</li>
+						</ul>
+						<pre><code class=hljs>
+a=1
+b=2.0
+c='9487-XD'
+d=True
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>運算</h1>
+					</section>
+					<section>
+						<h2>運算</h2>
+						<ul style="list-style-type:disc;">
+							<li class="fragment">加+</li>
+							<li class="fragment">減-</li>
+							<li class="fragment">乘*</li>
+							<li class="fragment">除/</li>
+							<li class="fragment">除：取整數//</li>
+							<li class="fragment">除：取餘數%</li>
+							<li class="fragment">次方**</li>
+						</ul>
+					</section>
+					<section>
+						<h2>運算</h2>
+						<pre><code class=hljs>
+a=1+2
+b=4-2
+c=8*7
+d=20/3
+e=20//3
+f=20%3
+g=5**2
+print(a,b,c,d,e,f,g,sep=' ')
+						</code></pre>
+					</section>
+					<section>
+						<h2>轉型</h2>
+						<pre><code class=hljs>
+a=2.3
+b='30'
+c=3
+
+print(a*2)
+print(b*2)
+print(c*2)
+
+print(int(a)*2)
+print(float(b)*2)
+print(str(c)*2)
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>判斷</h1>
+					</section>
+					<section>
+						<h2>判斷</h2>
+						<ul style="list-style-type:disc;">
+						<li>大於></li>
+						<li>小於<</li>
+						<li>大於等於>=</li>
+						<li>小於等於<=</li>
+						<li>不等於!=</li>
+						<li>等於==</li>
+						</ul>
+						<pre><code class=hljs>
+print(2>1)
+print(3<4)
+print(5>=3)
+print(6<=8)
+print(9!=2)
+print(7==7)
+
+						</code></pre>
+					</section>
+					<section>
+						<h2>判斷</h2>
+						<ul style="list-style-type:disc;">
+						<li>if...</li>
+						<li>if...else...</li>
+						<li>if...elif...else...</li>
+						</ul>
+						<pre><code class=hljs>
+if(2>1):
+	print("A")
+elif(3>4):
+	print("B")
+else:
+	print("C")
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>跳脫字元</h1>
+					</section>
+					<section>
+						<h2>跳脫字元</h2>
+						<ul>
+							<li>顯示 字元</li>
+							<li>換行&nbsp;\n</li>
+							<li>Tab&nbsp;&nbsp;\t</li>
+							<li>\&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\\</li>
+							<li>'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\'</li>
+							<li>"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;\"</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>練習</h1>
+						<p>輸入姓名、學號及5個成績(0~100)</p>
+						<p>輸出姓名、學號、平均成績與等第</p>
+						<p>80以上:A</p>
+						<p>70以上不到80:B</p>
+						<p>60以上不到70:C</p>
+						<p>60以下:F</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>END</h1>
+					</section>
+				</section>
+			</div>
+		</div>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true },
+				{ src: '../plugin/notes/notes.js', async: true }
+			]
+		});
+		</script>
+	</body>
+</html>
