@@ -1,0 +1,191 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>selenium</title>
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+		<meta name="og:title" content="python3">
+		<meta name="og:url" content="http://ntnucic.github.io/Courses/slides/20181130-py3-selenium/index.html">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社python3課程投影片">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<section>
+						<h1>python</h1>
+						<h2>selenium</h2>
+						<h6>2018/11/23 陳惴棋</h6>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>目錄</h1>
+						<ul style="list-style-type:disc;">
+							<li>複習</li>
+							<li>安裝selenium</li>
+							<li>selenium</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>複習</h1>
+					</section>
+					<section>
+						<h2>input</h2>
+					</section>
+					<section>
+						<h2>output</h2>
+					</section>
+					<section>
+						<h2>list</h2>
+					</section>
+					<section>
+						<h2>tuple</h2>
+					</section>
+					<section>
+						<h2>dictionary</h2>
+					</section>
+					<section>
+						<h2>function</h2>
+					</section>
+					<section>
+						<h2>file</h2>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>安裝selenium</h1>
+					</section>
+					<section>
+						<h2>安裝selenium</h2>
+						<p>在anaconda prompt輸入</p>
+						<pre><code class=hljs>
+pip install selenium
+						</code></pre>
+					</section>
+					<section>
+						<h2>下載chrome webdriver</h2>
+						<a href="https://sites.google.com/a/chromium.org/chromedriver/downloads">下載連結</a>
+						<p>依作業系統下載</p>
+						<p>將ChromeDriver.exe移至Anaconda3資料夾</p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>selenium</h1>
+					</section>
+					<section>
+						<h2>建立瀏覽器物件</h2>
+						<pre><code class=hljs>
+from selenium import webdriver
+browser = webdriver.Chrome()
+						</code></pre>
+					</section>
+					<section>
+						<h2>get</h2>
+						<pre><code class=hljs>
+from selenium import webdriver
+browser = webdriver.Chrome()
+browser.get('https://www.ntnucic.club/Courses/')
+browser.quit()
+						</code></pre>
+					</section>
+					<section>
+						<h2>以get依序瀏覽</h2>
+						<pre><code class=hljs>
+from selenium import webdriver
+from time import sleep
+
+urls = ['https://www.google.com',
+        'https://www.ntnu.edu.tw/',
+        'https://www.ntnucic.club/Courses/']
+
+browser = webdriver.Chrome()
+browser.maximize_window()
+
+for url in urls:
+    browser.get(url) 
+    sleep(3)
+
+browser.close()
+						</code></pre>
+					</section>
+					<section>
+						<h2>close()</h2>
+						<p>關閉瀏覽器</p>
+					</section>
+					<section>
+						<h2>quit()</h2>
+						<p>關閉瀏覽器並退出驅動程式</p>
+					</section>
+					<section>
+						<h2>其他常用功能</h2>
+						<p>maximize_window() 瀏覽器視窗最大化</p>
+						<p>click() 以滑鼠單擊</p>
+						<p>refresh() 重新整理</p>
+						<p>back() 上一頁</p>
+						<p>forward() 下一頁</p>
+						<p>send_keys() 以鍵盤輸入</p>
+						<p>clear() 清除輸入</p>
+
+						<p>current_url 目前網址</p>
+						<p>page_source 網頁原始碼</p>
+						<p></p>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>END</h1>
+					</section>
+				</section>
+			</div>
+		</div>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true },
+				{ src: '../plugin/notes/notes.js', async: true }
+			]
+		});
+		</script>
+	</body>
+</html>
