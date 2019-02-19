@@ -52,8 +52,7 @@
 						<h1>目錄</h1>
 						<ul style="list-style-type: disc;">
 							<li>Android App ...</li>
-							<li>安裝 Arduino ...</li>
-							<li>Hello World</li>
+							<li>Arduino</li>
 							<li>基本語法解說</li>
 							<li>SG-90 控制代碼教學</li>
 							<li>HC-05 基本指令教學</li>
@@ -70,19 +69,18 @@
 
 				<section>
 					<section>
-						<h1>安裝 Arduino ... </h1>
+						<h1>Arduino</h1>
+						<h4><spqn class="fragment">還記得電路圖吧?</spqn><spqn class="fragment">先將它給連接好吧 \(OwO \)</spqn></h4>
 					</section>
 					<section>
-						<h2>還記得電路圖吧?</h2>
-						<h3>先將它給連接好吧 \(OwO \)</h2>
-						<!-- <img src="./sketch/demo1.jpg" alt="Error" title="Arduino-usb-電路圖" border="0"> -->
-					</section>
-					<section data-background="./sketch/demo1.jpg">
-						<!-- nothing -->
+						<img src="./sketch/demo1.jpg" alt="電路圖" title="電路圖">
 					</section>
 				</section>
 
 				<section>
+					<section>
+						<h1>安裝軟體</h1>
+					</section>
 					<section>
 						<h2>安裝 PL2303 的驅動程式</h2>
 						<a href="https://www.ez2o.com/Blog/Post/PL2303HX-Win8-Win8.1-Win10">下載連結</a>
@@ -93,31 +91,144 @@
 					</section>
 					<section>
 						<h2>打開Arduino IDE 看看有沒有找到pro mini版吧!</h2>
-						<h3>(ex: COM2: Arduino pro mini)</h3>
-					</section>
-				</section>
-
-				<section>
-					<section>
-						<h1>Hello World</h1>
-					</section>
-					<section>
-						<h1>... ?</h1>
-					</section>
-					<section>
-						<h1>Arduino ver</h1>
-					</section>
-					<section>
-						<h1>Blink !!!</h1>
-					</section>
-					<section>
-						<!-- something -->
+						<h5>(ex: COM6 : Arduino pro mini)</h5>
 					</section>
 				</section>
 
 				<section>
 					<section>
 						<h1>基本語法解說</h1>
+						<h3 class="fragment">跟C++很像 有學過的可以自己玩玩</h3>
+						<h3 class="fragment">想學C++的 歡迎來我們社團玩玩 (OHO)</h3>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h3>那...<span class="fragment">就開始寫吧 !(OuO )</span></h3>
+						<h3 class="fragment">沒有拉... Ctrl大法而已</h3>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>Hello World</h1>
+						<h2 class="fragment">Arduino版</h2>
+					</section>
+					<section>
+						<h1>(/ OAO)/ Blink !!!</h1>
+						<h5>(@ File/Open Example/Basics/Blink.ino)</h5>
+					</section>
+					<section>
+						<h2>確認板子有設定對...</h2>
+						<h4>上傳看看有沒有發生什麼變化吧! (OuO)</h4>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>理論上 多了一顆閃爍的LED (O_O)?</h2>
+						<pre class="fragment">
+							<h1>嘗試看看更改第21,23行的數字看看</h1>
+							<code class="arduino">delay(3000);</code>
+						</pre>
+						<h2 class="fragment">閃的變慢了 !(OAO )</h2>
+					</section>
+					<section>
+						<h2>恭喜大家完成第一個程式 \(>w<)/ </h2>
+					</section>
+				</section>
+
+				<section>	
+					<section>
+						<h3>講解一下剛剛那段代碼在做啥吧 \(OwO \)</h3>
+					</section>
+				</section>
+
+				<section>	
+					<section>
+						<h2>註解</h2>
+						<h3>功能類似備忘錄，讓人知道這是在做啥的</h3>
+						<pre><code class="arduino">/*
+  Blink
+  Turns on an LED on for one second, then off for one second, repeatedly.
+  This example code is in the public domain.
+	*/
+	
+// Pin 13 has an LED connected on most Arduino boards.</code></pre>
+					</section>
+					<section>
+						<h2>註解</h2>
+						<h3>不會影響到程式本身，有兩種表達形式</h3>
+						<pre><code class="arduino">// 單行註解
+/* 
+  多行註解
+  多行註解
+  多行註解
+*/</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>宣告變數</h2>
+						<h3>告訴電腦你定義了些甚麼東西</h3>
+						<h5>格式: [type] [name] (= [value]);</h5>
+						<pre><code class="arduino">int led = 13;</code></pre>
+					</section>
+					<section>
+						<h3>舉例來說:</h3>
+						<h3>定義"整數""x"的值為"673"</h3>
+						<pre><code class="arduino">int x = 673;</code></pre>
+						<h3>定義"浮點數""y"的值為"3"</h3>
+						<pre><code class="arduino">float y = 3;</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>函數</h2>
+						<h3>告訴電腦按照(先前)定義好的指令做事</h3>
+						<h5>格式: [return type] [name](*args){/*codes*/};</h5>
+						<pre><code class="arduino">// the setup routine runs once when you press reset:
+void setup() {                
+  // initialize the digital pin as an output.
+  pinMode(led, OUTPUT);     
+}
+// the loop routine runs over and over again forever:
+void loop() {
+  digitalWrite(led, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(1000);               // wait for a second
+  digitalWrite(led, LOW);    // turn the LED off by making the voltage LOW
+  delay(1000);               // wait for a second
+}</code></pre>
+					</section>
+					<section>
+						<h3>舉例來說:</h3>
+						<h3>剛剛再玩的delay();就是一種函數</h3>
+						<pre><code class="arduino">// def
+void dealy(int ms)
+{
+	sleep(ms);
+}
+//use
+delay(1000);</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>流程控制</h1>
+						<pre><code class="arduino">void setup() {
+  // put your setup code here, to run once:
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+}</code></pre>
+						<h3 class="fragment">有點難解釋...後面用到再講</h3>
+						<h3 class="fragment">先記得我們之後只會動到loop()</h3>
+						<h3 class="fragment">還有電腦都是一行一行執行的就好</h3>
 					</section>
 				</section>
 
@@ -125,11 +236,59 @@
 					<section>
 						<h1>SG-90 控制代碼教學</h1>
 					</section>
+					<section>
+						<h2>SG-90 本體</h2>
+						<img src="https://www.robotistan.com/tower-pro-sg90-rc-mini-servo-motor-eng-21731-15-O.jpg" alt="Error" title="servo motor">
+					</section>
+					<section>
+						<h2>本段落會用到的一些代碼</h2>
+						<pre><code class="arduino">#include &ltSoftwareSerial.h&gt
+#define DataPin 8
+Servo MyServo;
+MyServo.attach(DataPin, 500, 2400);
+MyServo.write(int);</code></pre>
+					</section>
+				</section>
+				
+				<section>
+					<section>
+						<h3>講解一下剛剛那段代碼在做啥吧 \(OwO \)</h3>
+					</section>
+					<section>
+						<h2>先將這段放到setup()之前</h2>
+						<h5>這段的用意是宣告一個Servo物件MyServo</h5>
+						<pre><code class="arduino">#include &ltSoftwareSerial.h&gt
+#define DataPin 8
+Servo MyServo;</code></pre>
+					</section>
+					<section>
+						<h2>這段放到setup()的{}裡面</h2>
+						<h5>這段的用意是指定MyServo所對應的pin並歸零</h5>
+						<pre><code class="arduino"></code>MyServo.attach(DataPin, 500, 2400);
+MyServo.write(90);</pre>
+					</section>
+					<section>
+						<h2>好了 可以來玩拉</h2>
+						<h4>MyServo.write([angle]) : 旋轉到[angle]度</h4>
+						<pre><code class="arduino">void loop() {
+MyServo.write(120);
+delay(1000);
+MyServo.write(60);
+delay(1000);
+}</code></pre>
+					</section>
+					<section>
+						<h2>休息一下 等等就快完成拉 \(OuO )</h2>
+					</section>
 				</section>
 
 				<section>
 					<section>
 						<h1>HC-05 基本指令教學</h1>
+					</section>
+					<section>
+						<h2>HC-05 本體</h2>
+						<img src="https://www.taiwaniot.com.tw/wp-content/uploads/2016/01/41fG4L1FvOL.jpg" alt="ERROR" title="Bluetooth">
 					</section>
 				</section>
 
