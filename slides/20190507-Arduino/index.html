@@ -56,7 +56,7 @@
 							<li>基本語法解說</li>
 							<li>SG-90 控制代碼教學</li>
 							<li>HC-05 基本指令教學</li>
-							<li>Final</li>
+							<li>綜合應用</li>
 						</ul>
 					</section>
 				</section>
@@ -130,7 +130,7 @@
 						<h2>理論上 多了一顆閃爍的LED (O_O)?</h2>
 						<pre class="fragment">
 							<h1>嘗試看看更改第21,23行的數字看看</h1>
-							<code class="arduino">delay(3000);</code>
+							<code class="arduino">delay(...);</code>
 						</pre>
 						<h2 class="fragment">閃的變慢了 !(OAO )</h2>
 					</section>
@@ -227,8 +227,8 @@ void loop() {
   // put your main code here, to run repeatedly:
 }</code></pre>
 						<h3 class="fragment">有點難解釋...後面用到再講</h3>
-						<h3 class="fragment">先記得我們之後只會動到loop()</h3>
-						<h3 class="fragment">還有電腦都是一行一行執行的就好</h3>
+						<h3 class="fragment">先記得電腦都是一行一行執行的</h3>
+						<h5 class="fragment">還有我們之後只會動到loop()裡面的東西就好</h5>
 					</section>
 				</section>
 
@@ -242,44 +242,44 @@ void loop() {
 					</section>
 					<section>
 						<h2>本段落會用到的一些代碼</h2>
-						<pre><code class="arduino">#include &ltSoftwareSerial.h&gt
-#define DataPin 8
-Servo MyServo;
+						<pre><code class="arduino">Servo MyServo;
 MyServo.attach(DataPin, 500, 2400);
 MyServo.write(int);</code></pre>
+						<a href="./example/SG90.ino">範例下載</a>
 					</section>
 				</section>
 				
 				<section>
 					<section>
-						<h3>講解一下剛剛那段代碼在做啥吧 \(OwO \)</h3>
+						<h3>講解一下這次的範例在做啥吧 \(OwO \)</h3>
 					</section>
 					<section>
-						<h2>先將這段放到setup()之前</h2>
-						<h5>這段的用意是宣告一個Servo物件MyServo</h5>
-						<pre><code class="arduino">#include &ltSoftwareSerial.h&gt
+						<h5>引入檔案並宣告一個物件MyServo</h5>
+						<pre><code class="arduino">#include &ltWire.h&gt
+#include &ltServo.h&gt
 #define DataPin 8
 Servo MyServo;</code></pre>
 					</section>
 					<section>
-						<h2>這段放到setup()的{}裡面</h2>
-						<h5>這段的用意是指定MyServo所對應的pin並歸零</h5>
-						<pre><code class="arduino"></code>MyServo.attach(DataPin, 500, 2400);
-MyServo.write(90);</pre>
+						<h5>指定MyServo的輸出位置並歸位</h5>
+						<pre><code class="arduino">MyServo.attach(DataPin, 500, 2400);
+MyServo.write(90);</code></pre>
 					</section>
 					<section>
-						<h2>好了 可以來玩拉</h2>
-						<h4>MyServo.write([angle]) : 旋轉到[angle]度</h4>
-						<pre><code class="arduino">void loop() {
-MyServo.write(120);
-delay(1000);
-MyServo.write(60);
-delay(1000);
-}</code></pre>
+						<h5>指定MyServo轉到...度(0~180)</h5>
+						<pre><code class="arduino">MyServo.write(...);</code></pre>
 					</section>
 					<section>
+						<h2>好了 可以來玩拉 \(OwO \)</h2>
+						<h3>嘗試看看更改第10~13行的數字看看</h3>
+						<pre><code class="arduino">MyServo.write(...);
+delay(...);
+MyServo.write(...);
+delay(...);</code></pre>
+					</section>
+<!-- 					<section>
 						<h2>休息一下 等等就快完成拉 \(OuO )</h2>
-					</section>
+					</section> -->
 				</section>
 
 				<section>
@@ -290,14 +290,168 @@ delay(1000);
 						<h2>HC-05 本體</h2>
 						<img src="https://www.taiwaniot.com.tw/wp-content/uploads/2016/01/41fG4L1FvOL.jpg" alt="ERROR" title="Bluetooth">
 					</section>
+					<section>
+						<h2>本段落會用到的一些代碼</h2>
+						<pre><code class="arduino">SoftwareSerial BTSerial(RXD, TXD);
+BTSerial.begin(38400);
+BTSerial.available();
+Serial.read();
+BTSerial.write(...);</code></pre>
+						<a href="./example/HC05.ino">範例下載</a>
+					</section>
 				</section>
 
 				<section>
 					<section>
-						<h1>Final</h1>
+						<h3>講解一下這次的範例在做啥吧 \(OwO \)</h3>
+					</section>
+					<section>
+						<h5>引入檔案並宣告一個物件BTSerial</h5>
+						<pre><code class="arduino">#include &ltSoftwareSerial.h&gt
+SoftwareSerial BTSerial(10, 11);</code></pre>
+					</section>
+					<section>
+						<h5>初始化BTSerial</h5>
+						<h5>規範HC-05,Arduino,PC間的通訊速率</h5>
+						<pre><code class="arduino">void setup() {
+pinMode(9, OUTPUT);
+digitalWrite(9, HIGH);
+Serial.begin(9600);
+BTSerial.begin(38400);
+}</code></pre>
+					</section>
+					<section>
+						<h5>建立並進行HC-05,Arduino,PC間的通訊</h5>
+						<pre><code class="arduino">void loop() {
+  if (BTSerial.available())
+    Serial.write(BTSerial.read());
+  if (Serial.available())
+    BTSerial.write(Serial.read());
+}</code></pre>
 					</section>
 				</section>
 
+				<section>
+					<section>
+						<h3>確認藍芽模組已進入AT模式(信號燈閃爍)</h3>
+						<h3>開啟序列埠監控視窗(Ctrl+Shift+M)</h3>
+					</section>
+					<section>
+						<h3>輸入「AT」看看是否能收到OK的回應</h3>
+					</section>
+					<section>
+						<h2>視個人需求更改藍芽模組設定</h2>
+						<h3><table>
+							<thead>
+								<tr>
+									<th>...</th>
+									<th>Command</th>
+								</tr>	
+							</thead>
+							<tbody>
+								<tr>
+									<th>查詢address</th>
+									<th>AT+ADDR?</th>
+								</tr>
+								<tr>
+									<th>查詢名字</th>
+									<th>AT+NAME?</th>
+								</tr>
+								<tr>
+									<th>更改名字為XXX</th>
+									<th>AT+NAME=XXX</th>
+								</tr>
+								<tr>
+									<th>查詢配對密碼</th>
+									<th>AT+PSWD?</th>
+								</tr>
+								<tr>
+									<th>更改配對密碼為XXX</th>
+									<th>AT+PSWD=XXX</th>
+								</tr>
+							</tbody>
+						</table></h3>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>綜合應用</h1>
+						<h3 class="fragment">先上傳<a href="./example/BB8.ino">範例</a>到Arduino上</h3>
+					</section>
+					<section data-background="http://images4.fanpop.com/image/photos/24000000/Lord-Voldemort-lord-voldemort-24011677-450-192.jpg">
+						<h1>魔王來襲!!! (X_X)</h1>
+						<h3>本次課程最難的部分......</h3>
+					</section>
+					<section>
+						<h2>60+ 行 (OAO )</h2>
+						<pre><code class="arduino">#include &ltSoftwareSerial.h&gt
+#include &ltWire.h&gt
+#include &ltServo.h&gt
+bool DEBUG = false;
+#define KEY 9
+#define RXD 10
+#define TXD 11
+#define MAX_BTCMDLEN 128
+SoftwareSerial BTSerial(RXD, TXD);
+#define Servo_1_Data 5
+#define Servo_2_Data 6
+Servo Servo_1, Servo_2;
+int pos_1 = 0, pos_2 = 0;
+
+void setup() {
+  pinMode(KEY, OUTPUT);
+  digitalWrite(KEY, LOW);
+  Serial.begin(9600);
+  BTSerial.begin(38400);
+  Servo_1.attach(Servo_1_Data,500,2400);
+  Servo_2.attach(Servo_2_Data,500,2400);
+  Servo_1.write(90);
+  Servo_2.write(90);
+  delay(3000);
+}
+
+void loop() {
+  byte _cmd[MAX_BTCMDLEN];
+  int len = 0;
+  memset(_cmd,0,MAX_BTCMDLEN);
+  for(int i = 0; i < MAX_BTCMDLEN; i++) {
+    for(int _len = 0; _len < BTSerial.available(); _len++) {
+      _cmd[(len++)%MAX_BTCMDLEN] = BTSerial.read();
+    }
+  }
+  if(len != 0) {
+    String cmd = String(_cmd);
+    if(DEBUG) {
+      Serial.print("Command: ");Serial.print(cmd);
+      Serial.print(", Pos: ");Serial.print(pos_1);
+      Serial.print(", ");Serial.println(pos_2);
+    }
+    if(cmd == "M+GO")    { pos_1 += 1;}
+    if(cmd == "M+BACK")  { pos_1 -= 1;}
+    if(cmd == "M+LEFT")  { pos_2 += 1;}
+    if(cmd == "M+RIGHT") { pos_2 -= 1;}
+    if(cmd == "M+STOP")  { pos_1 = 0; pos_2 = 0;}
+    Servo_1.write(90 + pos_1);
+    Servo_2.write(90 + pos_2);
+    delay(100);
+  }
+}</code></pre>
+					</section>
+					<section>
+						<h2>沒有拉，上傳就能用了</h2>
+						<h5 class="fragment">我也覺得教不完來著... (o_o )</h5>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>那最後<span class="fragment">.</span><span class="fragment">.</span><span class="fragment">.</span></h1>
+					</section>
+					<section>
+						<h4>恭喜大家完成自己的第一個機器人拉 \(OuO \)</h4>
+					</section>
+				</section>
 			</div>
 		</div>
 		<script src="../lib/js/head.min.js"></script>
