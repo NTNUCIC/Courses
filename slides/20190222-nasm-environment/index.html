@@ -1,0 +1,117 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>nasm-environment</title>
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+		<meta name="og:title" content="python3">
+		<meta name="og:url" content="http://ntnucic.github.io/Courses/slides/20190222-nasm-environment/index.html">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社python3課程投影片">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<section>
+						<h1>nasm</h1>
+						<h6>2019/02/22 陳惴棋</h6>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>目錄</h1>
+						<ul style="list-style-type:disc;">
+							<li>環境建置</li>
+							<li>終端機基本指令</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>環境建置</h1>
+					</section>
+					<section>
+						<h2>安裝虛擬機</h2>
+						<a href="https://www.oracle.com/technetwork/server-storage/virtualbox/downloads/index.html">Oracle VM VirtualBox</a>
+					</section>
+					<section>
+						<h2>安裝ubuntu</h2>
+						<a href="https://www.ubuntu-tw.org/modules/tinyd0/">Ubuntu桌面版本/16.04 LTS/32位元版本</a>
+					</section>
+					<section>
+						<h2>打開終端機(CTRL+ALT+T)</h2>
+						<pre><code class=hljs>
+sudo apt install build-essential
+sudo apt install nasm
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>終端機基本指令</h1>
+					</section>
+					<section>
+						<h2>基本指令</h2>
+						<ul style="list-style-type:disc;">
+							<li>cd 切換路徑</li>
+							<li>ls 查看當前目錄檔案</li>
+							<li>chmod 更改檔案權限(777 -rwxrwxrwx)</li>
+							<li>su 轉為super user(系統管理員)</li>
+							<li>whoami 確認目前身分</li>
+							<li>uname -a 系統資訊</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>END</h1>
+					</section>
+				</section>
+			</div>
+		</div>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true },
+				{ src: '../plugin/notes/notes.js', async: true }
+			]
+		});
+		</script>
+	</body>
+</html>
