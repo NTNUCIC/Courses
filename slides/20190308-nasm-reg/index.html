@@ -1,11 +1,11 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>nasm-environment</title>
+		<title>nasm-reg</title>
 		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
 		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
 		<meta name="og:title" content="nasm">
-		<meta name="og:url" content="http://ntnucic.github.io/Courses/slides/20190222-nasm-environment/index.html">
+		<meta name="og:url" content="http://ntnucic.github.io/Courses/slides/20190308-nasm-reg/index.html">
 		<meta name="og:description" content="國立臺灣師範大學資訊研究社python3課程投影片">
 		<meta name="og:image" content="../../images/cic.jpg">
 		<meta name="og:site_name" content="NTNUCIC">
@@ -32,7 +32,7 @@
 				<section>
 					<section>
 						<h1>nasm</h1>
-						<h6>2019/02/22 陳惴棋</h6>
+						<h6>2019/03/08 陳惴棋</h6>
 					</section>
 				</section>
 
@@ -40,46 +40,101 @@
 					<section>
 						<h1>目錄</h1>
 						<ul style="list-style-type:disc;">
-							<li>環境建置</li>
-							<li>終端機基本指令</li>
+							<li>暫存器</li>
+							<li>變數使用</li>
+							<li>makefile</li>
+							<li>基本語法</li>
 						</ul>
 					</section>
 				</section>
 
 				<section>
 					<section>
-						<h1>環境建置</h1>
+						<h1>暫存器</h1>
 					</section>
 					<section>
-						<h2>安裝虛擬機</h2>
-						<a href="https://www.oracle.com/technetwork/server-storage/virtualbox/downloads/index.html">Oracle VM VirtualBox</a>
+						<h2>暫存器</h2>
+						<ul style="list-style-type:disc;">
+							<li>EAX (AX AH AL)</li>
+							<li>EBX (BX BH BL)</li>
+							<li>ECX (CX CH CL)</li>
+							<li>EDX (DX DH DL)</li>
+						</ul>
 					</section>
 					<section>
-						<h2>安裝ubuntu</h2>
-						<a href="https://www.ubuntu-tw.org/modules/tinyd0/">Ubuntu桌面版本/16.04 LTS/32位元版本</a>
-					</section>
-					<section>
-						<h2>打開終端機(CTRL+ALT+T)</h2>
+						<h2>暫存器</h2>
+						<p>改變AX會使EAX改變，其他亦同</p>
 						<pre><code class=hljs>
-sudo apt install build-essential
-sudo apt install nasm
+EAX- ---- ---- ----
+          AX-- ----
+          AH--
+               AL--
 						</code></pre>
 					</section>
 				</section>
 
 				<section>
 					<section>
-						<h1>終端機基本指令</h1>
+						<h1>變數使用</h1>
 					</section>
 					<section>
-						<h2>基本指令</h2>
+						<h2>mov</h2>
+						<pre><code class=hljs>
+mov eax , ebx ;eax=ebx
+mov ax , bx   ;ax=bx
+mov al , bh   ;al=bh
+mov ah , bx   ;錯誤，大小不同
+						</code></pre>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>makefile</h1>
+					</section>
+					<section>
+						<h2>makefile</h2>
+						<p>將檔案放入同資料夾</p>
 						<ul style="list-style-type:disc;">
-							<li>cd 切換路徑</li>
-							<li>ls 查看當前目錄檔案</li>
-							<li>chmod 更改檔案權限(777 -rwxrwxrwx)</li>
-							<li>su 轉為super user(系統管理員)</li>
-							<li>whoami 確認目前身分</li>
-							<li>uname -a 系統資訊</li>
+							<li>driver.c</li>
+							<li>test.asm</li>
+							<li>asm_io.inc</li>
+							<li>asm_io.asm</li>
+							<li>Makefile</li>
+						<p>打開終端機、切換路徑</p>
+						<p>輸入 make</p>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>基本語法</h1>
+					</section>
+					<section>
+						<h2>segment</h2>
+						<ul style="list-style-type:disc;">
+							<li>.data</li>
+							<li>.bss</li>
+							<li>.text</li>
+						</ul>
+					</section>
+					<section>
+						<h2>變數型態</h2>
+						<ul style="list-style-type:disc;">
+							<li>dq dd dw db</li>
+							<li>resq resd resw resb</li>
+						</ul>
+					</section>
+					<section>
+						<h2>基本語法</h2>
+						<ul style="list-style-type:disc;">
+							<li>mov</li>
+							<li>call</li>
+							<li>add</li>
+							<li>sub</li>
+							<li>inc</li>
+							<li>dec</li>
 						</ul>
 					</section>
 				</section>
