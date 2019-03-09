@@ -1,6 +1,6 @@
 #include <Wire.h>
 #include <Servo.h>
-#define DataPin 8
+#define DataPin 9
 Servo MyServo;
 void setup() {
 	MyServo.attach(DataPin, 500, 2400);
