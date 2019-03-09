@@ -24,6 +24,9 @@ void setup()
   Serial.begin(9600);
   BTSerial.begin(38400);
   // Servo motor
+  pinMode(2, OUTPUT);digitalWrite(2, HIGH); // Reduce the difficulty of welding
+  pinMode(7, OUTPUT);digitalWrite(7, LOW); // Reduce the difficulty of welding
+  pinMode(8, OUTPUT);digitalWrite(8, HIGH); // Reduce the difficulty of welding
   Servo_1.attach(Servo_1_Data,500,2400);
   Servo_2.attach(Servo_2_Data,500,2400);
   Servo_1.write(90);
