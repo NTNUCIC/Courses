@@ -1,5 +1,5 @@
 #include <SoftwareSerial.h>
-SoftwareSerial BTSerial(11, 12); // RX | TX
+SoftwareSerial BTSerial(12, 11); // RX | TX
 void setup() {
   pinMode(10, OUTPUT);  // this pin will pull the HC-05 pin 34 (key pin) HIGH to switch module to AT mode
   digitalWrite(10, HIGH);
