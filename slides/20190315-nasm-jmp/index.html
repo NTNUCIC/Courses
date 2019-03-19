@@ -1,0 +1,225 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>nasm-jmp</title>
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+		<meta name="og:title" content="nasm">
+		<meta name="og:url" content="http://ntnucic.github.io/Courses/slides/20190315-nasm-jmp/index.html">
+		<meta name="og:description" content="國立臺灣師範大學資訊研究社python3課程投影片">
+		<meta name="og:image" content="../../images/cic.jpg">
+		<meta name="og:site_name" content="NTNUCIC">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<section>
+						<h1>nasm</h1>
+						<h6>2019/03/15 陳惴棋</h6>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>目錄</h1>
+						<ul style="list-style-type:disc;">
+							<li>FLAG</li>
+							<li>jmp</li>
+							<li>位元運算</li>
+							<li>乘除</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>FLAGS</h1>
+					</section>
+					<section>
+						<h2>FLAGS</h2>
+						<ul style="list-style-type:disc;">
+							<li>ZF:Zero Flag</li>
+							<li>CF:Carry Flag</li>
+							<li>SF:Sign Flag</li>
+							<li>OF:Overflow Flag</li>
+							<li>PF:Parity Flag</li>
+						</ul>
+					</section>
+					<section>
+						<h2>FLAGS</h2>
+						<p>cmp a,b(有號數)</p>
+						<ul style="list-style-type:disc;">
+							<li>a=b : ZF=1</li>
+							<li>a&gt;b : ZF=0 SF =OF</li>
+							<li>a&lt;b : ZF=0 SF!=OF</li>
+						</ul>
+					</section>
+					<section>
+						<h2>FLAGS</h2>
+						<p>cmp a,b(無號數)</p>
+						<ul style="list-style-type:disc;">
+							<li>a=b : ZF=1 CF=0</li>
+							<li>a&gt;b : ZF=0 CF=0</li>
+							<li>a&lt;b : ZF=0 CF=1</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>jmp</h1>
+					</section>
+					<section>
+						<h2>jmp</h2>
+						<ul style="list-style-type:disc;">
+							<li>jmp label</li>
+							<li>jz</li>
+							<li>jnz</li>
+							<li>jo</li>
+							<li>jno</li>
+							<li>js</li>
+							<li>jns</li>
+							<li>jc</li>
+							<li>jnc</li>
+							<li>jp</li>
+							<li>jnp</li>
+						</ul>
+					</section>
+					<section>
+						<h2>jmp</h2>
+						<p>cmp a,b(有號數)</p>
+						<ul style="list-style-type:disc;">
+							<li>je : a==b</li>
+							<li>jne : a!=b</li>
+							<li>jl (jnge) :a&lt;b</li>
+							<li>jle (jng) :a&lt;=b</li>
+							<li>jg (jnle) :a&gt;b</li>
+							<li>jge (jnl) :a&gt;=b</li>
+						</ul>
+					</section>
+					<section>
+						<h2>jmp</h2>
+						<p>cmp a,b(無號數)</p>
+						<ul style="list-style-type:disc;">
+							<li>jp : a==b</li>
+							<li>jne : a!=b</li>
+							<li>jb (jnae) :a&lt;b</li>
+							<li>jbe (jna) :a&lt;=b</li>
+							<li>ja (jnbe) :a&gt;b</li>
+							<li>jae (jnb) :a&gt;=b</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>位元運算</h1>
+					</section>
+					<section>
+						<h2>位元運算</h2>
+						<ul style="list-style-type:disc;">
+							<li>and</li>
+							<li>or</li>
+							<li>xor</li>
+							<li>not</li>
+							<li>neg</li>
+							<li>test</li>
+						</ul>
+					</section>
+					<section>
+						<h2>位元運算</h2>
+						<ul style="list-style-type:disc;">
+							<li>有號數:shl、shr</li>
+							<li>無號數:sal、sar</li>
+							<li>轉動:rol、ror</li>
+							<li>轉動(含CF):rcl、rcr</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>乘除</h1>
+					</section>
+					<section>
+						<h2>mul:無號乘法</h2>
+						<ul style="list-style-type:disc;">
+							<li>byte:AX=input*AL</li>
+							<li>word:DX_AX=input*AX</li>
+							<li>dword:EDX_EAX=input*EAX</li>
+						</ul>
+					</section>
+					<section>
+						<h2>imul:有號乘法</h2>
+						<ul style="list-style-type:disc;">
+							<li>byte:AX=input(可用常數)*AL</li>
+							<li>word:DX_AX=input*AX</li>
+							<li>dword:EDX_EAX=input*EAX</li>
+						</ul>
+					</section>
+					<section>
+						<h2>div:無號除法</h2>
+						<ul style="list-style-type:disc;">
+							<li>byte:AL_AH=AX/input</li>
+							<li>word:AX_DX=DX_AX/input</li>
+							<li>dword:EAX_EDX=EDX_EAX/input</li>
+						</ul>
+					</section>
+					<section>
+						<h2>idiv:有號除法</h2>
+						<ul style="list-style-type:disc;">
+							<li>byte:AL_AH=AX/input</li>
+							<li>word:AX_DX=DX_AX/input</li>
+							<li>dword:EAX_EDX=EDX_EAX/input</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h1>END</h1>
+					</section>
+				</section>
+			</div>
+		</div>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true },
+				{ src: '../plugin/notes/notes.js', async: true }
+			]
+		});
+		</script>
+	</body>
+</html>
