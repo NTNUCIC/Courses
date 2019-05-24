@@ -5,9 +5,9 @@
 // DEBUG
 bool DEBUG = true;
 // Bluetooth
-#define KEY 9
-#define RXD 10
-#define TXD 11
+#define KEY 10
+#define RXD 11
+#define TXD 12
 #define MAX_BTCMDLEN 128 // the maximum received command length from an Android system (over the bluetooth)
 SoftwareSerial BTSerial(RXD, TXD);
 // Servo motor
