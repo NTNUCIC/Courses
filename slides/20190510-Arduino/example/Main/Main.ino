@@ -24,7 +24,6 @@ void setup()
   Serial.begin(9600);
   BTSerial.begin(38400);
   // Servo motor
-//  pinMode(7, OUTPUT);digitalWrite(7, LOW); // Reduce the difficulty of welding
   Servo_1.attach(Servo_1_Data,500,2400);
   Servo_2.attach(Servo_2_Data,500,2400);
   Servo_1.write(90);
@@ -35,22 +34,21 @@ void setup()
 void loop()
 {
   // Bluetooth
-  char _cmd[MAX_BTCMDLEN];
+  BTSerial.listen();
+  char cmd[MAX_BTCMDLEN];
   int len = 0;
-  memset(_cmd,0,MAX_BTCMDLEN);
+  memset(cmd,0,MAX_BTCMDLEN);
   for(int i = 0; i < MAX_BTCMDLEN; i++)
   {
     for(int _len = 0; _len < BTSerial.available(); _len++)
     {
-      _cmd[(len++)%MAX_BTCMDLEN] = BTSerial.read();
+      cmd[(len++)%MAX_BTCMDLEN] = char(BTSerial.read());
     }
   }
   // Servo motor
   // Main Function ?
   if(len != 0)
   {
-    String cmd = String(_cmd);
-
     if(cmd == "0")  { pos_1 =   0;}
     if(cmd == "1")  { pos_1 =  90;}
     if(cmd == "2")  { pos_1 = -90;}
