@@ -38,11 +38,20 @@
 
 		<div class="reveal">
 			<div class="slides">
+				<!-- Intro -->
 				<section>
 					<h1 style="margin-top: 100px">Git 版本控制</h1>
 					<h4>林弘祥</h4>
 					<h4>2019 / 09 / 18</h4>
 				</section>
+
+				<!-- Download -->
+				<section>
+					<h2>在課程開始前..</h2>
+					<h3>先來下載今天要用的<a href="https://git-scm.com/downloads">程式</a></h3>
+				</section>
+
+				<!-- Issue -->
 				<section>
 					<section>
 						<h3>首先先來說個關於合作小故事...</h3>
@@ -52,11 +61,11 @@
 						<h4>期末專題、 分組報告、 影音剪輯...的經驗吧</h4>
 					</section>
 				</section>
+
+				<!-- Short Story I -->
 				<section>
-					<section>
-						<h2>現在假設你們要做一個專案</h2>
-						<h4 class = "fragment" style="color: #777777">然後你不幸要負責改code</h4>
-					</section>
+					<h2>現在假設你們要做一個專案</h2>
+					<h4 class = "fragment" style="color: #777777">然後你不幸要負責改code</h4>
 				</section>
 				<section>
 					<section data-background="img/story_1.png">
@@ -79,9 +88,141 @@
 					</section>
 				</section>
 
+				<!-- Short Story II -->
 				<section>
-					<h2>又或者你們要做一個專案</h2>
-					<h4 class = "fragment" style="color: #777777">然後決定用___來存放資料</h4>
+					<h2>又或者你們要做合作一個專案</h2>
+					<h4 style="color: #777777">分工各做一部份 決定用___來共同存放資料</h4>
+				</section>
+				<section>
+					<section>
+						<h3>一切似乎都是如此的美好...</h3>
+						<h2 class="fragment highlight-red">直到截止日逐步逼近......</h2>
+					</section>
+					<section>
+						<h2>當大家開始把各自的版本上傳時</h2>
+						<img src="img/story_5.png">
+					</section>
+					<section>
+						<div style="width:50rem;position:relative;left:5rem">
+							<p style="display:inline-block;margin:0.5rem">誰他X的改了我的碼!</p>
+							<p style="display:inline-block;margin:0.5rem"></p>
+									我的比較好!
+							<p style="display:inline-block;margin:0.5rem">我三小時的努力...( ºΔº )</p>
+							<div>
+								<p style="float:left;position:relative;left:5rem;top:1rem">
+									我<br>先<br>提<br>出<br>想<br>法<br>的<br>!
+								</p>
+								<img src="img/PK.jpg" alt="PK" style="width:30rem">
+								<p style="float:right;position:relative;right:5rem;top:2rem">
+									我<br>先<br>上<br>傳<br>的<br>!
+								</p>
+							</div>
+							<p style="display:inline-block;margin:0.5rem">這一切都是____的陰謀啦!</p>
+							<p style="display:inline-block;margin:0.5rem">誰寫的!這結果不對啊!Σ(;ﾟдﾟ)</p>
+						</div>
+					</section>
+				</section>
+
+				<!-- What's Version Control -->
+				<section>
+					<h1>版本控制</h1>
+				</section>
+				<section>
+					<section>
+						<h3>透過前些的討論</h3>
+						<h5>想必大家都對版本控制有些想法了吧</h5>
+					</section>
+					<section>
+						<h2>特性</h2>
+						<ul>
+							<li class="fragment">追蹤文件的改動</li>
+							<li class="fragment">回復/比較 先前版本</li>
+							<li class="fragment">同步/合併 開發版本</li>
+						</ul>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>集中式版本控制</h2>
+						<img src="../20151001-Git/cvcs.png">
+					</section>
+					<section>
+						<h2>分散式版本控制</h2>
+						<img src="../20151001-Git/dvcs.png">
+					</section>
+				</section>
+
+				<!-- Git -->
+				<section>
+					<section>
+						<h1>Git</h1>
+						<img src="https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" style="border: 0px; background: ">
+						<h5 style="color: #777777">分散式版本控制</h5>
+					</section>
+					<section>
+						<h1><a href="https://git-scm.com/downloads">安裝</a></h1>
+						<h5 style="color: #777777"><del>都一直點"continue"就對了</del></h5>
+					</section>
+				</section>
+
+				<!-- surrounding -->
+				<section>
+					<h2>先來設定環境</h2>
+					<pre><code class="consolas">git config --global user.email "YourEmail\(OwO)"
+git config --global user.name "YourName\(OwO)"
+git config --global color.ui true</code></pre>
+				</section>
+
+				<!-- alias -->
+				<section>
+					<h2>縮寫<del style="font-size: 20px; color: #777777; marker-end: -10px">別問我為啥</del></h2>
+					<pre><code class="consolas">git config --global alias.co commit
+git config --global alias.st status
+git config --global alias.lg "log --color --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"</code></pre>
+				</section>
+
+				<!-- help -->
+				<section>
+					<h5 style="font-size: 20px; color: #777777">有問題的話...就問git吧!!!</h5>
+					<h2>Git內置幫助</h2>
+					<pre><code class="consolas">git help "command"</code></pre>
+				</section>
+
+				<!-- init -->
+				<section>
+					<section>
+						<del style="font-size: 60px">讓我們開始愉快的寫Bug吧</del>
+					</section>
+					<section>
+						<h1>練習</h1>
+						<h2>大家先來開一個資料夾</h2>
+						<pre><code class="consolas">mkdir OwO</code></pre>
+					</section>
+					<section>
+						<h1>初始化</h1>
+						<pre><code class="consolas">git init</code></pre>
+					</section>
+					<section>
+						<h3>目前大家的資料夾應該看起來像醬</h3>
+						<img src="img/init.png">
+					</section>
+				</section>
+
+				<!-- status / log -->
+				<section>
+					<section>
+						<h3>讓我們先隨便新增一個檔案</h3>
+						<pre><code class="concolas">touch hello.txt</code></pre>
+					</section>
+					<section>
+						<h3>查看目前版本變動/過去版本演進</h3>
+						<pre><code class="consolas">git status // -> git st
+git log // -> git lg</code></pre>
+					</section>
+					<section>
+						<h4>天啊...怎麼爆炸了...我做錯了甚麼</h4>
+						<img src="img/git_st_1.png">
+					</section>
 				</section>
 			</div>
 		</div>
