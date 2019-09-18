@@ -212,7 +212,7 @@ git config --global alias.lg "log --color --graph --all --pretty=format:'%Cred%h
 				<section>
 					<section>
 						<h3>讓我們先隨便新增一個檔案</h3>
-						<pre><code class="concolas">touch hello.txt</code></pre>
+						<pre><code class="concolas">touch README.md</code></pre>
 					</section>
 					<section>
 						<h3>查看目前版本變動/過去版本演進</h3>
@@ -221,7 +221,74 @@ git log // -> git lg</code></pre>
 					</section>
 					<section>
 						<h4>天啊...怎麼爆炸了...我做錯了甚麼</h4>
-						<img src="img/git_st_1.png">
+						<img src="img/log_err.png">
+					</section>
+				</section>
+
+				<!-- Principle -->
+				<section>
+					<h5>git的邏輯</h5>
+					<img style="height: 55vh; border: 0px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Git_operations.svg/734px-Git_operations.svg.png">
+				</section>
+
+				<!-- add / commit -->
+				<section>
+					<section>
+						<h5>想要git幫你追蹤版本變動</h5>
+						<h4>就要先告訴git要追蹤那些檔案阿!!!</h4>
+						<pre><code class="consolas">git add README.md</code></pre>
+					</section>
+					<section>
+						<h5>提交版本紀錄</h5>
+						<pre><code class="consolas">git commit -m "init" README.md</code></pre>
+					</section>
+					<section>
+						<h4>再來查看一次</h4>
+						<img src="img/log.png">
+					</section>
+					<section>
+						<h3>練習時間</h3>
+						<h4>自己新增or修改些檔案, 試著自己提交版本</h4>
+						<pre><code class="consolas">git add FILENAME
+git commit -m "MGS" FILENAME</code></pre>
+					</section>
+				</section>
+
+				<!-- diff -->
+				<section>
+					<section>
+						<h2>比較版本變化</h2>
+						<pre><code class="consolas">git diff HEAD^</code></pre>
+					</section>
+					<section>
+						<h4>git diff ...</h4>
+						<img src="img/diff_with_hook.png">
+					</section>
+					<section>
+						<h4>git diff ...</h4>
+						<img src="img/diff_with_key.png">
+					</section>
+				</section>
+
+				<!-- checkout / reset / ect-->
+				<section>
+					<section>
+						<h2>查看特定版本</h2>
+						<pre><code class="consolas">git checkout key</code></pre>
+					</section>
+					<section>
+						<h2>回復特定版本</h2>
+						<pre><code class="consolas">git revert key file
+git reset key file</code></pre>
+					</section>
+					<section>
+						<h5>雜項</h5>
+						<pre><code class="consolas">git rm file // 取消追蹤
+git mv oldfile newfile // 更換檔案名稱/位置</code></pre>
+					</section>
+					<section>
+						<h4>預告</h4>
+						<h3 class="fragment zoom-in">下周教分支(branck)跟玩GitHub</h3>
 					</section>
 				</section>
 			</div>
