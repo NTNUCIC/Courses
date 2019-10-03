@@ -43,7 +43,7 @@
 					<section>
 						<h1>Python</h1>
 						<h2>Hello World !</h2>
-						<h6>2019/10/02 林弘祥</h6>
+						<h6>2019/10/03 林弘祥</h6>
 					</section>
 					<section>
 						<h2>課程簡介</h2>
@@ -157,10 +157,68 @@
 						<p>依靠一定的關鍵字與結構語句</p>
 						<p>讓人們能與電腦建立溝通的橋樑</p>
 					</section>
+					<section>
+						<p>也就是說...</p>
+						<p>前面的四段code都可以算做程式語言</p>
+					</section>
 				</section>
 
 				<!-- History of Program Language -->
-				<!-- Skip -->
+				<section>
+					<section>
+						<h3>程式語言的發展歷史</h3>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							#### ~ 1940: 機器語言
+							
+							```arm	
+							1010 1001 0100 0000 0100 0101 1111 0000
+							4d5a 9000 0300 0000 0400 0000 ffff 0000
+							```
+						</script>
+						<p>自動機器, 打孔機 (想像常見的發條音樂盒)</p>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							#### 1940 ~ 1950: 組合語言
+
+							```arm
+							LFB11:
+							.cfi_startproc
+							pushl	%ebp
+							.cfi_def_cfa_offset 8
+							.cfi_offset 5, -8
+							movl	%esp, %ebp
+							.cfi_def_cfa_register 5
+							andl	$-16, %esp
+							subl	$32, %esp
+							call	___main
+							leal	22(%esp), %eax
+							movl	%eax, 4(%esp)
+							```
+						</script>
+						<p>與全都是數字的機器語言相比友善方便多了</p>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							#### 1950 ~ 1960: 高階語言
+							
+							```c
+							#include <stdio.h>
+							int main(int argc, const char** argv[])
+							{
+								print("hello\n");
+								return 0;
+							}
+							```
+						</script>
+					</section>
+					<section>
+						<h4>查看詳細發展</h4>
+						<a href="https://ntnucic.github.io/Courses/slides/20151022-PL/index.html">歷史文件OuO</a>
+					</section>
+				</section>
 
 				<!-- Python -->
 				<section>
