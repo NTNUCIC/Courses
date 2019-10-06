@@ -100,20 +100,6 @@
 							```
 						</script>
 					</section>
-					<section data-markdown>
-						<script type="text/template">
-							```Perl
-							 用籌兮用嚴。 井涸兮無礙
-							。印曰最高矣  又道數然哉。
-							。截起吾純風  賦小入大合。
-							。習予吾陣地  並二至純風。
-							。當起段賦取  加陣地合始。
-							。陣地賦篩始  繫繫此雜段。
-							。終陣地兮印  正道次標哉。
-							。輸空接段點  列終註泰來。
-							```
-						</script>
-					</section>
 				</section>
 
 				<!-- Question & Answer: What's the definition of program ? -->
@@ -130,12 +116,8 @@
 						<p>簡單來說: y = f(x) 其中 x 是資料, y 是資訊, f 是程式</p>
 					</section>
 					<section>
-						<img src="https://cdn.pixabay.com/photo/2014/12/21/23/28/recipe-575434_960_720.png" style="border: 0px;height: 30vh">
-						<p>像是一本教電腦如何做菜(我們要的東西)的食譜</p>
-					</section>
-					<section>
 						<ul style="list-style-type:disc;">
-							<li class="fragment">給電腦遵循的一套規則 (SOP)</li>
+							<li class="fragment">給電腦用的工具</li>
 							<li class="fragment">可以快速/大量生產 (資訊)</li>
 							<li class="fragment">無須了解實作細節 (黑箱)</li>
 						</ul>
@@ -159,7 +141,7 @@
 					</section>
 					<section>
 						<p>也就是說...</p>
-						<p>前面的四段code都可以算做程式語言</p>
+						<p>前面的第二、三段code都可以算做程式語言</p>
 					</section>
 				</section>
 
@@ -174,10 +156,10 @@
 							
 							```arm	
 							1010 1001 0100 0000 0100 0101 1111 0000
-							4d5a 9000 0300 0000 0400 0000 ffff 0000
+							0100 1110 0001 1111 0001 1010 1110 0100
 							```
+						    自動機器, 打孔機 (想像常見的發條音樂盒)
 						</script>
-						<p>自動機器, 打孔機 (想像常見的發條音樂盒)</p>
 					</section>
 					<section data-markdown>
 						<script type="text/template">
@@ -197,21 +179,14 @@
 							leal	22(%esp), %eax
 							movl	%eax, 4(%esp)
 							```
+						    與全都是數字的機器語言相比友善方便多了
 						</script>
-						<p>與全都是數字的機器語言相比友善方便多了</p>
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							#### 1950 ~ 1960: 高階語言
-							
-							```c
-							#include <stdio.h>
-							int main(int argc, const char** argv[])
-							{
-								print("hello\n");
-								return 0;
-							}
-							```
+							#### 1950 ~ : 高階語言
+
+							* 更進一步貼近真實語言
 						</script>
 					</section>
 					<section>
@@ -240,8 +215,8 @@
 							</ul>
 							<li>缺點</li>
 							<ul>
-								<li>動態型別語言, 執行期錯誤</li>
-								<li>速度較慢, 移動計算較弱</li>
+								<li>動態型別語言</li>
+								<li>速度非常慢</li>
 							</ul>
 						</ul>
 					</section>

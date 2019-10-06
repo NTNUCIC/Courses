@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Python</title>
+
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="../lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+			<div class="slides">
+
+				<!-- Intro -->
+				<section>
+					<section>
+						<h1>Python</h1>
+						<h2>Branch</h2>
+						<h6>2019/10/17 </h6>
+					</section>
+					<section>
+						<h2>課程簡介</h2>
+						<ul>
+							<li>複習上週內容</li>
+							<li>格式化輸出</li>
+							<li>邏輯判斷</li>
+							<li>for 迴圈 & list()</li>
+						</ul>
+					</section>
+				</section>
+				
+				<!-- Download Python -->
+				<section>
+					<p style="font-size: 10vh">Download</p>
+					<p style="font-size: 8vh">Python IDLE<a href="https://www.python.org/downloads/">*</a></p>
+				</section>
+
+				<!-- Review -->
+				<section>
+					<section>
+						<h2>複習</h2>
+					</section>
+					<!-- I/O -->
+					<section data-markdown>
+						<script type="text/template">
+							### I/O
+
+							```python
+							print("Name ? ", end='')
+							name = input()
+							print(name, ": (/ OuO)/", " Hello ~~~", sep='')
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							#### Simplify
+
+							```python
+							print("Name ? ")
+							name = input()
+							
+							####  Simplify  ####
+							
+							name = input("Name ? ")
+							```
+						</script>
+					</section>
+					<!-- DataType -->
+					<section>
+						<h3>資料型態</h3>
+						<ul>
+							<li>(int): 1, 2, 3, ...</li>
+							<li>(float): 1.6, 2.71, ...</li>
+							<li>(string): 'owo', '123', ...</li>
+							<li>(bool): True, False</li>
+						</ul>
+					</section>
+					<!-- Transfer DataType -->
+					<section data-markdown>
+						<script type="text/template">
+							```python
+							X = "123.456"  # string, '123.456'
+							
+							a = int(x)  # int, 123
+							b = float(x)  # float, 123.456
+							c = bool(x)  # bool, True
+							```
+						</script>
+					</section>
+					<!-- Operator -->
+					<section>
+						<h3>運算符</h3>
+						<ul style="list-style-type: disc;columns: 2">
+							<li>括號 ()</li>
+							<li>加 +</li>
+							<li>減 -</li>
+							<li>乘 *</li>
+							<li>除 /</li>
+							<li>除-取商數 //</li>
+							<li>除-取餘數 %</li>
+							<li>次方 **</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							```python
+							a = 4 * 5 ** 2  # a = 100
+							b = 100 % 3  # b = 3
+							c = 47 // 3  # c = 15
+							d = 1 + 2 * 3  # d = 7
+							```
+						</script>
+					</section>
+				</section>
+				<!-- Short Story -->
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							
+							考慮以下程式, 試試看輸出可能跟你想得很不一樣...
+							
+							```python
+							a = 0.1
+							b = 0.2
+							print(a+b)  # 0.30000000000000004
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							
+							如果要輸出更複雜的東西...
+
+							```python
+							print(a2, "x**2+", a1, "x+", a0, "=0")
+							# 0.30000000000000004x**2+0.30000000000000004x+0.30000000000000004=0
+	
+							```
+						</script>
+					</section>
+				</section>
+				<!-- .format() -->
+				<section>
+					<section>
+						<h2>格式化輸出</h2>
+					</section>
+					<section>
+						<h3>format()</h3>
+						<p>將參數帶入到字串中...</p>
+						<pre><code class="python">string.format(*args)</code></pre>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							#### 舉例1
+
+							```python
+							print("x= {} or {}".format(123, 456))
+							# x = 123 or 456
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							#### 舉例2
+
+							```python
+							print("x= {0} or {0}".format('OWO'))
+							# x = OWO or OWO
+							```
+						</script>
+					</section>
+					<section>
+						<h3>格式化字串</h3>
+						<ul style="columns: 2">
+							<li>整數(int): 'd'</li>
+							<li>字串(string): 's'</li>
+							<li>浮點數(float): 'f'</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							#### 舉例3
+
+							```python
+							print("{:6d}".format(123))  # 輸出 int 至少 6 位
+							# ...123  # 不夠會補空白
+							print("{:.4f}".format(0.123))  # 輸出 float "." 後至少 4 位
+							# 0.1200  # 不夠會補 0
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							#### 舉例4
+
+							```python
+							r = 2.5
+							pi = 3.1415
+							print("r = {1:.2f}, area = {0:.2f}".format(r**2*pi, r))
+							# r = 2.50, area = 19.63
+							```
+						</script>
+					</section>
+				</section>
+				<!-- if/else -->
+				<section>
+					<section>
+						<h2>邏輯判斷</h2>
+					</section>
+					<section>
+						<h3>判斷符號</h3>
+						<ul style="columns: 2">
+							<li>大於: &gt</li>
+							<li>小於: &lt</li>
+							<li>等於: ==</li>
+							<li>不等於: !=</li>
+							<li>大於等於: &gt=</li>
+							<li>小於等於: &lt=</li>
+							<li>且(and): &&</li>
+							<li>或(or): ||</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							#### 舉例5
+							```python
+							print(1 == 2)  # False
+							print(1 < 2)  # True
+							print(1 > 2 || 3 > 2)  # True
+							print(1 > 2 && 3 > 2)  # False
+							```
+						</script>
+					</section>
+					<section>
+						<h3>if / elif / else</h3>
+						<pre><code class="python">if (...): ...</code></pre>
+						<p class="fragment">要注意縮排歐 (/ OuO)/</p>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							#### 舉例6
+							```python
+							score = int(input("score: "))
+							if score >= 60:
+								print("Pass")
+							else:
+								print("Fail")
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							#### 舉例7
+							```python
+							score = int(input("score: "))
+							if score >= 90:
+								print("Good")
+							elif score >= 60:
+								print("Pass")
+							else:
+								print("Fail")
+							```
+						</script>
+					</section>
+				</section>
+				<!-- Ex -->
+				<section>
+					<section>
+						<h3>練習時間</h3>
+						<p class="fragment">寫個小程式判斷給定的三邊是否可以形成三角形</p>
+					</section>
+					<section data-markdown>
+						#### 參考程式
+						```python
+						a = int(input())
+						b = int(input())
+						c = int(input())
+						if a + b > c && a + c > b && b + c > a:
+							print("YES")
+						else:
+							print("NO")
+						```
+					</section>
+				</section>
+				<!-- list -->
+				<section>
+					<section>
+						<h2>list() 列表</h2>
+						<pre><code class="python">[...]</code></pre>
+					</section>
+					<section>
+						<h3>操作方法</h3>
+						<ul>
+							<li>[ x ]: 取出第 x 個元素</li>
+							<li>[ f : d ]: 取出第 f 個元素到第 d 個元素</li>
+							<li>.append(x): 將 x 列表尾端</li>
+							<li>.remove(x): 將 x 移除</li>
+							<li>len(list): 取得list的元素個數</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							#### 舉例9
+							```python
+							p = [1, 2, 3, 4, 5, 6]
+							print(p)  # [1, 2, 3, 4, 5, 6]
+							print(len(p))  # 6
+							print(p[1])  # 2
+							print(p[0:4])  # [1, 2, 3, 4]
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							#### 舉例10
+							```python
+							p = []
+							p.append("OwO")  # p = ['OWO']
+							p.append("Apple")  # p = ['OWO', 'Apple']
+							p.append("Something")  # p = ['OWO', 'Apple', 'Something']
+							p.remove("OwO")  # p = ['OwO', 'Something']
+							print(p)  # ['OwO', 'Something']
+							```
+						</script>
+					</section>
+				</section>
+				<!-- for loop -->
+				<section>
+					<section>
+						<h2>for 迴圈</h2>
+						<pre><code class="python">for i  in ...: ...</code></pre>
+					</section>
+					<section>
+						<h3>range()</h3>
+						<pre><code class="python">range(start=0, stop, step=1)</code></pre>
+						<p>回傳從 start 開始 stop 結束,<br> 公差 step 的等差序列</p>
+					</section>
+					<section>
+						<h3>for loop</h3>
+						<pre><code class="python">for i  in ...: ...</code></pre>
+						<p>重複執行直到不滿足判斷式</p>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							#### 舉例11
+							```python
+							for i in range(10):
+								print(i, end=', ')
+							# 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 
+							```
+						</script>
+					</section>
+				</section>
+				<!-- Ex -->
+				<section>
+					<section>
+						<h3>練習時間</h3>
+						<p class="fragment">寫個小程式列印九九乘法表</p>
+					</section>
+					<section data-markdown>
+						#### 參考程式
+						```python
+						for i in range(1, 10):
+							for j in range(1, 10):
+								print("{:2d}".format(i*j), end=' ')
+							print()
+						```
+					</section>
+				</section>				
+			</div>
+		</div>
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../plugin/zoom-js/zoom.js', async: true },
+					{ src: '../plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
