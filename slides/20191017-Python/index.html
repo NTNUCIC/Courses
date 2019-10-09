@@ -245,8 +245,8 @@
 							<li>不等於: !=</li>
 							<li>大於等於: &gt=</li>
 							<li>小於等於: &lt=</li>
-							<li>且(and): &&</li>
-							<li>或(or): ||</li>
+							<li>且(and): and</li>
+							<li>或(or): or</li>
 						</ul>
 					</section>
 					<section data-markdown>
@@ -255,8 +255,8 @@
 							```python
 							print(1 == 2)  # False
 							print(1 < 2)  # True
-							print(1 > 2 || 3 > 2)  # True
-							print(1 > 2 && 3 > 2)  # False
+							print(1 > 2 or 3 > 2)  # True
+							print(1 > 2 and 3 > 2)  # False
 							```
 						</script>
 					</section>
@@ -321,9 +321,9 @@
 						<h3>操作方法</h3>
 						<ul>
 							<li>[ x ]: 取出第 x 個元素</li>
-							<li>[ f : d ]: 取出第 f 個元素到第 d 個元素</li>
-							<li>.append(x): 將 x 列表尾端</li>
-							<li>.remove(x): 將 x 移除</li>
+							<li>[ f : d ]: 取出第 f 個元素到第 (d-1) 個元素</li>
+							<li>.append(x): 將 x 加入列表尾端</li>
+							<li>.remove(x): 將第一個元素 x 移除</li>
 							<li>len(list): 取得list的元素個數</li>
 						</ul>
 					</section>
@@ -347,7 +347,7 @@
 							p.append("OwO")  # p = ['OWO']
 							p.append("Apple")  # p = ['OWO', 'Apple']
 							p.append("Something")  # p = ['OWO', 'Apple', 'Something']
-							p.remove("OwO")  # p = ['OwO', 'Something']
+							p.remove("Apple")  # p = ['OwO', 'Something']
 							print(p)  # ['OwO', 'Something']
 							```
 						</script>
@@ -391,7 +391,7 @@
 						```python
 						for i in range(1, 10):
 							for j in range(1, 10):
-								print("{:2d}".format(i*j), end=' ')
+								print("{:2d}*{:2d}={:2d}".format(i, j, i*j), end=' ')
 							print()
 						```
 					</section>
