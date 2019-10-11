@@ -42,14 +42,13 @@
 				<!-- Intro -->
 				<section>
 					<section>
-						<h1>Python</h1>
-						<h2>Branch</h2>
+						<h1>Python II</h1>
 						<h6>2019/10/17 </h6>
 					</section>
 					<section>
 						<h2>課程簡介</h2>
 						<ul>
-							<li>複習上週內容</li>
+							<li>複習上上週內容</li>
 							<li>格式化輸出</li>
 							<li>邏輯判斷</li>
 							<li>for 迴圈 & list()</li>
@@ -80,6 +79,7 @@
 							```
 						</script>
 					</section>
+					<!---Simplify--->
 					<section data-markdown>
 						<script type="text/template">
 							#### Simplify
@@ -92,6 +92,13 @@
 							
 							name = input("Name ? ")
 							```
+						</script>
+					</section>
+					<!---String Manipulation--->
+					<section data-markdown>
+						<script type="text/template">
+							### String Manipulation
+							林芝安 still working on
 						</script>
 					</section>
 					<!-- DataType -->
@@ -141,12 +148,13 @@
 						</script>
 					</section>
 				</section>
+				
 				<!-- Short Story -->
 				<section>
 					<section data-markdown>
 						<script type="text/template">
 							
-							考慮以下程式, 試試看輸出可能跟你想得很不一樣...
+							以下程式的輸出可能跟你想得不一樣...為什麼?
 							
 							```python
 							a = 0.1
@@ -158,7 +166,7 @@
 					<section data-markdown>
 						<script type="text/template">
 							
-							如果要輸出更複雜的東西...
+							如果要輸出更複雜的東西...(怪怪待改)
 
 							```python
 							print(a2, "x**2+", a1, "x+", a0, "=0")
@@ -168,14 +176,15 @@
 						</script>
 					</section>
 				</section>
+				
 				<!-- .format() -->
 				<section>
 					<section>
-						<h2>格式化輸出</h2>
+						<h2>格式化輸出(待補充)</h2>
 					</section>
 					<section>
 						<h3>format()</h3>
-						<p>將參數帶入到字串中...</p>
+						<p>將參數代入函數中</p>
 						<pre><code class="python">string.format(*args)</code></pre>
 					</section>
 					<section data-markdown>
@@ -231,6 +240,7 @@
 						</script>
 					</section>
 				</section>
+				
 				<!-- if/else -->
 				<section>
 					<section>
@@ -261,7 +271,7 @@
 						</script>
 					</section>
 					<section>
-						<h3>if / elif / else</h3>
+						<h3>if...else / elif </h3>
 						<pre><code class="python">if (...): ...</code></pre>
 						<p class="fragment">要注意縮排歐 (/ OuO)/</p>
 					</section>
@@ -292,6 +302,7 @@
 						</script>
 					</section>
 				</section>
+				
 				<!-- Ex -->
 				<section>
 					<section>
@@ -299,7 +310,7 @@
 						<p class="fragment">寫個小程式判斷給定的三邊是否可以形成三角形</p>
 					</section>
 					<section data-markdown>
-						#### 參考程式
+						#### 參考程式(待改!!)
 						```python
 						a = int(input())
 						b = int(input())
@@ -311,48 +322,7 @@
 						```
 					</section>
 				</section>
-				<!-- list -->
-				<section>
-					<section>
-						<h2>list() 列表</h2>
-						<pre><code class="python">[...]</code></pre>
-					</section>
-					<section>
-						<h3>操作方法</h3>
-						<ul>
-							<li>[ x ]: 取出第 x 個元素</li>
-							<li>[ f : d ]: 取出第 f 個元素到第 (d-1) 個元素</li>
-							<li>.append(x): 將 x 加入列表尾端</li>
-							<li>.remove(x): 將第一個元素 x 移除</li>
-							<li>len(list): 取得list的元素個數</li>
-						</ul>
-					</section>
-					<section data-markdown>
-						<script type="text/template">
-							#### 舉例9
-							```python
-							p = [1, 2, 3, 4, 5, 6]
-							print(p)  # [1, 2, 3, 4, 5, 6]
-							print(len(p))  # 6
-							print(p[1])  # 2
-							print(p[0:4])  # [1, 2, 3, 4]
-							```
-						</script>
-					</section>
-					<section data-markdown>
-						<script type="text/template">
-							#### 舉例10
-							```python
-							p = []
-							p.append("OwO")  # p = ['OWO']
-							p.append("Apple")  # p = ['OWO', 'Apple']
-							p.append("Something")  # p = ['OWO', 'Apple', 'Something']
-							p.remove("Apple")  # p = ['OwO', 'Something']
-							print(p)  # ['OwO', 'Something']
-							```
-						</script>
-					</section>
-				</section>
+
 				<!-- for loop -->
 				<section>
 					<section>
@@ -395,7 +365,49 @@
 							print()
 						```
 					</section>
-				</section>				
+				</section>
+				
+				<!-- list -->
+				<section>
+					<section>
+						<h2>list() 列表</h2>
+						<pre><code class="python">[...]</code></pre>
+					</section>
+					<section>
+						<h3>操作方法</h3>
+						<ul>
+							<li>[ x ]: 取出第 x 個元素</li>
+							<li>[ f : d ]: 取出第 f 個元素到第 (d-1) 個元素</li>
+							<li>.append(x): 將 x 加入列表尾端</li>
+							<li>.remove(x): 將第一個元素 x 移除</li>
+							<li>len(list): 取得list的元素個數</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							#### 舉例9
+							```python
+							p = [1, 2, 3, 4, 5, 6]
+							print(p)  # [1, 2, 3, 4, 5, 6]
+							print(len(p))  # 6
+							print(p[1])  # 2
+							print(p[0:4])  # [1, 2, 3, 4]
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							#### 舉例10
+							```python
+							p = []
+							p.append("OwO")  # p = ['OWO']
+							p.append("Apple")  # p = ['OWO', 'Apple']
+							p.append("Something")  # p = ['OWO', 'Apple', 'Something']
+							p.remove("Apple")  # p = ['OwO', 'Something']
+							print(p)  # ['OwO', 'Something']
+							```
+						</script>
+					</section>
 			</div>
 		</div>
 
