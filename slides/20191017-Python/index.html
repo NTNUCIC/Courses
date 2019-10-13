@@ -29,31 +29,40 @@
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
 
+		<style>
+			.reveal,
+			.reveal h1,
+			.reveal h2,
+			.reveal h3,
+			.reveal h4,
+			.reveal h5,
+			.reveal h6 {
+			 	text-transform: none;
+			}
+		</style>
 		<!--[if lt IE 9]>
 		<script src="../lib/js/html5shiv.js"></script>
 		<![endif]-->
 	</head>
 
 	<body>
-
 		<div class="reveal">
 			<div class="slides">
 
 				<!-- Intro -->
 				<section>
-					<section>
-						<h1>Python II</h1>
-						<h6>2019/10/17 </h6>
-					</section>
-					<section>
-						<h2>課程簡介</h2>
-						<ul>
-							<li>複習上上週內容</li>
-							<li>格式化輸出</li>
-							<li>邏輯判斷</li>
-							<li>for 迴圈 & list()</li>
-						</ul>
-					</section>
+					<h1>Python II</h1>
+					<h6>2019/10/17 林芝安</h6>
+				</section>
+				<section>
+					<h2>課程簡介</h2>
+					<ul>
+						<li>補充有趣的程式語言歷史和概念</li>
+						<li>複習上上週內容</li>
+						<li>格式化輸出</li>
+						<li>邏輯判斷</li>
+						<li>for 迴圈 & list()</li>
+					</ul>
 				</section>
 				
 				<!-- Download Python -->
@@ -62,65 +71,205 @@
 					<p style="font-size: 8vh">Python IDLE<a href="https://www.python.org/downloads/">*</a></p>
 				</section>
 
+				<!-- History -->
+				<!-- Machine Language -->
+				<section>
+					<section data-background="http://ultadin.com/wp-content/uploads/2016/08/AAEAAQAAAAAAAAOqAAAAJDRlZGIzMWM5LTFhNDktNDQ5OC05YmE5LWQzNmUxM2IxNTg3Mw-890x395_c.jpg"><p style="margin-top: 35rem;font-size: 3rem;color: #FFFFFF;font-style: initial;background-color: rgba(0, 0, 0, .8);">A 5MB hard drive being shipped by IBM, 1956</p></section>
+					<section>
+						<h3>機器語言(Machine Language/Code)</h3>
+						<ul>
+							<li>中央運算單元(CPU)內建</li>
+							<li>對應特定操縱的二進位代碼</li>
+							<li>直接執行、運行速度快</li>
+							<li>不同型號的CPU使用的代碼差異甚大</li>
+							<li>不存在可讀性、可移植性</li>
+						</ul>
+					</section>
+					<section>
+						<pre><code class="binary">0000 0000 0000 0001 0000</code></pre>
+						<p>-> 將記憶體位置 0b0010 載入暫存器 0000</p>
+						<pre><code class="binary">0001 0001 0000 0001 0000</code></pre>
+						<p>-> 將常數 0b1000 載入暫存器 0001</p>
+					</section>
+					<section>
+						<img src="https://i.imgur.com/tgQMled.png">
+						<img src="https://i.imgur.com/hm49e9j.png">
+					</section>
+					<!-- Assembly -->
+					<section>
+						<h3>組合語言(Assembly)</h3>
+						<ul>
+							<li>基於電腦系統架構而設計</li>
+							<li>不同系統架構間存在差異</li>
+							<li>由組譯器組譯成機器語言</li>
+						</ul>
+					</section>
+					<section>
+						<img src="https://i.imgur.com/MtcOrA1.png">
+					</section>
+					<!-- High-Level Language -->
+					<section>
+						<h3>高階語言(High-Level Language)</h3>
+						<ul>
+							<li>編譯語言: C/C++, Java</li>
+							<li>直譯語言: Python, Perl, MATLAB</li>
+						</ul>
+					</section>
+					<section>
+						<img src="https://i.imgur.com/NUpWSdC.jpg" style="flo ;height: 55vh">
+						<p>Fortran, COBOL, Pascal, Prolog, Ada, Basic, Python</p>
+					</section>
+					<section>
+						<p>隨著程式語言的演進...</p>
+						<img src="https://i.imgur.com/lb6Bwoo.jpg">
+					</section>
+				</section>
+
 				<!-- Review -->
 				<section>
 					<section>
-						<h2>複習</h2>
+						<h2>複習 & 補充</h2>
 					</section>
-					<!-- I/O -->
+				<!-- I/O -->
 					<section data-markdown>
 						<script type="text/template">
 							### I/O
 
-							```python
+							```js
 							print("Name ? ", end='')
 							name = input()
 							print(name, ": (/ OuO)/", " Hello ~~~", sep='')
 							```
 						</script>
 					</section>
-					<!---Simplify--->
-					<section data-markdown>
-						<script type="text/template">
-							#### Simplify
 
-							```python
-							print("Name ? ")
-							name = input()
-							
-							####  Simplify  ####
-							
-							name = input("Name ? ")
-							```
-						</script>
-					</section>
-					<!---String Manipulation--->
+					<!-- String Manipulation -->
 					<section data-markdown>
 						<script type="text/template">
 							### String Manipulation
-							林芝安 still working on
+
+							* sep, end
+							* \n, \t (注意是反斜線)
+							* raw string
+							```python
+							print(r'Are you happy to be here?\n Cause I am.')
+							```
+							* multiple string or annotation
+							```python
+							print('''
+							今天是我們第五次社課，
+							大家對於身邊的同學都熟悉了嗎:D
+							你認識哪些人呢?
+							''')
+							```
 						</script>
 					</section>
-					<!-- DataType -->
-					<section>
-						<h3>資料型態</h3>
-						<ul>
-							<li>(int): 1, 2, 3, ...</li>
-							<li>(float): 1.6, 2.71, ...</li>
-							<li>(string): 'owo', '123', ...</li>
-							<li>(bool): True, False</li>
-						</ul>
+					<section data-markdown>
+						<script type="text/template">
+							* Concatenation(加)
+							
+							```python
+							print('Just'+'Do'+'It')  # JustDoIt 
+							#如果你不想要空格?
+							```
+							
+							* Replication(複製)
+							
+							```python
+							print('雲' + '朝'*8 + '散\n' + '潮' + '長'*8 + '消')
+							# 雲朝朝朝朝朝朝朝朝散
+							# 潮長長長長長長長長消
+							```
+						</script>
 					</section>
-					<!-- Transfer DataType -->
+					<section data-markdown>
+						<script type="text/template">
+							#### ```in``` and ```not in```
+
+							```python
+							print("NTNU" in "NTNUCIC") #True
+							print("Karaoke" in "KARAOKE") #False   #Why?
+							print("惴棋" in "台師大資研社") #False
+							print("" in "Monkey") #Guess what happens
+							```
+						</script>
+					</section>
+					<!-- String Methods -->
+					<section data-markdown>
+						<script type="text/template">
+							### String Methods
+
+							#### .upper() & .lower()
+
+							```python
+							print('html'.upper())  # HTML
+							print('AMBULANCE'.lower())  # ambulance
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							#### .isalpha()/.isdecimal()/.isalnum()/.istitle()
+
+							```python
+							print("You cannot shake hands with a clenched fist.".isalpha())  # False
+							print("10.0".isdecimal())  # False
+							print("123ToTaiwan".isalnum())  # True
+							print("String".istitle())  # True
+							```
+						</script>
+					</section>
+				</section>
+				<!-- Variable & Type-->
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							### Variable
+
+							Assignment statement:
+
+							注意大小寫
+							看最後一個指派內容
+							```python
+							print("Please enter your name: ") 
+							name = input() 
+							print('Hi ' + name)
+							#### Simplify #### 
+							name = input("Please enter your name: ") 
+							print('Hi ' + name)
+							```
+						</script>
+					</section>
+				</section>
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							### 資料型態
+							
+							* __int__eger: 1, 2, 3, ...
+							* __float__ing point: 1.6, 2.71, ...
+							* __str__ing: 'owo', '123', ...
+							* __bool__ean: True, False
+						</script>
+					</section>
+					<!-- Testing -->
 					<section data-markdown>
 						<script type="text/template">
 							```python
-							X = "123.456"  # string, '123.456'
-							
-							a = int(x)  # int, 123
-							b = float(x)  # float, 123.456
-							c = bool(x)  # bool, True
+							a = "123.456" 
+							print(type(a)) # <class 'str'>
+
+							b = 123
+							print(type(b)) # <class 'int'>
+
+							c = 134.34
+							print(type(c)) # <class 'float'>
+
+							d = True
+							print(type(d)) # <class 'bool'>
 							```
+
+							##### 看起來type()有甚麼樣的用處呢?
 						</script>
 					</section>
 					<!-- Operator -->
@@ -141,16 +290,12 @@
 						<script type="text/template">
 							```python
 							a = 4 * 5 ** 2  # a = 100
-							b = 100 % 3  # b = 3
+							b = 100 % 3  # b = 1
 							c = 47 // 3  # c = 15
 							d = 1 + 2 * 3  # d = 7
 							```
 						</script>
 					</section>
-				</section>
-				
-				<!-- Short Story -->
-				<section>
 					<section data-markdown>
 						<script type="text/template">
 							
@@ -161,18 +306,8 @@
 							b = 0.2
 							print(a+b)  # 0.30000000000000004
 							```
-						</script>
-					</section>
-					<section data-markdown>
-						<script type="text/template">
-							
-							如果要輸出更複雜的東西...(怪怪待改)
 
-							```python
-							print(a2, "x**2+", a1, "x+", a0, "=0")
-							# 0.30000000000000004x**2+0.30000000000000004x+0.30000000000000004=0
-	
-							```
+							-> [IEEE 754](https://en.wikipedia.org/wiki/IEEE_754)
 						</script>
 					</section>
 				</section>
@@ -180,12 +315,12 @@
 				<!-- .format() -->
 				<section>
 					<section>
-						<h2>格式化輸出(待補充)</h2>
+						<h2>格式化輸出</h2>
 					</section>
 					<section>
 						<h3>format()</h3>
-						<p>將參數代入函數中</p>
 						<pre><code class="python">string.format(*args)</code></pre>
+						<p>將參數代入函數中</p>
 					</section>
 					<section data-markdown>
 						<script type="text/template">
@@ -202,17 +337,20 @@
 							#### 舉例2
 
 							```python
-							print("x= {0} or {0}".format('OWO'))
-							# x = OWO or OWO
+							print("校名:{name}\n電話:{phone}\n郵遞區號:{code}\n地址{address}".format(phone = "(02)7734-1111", address = "台北市和平東路一段162號", code = "106", name = "師範大學")
+							# 校名:師範大學
+							# 電話:(02)7734-1111
+							# 郵遞區號:106
+							# 地址:台北市和平東路一段162號
 							```
 						</script>
 					</section>
 					<section>
 						<h3>格式化字串</h3>
-						<ul style="columns: 2">
-							<li>整數(int): 'd'</li>
-							<li>字串(string): 's'</li>
-							<li>浮點數(float): 'f'</li>
+						<ul>
+							<li>整數(int): d</li>
+							<li>字串(string): s</li>
+							<li>浮點數(float): f</li>
 						</ul>
 					</section>
 					<section data-markdown>
@@ -262,6 +400,7 @@
 					<section data-markdown>
 						<script type="text/template">
 							#### 舉例5
+
 							```python
 							print(1 == 2)  # False
 							print(1 < 2)  # True
@@ -270,6 +409,9 @@
 							```
 						</script>
 					</section>
+				</section>
+				<!-- if / else -->
+				<section>
 					<section>
 						<h3>if...else / elif </h3>
 						<pre><code class="python">if (...): ...</code></pre>
@@ -278,6 +420,7 @@
 					<section data-markdown>
 						<script type="text/template">
 							#### 舉例6
+
 							```python
 							score = int(input("score: "))
 							if score >= 60:
@@ -290,6 +433,7 @@
 					<section data-markdown>
 						<script type="text/template">
 							#### 舉例7
+
 							```python
 							score = int(input("score: "))
 							if score >= 90:
@@ -301,21 +445,19 @@
 							```
 						</script>
 					</section>
-				</section>
-				
-				<!-- Ex -->
-				<section>
+					<!-- Ex -->
 					<section>
 						<h3>練習時間</h3>
-						<p class="fragment">寫個小程式判斷給定的三邊是否可以形成三角形</p>
+						<p>寫個小程式判斷給定的三邊是否可以形成三角形</p>
 					</section>
 					<section data-markdown>
-						#### 參考程式(待改!!)
+						#### 參考程式
+
 						```python
 						a = int(input())
 						b = int(input())
 						c = int(input())
-						if a + b > c && a + c > b && b + c > a:
+						if a + b > c and a + c > b and b + c > a:
 							print("YES")
 						else:
 							print("NO")
@@ -327,37 +469,33 @@
 				<section>
 					<section>
 						<h2>for 迴圈</h2>
-						<pre><code class="python">for i  in ...: ...</code></pre>
-					</section>
-					<section>
-						<h3>range()</h3>
-						<pre><code class="python">range(start=0, stop, step=1)</code></pre>
-						<p>回傳從 start 開始 stop 結束,<br> 公差 step 的等差序列</p>
+						<pre><code class="python">for ...: ...</code></pre>
 					</section>
 					<section>
 						<h3>for loop</h3>
-						<pre><code class="python">for i  in ...: ...</code></pre>
+						<pre><code class="python">for ...: ...</code></pre>
 						<p>重複執行直到不滿足判斷式</p>
 					</section>
 					<section data-markdown>
 						<script type="text/template">
-							#### 舉例11
+							#### 舉例8
+
 							```python
+							i = 0
 							for i in range(10):
 								print(i, end=', ')
 							# 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 
 							```
 						</script>
 					</section>
-				</section>
-				<!-- Ex -->
-				<section>
+					<!-- Ex -->
 					<section>
 						<h3>練習時間</h3>
-						<p class="fragment">寫個小程式列印九九乘法表</p>
+						<p>寫個小程式列印九九乘法表</p>
 					</section>
 					<section data-markdown>
 						#### 參考程式
+
 						```python
 						for i in range(1, 10):
 							for j in range(1, 10):
@@ -408,6 +546,72 @@
 							```
 						</script>
 					</section>
+				</section>
+
+				<!-- Etc. -->
+				<section data-markdown>
+					<script type="text/template">
+						#### range()
+
+						```python
+						range(start=0, stop, step=1)
+						```
+
+						##### 回傳從 start 開始 stop 結束, 公差 step 的等差序列
+					</script>
+				</section>
+				<section data-markdown>
+					<script type="text/template">
+					### Indexing and Slicing strings
+
+					```python
+					cic = "We are all nice and kind~"
+					print(cic[0])  # W
+					print(cic[5])  # e
+
+					# 下面由你來告訴我XD
+					print(cic[:]) 
+					print(cic[11:14])
+					```
+					</script>
+				</section>
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							### Join() and Split() methods
+
+
+							_.join()_
+							```python
+							print(','.join(['one','two','three']))  # one,two,three
+							print(' '.join(['Learning','never','exhausts','the','mind.']))  # pretty useful
+							```
+
+							##### What else do you want to join?
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							_.split()_
+							```python
+							print("The only journey is the one within.".split(' '))
+							# ['The', 'only', 'journey', 'is', 'the', 'one', 'within.']
+							print('Independence'.split('e'))
+							# ['Ind', 'p', 'nd', 'nc', '']
+							```
+							```python
+							quote = '''Ever tried. Ever failed. No matter. 
+							Try Again. Fail again. Fail better.
+							Samuel Beckett'''
+
+							print(quote.split('\n'))
+							#['Ever tried. Ever failed. No matter. ', 'Try Again. Fail again. Fail better.', 'Samuel Beckett']
+							```
+
+							##### split的用途在哪裡呢?
+						</script>
+					</section>
+				</section>
 			</div>
 		</div>
 
