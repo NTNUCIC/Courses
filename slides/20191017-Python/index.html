@@ -52,7 +52,8 @@
 				<!-- Intro -->
 				<section>
 					<h1>Python II</h1>
-					<h6>2019/10/17 林芝安</h6>
+					<h6>2019/10/17</h6>
+					<h6>講義: 林弘祥、蘇育德、林芝安<h6>	
 				</section>
 				<section>
 					<h2>課程簡介</h2>
@@ -61,7 +62,8 @@
 						<li>複習上上週內容</li>
 						<li>格式化輸出</li>
 						<li>邏輯判斷</li>
-						<li>for 迴圈 & list()</li>
+						<li>for 迴圈</li>
+						<li>List串列</li>
 					</ul>
 				</section>
 				
@@ -86,12 +88,6 @@
 						</ul>
 					</section>
 					<section>
-						<pre><code class="binary">0000 0000 0000 0001 0000</code></pre>
-						<p>-> 將記憶體位置 0b0010 載入暫存器 0000</p>
-						<pre><code class="binary">0001 0001 0000 0001 0000</code></pre>
-						<p>-> 將常數 0b1000 載入暫存器 0001</p>
-					</section>
-					<section>
 						<img src="https://i.imgur.com/tgQMled.png">
 						<img src="https://i.imgur.com/hm49e9j.png">
 					</section>
@@ -111,7 +107,7 @@
 					<section>
 						<h3>高階語言(High-Level Language)</h3>
 						<ul>
-							<li>編譯語言: C/C++, Java</li>
+							<li>編譯語言: C/C++, Ada</li>
 							<li>直譯語言: Python, Perl, MATLAB</li>
 						</ul>
 					</section>
@@ -135,10 +131,13 @@
 						<script type="text/template">
 							### I/O
 
-							```js
-							print("Name ? ", end='')
-							name = input()
-							print(name, ": (/ OuO)/", " Hello ~~~", sep='')
+							```python
+							print("Please enter a name: ", end='') 
+							name = input() 
+							print(name, ": (/ OuO)/", " Hello ~~~", sep='') 
+							####### Simplify ######
+							name = input("Please enter a name: ")
+							print("Hi " + name)
 							```
 						</script>
 					</section>
@@ -169,7 +168,7 @@
 							
 							```python
 							print('Just'+'Do'+'It')  # JustDoIt 
-							#如果你不想要空格?
+							#如果你想要空格?
 							```
 							
 							* Replication(複製)
@@ -230,12 +229,17 @@
 							注意大小寫
 							看最後一個指派內容
 							```python
-							print("Please enter your name: ") 
-							name = input() 
-							print('Hi ' + name)
-							#### Simplify #### 
-							name = input("Please enter your name: ") 
-							print('Hi ' + name)
+							ntnu = 1
+							ntnu = 2
+							cic = 4
+							print(ntnu + cic)  #6
+							
+							ntnu = '4'
+							print(ntnu + cic)  #TypeError
+							
+							ntnu = 4
+							print(id(cic))
+							print(id(ntnu))  #兩者id是否相同呢？
 							```
 						</script>
 					</section>
@@ -246,7 +250,7 @@
 							### 資料型態
 							
 							* __int__eger: 1, 2, 3, ...
-							* __float__ing point: 1.6, 2.71, ...
+							* __float__ing point: 1.6, 2.71, 1.0e7 ...
 							* __str__ing: 'owo', '123', ...
 							* __bool__ean: True, False
 						</script>
@@ -270,6 +274,21 @@
 
 							##### 看起來type()有甚麼樣的用處呢?
 						</script>
+					</section>
+					<!-- Converting Type-->
+					<section data-markdown>
+						<script type="text/template">
+							### Converting Type(型別轉換)
+							```python
+							a = 1
+							print(type(a))  #<class 'int'>
+							a = float(a)
+							print(type(a))  #<class 'float'>
+							a = str(a)
+							print(type(a))  #<class 'str'>
+							```
+						</script>
+						
 					</section>
 					<!-- Operator -->
 					<section>
@@ -359,7 +378,7 @@
 							print("{:6d}".format(123))  # 輸出 int 至少 6 位
 							# ...123  # 不夠會補空白
 							print("{:.4f}".format(0.123))  # 輸出 float "." 後至少 4 位
-							# 0.1200  # 不夠會補 0
+							# 0.1230  # 不夠會補 0
 							```
 						</script>
 					</section>
@@ -473,6 +492,7 @@
 						<h3>for loop</h3>
 						<pre><code class="python">for ...: ...</code></pre>
 						<p>重複執行直到不滿足判斷式</p>
+						<p>in後面必須接sequence</p>
 					</section>
 					<section data-markdown>
 						<script type="text/template">
@@ -506,12 +526,17 @@
 				<!-- list -->
 				<section>
 					<section>
-						<h2>list() 列表</h2>
+						<h2>List串列</h2>
 						<pre><code class="python">[...]</code></pre>
+						<ul>
+							<li>屬於python基本資料結構</li>
+							<li>可容納不同變數類型</li>
+						</ul>
 					</section>
 					<section>
 						<h3>操作方法</h3>
 						<ul>
+							<li>用[]建立列表</li>
 							<li>[ x ]: 取出第 x 個元素</li>
 							<li>[ f : d ]: 取出第 f 個元素到第 (d-1) 個元素</li>
 							<li>.append(x): 將 x 加入列表尾端</li>
@@ -555,7 +580,7 @@
 						range(start=0, stop, step=1)
 						```
 
-						##### 回傳從 start 開始 stop 結束, 公差 step 的等差序列
+						###### 回傳從 start 開始 stop 結束, 公差 step 的等差序列
 					</script>
 				</section>
 				<section data-markdown>
@@ -606,7 +631,7 @@
 							#['Ever tried. Ever failed. No matter. ', 'Try Again. Fail again. Fail better.', 'Samuel Beckett']
 							```
 
-							##### split的用途在哪裡呢?
+							###### split的用途在哪裡呢?
 						</script>
 					</section>
 				</section>
