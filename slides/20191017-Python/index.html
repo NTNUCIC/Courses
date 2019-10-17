@@ -97,7 +97,6 @@
 						<ul>
 							<li>基於電腦系統架構而設計</li>
 							<li>不同系統架構間存在差異</li>
-							<li>由組譯器轉換成機器語言</li>
 						</ul>
 					</section>
 					<section>
@@ -115,10 +114,6 @@
 						<img src="https://i.imgur.com/NUpWSdC.jpg" style="flo ;height: 55vh">
 						<p>Fortran, COBOL, Pascal, Prolog, Ada, Basic, Python</p>
 					</section>
-					<section>
-						<p>隨著程式語言的演進...</p>
-						<img src="https://i.imgur.com/lb6Bwoo.jpg">
-					</section>
 				</section>
 
 				<!-- Review -->
@@ -134,7 +129,7 @@
 							```python
 							print("Please enter a name: ", end='') 
 							name = input() 
-							print(name, ": (/ OuO)/", " Hello ~~~", sep='') 
+							print(name, "(/ OuO)/", " Hello ~~~", sep='') 
 							####### Simplify ######
 							name = input("Please enter a name: ")
 							print("Hi " + name)
@@ -326,7 +321,6 @@
 							print(a+b)  # 0.30000000000000004
 							```
 
-							-> [IEEE 754](https://en.wikipedia.org/wiki/IEEE_754)
 						</script>
 					</section>
 				</section>
@@ -339,7 +333,6 @@
 					<section>
 						<h3>format()</h3>
 						<pre><code class="python">string.format(*args)</code></pre>
-						<p>替換字串中的變量與格式化輸出行為</p>
 					</section>
 					<section data-markdown>
 						<script type="text/template">
@@ -368,7 +361,7 @@
 						<h3>格式化字串</h3>
 						<ul>
 							<li>整數(int): d</li>
-							<li>字串(string): s</li>
+							<li>百分比(string): %</li>
 							<li>浮點數(float): f</li>
 						</ul>
 					</section>
@@ -381,6 +374,8 @@
 							# ...123  # 不夠會補空白
 							print("{:.4f}".format(0.123))  # 輸出 float "." 後至少 4 位
 							# 0.1230  # 不夠會補 0
+							print("{:.2%}".format(0.123))  #小數點後幾位的百分比
+							# 12.30%
 							```
 						</script>
 					</section>
