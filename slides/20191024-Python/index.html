@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Title</title>
+
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		
+		<!--[if lt IE 9]>
+		<script src="../lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- Intro -->
+				<section>
+					<section>
+						<h1>Python III</h1>
+						<h6>2019/10/24</h6>
+						<h6>林芝安</h6>
+					</section>
+					<section>
+						<h2>課程簡介</h2>
+						<ul>
+							<li>複習上次上課內容</li>
+							<li>Dictionary {}</li>
+							<li>For loop / While loop</li>
+						</ul>
+					</section>
+				</section>
+				<!-- Review -->
+				<section>
+					<h2>複習上次上課內容</h2>
+				</section>
+				<section>
+					<h3>格式化輸出</h3>
+					<pre><code class="python3">string.format(*args)</code></pre>
+					<p>替換字串中的變量與格式化輸出行為</p>
+				</section>
+				<section>
+					<section data-markdown>
+						<script type="text/templete">
+							#### 舉例: 替換字串中的變量
+
+							```python
+							Pi = 3.1415
+							print("Pi is approximately equal to {}".format(Pi))
+							# Pi is approximately equal to 3.1415
+							```
+
+							用{}來代表要填入東西的位子
+
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							#### 舉例: 替換字串中的變量
+
+							```python
+							A = 2019
+							B = 1031
+							print("{}+{}={}".format(A, B, A+B))
+							print("{0}+{1}={2}".format(A, B, A+B))
+							# Both: 2019+1031=3050
+							```
+
+							{}將依序填入, 也可於{}當中指定format()中的第幾個參數 <!-- .element: style="font-size: 2.3rem" -->
+
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							#### 舉例: 替換字串中的變量
+
+							```python
+							print("({x}+{y})^2={x}^2+2*{x}*{y}+{y}^2".format(x=10, y=3))
+							# (10+3)^2=10^2+2*10*3+3^2
+							```
+
+							{}可填入於format()中指定的變量
+
+						</script>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h4>舉例: 格式化輸出行為</h4>
+						<ul style="columns: 2">
+							<li>整數: d (Decimal)</li>
+							<li>浮點數: f</li>
+							<li>百分比: %</li>
+							<br>
+							<li>轉換進位表示法:</li>
+							<ul>
+								<li>b (Binary)</li>
+								<li>x (Hexadecimal)</li>
+								<li>o (Octal)</li>
+							</ul>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							#### 舉例: 格式化輸出行為
+							
+							```python
+							print("{:6d}".format(123))
+							# ___123
+							```
+
+							`:`後表示指定該變量的格式化輸出行為
+
+							`d`表示輸出為整數
+
+							`6`表示輸出至少6位(不足補空白)
+
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							#### 舉例: 格式化輸出行為
+							
+							```python
+							print("{:6.2f}".format(2.7))
+							# __2.70
+							```
+
+							`f`表示輸出為浮點數
+
+							`6`表示輸出至少6位(不足補空白)
+
+							`.2`表示小數點後輸出至少2位(不足補0)
+
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							#### 舉例: 格式化輸出行為
+							
+							```python
+							x = 0.123
+							print("{:.2%}".format(x))  # 12.30%
+							```
+
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							#### 舉例: 格式化輸出行為
+							
+							```python
+							x = 24
+							print("{:b}".format(x))  # '11000'
+							print("{:x}".format(x))  # '18'
+							```
+
+						</script>
+					</section>
+				</section>
+				<section data-markdown>
+					<script type="text/templete">
+						#### f-string (formatted string literals)
+
+						```python
+						x = 10
+						y = 11
+						print(f"x+y = {x+y}")
+						# x+y = 21
+						```
+
+					</script>
+				</section>
+				<!-- Logical -->
+				<section>
+					<h3>邏輯判斷</h3>
+					<pre><code class="python">>, >=, ==, =<, <, !=</code></pre>
+					<p>(/ O_O)/ 記得等於是 ==</p>
+				</section>
+				<section>
+					<section>
+						<h4>if / else / elif</h4>
+						<pre><code class="python">if ...: ...</code></pre>
+						<p>(/ O_O)/ 別忘了縮排~~~</p>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							```python
+							x = 2019
+							if x < 2000:
+							    print('x < 2000')
+							if x % 3 != 0:
+							    print('x % 3 != 0')
+							else:
+							    print("x % 3 == 0")
+
+							# x % 3 == 0
+							```
+
+							```else```只看離它最近的```if```
+
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							```elif = else if```
+
+							```python
+							x = 1032
+							if x < 2000:
+							    print('x < 2000')
+							elif x % 3 != 0:
+							    print('x % 3 != 0')
+							else:
+							    print("x % 3 == 0")
+
+							# x < 2000
+							```
+						</script>
+					</section>
+				</section>
+				<!-- List -->
+				<section>
+					<h3>List 列表</h3>
+					<pre><code class="python">[...]  # list(...)</code></pre>
+				</section>
+				<section>
+					<section data-markdown>
+						<script type="text/templete">
+							#### 操作
+
+							* 建立: ```[...]```
+							* 取出數據: 
+							    * 取出單一元素: ```[index]```
+							    * 取出子列表: ```[start:stop]```
+							* 列表長度: ```len(list)```
+						
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+								#### 操作
+
+								* 增加數據:
+								    * 添加至尾端: ```.append(item)```
+								    * 添加至特定位置: ```.insert(index, item)```
+								* 移除數據: ```.remove(item)``` (註: 移除第一個)
+								* 清空: ```.clear()```
+
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							#### 舉例: 建立, 增加, 移除
+
+							```python
+							X = [0, 1, 1]
+							print(X)  # [0, 1, 1]
+
+							X.append('w')
+							print(X)  # [0, 1, 1, 'w']
+
+							X.insert(2, 'owo')
+							print(X)  # [0, 1, 'owo', 1, 'w']
+
+							X.remove('owo')
+							print(X)  # [0, 'owo', 1, 'w']
+							```
+
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							#### 舉例: 取得列表長度, 取出元素, 子列表
+
+							```python
+							X = [7, 6, 4, 5, 'owo']
+							print(len(X))  # 5
+
+							A = X[4]
+							print(type(A), A)  # <class 'str'> 'owo'
+
+							B = X[0:3]
+							print(type(B), B)  # <class 'list'> [7, 6, 4, 5]
+							```
+
+						</script>
+					</section>
+				</section>
+				<section>
+					<section data-markdown>
+						<script type="text/templete">
+							#### 數據操作
+
+							* 複製:```.copy()```
+							* 查找:```.index(item, position)```
+							* 計數:```.count(item)```
+							* 排序:```.sort(reverse=False, key=None)```, ```sorted()```
+
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							#### 舉例: 複製
+
+							```python
+							fruits = ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']
+							copy_fruits = fruits.copy()
+							copy_fruits.pop()
+							print(copy_fruits)  # ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']
+							print(fruits)  # 是否一樣
+							```
+
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							#### 舉例: 查找、計數
+
+							```python
+							fruits = ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']
+							print(fruits.index('tangerine'))  # ValueError
+							print('orange' in fruits)  # True
+							print(fruits.index('orange'))  # 0
+							print(fruits.count('banana'))  # 2
+							print(fruits.index('banana'))  # 3
+							```
+
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							#### 舉例: 排序
+
+							```python
+							fruits = ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']
+							copy_fruits = fruits.copy()
+							print(fruits)
+							# ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']
+							print(fruits.sort())  # None
+							print(sorted(copy_fruits))
+							# ['apple', 'apple', 'banana', 'banana', 'kiwi', 'orange', 'pear']
+							print(fruits)
+							# ['apple', 'apple', 'banana', 'banana', 'kiwi', 'orange', 'pear']
+							print(copy_fruits)
+							# ['orange', 'apple', 'pear', 'banana', 'kiwi', 'apple', 'banana']
+
+							```
+
+						</script>
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Dictionary 字典</h2>
+						<pre><code class="python">{...}  # dict()</code></pre>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							### 操作
+
+							* 建立: `{...}`
+							* 新增: `.setdefault{key, value}`, `.update(dict)`
+							* 查找: `...[key]`
+							* 移除: `del ...[key]`
+							* 清空: `.clear()`
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							#### 舉例: 建立, 查找
+
+							```python
+							Rabbit = {'Name': 'OwO', 'Weight': 60.2}
+							Food = {'Eat': 'carrot'}
+							print(Rabbit['Eat'])  # KeyError
+							Rabbit.update(Food)
+							print('Eat' in Rabbit)  # True
+							print('Age' not in Rabbit)  # True
+							```
+
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							#### 舉例: 新增, 修改
+
+							```python
+							Rabbit = {'Name': 'OwO'}
+							Rabbit.({'Eat': 'carrot'})
+							print(Rabbit)  # {'Name': 'OwO', 'Eat': 'carrot'}
+							Rabbit.setdefault('Name', 'OAO')
+							print(Rabbit['Name'])  # OwO
+							Rabbit['Name'] = 'OAO'
+							print(Rabbit['Name'])  # OAO
+							```
+
+						</script>
+					</section>
+				</section>
+				<!-- for loop -->
+				<section>
+					<section>
+						<h2>for loop</h2>
+						<pre><code class="python">for i in ...: ...</code></pre>
+						<p>in後面必須接sequence</p>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							#### 舉例
+
+							```python
+							i = 0
+							for i in range(10):
+								print(i, end=', ')
+							# 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 
+							```
+
+						</script>
+					</section>
+				</section>
+				<!-- while loop -->
+				<section>
+					<section>
+						<h2>while loop</h2>
+						<pre><code class="python">while ...: ...</code></pre>
+						<p>重複執行直到不滿足判斷式</p>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							```python
+							i = 123456
+							while i != 0:
+								print('{}'.format(i % 10), end='')
+								i = i // 10
+							# 654321
+							```
+
+							* 通常用來處裡不定長度/次數...等情形
+
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							#### 舉例: 求輸入年份是否為閏年直到輸入0為止
+
+							```python
+							year = int(input(''))
+							while year != 0:
+							    if year % 400 == 0 or (year % 100 != 0 and year % 4 == 0):
+							        print('YES')
+							    else:
+							        print('NO')
+							    year = int(input(''))
+							```
+
+						</script>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../plugin/zoom-js/zoom.js', async: true },
+					{ src: '../plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
