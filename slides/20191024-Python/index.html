@@ -286,7 +286,7 @@
 							X.insert(2, 'owo')
 							print(X)  # [0, 1, 'owo', 1, 'w']
 
-							X.remove('owo')
+							X.remove(1)
 							print(X)  # [0, 'owo', 1, 'w']
 							```
 
@@ -383,7 +383,7 @@
 							### 操作
 
 							* 建立: `{...}`
-							* 新增: `.setdefault{key, value}`, `.update(dict)`
+							* 新增: `.setdefault(key, value)`, `.update(dict)`
 							* 查找: `...[key]`
 							* 移除: `del ...[key]`
 							* 清空: `.clear()`
@@ -395,10 +395,9 @@
 
 							```python
 							Rabbit = {'Name': 'OwO', 'Weight': 60.2}
-							Food = {'Eat': 'carrot'}
 							print(Rabbit['Eat'])  # KeyError
-							Rabbit.update(Food)
-							print('Eat' in Rabbit)  # True
+							print(Rabbit['Name'])  # 'OwO'
+							print('Eat' in Rabbit)  # False
 							print('Age' not in Rabbit)  # True
 							```
 
@@ -410,10 +409,11 @@
 
 							```python
 							Rabbit = {'Name': 'OwO'}
-							Rabbit.({'Eat': 'carrot'})
+							Rabbit.update({'Eat': 'carrot'})
 							print(Rabbit)  # {'Name': 'OwO', 'Eat': 'carrot'}
 							Rabbit.setdefault('Name', 'OAO')
-							print(Rabbit['Name'])  # OwO
+							Rabbit.setdefault('Weight', 999)
+							print(Rabbit['Name'], Rabbit['Weight'])  # OwO 999
 							Rabbit['Name'] = 'OAO'
 							print(Rabbit['Name'])  # OAO
 							```
