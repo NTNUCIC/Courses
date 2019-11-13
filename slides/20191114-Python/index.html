@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Python III</title>
+		<title>Python IV</title>
 
 		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
 		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
@@ -532,16 +532,15 @@ dosomething = lambda x: x+1</code></pre>
 					<section>
 						<h2>Python: package</h2>
 						<ul>
-							<li>...</li>
-							<li>...</li>
-							<li>...</li>
+							<li>模塊化程式設計</li>
+							<li>使程式開發更具可讀性, 可靠性和可維護性</li>
 						</ul>
 					</section>
 					<section>
 						<h2>matplotlib</h2>
 						<ul>
 							<li>類matlab第三方庫</li>
-							<li>可用很容易的繪製一些的二維圖形</li>
+							<li>可用很簡便的代碼繪製一些圖形</li>
 						</ul>
 					</section>
 					<section>
@@ -552,7 +551,50 @@ dosomething = lambda x: x+1</code></pre>
 				<section>
 					<section data-markdown>
 						<script type="text/templete">
+							### Usage - I
+
+							```python
+							from matplotlib import pyplot as plt
+
+
+							X = [1, 2, 3]
+							Y = [1, 3, 2]
+							plt.scatter(X, Y)
+							plt.show()
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							### Usage - II
+
+							```python
+							from matplotlib import pyplot as plt
+							from math import sin, cos, pi
+
+
+							X = range(1000)
+							sinX, cosX = [], []
+							for x in X:
+								sinX.append(sin(x/1000*2*pi))
+								cosX.append(cos(x/1000*2*pi))
+							plt.plot(X, sinX)
+							plt.plot(X, cosX)
+							plt.show()
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							### 練習時間
+							參考[*](https://in-the-sky.org/data/constellations_list.php)來畫星座圖
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							### 練習時間
 							
+							[範例](./example/UrsaMinor.py)
 						</script>
 					</section>
 				</section>
