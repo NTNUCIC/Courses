@@ -1,0 +1,633 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Python IV</title>
+
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		
+		<!--[if lt IE 9]>
+		<script src="../lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- Intro -->
+				<section>
+					<section>
+						<h1>Python IV</h1>
+						<h6>2019/11/14</h6>
+						<h6>林弘祥</h6>
+					</section>
+					<section>
+						<h2>課程簡介</h2>
+						<ul>
+							<li>複習之前的上課內容</li>
+							<li>Function & Lambda Function</li>
+							<li>package: mathplotlib</li>
+						</ul>
+					</section>
+				</section>
+				<!-- Review -->
+				<section>
+					<h2>複習之前的上課內容</h2>
+				</section>
+				<!-- Basic -->
+				<section>
+					<section data-markdown>
+						<script type="text/templete">
+							### I/O
+
+							```python
+							name = input('Name?')
+							# print 'Name?', and get an input and store in variable 'name'.
+							print('hello', name)
+							# print 'hello', str(name) 
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+						### print()
+						```python
+						# Default: print(*args, sep='', end='\n')
+						print(1, 2, 3)  # 1 2 3
+						print(1, 2, 3, sep='-')  # 1-2-3
+						print(1, 2, 3, end='4\n')  # 1 2 34
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							### variable & type
+
+							```python
+							a = 2019  # int, integer
+							b = 9.13  # float, floating point
+							c = 'Moon'  # str, string
+							d = False  # bool, boolean
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							### Arithmetic Operator
+
+							```python
+							x, y = 5, 2
+							print(x+y, x-y, x*y, x/y)  # 7 3 10 2.5
+							print(x//y, x%y, x**y)  # 2 1 25
+							```
+						</script>
+					</section>
+				</section>
+				<!-- String -->
+				<section>
+					<section data-markdown>
+						<script type="text/templete">
+							### String Manipulation - I
+
+							```python
+							x, y = '5', '25'
+							print(x+y, x*8)  # '525', '55555555'
+							print(x in y) # True
+							print(y not in x) # True
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+						### String Manipulation - II
+						```python
+						x = 1.1
+						print('x**2 = {:.1f}'.format(x**2))  # x**2 = 1.2
+						print('y = {y:+5d}'.format(y=100))  # y =  +100   #y值佔據五格並加上正號
+						print('{:.2%}'.format(x/100))  # 1.10%   #先轉百分比再限制到小數點第幾位
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+						### f-string
+						```python
+						x, y = 2, 'owo'
+						print(f'{y}: {x}, {x**2}, {x**3}, ...')
+						# owo: 2, 4, 8, ...
+						</script>
+					</section>
+				</section>
+				<!-- Logical -->
+				<section>
+					<section>
+						<h3 style="position: relative;top:-3rem">Comparison Operator</h3>
+						<ul style="columns: 2">
+							<li>大於: &gt</li>
+							<li>大於等於: &gt=</li>
+							<li>小於: &lt</li>
+							<li>小於等於: &lt=</li>
+							<li>等於: ==</li>
+							<li>不等於: !=, &lt&gt</li>
+						</ul>
+					</section>
+					<section>
+						<h3 style="position: relative;top:-3rem">Logical Operator</h3>
+						<ul>	
+							<li>且(and): and</li>
+							<li>或(or): or</li>
+							<li>非(not): not</li>
+						</ul>
+					</section>
+					<!-- if / elif / else -->
+					<section data-markdown>
+						<script type="text/templete">
+							### if / else
+
+							```python
+							x = 19.30
+
+							if x > 16:
+								print('x > 16')
+							else:
+								print('x <= 16')
+
+							# x > 16
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							### if / elif / else
+
+							```python
+							x = 19.30
+
+							if x > 30:
+								print('x > 30')
+							elif x > 16:
+								print('x > 16')
+							else:
+								print('x <= 16')
+
+							# x > 16
+							```
+						</script>
+					</section>
+				</section>
+				<!-- For loop / While loop -->
+				<section>
+					<section data-markdown>
+						<script type="text/templete">
+							### for loop
+
+							```python
+							for ... in ...: ...
+							```
+							
+							* `in` 後面必須接 `sequence`
+							* 對 `sequence` 中的所有元素執行...
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							#### range
+
+							```python
+							range(start=0, stop, step=1)
+
+							range(5)  # 0, 1, 2, 3, 4
+							range(1, 5)  # 1, 2, 3, 4
+							range(0, 5, 2)  # 0, 2, 4
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							#### Example
+
+							```python
+							for i in range(10):
+								print(i, end=', ')
+
+							# 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 
+							```
+						</script>
+					</section>
+				</section>
+				<section>
+					<section data-markdown>
+						<script type="text/templete">
+							### while loop
+
+							```python
+							while ...:
+								...
+							```
+
+							* 重複執行直到不滿足判斷式
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							#### Example
+							
+							```python
+							i = 0
+							while i < 10:
+								print(i, end=', ')
+								i = i + 1
+
+							# 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 
+							```
+						</script>
+					</section>
+				</section>
+				<!-- List & Tuple -->
+				<section>
+					<section>
+						<h2>List 串列</h2>
+						<pre><code class="python">[...]  # list(...)</code></pre>
+						<ul>
+							<li>屬於python基本資料結構</li>
+							<li>可容納不同變數類型</li>
+						</ul>
+					</section>
+					<section>
+						<h3>操作方法</h3>
+						<ul>
+							<li>用[]建立列表</li>
+							<li>[ x ]: 取出第 x 個元素</li>
+							<li>[ f : d ]: 取出第 f 個元素到第 (d-1) 個元素</li>
+							<li>.append(x): 將 x 加入列表尾端</li>
+							<li>.remove(x): 將第一個元素 x 移除</li>
+							<li>len(list): 取得list的元素個數</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						#### Example
+
+						```python
+						X = [1, 2, 1, 'owo']
+
+						print(X[3])  # 'owo'
+						X.append('ouo')
+						X.ramove(1)
+						print(X)  # [2, 1, 'owo', 'ouo']
+						```
+					</section>
+					<section>
+						<h2>Tuple 元組</h2>
+						<pre><code class="python">(...)  # tuple(...)</code></pre>
+						<ul>
+							<li>屬於python基本資料結構</li>
+							<li>可容納不同變數類型</li>
+							<li>內容無法被改變</li>
+						</ul>
+					</section>
+					<section>
+						<h3>操作方法</h3>
+						<ul>
+							<li>用()建立列表</li>
+							<li>[x]: 取出第`x`個元素</li>
+							<li>[f:d]: 取出第`f`個元素到第`(d-1)`個元素</li>
+							<li>len(tuple): 取得tuple的元素個數</li>
+							<li>.count(x): 計算有幾個`x`元素</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						#### Example
+
+						```python
+						X = (1, 2, 1, 'owo')
+
+						print(X[3])  # 'owo'
+						# X[0] = 123
+						# Error: not support item assignment
+						Y = X + X  # join
+						# Y = (1, 2, 1, 'owo', 1, 2, 1, 'owo')
+						print(Y.count('owo'))  # 2
+						```
+					</section>
+				</section>
+				<!-- String Method -->
+				<section>
+					<section data-markdown>
+						<script type="text/templete">
+							### String Method
+							#### .split()
+
+							```python
+							string.split(separator, maxsplit)
+							```
+							* split a string into list
+							* Default separator: whitespace
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							##### Example
+
+							```python
+							S = 'Apple-Banana-Cherry-Orange'
+
+							print(S.split('-'))
+							# ['Apple', 'Banana', 'Cherry', 'Orange']
+							print(S.split('-', 1))
+							# ['Apple', 'Banana-Cherry-Orange']
+							```
+						</script>
+					</section>
+				</section>
+				<!-- Function & Lambda Function -->
+				<section>
+					<h2 style="position: relative;top:-10rem">Function & Lambda Function</h2>
+					<pre><code>def donothing(): pass
+dosomething = lambda x: x+1</code></pre>
+				</section>
+				<!-- Function -->
+				<section>
+					<h2 style="position: relative;top:-5rem">Function</h2>
+					<ul>
+						<li>一塊僅在被呼叫時才執行的 code</li>
+						<li>可以傳入參數 / 傳回結果</li>
+						<li>去除重複的部分, 讓程式撰寫更具效率</li>
+					</ul>
+				</section>
+				<!-- Function I -->
+				<section>
+					<section data-markdown>
+						### 建立 & 使用
+
+						使用 `def` 關鍵字建立, 注意縮排
+
+						```python
+						def hello():
+							print('owo)/ Hello')
+
+						hello()  # owo)/ Hello
+						hello()  # owo)/ Hello
+						hello()  # owo)/ Hello
+						```
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							### 傳入參數
+
+							```python
+							def hello2(name):
+								print('owo)/ Hello', name)
+
+							hello2('Rick') # owo)/ Hello Rick
+							hello2('Morty') # owo)/ Hello Morty
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							### 傳回結果
+
+							使用 `return` 關鍵字.
+
+							```python
+							def sayhello(name):
+								return f'{name}: owo)/ Hello, I am {name}.'
+
+							print(sayhello('Rick')) # Rick: owo)/ Hello, I am Rick.
+							print(sayhello('Morty')) # Morty: owo)/ Hello, I am Morty.
+							```
+						</script>
+					</section>
+				</section>
+				<!-- Function II -->
+				<section>
+					<section data-markdown>
+						<script type="text/templete">
+							### 參數預設值 & 參數帶入順序
+
+							```python
+							def test(x, y, z=0):
+								print(f'{x}{y}{z}')
+
+							# def test(x=0, y, z):
+							# Error: non-default argument follows default argument
+
+							test(12, 34) # 12340
+							test(12, 34, 56)  # 123456
+							test(12, z=34, y=56)  # 125643
+							
+							# test(x=12, 34, 56)
+							# Error: positional argument follows keyword argument
+							# test(12, 34, y=56)
+							# Error: got multiple values for argument 'y'
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							### 不定長參數
+
+							```python
+							def test(*S):
+								print(f'There are {len(S)} argument: ', end='')
+								for x in S:
+									print(x, end=', ')
+
+							test(1, 'owo')  # There are 2 argument: 1, 'owo', 
+							test(1, 'owo', 2.7)  # There are 3 argument: 1, 'owo', 2.7, 
+							```
+
+							-> 視為傳入一個 `tuple`
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							### 遞迴
+
+							```python
+							def factorial(n):
+								if n <= 1:
+									return 1
+								else:
+									return n*factorial(n-1)
+
+							print(f'3! = {factorial(3)}')  # 3! = 6
+							print(f'5! = {factorial(5)}')  # 5! = 120
+							```
+						</script>
+					</section>
+				</section>
+				<!-- Function Ex -->
+				<section>
+					<section data-markdown>
+						### 練習時間
+
+						寫一個函數計算帶入參數的平均值, 最大值, 最小值
+					</section>
+					<section data-markdown>
+						### 練習時間
+
+						寫一個函數計算帶入參數的平均值, 最大值, 最小值
+
+						```python
+						def test(*S):
+							sum, min, max = 0, S[0], S[0]
+							for x in S:
+								sum = sum + x
+								if x > max:
+									max = x
+								if x < min:
+									min = x
+							avg = sum / len(S)
+							print(f'Average: {avg}, Max: {max}, Min: {min}')
+
+						test(1, 2, 3)  # Average: 2.0, Max: 3, Min: 1
+						test(2, 2, 2)  # Average: 2.0, Max: 2, Min: 2
+						```
+					</section>
+				</section>
+				<!-- Lambda Function -->
+				<section>
+					<section>
+						<h2 style="position: relative;top:-5rem">Lambda Function</h2>
+						<ul>
+							<li>Is a small anonymous function</li>
+							<li>Only have one expression.</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							### Example
+
+							```python
+							Add = lambda x, y: x+y
+							print(Add(1, 3))  # 4
+							```
+						</script>
+					</section>
+				</section>
+				<!-- matplotlib -->
+				<section>
+					<section>
+						<h2>Python: package</h2>
+						<ul>
+							<li>模塊化程式設計</li>
+							<li>使程式開發更具可讀性, 可靠性和可維護性</li>
+						</ul>
+					</section>
+					<section>
+						<h2>matplotlib</h2>
+						<ul>
+							<li>類matlab第三方庫</li>
+							<li>可用很簡便的代碼繪製一些圖形</li>
+						</ul>
+					</section>
+					<section>
+						<h3>安裝 matplotlib</h3>
+						<pre><code class="python">python -m pip install -U matplotlib</code></pre>
+					</section>
+				</section>
+				<section>
+					<section data-markdown>
+						<script type="text/templete">
+							### Usage - I
+
+							```python
+							from matplotlib import pyplot as plt
+
+
+							X = [1, 2, 3]
+							Y = [1, 3, 2]
+							plt.scatter(X, Y)
+							plt.show()
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							### Usage - II
+
+							```python
+							from matplotlib import pyplot as plt
+							from math import sin, cos, pi
+
+
+							X = range(1000)
+							sinX, cosX = [], []
+							for x in X:
+								sinX.append(sin(x/1000*2*pi))
+								cosX.append(cos(x/1000*2*pi))
+							plt.plot(X, sinX)
+							plt.plot(X, cosX)
+							plt.show()
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							### 練習時間
+							參考[*](https://in-the-sky.org/data/constellations_list.php)來畫星座圖
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/templete">
+							### 練習時間
+							
+							[範例](./example/UrsaMinor.py)
+						</script>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../plugin/zoom-js/zoom.js', async: true },
+					{ src: '../plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
