@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>HTML</title>
+
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- Intro -->
+				<section>
+					<section>
+						<h1>HTML</h1>
+						<h5>2018/11/28</h5>
+						<h5>林弘祥</h5>
+					</section>
+					<section>
+						<h2>課程簡介</h2>
+						<ul style="columns: 2">
+							<li>Introduction</li>
+							<li>Block Elements</li>
+							<ul>
+								<li>div,class,table,h#,...</li>
+							</ul>
+							<li>Meta Data</li>
+							<li>In-line Elements</li>
+							<ul>
+								<li>img,br,hr,ul,ol,a</li>
+							</ul>
+						</ul>
+					</section>
+				</section>
+				<!-- Introduction of HTML -->
+				<section>
+					<section>
+						<h2>HTML</h2>
+						<p><span class="fragment">HyperText Markup Language </span><span class="fragment">超文本標記語言</span></p>
+					</section>
+					<section>
+						<table>
+							<caption><h3>History</h3></caption>
+							<tr class="fragment"><td>1980</td><td>Tim Berners-Lee</td><td>ENQUIRE</td></tr>
+							<tr class="fragment"><td>1991</td><td>Tim Berners-Lee</td><td>HTML</td></tr>
+							<tr class="fragment"><td>1995</td><td>IETF</td><td>HTML 2.0</td></tr>
+							<tr class="fragment"><td>1997</td><td>W3C</td><td>HTML 3.0</td></tr>
+							<tr class="fragment"><td>1997</td><td>W3C</td><td>HTML 4.0</td></tr>
+							<tr class="fragment"><td>2014</td><td>W3C</td><td>HTML 5.0</td></tr>
+						</table>
+					</section>
+					<section>
+						<h3>標記語言</h3>
+						<p></p>
+						<pre><code class="html">&lthtml lang="en"&gt&lt/html&gt</code></pre>
+					</section>
+				</section>
+				<!-- Meta Data -->
+				<section>
+					<h2 style="position:relative;top:3rem">Meta Data</h2>
+					<!-- <section>
+						<h3></h3>
+					</section> -->
+					<section>
+						<h3>常用 Meta Data</h3>
+						<ul style="columns: 2">
+							<li>description: 網頁簡短描述</li>
+							<li>keywords: 網頁關鍵字</li>
+							<li>author: 作者</li>
+							<li>generator: 編輯器</li>
+							<li>copyright: 網頁版權</li>
+							<li>distribution: 網頁發布地區</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							### 範例
+
+							```html
+							<meta charset= "UTF-8">
+							<meta name= "viewport" content= "width=device-width, initial-scale=1.0">
+							<meta name="title" content="HTML">
+							<meta name="keywords" content="NTNU">
+							```
+						</script>
+					</section>
+				</section>
+				<!-- Block Elements -->
+				<section>
+					<h2 style="position:relative;top:3rem">Block Elements</h2>
+					<section data-markdown>
+						<script type="text/template">
+							### div, class
+
+							```html
+							<div>
+								<p>OWO</p>
+							</div>
+							```
+						</script>
+					</section>
+				</section>
+			</div>
+		</div>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true },
+				{ src: '../plugin/notes/notes.js', async: true }
+			]
+		});
+		</script>
+	</body>
+</html>
