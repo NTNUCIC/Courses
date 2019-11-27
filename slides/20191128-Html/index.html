@@ -93,6 +93,7 @@
 								<p>Hello World !</p>
 							</body>
 							</html>
+							<!-- 註解: 這是一行註解 -->
 							```
 						</script>
 					</section>
@@ -128,7 +129,6 @@
 							<meta charset= "UTF-8">
 							<meta name= "viewport" content= "width=device-width, initial-scale=1.0">
 							<meta name="keywords" content="NTNU">
-							<!-- 註解: 這是一行註解 -->
 							```
 						</script>
 					</section>
@@ -240,16 +240,88 @@
 							```html
 							<!-- 使用 HTML 元素的 style 屬性 -->
 							<p style="color: #000000">OwO</p>
-							<!-- 在 &lt;head&gt;使用 &lt;style&gt; -->
+							<!-- 在 <head> 使用 <style> -->
+							<head>
+								<style>
+									h4, h5 {color: #999999}
+								</style>
+							</head>
+							<!-- 使用外部 CSS 文件 -->
+							<link rel="stylesheet" href="style.css">
 							```
 						</script>
 					</section>
 				</section>
-				<!-- Box modle -->
+				<!-- CSS Selector -->
 				<section>
 					<section>
-						<h3>CSS Box Modle</h3>
+						<h3>CSS Selector</h3>
+						<p>套用最精準、最小單位、最後寫的選擇器</p>
+						<ul>
+							<li>對全部: * {}</li>
+							<li>對特定標籤: ELEMENT {}</li>
+							<li>對特定 class: .CLASSNAME {}</li>
+							<li>對特定 id: #ID {}</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							#### Example
+
+							```css
+							* { color: #FFFFFF; }
+							div { color: #EEEEEE; }
+							h2, h3 { color: #AAAAAA; }
+							div #name { color: #FFFFFF; }
+							div.intro { color: #999999; }
+							```
+						</script>
+					</section>
+				</section>
+				<!-- Box model -->
+				<section>
+					<section>
+						<h3>CSS Box Model</h3>
 						<img src="https://s3-torquehhvm-wpengine.netdna-ssl.com/uploads/2018/05/csss-box-model.png">
+					</section>
+					<section>
+						<h3>盒子模型</h3>
+						<ul style="columns: 2">
+							<li>margin</li>
+							<li>border</li>
+							<li>padding</li>
+							<li>content</li>
+						</ul>
+						<pre><code class="css">margin: 0px;</code></pre>
+					</section>
+					<section data-markdown>
+						#### Example
+
+						```css
+						/* top / right / button / left */
+						margin: 0px, 0px, 0px, 0px;
+						/* top / left & right / button */
+						margin: 0px, 0px, 0px;
+						/* top & button / left & right */
+						margin: 0px, 0px;
+						/* top & button & left & right */
+						margin: 0px;
+
+						/* only top */
+						margin-top: 0px;
+						```
+					</section>
+					<section>
+						<h3>常用的樣式設定</h3>
+						<ul>
+							<li>文字顏色: color</li>
+							<li>字體: font-family</li>
+							<li>字體大小: font-size</li>
+							<li>字體變化: font-style</li>
+							<li>背景顏色: background-color</li>
+							<li>背景圖片: background-image</li>
+
+						</ul>
 					</section>
 				</section>
 			</div>
