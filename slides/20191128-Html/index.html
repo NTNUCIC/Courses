@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>HTML</title>
+
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- Intro -->
+				<section>
+					<section>
+						<h1>HTML</h1>
+						<h5>2018/11/28</h5>
+						<h5>林弘祥</h5>
+					</section>
+					<section>
+						<h2>課程簡介</h2>
+						<ul style="columns: 2">
+							<li>HTML</li>
+							<li>Block Elements</li>
+								<ul><li>div,table,ul,hr,...</li></ul>
+							<li>Meta Data</li>
+							<li>In-line Elements</li>
+								<ul><li>img,br,a</li></ul>
+							<li>CSS</li>
+						</ul>
+					</section>
+				</section>
+				<!-- Introduction of HTML -->
+				<section>
+					<section>
+						<h2>HTML</h2>
+						<p><span class="fragment">HyperText Markup Language </span><span class="fragment">超文本標記語言</span></p>
+					</section>
+					<section>
+						<table>
+							<caption><h3>History</h3></caption>
+							<tr class="fragment"><td>1980</td><td>Tim Berners-Lee</td><td>ENQUIRE</td></tr>
+							<tr class="fragment"><td>1991</td><td>Tim Berners-Lee</td><td>HTML</td></tr>
+							<tr class="fragment"><td>1995</td><td>IETF</td><td>HTML 2.0</td></tr>
+							<tr class="fragment"><td>1997</td><td>W3C</td><td>HTML 3.0</td></tr>
+							<tr class="fragment"><td>1997</td><td>W3C</td><td>HTML 4.0</td></tr>
+							<tr class="fragment"><td>2014</td><td>W3C</td><td>HTML 5.0</td></tr>
+						</table>
+					</section>
+					<section>
+						<h3>標記語言</h3>
+						<p>文字+其他相關資訊</p>
+						<pre><code class="html">&lttitle&gtHTML&lt/title&gt</code></pre>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							#### Example
+
+							```html
+							<!DOCTYPE html>
+							<html>
+							<head>
+								<title>Hello</title>
+							</head>
+							<body>
+								<p>Hello World !</p>
+							</body>
+							</html>
+							<!-- 註解: 這是一行註解 -->
+							```
+						</script>
+					</section>
+				</section>
+				<!-- Meta Data -->
+				<section>
+					<h2 style="position:relative;top:3rem;">Meta Data</h2>
+					<section>
+						<ul>
+							<li>用來描述資料的資料</li>
+							<li>不會顯示在網頁上</li>
+							<li>給機器看的</li>
+						</ul>
+					</section>
+					<section>
+						<h3>常見的 Meta Data</h3>
+						<ul style="columns: 2">
+							<li>description: 簡短描述</li>
+							<li>keywords: 關鍵字</li>
+							<li>author: 作者</li>
+							<li>generator: 編輯器</li>
+							<li>copyright: 網頁版權</li>
+							<li>distribution: 發布地區</li>
+							<li>charset: 網頁編碼</li>
+							<li>viewport: 視窗設定</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							#### 範例
+
+							```html
+							<meta charset= "UTF-8">
+							<meta name= "viewport" content= "width=device-width, initial-scale=1.0">
+							<meta name="keywords" content="NTNU">
+							```
+						</script>
+					</section>
+				</section>
+				<!-- Block Elements -->
+				<section>
+					<h2 style="position:relative;top:3rem">Block Elements</h2>
+					<section>
+						<h3>常用的 Block Elements</h3>
+						<ul style="columns: 2">
+							<li>標題: &lt;h1&gt;,&lt;h2&gt;,...</li>
+							<li>文字: &lt;p&gt;</li>
+							<li>換行: &lt;br&gt;</li>
+							<li>水平分隔線: &lt;hr&gt;</li>
+							<li>表格: &lt;table&gt;</li>
+							<li>清單: &lt;ol&gt;, &lt;ul&gt;</li>
+							<li>區塊: &lt;div&gt;, &lt;section&gt;</li>
+						</ul>
+					</section>
+					<!-- list -->
+					<section data-markdown>
+						<script type="text/template">
+							#### 清單
+
+							```html
+							<ul>
+								<li>沒有數字順序的清單</li>
+								<li>Unordered List</li>
+							</ul>
+							<ol>
+								<li>有數字順序的清單</li>
+								<li>Ordered List</li>
+							</ol>
+							```
+						</script>
+					</section>
+					<!-- table -->
+					<section data-markdown>
+						<script type="text/template">
+							### 表格
+
+							```html
+							<table border="1">
+								<caption>表格標題</caption>
+								<tr><td>第1欄</td><td>第2欄</td><td>第3欄</td></tr>
+								<tr><td>第2列</td><td>B2</td><td>C2</td></tr>
+								<tr><td>第3列</td><td>B3</td><td>C3</td></tr>
+							</table>
+							```
+						</script>
+					</section>
+				</section>
+				<!-- Inline Elements -->
+				<section>
+					<h2 style="position:relative;top:3rem">Inline Elements</h2>
+					<section>
+						<h3>常用的 Inline Elements</h3>
+						<ul>
+							<li>換行: &lt;br&gt;</li>
+							<li>圖片: &lt;img&gt;</li>
+							<li>超連結: &lt;a&gt;</li>
+						</ul>
+					</section>
+					<!-- image -->
+					<section data-markdown>
+						<script type="text/template">
+							#### 圖片
+
+							```html
+							<img src="圖片位置" width="寬度" height="高度" alt="替代文字">	
+							```
+						</script>
+					</section>
+					<!-- hyper linker -->
+					<section data-markdown>
+						<script type="text/template">
+							#### 超連結
+
+							```html
+							<a href="網址" target="_blank">文字</a>
+							<a href="網址" target="_blank"><img src="..."></a>
+							```
+						</script>
+					</section>
+				</section>
+				<!-- CSS -->
+				<section>
+					<h2>CSS</h2>
+					<p class="fragment"><span class="fragment highlight-red">Cascading</span> <span class="fragment highlight-green">Style</span> <span class="fragment highlight-blue">Sheets</span></p>
+				</section>
+				<section>
+					<section>
+						<h3>用途</h3>
+						<ul>
+							<li>描述如何呈現HTML元素於畫面中</li>
+							<li>一次控制大量元素/網頁的樣式</li>
+						</ul>
+					</section>
+					<section>
+						<h3>佈署</h3>
+						<ul>
+							<li>使用 HTML 元素的 style 屬性</li>
+							<li>在 &lt;head&gt;使用 &lt;style&gt;</li>
+							<li>使用外部 CSS 文件</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							```html
+							<!-- 使用 HTML 元素的 style 屬性 -->
+							<p style="color: #000000">OwO</p>
+							<!-- 在 <head> 使用 <style> -->
+							<head>
+								<style>
+									h4, h5 {color: #999999}
+								</style>
+							</head>
+							<!-- 使用外部 CSS 文件 -->
+							<link rel="stylesheet" href="style.css">
+							```
+						</script>
+					</section>
+				</section>
+				<!-- CSS Selector -->
+				<section>
+					<section>
+						<h3>CSS Selector</h3>
+						<p>套用最精準、最小單位、最後寫的選擇器</p>
+						<ul>
+							<li>對全部: * {}</li>
+							<li>對特定標籤: ELEMENT {}</li>
+							<li>對特定 class: .CLASSNAME {}</li>
+							<li>對特定 id: #ID {}</li>
+						</ul>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							#### Example
+
+							```css
+							* { color: #FFFFFF; }
+							div { color: #EEEEEE; }
+							h2, h3 { color: #AAAAAA; }
+							div #name { color: #FFFFFF; }
+							div.intro { color: #999999; }
+							```
+						</script>
+					</section>
+				</section>
+				<!-- Box model -->
+				<section>
+					<section>
+						<h3>CSS Box Model</h3>
+						<img src="https://s3-torquehhvm-wpengine.netdna-ssl.com/uploads/2018/05/csss-box-model.png">
+					</section>
+					<section>
+						<h3>盒子模型</h3>
+						<ul style="columns: 2">
+							<li>margin</li>
+							<li>border</li>
+							<li>padding</li>
+							<li>content</li>
+						</ul>
+						<pre><code class="css">margin: 0px;</code></pre>
+					</section>
+					<section data-markdown>
+						#### Example
+
+						```css
+						/* top / right / button / left */
+						margin: 0px, 0px, 0px, 0px;
+						/* top / left & right / button */
+						margin: 0px, 0px, 0px;
+						/* top & button / left & right */
+						margin: 0px, 0px;
+						/* top & button & left & right */
+						margin: 0px;
+
+						/* only top */
+						margin-top: 0px;
+						```
+					</section>
+					<section>
+						<h3>常用的樣式設定</h3>
+						<ul>
+							<li>文字顏色: color</li>
+							<li>字體: font-family</li>
+							<li>字體大小: font-size</li>
+							<li>字體變化: font-style</li>
+							<li>背景顏色: background-color</li>
+							<li>背景圖片: background-image</li>
+
+						</ul>
+					</section>
+				</section>
+			</div>
+		</div>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true },
+				{ src: '../plugin/notes/notes.js', async: true }
+			]
+		});
+		</script>
+	</body>
+</html>
