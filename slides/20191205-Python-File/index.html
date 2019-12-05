@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Python VI: File</title>
+
+		<link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../images/favicon.ico">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- Intro -->
+				<section>
+					<section>
+						<h1>Python</h1>
+						<h2>File I/O</h2>
+						<h5>2019/12/5 林弘祥</h5>
+					</section>
+					<section>
+						<h2>課程簡介</h2>
+						<ul>
+							<li>File Object</li>
+							<li>JSON</li>
+							<li>CSV</li>
+						</ul>
+					</section>
+				</section>
+				<!-- File Object -->
+				<section>
+					<h2>File Object</h2>
+					<pre><code class="python">FileObject = open('FILENAME', MODE, BUFFERING, ENCODING)</code></pre>
+				</section>
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							### 開啟 / 關閉
+
+							```python
+							# 開啟 test.txt 檔案
+							File = open('test.txt', 'r')  # 'r': open for reading (default)
+
+							# 關閉檔案
+							File.close()
+							```
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							### 模式設定
+
+							| MODE | Readable | Writable | Overwrites |
+							| :-:  |    :-:   |   :-:    |    :-:     |
+							|  r   |     O    |          |            |
+							|  w   |          |    o     |     o      |
+							|  x   |          |    o     |            |
+							|  a   |     o    |    o     |            |
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							* In 'x' mode, if file exist, raise FileExistsError
+							* File mode: 'b', 't', '+'
+								- 'b': Binary Mode
+								- 't': Text Mode
+								- '+': Open a disk file for updating (read / write)
+						</script>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							### 自動進行資源管理
+
+							```python
+							with open(FILENAME) as FILE:
+								# DOSOMETHING AT HEAR
+							```
+
+							* 使用完後系統會自己回收相關資源
+							* 避免資源占用, 互鎖...等錯誤
+						</script>
+					</section>
+				</section>
+				<!-- I/O -->
+				<section>
+					<section data-markdown>
+						<script type="text/template">
+							### 讀 / 寫
+
+							```python
+							# 嘗試讀入COUNT位資料, 若沒設COUNT, 嘗試讀到能讀的最大量
+							FILE.read(COUNT)
+
+							# 嘗試讀入一行資料
+							FiILE.readline()
+
+							# 嘗試讀入COUNT行資料, 若沒設COUNT, 嘗試讀到能讀的最大量
+							FiILE.readlines(COUNT)
+
+							# 嘗試寫入資料
+							FILE.write(STRING)
+
+							# 嘗試寫入多行資料
+							FiILE.writelines(LIST)
+							```
+						</script>
+					</section>
+					<!-- Etc. -->
+					<section data-markdown>
+						<script type="text/template">
+							### 其他操作
+
+							* .tell(): 目前游標位置
+							* .seek(...): 移動游標到...位置
+							* .name: 檔案名稱
+							* .mode: 目前操作模式
+							* .closed: 檔案是否關閉
+						</script>
+					</section>
+				</section>
+				<!-- JSON -->
+				<section>
+					<section>
+						<h2>使用 JSON 格式進行檔案存取</h2>
+						<pre><code class="python">import json</code></pre>
+					</section>
+					<section data-markdown>
+						<script type="text/template">
+							```python
+							import json
+
+							with open('test.txt', 'w') as File:
+								Data = {'NAME': 'OWO', 'LIST': [1, 3, 4], 'FLOAT': 3.14}
+								json.dump(Data, File)
+
+							with open('test.txt', 'r') as File:
+								Data = json.load(File)
+								print(type(Data), Data)
+								print(type(Data['LIST']), Data['LIST'])
+							```
+						</script>
+					</section>
+				</section>
+				<!-- CSV -->
+				<section>
+					<section>
+						<h2>使用 CSV 格式進行檔案存取</h2>
+						<pre><code class="python">import csv</code></pre>
+					</section>
+				</section>
+			</div>
+		</div>
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../plugin/zoom-js/zoom.js', async: true },
+				{ src: '../plugin/notes/notes.js', async: true }
+			]
+		});
+		</script>
+	</body>
+</html>
