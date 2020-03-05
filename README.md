@@ -2,7 +2,7 @@
 
 ## Introduction
 
-O, OOO...
+ 2020 年與師大創機(NTNUCMRC)舉行 Arduino 聯合社課的相關資料.
 
 ## Slides
 
