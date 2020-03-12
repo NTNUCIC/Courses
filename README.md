@@ -11,23 +11,23 @@
 
 ## 課程時間表
 
-* [Day 1]("http://ntnucic.github.io/Courses/slides/2020-Arduino/Day 1/index.html"): 各種介紹 
+* [Day 1]("http://ntnucic.github.io/Courses/slides/2020-Arduino/Day%201/index.html"): 各種介紹 
 
-* [Day 2]("http://ntnucic.github.io/Courses/slides/2020-Arduino/Day 2/index.html"): 準備硬體
+* [Day 2]("http://ntnucic.github.io/Courses/slides/2020-Arduino/Day%202/index.html"): 準備硬體
 
-* [Day 3]("http://ntnucic.github.io/Courses/slides/2020-Arduino/Day 3/index.html"): 焊接電路
+* [Day 3]("http://ntnucic.github.io/Courses/slides/2020-Arduino/Day%203/index.html"): 焊接電路
 
-* [Day 4]("http://ntnucic.github.io/Courses/slides/2020-Arduino/Day 4/index.html"): 硬體組裝, 校正
+* [Day 4]("http://ntnucic.github.io/Courses/slides/2020-Arduino/Day%204/index.html"): 硬體組裝, 校正
 
-* [Day 5]("http://ntnucic.github.io/Courses/slides/2020-Arduino/Day 5/index.html"): Arduino 軟體教學
+* [Day 5]("http://ntnucic.github.io/Courses/slides/2020-Arduino/Day%205/index.html"): Arduino 軟體教學
 
-* [Day 6]("http://ntnucic.github.io/Courses/slides/2020-Arduino/Day 6/index.html"): Arduino 軟體教學
+* [Day 6]("http://ntnucic.github.io/Courses/slides/2020-Arduino/Day%206/index.html"): Arduino 軟體教學
 
-* [Day 7]("http://ntnucic.github.io/Courses/slides/2020-Arduino/Day 7/index.html"): 手機端軟體撰寫教學 (MIT App Inventor)
+* [Day 7]("http://ntnucic.github.io/Courses/slides/2020-Arduino/Day%207/index.html"): 手機端軟體撰寫教學 (MIT App Inventor)
 
-* [Day 8]("http://ntnucic.github.io/Courses/slides/2020-Arduino/Day 8/index.html"): 補進度(暫定)
+* [Day 8]("http://ntnucic.github.io/Courses/slides/2020-Arduino/Day%208/index.html"): 補進度(暫定)
 
-* [Day 9]("http://ntnucic.github.io/Courses/slides/2020-Arduino/Day 9/index.html"): 成果發表
+* [Day 9]("http://ntnucic.github.io/Courses/slides/2020-Arduino/Day%209/index.html"): 成果發表
 
 ## 參考資料
 
