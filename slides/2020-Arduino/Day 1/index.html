@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>Arduino BB-8 課程介紹</title>
+		<!-- Icon Setting -->
+		<link rel="icon" type="image/x-icon" href="../../../images/favicon.ico">
+		<link rel="shortcut icon" type="image/x-icon" href="../../../images/favicon.ico">
+		<!-- Mobile Web Setting -->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<!-- Auto Scale Setting -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<!-- HTML Style Setting -->
+		<link rel="stylesheet" href="../../css/reveal.css">
+		<link rel="stylesheet" href="../../css/theme/black.css" id="theme">
+		<!-- Code Syntax Highlighting -->
+		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+
+		<style>
+			.Introduction
+			{
+				font-size: 1.8rem;
+			}
+		</style>
+
+	</head>
+
+	<body>
+		<div class="reveal">
+			<div class="slides">
+			<!-- Title Page -->
+			<section>
+				<h1>Arduino</h1>
+				<h3>BB-8 Bluetooth bot</h3>
+				<h5>2020/03/12 NTNUCIC 5th & NTNUCMRC ?th</h5>
+			</section>
+			<!-- Introduce the members of this project -->
+			<section>
+				<section>
+					<h2>講師介紹</h2>
+					<h3 class="fragment">NTNUCIC 5th & NTNUCMRC ?th</h3>
+				</section>
+
+				<section>
+					<table>
+						<thead>
+							<h3>總籌: 溫彥瑜</h3>
+						</thead>
+						<td>
+							<img style="width: 20rem; height: auto;" src="">
+						</td>
+						<td class="Introduction">
+							<ul>
+								<li>系所: 機電系 111 級</li>
+								<li>職位: NTNUCMRC 社長</li>
+								<li>負責項目: 會計, 網購材料, 確認支應材料</li>
+								<li>想說的話: </li>
+							</ul>
+						</td>
+					</table>
+				</section>
+
+				<section>
+					<table>
+						<thead>
+							<h3>副籌: 林芝安</h3>
+						</thead>
+						<td>
+							<a href="https://github.com/allchangechallenge">
+								<img style="width: 20rem; height: auto;" src="https://avatars1.githubusercontent.com/u/50608042?s=400&v=4">
+							</a>
+						</td>
+						<td class="Introduction">
+							<ul>
+								<li>系所: 學習科學系 111 級</li>
+								<li>職位: NTNUCIC 社長</li>
+								<li>負責項目: 會計, 店面購入零件、軟體教學</li>
+								<li>想說的話: </li>
+							</ul>
+						</td>
+					</table>
+				</section>
+
+				<section>
+					<table>
+						<thead>
+							<h3>課程組: 陳威覟</h3>
+						</thead>
+						<td>
+							<a href="">
+								<img style="width: 20rem; height: auto;" src="">
+							</a>
+						</td>
+						<td class="Introduction">
+							<ul>
+								<li>系所: 機電系 111 級</li>
+								<li>職位: NTNUCMRC 教學</li>
+								<li>負責項目: 硬體教學</li>
+								<li>想說的話: </li>
+							</ul>
+						</td>
+					</table>
+				</section>
+
+				<section>
+					<table>
+						<thead>
+							<h3>課程組: 蘇育德</h3>
+						</thead>
+						<td>
+							<a href="https://github.com/vbscript055246">
+								<img style="width: 20rem; height: auto;" src="https://avatars3.githubusercontent.com/u/30942066?s=400&v=4">
+							</a>
+						</td>
+						<td class="Introduction">
+							<ul>
+								<li>系所: 學習科學系 110 級</li>
+								<li>職位: NTNUCIC 副社長</li>
+								<li>負責項目: 課程開發, 技術指導</li>
+								<li>想說的話: </li>
+							</ul>
+						</td>
+					</table>
+				</section>
+
+				<section>
+					<table>
+						<thead>
+							<h3>課程組: 許聖郁</h3>
+						</thead>
+						<td>
+							<a href="">
+								<img style="width: 20rem; height: auto;" src="">
+							</a>
+						</td>
+						<td class="Introduction">
+							<ul>
+								<li>系所: 物理系 110 級</li>
+								<li>職位: NTNUCMRC 教學</li>
+								<li>負責項目: 經驗傳承, 技術指導</li>
+								<li>想說的話: </li>
+							</ul>
+						</td>
+					</table>
+				</section>
+
+				<section>
+					<table>
+						<thead>
+							<h3>課程組: 林弘祥</h3>
+						</thead>
+						<td>
+							<a href="https://github.com/lin71008">
+								<img style="width: 20rem; height: auto;" src="https://avatars3.githubusercontent.com/u/44331833?s=460&v=4">
+							</a>
+						</td>
+						<td class="Introduction">
+							<ul>
+								<li>系所: 物理系 110 級</li>
+								<li>職位: NTNUCIC 教學</li>
+								<li>負責項目: 經驗傳承, 技術指導</li>
+								<li>想說的話: OuO)/ 呆~~~</li>
+							</ul>
+						</td>
+					</table>
+				</section>
+			</section>
+
+			<!-- Courses Introduction -->
+			<section>
+				<section>
+					<h2>課程介紹</h2>
+					<ul>
+						<li>Day 1: 各種介紹</li>
+						<li>Day 2: 準備硬體</li>
+						<li>Day 3: 焊接電路</li>
+						<li>Day 4: 硬體組裝, 校正</li>
+					</ul>
+				</section>
+				<section>
+					<h2>課程介紹</h2>
+					<ul>
+						<li>Day 5: Arduino 軟體教學</li>
+						<li>Day 6: Arduino 軟體教學</li>
+						<li>Day 7: 手機端軟體撰寫教學 (MIT App Inventor)</li>
+						<li>Day 8: 補進度(暫定)</li>
+						<li>Day 9: 成果發表</li>
+					</ul>
+				</section>
+			</section>
+			
+			<!-- Day 1: Introduction -->
+			<section>
+				<h2>Day 1: 各種介紹</h2>
+				<pre><code class="python">from * import *</code></pre>
+			</section>
+			<section>
+				<h3>課程緣起</h3>
+			</section>
+			<!-- Arduino -->
+			<section>
+				<h3>Arduino 介紹</h3>
+				<h5 style="color: #888888;" class="fragment">有玩過的舉個手好喵 OwO/</h5>
+			</section>
+			<section>
+				<h3>工具介紹</h3>
+			</section>
+			<!-- ... -->
+			</div>
+		</div>
+
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.js"></script>
+		<script>
+		// Full list of configuration options available at:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+			transition: 'slide', // none/fade/slide/convex/concave/zoom
+			// Optional reveal.js plugins
+			dependencies: [
+				{ src: '../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: '../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: '../../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: '../../plugin/zoom-js/zoom.js', async: true },
+				{ src: '../../plugin/notes/notes.js', async: true }
+			]
+		});
+	</script>
+	</body>
+</html>
