@@ -13,10 +13,10 @@
 		<!-- Auto Scale Setting -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 		<!-- HTML Style Setting -->
-		<link rel="stylesheet" href="../../css/reveal.css">
-		<link rel="stylesheet" href="../../css/theme/black.css" id="theme">
-		<!-- Code Syntax Highlighting -->
-		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+		<link rel="stylesheet" href="../../../reveal.js/dist/reset.css">
+    	<link rel="stylesheet" href="../../../reveal.js/dist/reveal.css">
+    	<link rel="stylesheet" href="../../../reveal.js/dist/theme/black.css" id="theme">
+    	<link rel="stylesheet" href="../../../reveal.js/plugin/highlight/monokai.css" id="highlight-theme">
 		<!-- Printing and PDF exports -->
 		<script>
 			var link = document.createElement( 'link' );
@@ -201,7 +201,7 @@
 					</ul>
 				</section>
 			</section>
-			
+
 			<!-- Day 1: Introduction -->
 			<section>
 				<h2>Day 1: 各種介紹</h2>
@@ -222,27 +222,19 @@
 			</div>
 		</div>
 
-		<script src="../../lib/js/head.min.js"></script>
-		<script src="../../js/reveal.js"></script>
+		<script src="../../../reveal.js/dist/reveal.js"></script>
+	    <script src="../../../reveal.js/plugin/notes/notes.js"></script>
+	    <script src="../../../reveal.js/plugin/markdown/markdown.js"></script>
+	    <script src="../../../reveal.js/plugin/highlight/highlight.js"></script>
 		<script>
-		// Full list of configuration options available at:
-		// https://github.com/hakimel/reveal.js#configuration
-		Reveal.initialize({
-			controls: true,
-			progress: true,
-			history: true,
-			center: true,
-			transition: 'slide', // none/fade/slide/convex/concave/zoom
-			// Optional reveal.js plugins
-			dependencies: [
-				{ src: '../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
-				{ src: '../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				{ src: '../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-				{ src: '../../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
-				{ src: '../../plugin/zoom-js/zoom.js', async: true },
-				{ src: '../../plugin/notes/notes.js', async: true }
-			]
-		});
-	</script>
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				center: true,
+				hash: true,
+				transition: 'slide',
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
 	</body>
 </html>
